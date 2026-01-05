@@ -25,7 +25,20 @@
   }
   .btn-accent:hover{transform:translateY(-1px)}
 
-  /* Entrance animation */
+  /* Secondary CTA (current itinerary) */
+.btn-secondary{
+  padding:.5rem 1rem;
+  border-radius:.5rem;
+  background:#111827;          
+  color:#fff;
+  font-weight:600;
+  border:1px solid rgba(255,255,255,.15);
+  transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.btn-secondary:hover{transform:translateY(-1px)}
+
+
+   
   @media (prefers-reduced-motion:no-preference){
     .anim-fadeup{
       opacity:0; transform:translateY(14px);
