@@ -1,0 +1,163 @@
+
+ 
+  @keyframes fadeLeft {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  .animate-fadeLeft {
+    animation: fadeLeft 1s ease-out forwards;
+  }
+
+  @keyframes fadeRight {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  .animate-fadeRight {
+    animation: fadeRight 1s ease-out forwards;
+  }
+
+  @keyframes fadeUpBounce {
+    0%   { opacity: 0; transform: translateY(60px); }
+    60%  { opacity: 1; transform: translateY(-8px); }
+    80%  { transform: translateY(4px); }
+    100% { transform: translateY(0); }
+  }
+  .animate-fadeUpBounce {
+    animation: fadeUpBounce 1s ease-out forwards;
+  }
+
+
+
+
+
+ 
+  /* ------- Teal palette ------- */
+  :root{
+    --teal-50:#f0fdfa; --teal-100:#ccfbf1; --teal-200:#99f6e4; --teal-300:#5eead4;
+    --teal-400:#2dd4bf; --teal-500:#14b8a6; --teal-600:#0d9488; --teal-700:#0f766e;
+    --teal-800:#115e59; --teal-900:#134e4a;
+  }
+
+  /* Soft shadow (keeps your existing class name) */
+  .shadow-soft{ box-shadow: 0 8px 24px rgba(17,94,89,.08), 0 2px 8px rgba(17,94,89,.06); }
+
+  /* ------- Frames / borders go teal ------- */
+  .cart-item,
+  aside > .bg-white,
+  .cart-item .inline-flex,
+  #delivery-address input{
+    border: 1px solid var(--teal-100);
+  }
+  .cart-item:hover{ border-color: var(--teal-200); transform: translateY(-1px); transition: .25s ease; }
+
+  /* ------- Links (Back to Menu, Add Another Dish) ------- */
+  a.text-primary-700,
+  a.text-primary-700:hover{
+    color: var(--teal-700) !important;
+  }
+  a.text-primary-700:hover{ color: var(--teal-900) !important; text-decoration: underline; }
+
+  /* Badge in header */
+  .bg-primary-100{ background-color: var(--teal-100) !important; }
+  .text-primary-700{ color: var(--teal-700) !important; }
+
+  /* ------- Buttons (quantity, remove, confirm) ------- */
+  .qty-btn{
+    outline: none; border: 0; background: transparent; cursor: pointer;
+    transition: transform .15s ease, background-color .15s ease, color .15s ease;
+  }
+  .qty-btn:hover{ background: var(--teal-50); color: var(--teal-700); }
+  .qty-btn:active{ transform: scale(.95); }
+
+  .remove-item{
+    border-radius: .75rem; padding: .25rem .5rem;
+    transition: background-color .2s ease, transform .15s ease, color .2s ease;
+  }
+  .remove-item:hover{
+    background: var(--teal-50);
+    color: #dc2626; /* keep the “remove” intent visible */
+    transform: translateY(-1px);
+  }
+  .remove-item:active{ transform: translateY(0); }
+
+  /* Confirm button -> teal */
+  button.w-full.bg-primary-600{
+    background-color: var(--teal-600) !important;
+  }
+  button.w-full.bg-primary-600:hover{
+    background-color: var(--teal-700) !important;
+  }
+  button.w-full.bg-primary-600{
+    border-radius: 1rem; box-shadow: 0 6px 14px rgba(20,184,166,.25);
+    transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+  }
+  button.w-full.bg-primary-600:hover{
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px rgba(17,94,89,.28);
+    filter: saturate(1.05);
+  }
+  button.w-full.bg-primary-600:active{ transform: translateY(0); }
+
+  /* ------- Radio (Order Type) ------- */
+  .accent-primary-600{ accent-color: var(--teal-600) !important; }
+  .accent-primary-600:focus{ outline: none; }
+  /* Highlight the whole label when checked (modern browsers) */
+  label:has(input[type="radio"]:checked){
+    background: var(--teal-50);
+    border: 1px solid var(--teal-200);
+    padding: .5rem .75rem; border-radius: .75rem;
+  }
+
+  /* ------- Inputs focus ring (Delivery Address) ------- */
+  #delivery-address input{
+    border-radius: .75rem; padding:.625rem .875rem;
+    transition: box-shadow .2s ease, border-color .2s ease;
+  }
+  #delivery-address input:focus{
+    border-color: var(--teal-300) !important;
+    box-shadow: 0 0 0 4px rgba(45,212,191,.25);
+    outline: none;
+  }
+
+  /* ------- Fancy micro-interactions ------- */
+  /* Button ripple */
+  .ripple{ position: relative; overflow: hidden; }
+  .ripple::after{
+    content:""; position:absolute; inset:0; margin:auto; width:0; height:0; border-radius:9999px;
+    background: rgba(255,255,255,.45); transform: translate(-50%,-50%); pointer-events:none;
+  }
+  .ripple:active::after{
+    left:var(--x,50%); top:var(--y,50%); width:200%; height:200%; transition: width .35s ease, height .35s ease, opacity .6s ease;
+    opacity:0;
+  }
+
+  /* Subtle “total” count-up pop on quantity change */
+  @keyframes bump { 0%{transform:scale(1)} 35%{transform:scale(1.07)} 100%{transform:scale(1)} }
+  .line-total.bump, #items-total.bump, #grand-total.bump{ animation: bump .22s ease-in-out; }
+
+  /* Make totals and headers a touch teal for cohesion */
+  .text-primary-700, .font-extrabold.text-primary-700{ color: var(--teal-700) !important; }
+
+
+
+
+/* thicker hr line (was hairline) */
+hr.border-gray-100{ border-top-width:2px; border-color: var(--teal-100) !important; }
+
+/* small utility for teal border you used above */
+.border-teal-100{ border-color: var(--teal-100) !important; }
+.bg-teal-50{ background-color: var(--teal-50) !important; }
+.text-teal-800{ color: var(--teal-800) !important; }
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+

@@ -1,0 +1,272 @@
+
+ 
+  /* Inputs: soft focus + motion */
+  .input-soft{
+    transition: border-color .2s ease, box-shadow .25s ease, transform .2s ease, background-color .2s ease;
+  }
+  .input-soft:focus{
+    outline: none;
+    border-color: rgb(45 212 191);           /* teal-400 */
+    box-shadow: 0 0 0 4px rgba(45,212,191,.15);
+    transform: translateY(-1px);
+  }
+
+  /* Card: reveal + hover */
+  .card-soft{
+    transition: box-shadow .35s ease, transform .35s ease, border-color .35s ease, opacity .45s ease;
+  }
+  .card-soft.reveal.revealed,
+.card-soft.reveal.in-view {
+  opacity: 1;
+  transform: none;
+}
+  .card-soft.reveal.in-view{ opacity: 1; transform: none; }
+  .card-soft:hover{ box-shadow: 0 12px 30px rgba(0,0,0,.06); transform: translateY(-2px); }
+ 
+
+
+
+  
+ 
+/* reveal on scroll */
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px) scale(.985)}to{opacity:1;transform:none}}
+.reveal .reveal-child{opacity:0;transform:translateY(8px) scale(.985)}
+.reveal.revealed .reveal-child{animation:fadeUp .45s ease forwards}
+.reveal.revealed .reveal-child:nth-child(1){animation-delay:.02s}
+.reveal.revealed .reveal-child:nth-child(2){animation-delay:.06s}
+.reveal.revealed .reveal-child:nth-child(3){animation-delay:.10s}
+.reveal.revealed .reveal-child:nth-child(4){animation-delay:.14s}
+
+/* choice state */
+.choice{transition:background .25s ease,border-color .25s ease,box-shadow .25s ease,transform .18s ease}
+.choice:hover{transform:translateY(-1px)}
+.choice.is-active{background:rgba(13,148,136,.06);border-color:rgb(13,148,136);box-shadow:0 0 0 3px rgba(13,148,136,.18)}
+
+/* panels mount/unmount */
+.panel{opacity:0;transform:translateY(6px);transition:opacity .25s ease,transform .25s ease;display:none}
+.panel.show{display:block;opacity:1;transform:none}
+
+/* pay link subtle pulse + shine */
+@keyframes subtlePulse{0%,100%{transform:none;box-shadow:0 0 0 0 rgba(13,148,136,0)}50%{transform:translateY(-1px);box-shadow:0 8px 18px rgba(13,148,136,.12)}}
+.paylink{animation:subtlePulse 3s ease-in-out infinite;will-change:transform,box-shadow}
+.paylink:hover{animation:none;transform:translateY(-1px);box-shadow:0 10px 24px rgba(13,148,136,.22)}
+.paylink:active{transform:translateY(0);box-shadow:0 6px 16px rgba(13,148,136,.18)}
+.btn-shine{position:relative;overflow:hidden}
+.btn-shine::after{content:"";position:absolute;inset:0;translate:-120% 0;background:linear-gradient(120deg,transparent 0%,rgba(255,255,255,.35) 50%,transparent 100%);filter:blur(1px);transition:translate .65s ease}
+.btn-shine:hover::after{translate:120% 0}
+
+
+
+
+ 
+ 
+  .payment-section *:focus,
+  .payment-section *:focus-visible{
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+
+  
+  /* ===== Reveal on scroll (fade+lift) ===== */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(8px) scale(.985); }
+    to   { opacity: 1; transform: none; }
+  }
+  .reveal .reveal-child { opacity: 0; transform: translateY(8px) scale(.985); }
+  .reveal.revealed .reveal-child { animation: fadeUp .45s ease forwards; }
+  .reveal.revealed .reveal-child:nth-child(1){ animation-delay: .02s; }
+  .reveal.revealed .reveal-child:nth-child(2){ animation-delay: .06s; }
+  .reveal.revealed .reveal-child:nth-child(3){ animation-delay: .10s; }
+  .reveal.revealed .reveal-child:nth-child(4){ animation-delay: .14s; }
+
+  /* ===== Choice tiles (payment options / card brands) ===== */
+  .choice {
+    transition: background .25s ease, border-color .25s ease,
+                box-shadow .25s ease, transform .18s ease;
+  }
+  .choice:hover { transform: translateY(-1px); }
+  .choice.is-active {
+    background: rgba(13, 148, 136, .06); /* teal-600/10 تقريبًا */
+    border-color: rgb(13, 148, 136);      /* teal-600 */
+    box-shadow: 0 0 0 3px rgba(13,148,136,.18);
+  }
+
+  /* ===== Panels (smooth mount/unmount) ===== */
+  .panel {
+    opacity: 0; transform: translateY(6px);
+    transition: opacity .25s ease, transform .25s ease;
+    display: none;
+  }
+  .panel.show {
+    display: block;
+    opacity: 1; transform: none;
+  }
+
+  /* ===== Inputs: micro-interactions ===== */
+  .soft-input {
+    transition: box-shadow .22s ease, transform .16s ease, border-color .18s ease;
+    will-change: box-shadow, transform;
+  }
+  .soft-input:focus {
+    box-shadow:
+      0 1px 0 rgba(0,0,0,.03),
+      0 10px 24px rgba(13,148,136,.12); 
+    transform: translateY(-1px);
+    border-color: rgb(13,148,136);
+    outline: none;
+  }
+  .soft-input:hover {
+    box-shadow: 0 8px 18px rgba(13,148,136,.06);
+  }
+
+   
+  .btn-shine {
+    position: relative; overflow: hidden;
+  }
+  .btn-shine::after{
+    content: ""; position: absolute; inset: 0; translate: -120% 0;
+    background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,.35) 50%, transparent 100%);
+    filter: blur(1px);
+    transition: translate .65s ease;
+  }
+  .btn-shine:hover::after{ translate: 120% 0; }
+
+
+
+
+ 
+/* ===== Apply button animation & states ===== */
+@keyframes couponPulse {
+  0%,100% { transform: none; box-shadow: 0 0 0 0 rgba(13,148,136,0); }
+  50%     { transform: translateY(-1px); box-shadow: 0 8px 18px rgba(13,148,136,.12); }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.coupon-btn{
+  animation: couponPulse 3s ease-in-out infinite;
+  will-change: transform, box-shadow;
+}
+.coupon-btn:hover{
+  animation: none;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(13,148,136,.18);
+}
+.coupon-btn:active{
+  transform: translateY(0);
+  box-shadow: 0 6px 16px rgba(13,148,136,.14);
+}
+
+/* لمعان لطيف على الهوفر */
+.coupon-btn::after{
+  content:"";
+  position:absolute; inset:0; transform: translateX(-120%);
+  background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,.35) 50%, transparent 100%);
+  filter: blur(1px);
+  transition: transform .65s ease;
+}
+.coupon-btn:hover::after{ transform: translateX(120%); }
+
+/* حالة التحميل (سبينر) */
+.coupon-btn.is-busy{ pointer-events: none; opacity: .85; }
+.coupon-btn.is-busy::before{
+  content:"";
+  position:absolute; right:10px; top:50%;
+  width:14px; height:14px; border-radius:50%;
+  border:2px solid currentColor; border-right-color: transparent;
+  transform: translateY(-50%);
+  animation: spin .8s linear infinite;
+}
+
+/* الرسالة */
+#couponMsg{
+  opacity: 0; transform: translateY(4px);
+  transition: opacity .3s ease, transform .3s ease;
+}
+#couponMsg.show{ opacity: 1; transform: none; }
+
+
+
+/* ===== New visual confirmation for Apply ===== */
+@keyframes popIn { 0%{transform:scale(.6);opacity:.2} 100%{transform:scale(1);opacity:1} }
+@keyframes shake { 0%,100%{transform:translateX(0)} 20%{transform:translateX(-3px)} 40%{transform:translateX(3px)} 60%{transform:translateX(-2px)} 80%{transform:translateX(2px)} }
+@keyframes grandFlash { 0%{ background:rgba(16,185,129,.18) } 100%{ background:transparent } }
+@keyframes bump { 0%{transform:scale(1)} 50%{transform:scale(1.06)} 100%{transform:scale(1)} }
+
+/* success morph */
+.coupon-btn.is-success{
+  background:#059669 !important;           /* emerald-600 */
+  border-color:#059669 !important;
+  color:#fff !important;
+  box-shadow:0 0 0 3px rgba(5,150,105,.2);
+  animation:none;                           /* أوقف الـ pulse لو عندك */
+}
+.coupon-btn.is-success .check{ animation: popIn .35s ease both; }
+
+/* error shake */
+.coupon-btn.is-error{
+  background:#fee2e2; color:#b91c1c; border-color:#fecaca;
+  animation: shake .3s linear;
+}
+
+/* grand total flash/bump */
+.grand-flash{ animation: grandFlash 1s ease forwards; }
+.grand-bump{ animation: bump .35s ease; }
+
+
+
+
+
+
+
+ /*footer*/
+  .ink-underline {
+    position: relative;
+    display: inline-block;
+  }
+  .ink-underline::after {
+    content: "";
+    position: absolute;
+    left: 50%; bottom: -3px;
+    width: 0; height: 2px;
+    border-radius: 9999px;
+    background: linear-gradient(90deg,#facc15,#fde047,#facc15);
+    transform: translateX(-50%);
+    transition: width .42s cubic-bezier(.22,1,.36,1), height .42s cubic-bezier(.22,1,.36,1);
+  }
+  .ink-underline:hover::after,
+  .ink-underline:focus-visible::after {
+    width: 100%; height: 3px;
+  }
+
+  [data-reveal]{opacity:0; will-change:transform,opacity;}
+  @keyframes revealLeft {
+    from {opacity:0; transform:translateX(-40px);}
+    to   {opacity:1; transform:translateX(0);}
+  }
+  @keyframes revealRight {
+    from {opacity:0; transform:translateX(40px);}
+    to   {opacity:1; transform:translateX(0);}
+  }
+
+  .is-inview[data-reveal="left"]  {animation:revealLeft .7s cubic-bezier(.22,1,.36,1) both}
+  .is-inview[data-reveal="right"] {animation:revealRight .7s cubic-bezier(.22,1,.36,1) both}
+
+  .is-inview{animation-delay:var(--rv-delay,0s)}
+
+  @media (prefers-reduced-motion: reduce){
+    .ink-underline::after{transition:none}
+    [data-reveal]{opacity:1 !important; transform:none !important; animation:none !important}
+  }
+ 
+
+
+ 
+
+ 
+ 
+ 
+
+ 

@@ -1,0 +1,194 @@
+
+ 
+:root{
+  --ease-out: cubic-bezier(.22,.61,.36,1);
+  --ease-snap: cubic-bezier(.2,.7,.2,1);
+}
+
+/* reveal on scroll */
+.deal-card{ opacity:0; transform: translateY(18px) scale(.98); }
+.deal-card.in-view{ animation: dealRise .75s var(--ease-out) forwards; }
+@keyframes dealRise{ to{ opacity:1; transform: translateY(0) scale(1); } }
+
+/* header underline sweep */
+.headline-sweep{ position:relative; }
+.headline-sweep::after{
+  content:""; position:absolute; inset-inline:0; bottom:-6px; height:3px;
+  background: linear-gradient(90deg,#14b8a6 0%, #22d3ee 50%, transparent 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .7s var(--ease-snap);
+}
+html[dir="rtl"] .headline-sweep::after{ transform-origin: right; }
+.headline-sweep.reveal-underline::after{ transform: scaleX(1); }
+
+/* link arrow nudge */
+.link-arrow svg{ transition: transform .3s var(--ease-out); }
+.link-arrow:hover svg{ transform: translateX(4px); }
+html[dir="rtl"] .link-arrow:hover svg{ transform: translateX(-4px); }
+
+/* floating price badge */
+@keyframes floatY{ 0%,100%{ transform: translateY(0); } 50%{ transform: translateY(-4px); } }
+.badge-float{ animation: floatY 3s ease-in-out infinite; }
+
+/* shine effect on CTA */
+.btn-cta{ position:relative; overflow:hidden; }
+.btn-cta::after{
+  content:""; position:absolute; inset:0;
+  background: linear-gradient(110deg, transparent 0%, rgba(255,255,255,.25) 45%, rgba(255,255,255,.45) 50%, rgba(255,255,255,.25) 55%, transparent 100%);
+  transform: translateX(-120%);
+}
+.btn-cta:hover::after{ animation: shine 1.1s ease-in-out; }
+@keyframes shine{ to{ transform: translateX(120%); } }
+
+/* respect reduce motion */
+@media (prefers-reduced-motion: reduce){
+  .deal-card, .deal-card.in-view, .badge-float{ animation: none !important; transform: none !important; opacity:1 !important; }
+  .headline-sweep::after{ transition: none; transform: scaleX(1); }
+}
+
+
+
+
+  
+/*footer*/
+  .ink-underline {
+    position: relative;
+    display: inline-block;
+  }
+  .ink-underline::after {
+    content: "";
+    position: absolute;
+    left: 50%; bottom: -3px;
+    width: 0; height: 2px;
+    border-radius: 9999px;
+    background: linear-gradient(90deg,#facc15,#fde047,#facc15);
+    transform: translateX(-50%);
+    transition: width .42s cubic-bezier(.22,1,.36,1), height .42s cubic-bezier(.22,1,.36,1);
+  }
+  .ink-underline:hover::after,
+  .ink-underline:focus-visible::after {
+    width: 100%; height: 3px;
+  }
+
+  [data-reveal]{opacity:0; will-change:transform,opacity;}
+  @keyframes revealLeft {
+    from {opacity:0; transform:translateX(-40px);}
+    to   {opacity:1; transform:translateX(0);}
+  }
+  @keyframes revealRight {
+    from {opacity:0; transform:translateX(40px);}
+    to   {opacity:1; transform:translateX(0);}
+  }
+
+  .is-inview[data-reveal="left"]  {animation:revealLeft .7s cubic-bezier(.22,1,.36,1) both}
+  .is-inview[data-reveal="right"] {animation:revealRight .7s cubic-bezier(.22,1,.36,1) both}
+
+  .is-inview{animation-delay:var(--rv-delay,0s)}
+
+  @media (prefers-reduced-motion: reduce){
+    .ink-underline::after{transition:none}
+    [data-reveal]{opacity:1 !important; transform:none !important; animation:none !important}
+  }
+
+
+
+ 
+ 
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  .size-24{width:6rem;height:6rem} .size-28{width:7rem;height:7rem}
+
+
+
+ 
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  .size-24{width:6rem;height:6rem} .size-28{width:7rem;height:7rem}
+
+
+
+  /* pick your plate*/
+  @keyframes spin360 { to { transform: rotate(360deg); } }
+
+  
+  .spin-slow {
+    animation: spin360 8s linear infinite;
+    will-change: transform;
+  }
+
+ 
+  .group:hover .spin-slow {
+    animation-duration: 1.2s;
+  }
+ 
+  @media (prefers-reduced-motion: reduce) {
+    .spin-slow, .group:hover .spin-slow { animation: none; }
+  }
+ 
+
+
+
+
+ 
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+  .reveal.in-view {
+    animation: fadeUp 700ms cubic-bezier(.22,.61,.36,1) forwards;
+  }
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+   
+  .icon-bob {
+    animation: bob 3s ease-in-out infinite;
+    will-change: transform;
+  }
+  @keyframes bob {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-6px); }
+  }
+ 
+  .how-card:hover {
+    transform: translateY(-4px);
+  }
+  .how-card {
+    transition: box-shadow .3s, transform .3s, border-color .3s;
+  }
+
+
+ 
+
+
+
+
+ 
+
+/* Restaurants hero slider */
+[data-resto-hero] {
+  position: relative;
+}
+
+[data-resto-hero] .resto-hero-img {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: scale(1.02);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  pointer-events: none;
+}
+
+/* fallback لو الـ JS مش شغال */
+[data-resto-hero] .resto-hero-img:first-of-type {
+  position: relative;
+}
+
+/* السلايد النشط */
+[data-resto-hero] .resto-hero-img.is-active {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}

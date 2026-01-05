@@ -1,0 +1,1002 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./src/output.css" rel="stylesheet">
+ <link href="index.css" rel="stylesheet">
+    <style>
+  [dir="rtl"] .cat-badge { left: auto; right: 1rem; }
+</style>
+ <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+</head>
+<body>
+ 
+<!-- Navbar (Responsive) -->
+<nav class="  w-full z-50 bg-teal-700">
+  <div class="mx-auto max-w-8xl px-4">
+    <div class="flex items-center h-16">
+<!-- Left: Logo + My Account Icon -->
+<div class="flex items-center gap-4 flex-1">
+  <!-- Logo (صورة فقط بدون رابط) -->
+  <img src="img/logo as a mask.png" alt="Siyahatna logo"
+       class="w-10 h-10 rounded-full"
+       data-i18n-attr="alt:brand_alt">
+         <span class="text-white text-xl font-bold" data-i18n="brand_aria">Siyahatna</span>
+  <!-- My Account Icon -->
+  <a href="account.html" class="text-white p-2 rounded-full hover:bg-white/20 transition-colors">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M5.121 17.804A12.035 12.035 0 0112 15c2.636 0 5.088.85 7.121 2.804M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+    </svg>
+  </a>
+</div>
+      <!-- centered links -->
+     <ul class="hidden md:flex items-center justify-center gap-8 border-t border-b border-white/40 py-1 flex-1">
+  <li class="nav-item opacity-0 translate-y-2 transition-all duration-500 will-change-transform">
+    <a href="index.html" class="nav-link relative px-2 py-1 text-yellow-400 font-medium transition-colors duration-300 hover:text-yellow-400
+                      after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-full after:bg-yellow-400
+                      after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
+      <span data-i18n="nav_home">Home</span>
+    </a>
+  </li>
+  <li class="nav-item opacity-0 translate-y-2 transition-all duration-500 will-change-transform">
+    <a href="plan.html" class="nav-link relative px-2 py-1 text-white font-medium transition-colors duration-300 hover:text-yellow-400
+                      after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-full after:bg-yellow-400
+                      after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
+      <span data-i18n="nav_categories">Travel itinerary</span>
+    </a>
+  </li>
+  <li class="nav-item opacity-0 translate-y-2 transition-all duration-500 will-change-transform">
+    <a href="about.html" class="nav-link relative px-2 py-1 text-white font-medium transition-colors duration-300 hover:text-yellow-400
+                      after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-full after:bg-yellow-400
+                      after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
+      <span data-i18n="nav_about">About</span>
+    </a>
+  </li>
+  <li class="nav-item opacity-0 translate-y-2 transition-all duration-500 will-change-transform">
+    <a href="contactus.html" class="nav-link relative px-2 py-1 text-white font-medium transition-colors duration-300 hover:text-yellow-400
+                      after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-full after:bg-yellow-400
+                      after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
+      <span data-i18n="nav_deals">Contact us</span>
+    </a>
+  </li>
+</ul>
+
+
+     <!-- Right: Auth (md+) -->
+<div class="hidden md:flex justify-end items-center gap-3 flex-1">
+ <!-- Language Dropdown Desktop -->
+<div class="relative">
+  <button id="langBtnDesktop"
+          class="flex items-center gap-2 px-4 py-1.5 bg-white text-black rounded-lg font-medium hover:bg-yellow-400 transition"
+          aria-haspopup="true" aria-expanded="false">
+    <span data-i18n="lang_btn">Language</span>
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+    </svg>
+  </button>
+  <div id="langMenuDesktop" class="absolute right-0 mt-2 w-32 rounded-lg bg-white shadow-lg ring-1 ring-black/5 hidden z-50">
+    <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="en">English</a>
+    <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="ar">العربية</a>
+  </div>
+</div>
+
+
+  <a href="register.html"
+  class="inline-block px-4 py-1.5 bg-white text-black rounded-lg font-medium hover:bg-yellow-400 transition"
+  data-i18n="nav_register">
+  Register
+</a>
+  <a href="login.html"
+  class="px-4 py-1.5 border border-white text-white rounded-lg font-medium 
+         hover:bg-yellow-400 hover:text-black transition inline-block text-center"
+  data-i18n="nav_login">
+  Log in
+</a>
+
+</div>
+
+      <!-- Mobile: Hamburger -->
+      <button id="navToggle" class="md:hidden ml-auto inline-flex items-center justify-center p-2 rounded-lg border border-white/40 text-white"
+              aria-label="Open menu" aria-expanded="false">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+<div id="mobileMenu" class="md:hidden hidden">
+  <div class="bg-black/90 border-t border-white/10">
+    <div class="px-4 py-4 space-y-2">
+      <a href="index.html" class="block px-3 py-2 rounded-md text-yellow-400 hover:bg-white/10" data-i18n="nav_home">Home</a>
+      <a href="plan.html" class="block px-3 py-2 rounded-md text-white/90 hover:bg-white/10" data-i18n="nav_categories">Travel itinerary</a>
+      <a href="about.html" class="block px-3 py-2 rounded-md text-white/90 hover:bg-white/10" data-i18n="nav_about">About</a>
+      <a href="contactus.html" class="block px-3 py-2 rounded-md text-white/90 hover:bg-white/10" data-i18n="nav_deals">Contact us</a>
+
+      <!-- Language Dropdown Mobile -->
+      <div class="relative">
+        <button id="langBtnMobile"
+                class="w-full flex items-center justify-between px-4 py-2 bg-white text-black rounded-lg font-medium hover:bg-yellow-400 transition"
+                aria-haspopup="true" aria-expanded="false">
+          <span data-i18n="lang_btn">Language</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div id="langMenuMobile"
+             class="absolute left-0 right-0 mt-2 rounded-lg bg-white shadow-lg ring-1 ring-black/5 hidden">
+          <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="en">English</a>
+          <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="ar">العربية</a>
+        </div>
+      </div>
+
+      <div class="pt-3 flex items-center gap-2">
+       <a href="register.html"
+  class="flex-1 px-4 py-2 bg-white text-black rounded-lg font-medium hover:bg-yellow-400 hover:text-black transition inline-block text-center"
+  data-i18n="nav_register">
+  Register
+</a>
+       <a href="login.html"
+  class="flex-1 px-4 py-2 border border-white text-white rounded-lg font-medium 
+         hover:bg-yellow-400 hover:text-black transition inline-block text-center"
+  data-i18n="nav_login">
+  Log in
+</a>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+</nav>
+
+
+
+<!-- ===== Hero Section (i18n + RTL-ready) ===== -->
+<section
+  id="hero"
+  class="relative h-[90vh] w-full overflow-hidden"
+  data-hero-images="./img/herosection1.png,./img/herosection2.png,./img/146.jpg"
+>
+  <!-- Image slider container -->
+  <div class="absolute inset-0 w-full h-full">
+    <img id="img1" src="./img/herosection1.png"
+         alt="" role="presentation" aria-hidden="true"
+         data-i18n-attr="alt:hero_img_alt1"
+         loading="eager" decoding="async"
+         class="absolute inset-0 w-full h-full object-fit transition-opacity duration-700 opacity-100 rounded-none" />
+
+    <img id="img2" src="./img/herosection2.png"
+         alt="" role="presentation" aria-hidden="true"
+         data-i18n-attr="alt:hero_img_alt2"
+         loading="lazy" decoding="async"
+         class="absolute inset-0 w-full h-full object-fit transition-opacity duration-700 opacity-0 rounded-none" />
+  </div>
+  
+
+  <!-- Dark overlay   -->
+  <div class="absolute inset-0 bg-black/60 z-10 pointer-events-none rounded-none"></div>
+
+  <!-- Hero Content -->
+  <div class="relative z-20 flex items-center h-full px-6 md:px-16">
+    <div class="max-w-2xl w-full text-start text-white">
+      <h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight">
+        <span id="hero-title1"
+              class="block animate-fadeUp [animation-delay:200ms] [dir='rtl']:text-right"
+              data-i18n="hero_title1">
+          Discover Saudi Arabia
+        </span>
+        <span id="hero-title2"
+              class="block animate-fadeUp [animation-delay:400ms]"
+              data-i18n="hero_title2">
+          with your Custom Travel Plan
+        </span>
+      </h1>
+
+      <p id="hero-desc"
+         class="mt-4 text-white/90 text-sm sm:text-base animate-fadeUp [animation-delay:600ms] text-start"
+         data-i18n="hero_desc">
+        Plan your trip, explore top attractions, and book everything in one place.
+      </p>
+
+      <!-- CTA -->
+      <div class="mt-4 flex justify-start [dir='rtl']:justify-end">
+        <a href="plan.html"
+           id="hero-btn"
+           class="pulse-btn inline-flex items-center gap-2 px-6 py-3 rounded-full bg-teal-600 hover:bg-teal-700 font-semibold shadow-lg transition text-white"
+           data-i18n-attr="aria-label:hero_btn"
+           aria-label="Start Now">
+          <span id="heroBtnText" data-i18n="hero_btn">Start Now</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 [dir='rtl']:-scale-x-100" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ===== Promo block (i18n-ready) ===== -->
+<section class="relative bg-white py-8">
+  <div class="mx-auto max-w-6xl px-6">
+    <div class="grid md:grid-cols-2 bg-teal-700 gap-6 items-center rounded-2xl overflow-hidden shadow-lg">
+
+      <!-- Left: Image -->
+      <div class="h-72 md:h-[360px]">
+        <img src="./img/home 1.png"
+             alt="Hotel"
+             data-i18n-attr="alt:promo_img_alt"
+             class="w-full h-full object-cover rounded-2xl md:rounded-none md:rounded-l-2xl">
+      </div>
+
+      <!-- Right: Content -->
+      <div class="text-white p-8 md:p-12 flex flex-col justify-center [dir='rtl']:text-right">
+        <h3 id="promo-title"
+            data-i18n="promo_title"
+            class="text-2xl md:text-3xl font-bold mb-4 leading-snug">
+          Find things to do<br>for everything you’re into
+        </h3>
+        <p id="promo-desc"
+           data-i18n="promo_desc"
+           class="text-white/90 mb-6">
+          Browse 400,000 experiences and book with us
+        </p>
+        <a href="#"
+           id="promo-btn"
+           data-i18n-attr="aria-label:promo_btn"
+           aria-label="Book Now"
+           class="relative flex items-center justify-center
+                  bg-black text-white px-6 py-3 rounded-md text-lg
+                  font-semibold shadow transition overflow-hidden group 
+                  w-48 mx-auto [dir='rtl']:ml-auto [dir='rtl']:mr-0">
+          <span class="relative z-10 transition-colors duration-300 group-hover:text-black"
+                data-i18n="promo_btn">
+            Book Now
+          </span>
+          <span class="absolute inset-0 bg-amber-400 
+                       translate-y-[-100%] group-hover:translate-y-0 
+                       transition-transform duration-500 ease-in-out"></span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== Flip Card Slider Section (i18n-ready) ========== -->
+<section class="py-8 bg-white text-white" id="hot-deals-section">
+  <div class="relative w-[90%] max-w-[1210px] mx-auto overflow-hidden">
+
+    <!-- Head (title + currency + arrows) -->
+    <div class="mb-8 grid grid-cols-[1fr_auto] items-center gap-3 px-0 sm:px-0">
+      <!-- Title + currency -->
+      <div class="flex items-center gap-2 min-w-0
+                  justify-self-start
+                  [dir='rtl']:justify-self-end
+                  [dir='rtl']:text-right">
+        <h2 class="text-2xl md:text-3xl font-bold flex items-center gap-2 text-gray-900 truncate">
+          <span id="deals-title"
+                
+                
+                class="truncate">
+            Browse by Categories
+          </span>
+        </h2>
+         
+      </div>
+
+      <!-- Arrows -->
+      <div id="deals-arrows"
+          class="flex gap-2
+                justify-self-end
+                [dir='rtl']:justify-self-start">
+        <!-- Prev -->
+        <button id="dealsPrev"
+          class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/80 hover:bg-white text-teal-600 grid place-items-center shadow-md transition"
+          data-i18n-attr="aria-label:prev" aria-label="Previous">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        <!-- Next -->
+        <button id="dealsNext"
+          class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/80 hover:bg-white text-teal-600 grid place-items-center shadow-md transition"
+          data-i18n-attr="aria-label:next" aria-label="Next">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Cards track -->
+    <div id="flipTrack" class="flex gap-5 transition-transform duration-500 will-change-transform">
+
+      <!-- ===== Card 1: Restaurants ===== -->
+      <div class="flip-card group/card h-80 w-72 shrink-0">
+        <div class="flip-inner relative h-full w-full rounded-2xl shadow-xl transition-transform duration-800">
+          <!-- Front -->
+          <div class="flip-front absolute inset-0 overflow-hidden rounded-2xl bg-white flex items-center justify-center">
+            <img src="img/hot deals 3.png"
+                alt="Restaurants"
+                 
+                class="h-full w-full object-fit:cover">
+            <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-3 flex items-center justify-between">
+              <h3 class="font-semibold text-lg" >Restaurants</h3>
+              <div class="flex items-center gap-1">
+                
+                
+              </div>
+            </div>
+          </div>
+          <!-- Back -->
+          <div class="flip-back absolute inset-0 rounded-2xl p-6 text-white grid place-content-center text-center bg-teal-700">
+            <p class="text-white font-semibold text-lg leading-relaxed mb-6 drop-shadow"
+               >
+              Discover the best restaurants in our tourism platform — curated spots for breakfast, lunch, and dinner across your favorite cities.
+            </p>
+            <a href="restaurant.html"
+              class="inline-block px-6 py-2 rounded-full bg-white text-teal-700 font-semibold shadow-md hover:bg-gray-100 hover:scale-105 transition"
+               >
+              View All Restaurants
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== Card 2: Cafes ===== -->
+      <div class="flip-card group/card h-80 w-72 shrink-0">
+        <div class="flip-inner relative h-full w-full rounded-2xl shadow-xl transition-transform duration-800">
+          <!-- Front -->
+          <div class="flip-front absolute inset-0 overflow-hidden rounded-2xl bg-white flex items-center justify-center">
+            <img src="img/coffe-logo.png"
+                alt="Cafes"
+                data-i18n-attr="alt:card2_title"
+                class="h-full w-full object-fit:cover">
+            <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-3 flex items-center justify-between">
+              <h3 class="font-semibold text-lg">Cafes</h3>
+              <div class="flex items-center gap-1">
+                
+                 
+              </div>
+            </div>
+          </div>
+          <!-- Back -->
+          <div class="flip-back absolute inset-0 rounded-2xl p-6 text-white grid place-content-center text-center bg-teal-700">
+            <p class="text-white font-semibold text-lg leading-relaxed mb-6 drop-shadow"
+                >
+              Explore cozy cafés, specialty coffee spots, and dessert places picked especially for our travelers.
+            </p>
+            <a href="restaurant.html"
+              class="inline-block px-6 py-2 rounded-full bg-white text-teal-700 font-semibold shadow-md hover:bg-gray-100 hover:scale-105 transition"
+               >
+              View All Cafes
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== Card 3: Hotels ===== -->
+      <div class="flip-card group/card h-80 w-72 shrink-0">
+        <div class="flip-inner relative h-full w-full rounded-2xl shadow-xl transition-transform duration-800">
+          <!-- Front -->
+          <div class="flip-front absolute inset-0 overflow-hidden rounded-2xl bg-white flex items-center justify-center">
+            <img src="img/hotel cover.png"
+                alt="Hotels"
+                
+                class="h-full w-full object-fit:cover">
+            <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-3 flex items-center justify-between">
+              <h3 class="font-semibold text-lg">Hotels</h3>
+              <div class="flex items-center gap-1">
+                 
+                 
+              </div>
+            </div>
+          </div>
+          <!-- Back -->
+          <div class="flip-back absolute inset-0 rounded-2xl p-6 text-white grid place-content-center text-center bg-teal-700">
+            <p class="text-white font-semibold text-lg leading-relaxed mb-6 drop-shadow"
+                >
+              Find handpicked hotel stays for every budget — from city views to beach escapes, all in one place.
+            </p>
+            <a href="hotel-2.html"
+              class="inline-block px-6 py-2 rounded-full bg-white text-teal-700 font-semibold shadow-md hover:bg-gray-100 hover:scale-105 transition"
+               >
+              View All Hotels
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== Card 4: Parks ===== -->
+      <div class="flip-card group/card h-80 w-72 shrink-0">
+        <div class="flip-inner relative h-full w-full rounded-2xl shadow-xl transition-transform duration-800">
+          <!-- Front -->
+          <div class="flip-front absolute inset-0 overflow-hidden rounded-2xl bg-white flex items-center justify-center">
+            <img src="img/parks-5.png"
+                alt="Parks"
+                 
+                class="h-full w-full object-cover">
+            <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-3 flex items-center justify-between">
+              <h3 class="font-semibold text-lg">Parks</h3>
+              <div class="flex items-center gap-1">
+                 
+                 
+              </div>
+            </div>
+          </div>
+          <!-- Back -->
+          <div class="flip-back absolute inset-0 rounded-2xl p-6 text-white grid place-content-center text-center bg-teal-700">
+            <p class="text-white font-semibold text-lg leading-relaxed mb-6 drop-shadow"
+                >
+              Discover parks, gardens, and outdoor activities perfect for families, couples, and solo travelers.
+            </p>
+            <a href="parks1.html"
+              class="inline-block px-6 py-2 rounded-full bg-white text-teal-700 font-semibold shadow-md hover:bg-gray-100 hover:scale-105 transition"
+               >
+              View All Parks
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== Card 5: Supermarkets ===== -->
+      <div class="flip-card group/card h-80 w-72 shrink-0">
+        <div class="flip-inner relative h-full w-full rounded-2xl shadow-xl transition-transform duration-800">
+          <!-- Front -->
+          <div class="flip-front absolute inset-0 overflow-hidden rounded-2xl bg-white flex items-center justify-center">
+            <img src="img/supermarket-hero.png"
+                alt="Supermarkets"
+               
+                class="h-full w-full object-fit:cover">
+            <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-3 flex items-center justify-between">
+              <h3 class="font-semibold text-lg">Supermarkets</h3>
+              <div class="flex items-center gap-1">
+                
+                <img src="img/white currancy logo.png" alt="SAR" data-i18n-attr="alt:currency_alt" class="w-5 h-5 inline-block">
+              </div>
+            </div>
+          </div>
+          <!-- Back -->
+          <div class="flip-back absolute inset-0 rounded-2xl p-6 text-white grid place-content-center text-center bg-teal-700">
+            <p class="text-white font-semibold text-lg leading-relaxed mb-6 drop-shadow"
+                >
+              Check curated supermarket bundles, snacks, and daily essentials to make your trip easier and more comfortable.
+            </p>
+            <a href="supermarket5.html"
+              class="inline-block px-6 py-2 rounded-full bg-white text-teal-700 font-semibold shadow-md hover:bg-gray-100 hover:scale-105 transition"
+               >
+              View All Supermarkets
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /flipTrack -->
+  </div>
+</section>
+
+
+
+<!-- ========== Flip Card Slider Section (i18n-ready) ========== -->
+<section class="py-8 bg-white text-white" id="hot-deals-section">
+  <div class="relative w-[90%] max-w-[1210px] mx-auto overflow-hidden">
+
+   <!-- Head (title + currency + arrows) -->
+<div class="mb-8 grid grid-cols-[1fr_auto] items-center gap-3 px-0 sm:px-0">
+  <!-- Title + currency -->
+  <div class="flex items-center gap-2 min-w-0
+              justify-self-start
+              [dir='rtl']:justify-self-end
+              [dir='rtl']:text-right">
+    <h2 class="text-2xl md:text-3xl font-bold flex items-center gap-2 text-gray-900 truncate">
+      <span id="deals-title"
+            data-i18n="deals_title"
+            data-i18n-params='{"price":"500"}'
+            class="truncate">
+        Exclusive Deals under 500
+      </span>
+    </h2>
+    <img src="img/currancy logo.png"
+         alt="SAR"
+         data-i18n-attr="alt:currency_alt"
+         class="inline-block w-5 h-5 sm:w-6 sm:h-6 shrink-0">
+  </div>
+
+  <!-- Arrows -->
+  <div id="deals-arrows"
+       class="flex gap-2
+              justify-self-end
+              [dir='rtl']:justify-self-start">
+    <!-- Prev -->
+    <button id="dealsPrev"
+      class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/80 hover:bg-white text-teal-600 grid place-items-center shadow-md transition"
+      data-i18n-attr="aria-label:prev" aria-label="Previous">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+           stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+      </svg>
+    </button>
+    <!-- Next -->
+    <button id="dealsNext"
+      class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/80 hover:bg-white text-teal-600 grid place-items-center shadow-md transition"
+      data-i18n-attr="aria-label:next" aria-label="Next">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+           stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
+  </div>
+</div>
+
+    <!-- Cards track (ID واحد فقط) -->
+    <div id="flipTrack" class="flex gap-5 transition-transform duration-500 will-change-transform">
+
+      <!-- ===== Card 1 ===== -->
+      <div class="flip-card group/card h-80 w-72 shrink-0">
+        <div class="flip-inner relative h-full w-full rounded-2xl shadow-xl transition-transform duration-700">
+          <!-- Front -->
+          <div class="flip-front absolute inset-0 overflow-hidden rounded-2xl bg-white flex items-center justify-center">
+            <img src="img/cafe logo.png"
+                 alt="Luxury Resort"
+                 data-i18n-attr="alt:card1_title"
+                 class="h-full w-full object-cover">
+            <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-3 flex items-center justify-between">
+              <h3 class="font-semibold text-lg" data-i18n="card1_title">Luxury Resort</h3>
+              <div class="flex items-center gap-1">
+                <span class="font-bold text-lg" data-i18n="price_number">500</span>
+                <img src="img/white currancy logo.png" alt="SAR" data-i18n-attr="alt:currency_alt" class="w-5 h-5 inline-block">
+              </div>
+            </div>
+          </div>
+          <!-- Back -->
+          <div class="flip-back absolute inset-0 rounded-2xl p-6 text-white grid place-content-center text-center bg-gradient-to-br from-teal-700 to-emerald-500">
+            <p class="text-white font-semibold text-lg leading-relaxed mb-6 drop-shadow" data-i18n="deal_text">
+              Limited Time Deal!
+            </p>
+            <a href="restaurantdetails.html"
+               class="inline-block px-6 py-2 rounded-full bg-white text-teal-700 font-semibold shadow-md hover:bg-gray-100 hover:scale-105 transition"
+               data-i18n="book_now">
+              Book Now
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== Card 2 ===== -->
+      <div class="flip-card group/card h-80 w-72 shrink-0">
+        <div class="flip-inner relative h-full w-full rounded-2xl shadow-xl transition-transform duration-700">
+          <div class="flip-front absolute inset-0 overflow-hidden rounded-2xl bg-white flex items-center justify-center">
+            <img src="img/restaurant logo.png"
+                 alt="Luxury Resort"
+                 data-i18n-attr="alt:card2_title"
+                 class="h-full w-full object-cover">
+            <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-3 flex items-center justify-between">
+              <h3 class="font-semibold text-lg" data-i18n="card2_title">Luxury Resort</h3>
+              <div class="flex items-center gap-1">
+                <span class="font-bold text-lg" data-i18n="price_number">500</span>
+                <img src="img/white currancy logo.png" alt="SAR" data-i18n-attr="alt:currency_alt" class="w-5 h-5 inline-block">
+              </div>
+            </div>
+          </div>
+          <div class="flip-back absolute inset-0 rounded-2xl p-6 text-white grid place-content-center text-center bg-gradient-to-br from-teal-700 to-emerald-500">
+            <p class="text-white font-semibold text-lg leading-relaxed mb-6 drop-shadow" data-i18n="deal_text">Limited Time Deal!</p>
+            <a href="restaurantdetails.html" class="inline-block px-6 py-2 rounded-full bg-white text-teal-700 font-semibold shadow-md hover:bg-gray-100 hover:scale-105 transition" data-i18n="book_now">Book Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== Card 3 ===== -->
+      <div class="flip-card group/card h-80 w-72 shrink-0">
+        <div class="flip-inner relative h-full w-full rounded-2xl shadow-xl transition-transform duration-700">
+          <div class="flip-front absolute inset-0 overflow-hidden rounded-2xl bg-white flex items-center justify-center">
+            <img src="img/hot deals 1.png"
+                 alt="Luxury Resort"
+                 data-i18n-attr="alt:card3_title"
+                 class="h-full w-full object-cover">
+            <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-3 flex items-center justify-between">
+              <h3 class="font-semibold text-lg" data-i18n="card3_title">Luxury Resort</h3>
+              <div class="flex items-center gap-1">
+                <span class="font-bold text-lg" data-i18n="price_number">500</span>
+                <img src="img/white currancy logo.png" alt="SAR" data-i18n-attr="alt:currency_alt" class="w-5 h-5 inline-block">
+              </div>
+            </div>
+          </div>
+          <div class="flip-back absolute inset-0 rounded-2xl p-6 text-white grid place-content-center text-center bg-gradient-to-br from-teal-700 to-emerald-500">
+            <p class="text-white font-semibold text-lg leading-relaxed mb-6 drop-shadow" data-i18n="deal_text">Limited Time Deal!</p>
+            <a href="hotel-3.html" class="inline-block px-6 py-2 rounded-full bg-white text-teal-700 font-semibold shadow-md hover:bg-gray-100 hover:scale-105 transition" data-i18n="book_now">Book Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== Card 4 ===== -->
+      <div class="flip-card group/card h-80 w-72 shrink-0">
+        <div class="flip-inner relative h-full w-full rounded-2xl shadow-xl transition-transform duration-700">
+          <div class="flip-front absolute inset-0 overflow-hidden rounded-2xl bg-white flex items-center justify-center">
+            <img src="img/parks-5.png"
+                 alt="Luxury Resort"
+                 data-i18n-attr="alt:card4_title"
+                 class="h-full w-full object-cover">
+            <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-3 flex items-center justify-between">
+              <h3 class="font-semibold text-lg" data-i18n="card4_title">Luxury Resort</h3>
+              <div class="flex items-center gap-1">
+                <span class="font-bold text-lg" data-i18n="price_number">500</span>
+                <img src="img/white currancy logo.png" alt="SAR" data-i18n-attr="alt:currency_alt" class="w-5 h-5 inline-block">
+              </div>
+            </div>
+          </div>
+          <div class="flip-back absolute inset-0 rounded-2xl p-6 text-white grid place-content-center text-center bg-gradient-to-br from-teal-700 to-emerald-500">
+            <p class="text-white font-semibold text-lg leading-relaxed mb-6 drop-shadow" data-i18n="deal_text">Limited Time Deal!</p>
+            <a href="parks2.html" class="inline-block px-6 py-2 rounded-full bg-white text-teal-700 font-semibold shadow-md hover:bg-gray-100 hover:scale-105 transition" data-i18n="book_now">Book Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== Card 5 ===== -->
+      <div class="flip-card group/card h-80 w-72 shrink-0">
+        <div class="flip-inner relative h-full w-full rounded-2xl shadow-xl transition-transform duration-700">
+          <div class="flip-front absolute inset-0 overflow-hidden rounded-2xl bg-white flex items-center justify-center">
+            <img src="img/BUNDLE_Gif_AR_690865e826.webp"
+                 alt="Luxury Resort"
+                 data-i18n-attr="alt:card5_title"
+                 class="h-full w-full object-cover">
+            <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-3 flex items-center justify-between">
+              <h3 class="font-semibold text-lg" data-i18n="card5_title">Luxury Resort</h3>
+              <div class="flex items-center gap-1">
+                <span class="font-bold text-lg" data-i18n="price_number">500</span>
+                <img src="img/white currancy logo.png" alt="SAR" data-i18n-attr="alt:currency_alt" class="w-5 h-5 inline-block">
+              </div>
+            </div>
+          </div>
+          <div class="flip-back absolute inset-0 rounded-2xl p-6 text-white grid place-content-center text-center bg-gradient-to-br from-teal-700 to-emerald-500">
+            <p class="text-white font-semibold text-lg leading-relaxed mb-6 drop-shadow" data-i18n="deal_text">Limited Time Deal!</p>
+            <a href="supermarket5.html" class="inline-block px-6 py-2 rounded-full bg-white text-teal-700 font-semibold shadow-md hover:bg-gray-100 hover:scale-105 transition" data-i18n="book_now">Book Now</a>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /flipTrack -->
+  </div>
+</section>
+
+ 
+<!-- ========= Features Section (Floating Animated) — i18n-ready ========= -->
+<section id="features" class="py-8 bg-gradient-to-b from-white to-gray-50">
+  <div class="mx-auto max-w-6xl px-6">
+
+    <div class="text-center mb-10 [dir='rtl']:text-right">
+      <h2 id="featuresTitle"
+          class="text-2xl md:text-3xl font-extrabold text-gray-800"
+          data-i18n="heading">
+        How Siyahatna helps?
+      </h2>
+      <p id="featuresDesc"
+         class="mt-2 text-gray-600 text-sm md:text-base"
+         data-i18n="description">
+        Everything you need to plan your trip in one place
+      </p>
+    </div>
+
+    <!-- Grid -->
+    <div class="features-grid grid sm:grid-cols-2 lg:grid-cols-4 gap-10 [dir='rtl']:text-right">
+
+      <!-- Feature 1 -->
+      <div class="feature-card flex flex-col items-center text-center p-6 rounded-2xl backdrop-blur-sm bg-white/70 shadow-lg">
+        <div class="icon-box relative w-16 h-16 flex items-center justify-center rounded-full bg-teal-700 text-white mb-4" aria-hidden="true">
+          <!-- Globe Icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 3c4.97 0 9 4.03 9 9s-4.03 9-9 9-9-4.03-9-9 4.03-9 9-9z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M2.05 11h19.9M12 2.05v19.9"/>
+          </svg>
+        </div>
+        <h3 id="feature1Title" class="font-semibold text-lg text-gray-800" data-i18n="title_index">Pick Destination</h3>
+        <p id="feature1Desc" class="text-gray-600 text-sm mt-2" data-i18n="description_index">
+          Choose from 12+ popular tourist attractions.
+        </p>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="feature-card flex flex-col items-center text-center p-6 rounded-2xl backdrop-blur-sm bg-white/70 shadow-lg">
+        <div class="icon-box relative w-16 h-16 flex items-center justify-center rounded-full bg-teal-700 text-white mb-4" aria-hidden="true">
+          <!-- Bed / Hotel Icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M3 10h18M4 21v-7a3 3 0 013-3h10a3 3 0 013 3v7M3 21h18" />
+          </svg>
+        </div>
+        <h3 id="feature2Title" class="font-semibold text-lg text-gray-800" data-i18n="title_2">Book Accommodation</h3>
+        <p id="feature2Desc" class="text-gray-600 text-sm mt-2" data-i18n="description_2">
+          Select hotels & resorts at affordable rates.
+        </p>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="feature-card flex flex-col items-center text-center p-6 rounded-2xl backdrop-blur-sm bg-white/70 shadow-lg">
+        <div class="icon-box relative w-16 h-16 flex items-center justify-center rounded-full bg-teal-700 text-white mb-4" aria-hidden="true">
+          <!-- Calculator Icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 2h6a2 2 0 012 2v16a2 2 0 01-2 2H9a2 2 0 01-2-2V4a2 2 0 012-2z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 8h6M9 12h6m-6 4h6" />
+          </svg>
+        </div>
+        <h3 id="feature3Title" class="font-semibold text-lg text-gray-800" data-i18n="title_3">Plan Budget</h3>
+        <p id="feature3Desc" class="text-gray-600 text-sm mt-2" data-i18n="description_3">
+          Use built-in budget calculator in multiple currencies.
+        </p>
+      </div>
+
+      <!-- Feature 4 -->
+      <div class="feature-card flex flex-col items-center text-center p-6 rounded-2xl backdrop-blur-sm bg-white/70 shadow-lg">
+        <div class="icon-box relative w-16 h-16 flex items-center justify-center rounded-full bg-teal-700 text-white mb-4" aria-hidden="true">
+          <!-- Clipboard / Itinerary Icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 2h6a2 2 0 012 2h1a2 2 0 012 2v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6a2 2 0 012-2h1a2 2 0 012-2z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 10h6M9 14h6M9 18h6"/>
+          </svg>
+        </div>
+        <h3 id="feature4Title" class="font-semibold text-lg text-gray-800" data-i18n="title_4">Create Itinerary</h3>
+        <p id="feature4Desc" class="text-gray-600 text-sm mt-2" data-i18n="description_4">
+          Plan your itinerary with free online planner.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===== Button Section (Animated Start Planning) ===== -->
+<div class="mt-12 flex justify-center">
+  <a href="plan.html"
+     class="px-8 py-3 rounded-full font-semibold text-white bg-teal-600 hover:bg-yellow-400 hover:text-black transition-all duration-300 shadow-lg text-lg"
+     data-i18n="wow_btn_aria">
+    Start Planning your trip
+  </a>
+</div>
+
+
+</section>
+
+
+
+<!-- ========== Get the Siyahaty app Section (i18n-ready) ========== -->
+<section id="getApp" class="py-8 bg-gradient-to-b from-white to-gray-50">
+  <div class="mx-auto max-w-7xl px-6">
+    <div class="relative overflow-hidden rounded-3xl bg-teal-600 text-white">
+      <div class="pointer-events-none absolute -top-24 -left-24 w-72 h-72 rounded-full bg-teal-500/30 blur-3xl"></div>
+      <div class="pointer-events-none absolute -bottom-24 -right-24 w-72 h-72 rounded-full bg-cyan-400/30 blur-3xl"></div>
+
+      <div class="grid md:grid-cols-2 gap-8 items-center p-6 sm:p-8 md:p-12">
+        <!-- Left: text -->
+        <div class="space-y-5 reveal text-center [dir='ltr']:md:text-left [dir='rtl']:md:text-right max-w-full">
+          <h2 id="appTitle"
+              class="text-2xl md:text-3xl font-extrabold break-words"
+              data-i18n="app_title">
+            Get the Siyahatna app
+          </h2>
+          <blockquote id="appQuote"
+            class="text-white text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold leading-snug md:leading-relaxed max-w-full mx-auto break-words"
+            data-i18n="app_quote">
+            “The best way to organize your travel itinerary within Saudi Arabia using your mobile.”
+          </blockquote>
+          <div>
+            <h3 id="footer-download-title"
+                class="text-lg sm:text-xl font-semibold mb-4 break-words"
+                data-i18n="app_download_title">
+              Download Apps
+            </h3>
+            <p id="footer-download-text"
+               class="text-gray-300 mb-4 max-w-full break-words"
+               data-i18n="app_download_text">
+              Get the latest version of our app for Android & iOS.
+            </p>
+            <div class="flex flex-wrap justify-center gap-3">
+              <a href="#">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                     alt="Google Play"
+                     data-i18n-attr="alt:google_play_alt"
+                     class="h-10">
+              </a>
+              <a href="#">
+                <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                     alt="App Store"
+                     data-i18n-attr="alt:app_store_alt"
+                     class="h-10">
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: phones (animated) -->
+        <div class="flex justify-center items-end gap-6 h-[300px] sm:h-[360px] md:h-[460px]">
+          <!-- phone 1 -->
+          <div class="w-32 sm:w-40 md:w-52 reveal">
+            <div class="tilt-card relative w-full rounded-[2rem] overflow-hidden shadow-2xl bg-white/5 backdrop-blur-sm
+                        animate-float-slow will-change-transform">
+              <img src="img/log in-portrait.png"
+                   alt="Siyahatna screen 1"
+                   data-i18n-attr="alt:app_screen1_alt"
+                   class="block w-full h-auto will-change-transform animate-kenburns">
+              <span class="pointer-events-none absolute inset-0 ring-1 ring-white/10 rounded-[2rem]"></span>
+            </div>
+          </div>
+
+          <!-- phone 2 -->
+          <div class="w-32 sm:w-40 md:w-52 reveal">
+            <div class="tilt-card relative w-full rounded-[2rem] overflow-hidden shadow-2xl bg-white/5 backdrop-blur-sm
+                        animate-float-slower animation-delay-1500 will-change-transform">
+              <img src="img/apple screen 2.png"
+                   alt="Siyahatna screen 2"
+                   data-i18n-attr="alt:app_screen2_alt"
+                   class="block w-full h-auto will-change-transform animate-kenburns animation-delay-1000">
+              <span class="pointer-events-none absolute inset-0 ring-1 ring-white/10 rounded-[2rem]"></span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<a
+  href="https://wa.me/201234567890"
+  class="fixed bottom-5 right-4 w-12 h-12 rounded-full bg-green-500 text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform z-50"
+  target="_blank"
+  aria-label="Chat on WhatsApp"
+>
+  <i class="fab fa-whatsapp text-2xl"></i>
+</a>
+
+
+
+ <footer class="relative overflow-hidden bg-teal-700 text-white px-6 py-16 min-h-[600px]">
+  <div class="pointer-events-none absolute inset-0">
+    <div class="absolute -top-28 -left-24 w-[34rem] h-[34rem] rounded-full bg-emerald-100/35 blur-3xl"></div>
+    <div class="absolute -bottom-24 -right-24 w-[30rem] h-[30rem] rounded-full bg-amber-100/40 blur-3xl"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(16,185,129,.07),transparent_60%)]"></div>
+  </div>
+
+  <div class="relative max-w-6xl mx-auto px-4 lg:px-6">
+    <!-- المحتوى -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-center sm:text-start">
+      <!-- Logo / Brand -->
+      <div class="footer-brand-wrap flex flex-col items-center sm:items-start" data-reveal="left">
+        <div class="h-20 w-20 rounded-full bg-black grid place-items-center mb-3">
+          <img src="img/logo as a mask.png" alt="Siyahatna logo"
+               data-i18n-attr="alt:footer_logo_alt" class="h-20 w-20">
+        </div>
+        <span class="footer-brand text-3xl font-extrabold tracking-widest text-white hover:drop-shadow-[0_0_12px_rgba(250,204,21,0.45)]" data-i18n="brand_aria">
+          Siyahatna
+        </span>
+      </div>
+
+      <!-- Pages -->
+      <div data-reveal="right">
+        <h4 class="mb-4 text-base font-bold">
+          <a href="#" class="ink-underline hover:text-yellow-400" data-i18n="footer_categories">All Categories</a>
+        </h4>
+        <ul class="space-y-2">
+          <li><a data-i18n="footer_restaurants" class="font-bold ink-underline hover:text-yellow-400" href="Allrestaurants.html">Restaurants</a></li>
+          <li><a data-i18n="footer_cafe" class="font-bold ink-underline hover:text-yellow-400" href="Allrestaurants.html">Cafe</a></li>
+          <li><a data-i18n="footer_supermarkets" class="font-bold ink-underline hover:text-yellow-400" href="supermarket1.html">Supermarket</a></li>
+          <li><a data-i18n="footer_hotels" class="font-bold ink-underline hover:text-yellow-400" href="hotel-1.html">Hotels</a></li>
+          <li><a data-i18n="footer_parks" class="font-bold ink-underline hover:text-yellow-400" href="parks1.html">Parks</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div data-reveal="left">
+        <h4 class="mb-4 text-base font-bold">
+          <a href="#" class="ink-underline hover:text-yellow-400" data-i18n="footer_contact">Contact</a>
+        </h4>
+        <ul class="space-y-2">
+          <li>
+            <a href="mailto:Support123@gmail.com" class="font-bold ink-underline hover:text-yellow-400" data-i18n="footer_email">
+              <bdi>Email: Support123@gmail.com</bdi>
+            </a>
+          </li>
+          <li>
+            <a href="tel:12345678" class="font-bold ink-underline hover:text-yellow-400" data-i18n="footer_phone1">
+              <bdi>Phone 1: 12345678</bdi>
+            </a>
+          </li>
+          <li>
+            <a href="tel:3455765433345" class="font-bold ink-underline hover:text-yellow-400" data-i18n="footer_phone2">
+              <bdi>Phone 2: 3455765433345</bdi>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Policies -->
+      <div data-reveal="right">
+        <h4 class="mb-4 text-base font-bold">
+          <a href="#" class="ink-underline hover:text-yellow-400" data-i18n="footer_policies">Policies</a>
+        </h4>
+        <ul class="space-y-2">
+          <li><a data-i18n="footer_guidelines" class="font-bold ink-underline hover:text-yellow-400" href="#">Community Guidelines</a></li>
+          <li><a data-i18n="footer_terms" class="font-bold ink-underline hover:text-yellow-400" href="#">Terms of Use</a></li>
+          <li><a data-i18n="footer_privacy" class="font-bold ink-underline hover:text-yellow-400" href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Download app -->
+    <!-- Download app -->
+<div class="mt-12 text-center" data-reveal="left">
+  <h4 class="mb-2 text-base font-bold text-center">
+    <a href="#" class="ink-underline hover:text-yellow-400 inline-block" data-i18n="footer_download">
+      Download Our App
+    </a>
+  </h4>
+
+  <p data-i18n="footer_download_desc" class="text-white/70 text-sm mb-4 font-bold">
+    Get the Latest Version of our Apps
+  </p>
+
+  <div class="flex justify-center gap-4">
+    <a href="#" class="ink-underline">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+           alt="Google Play" class="h-10" data-i18n-attr="alt:footer_google_alt">
+    </a>
+    <a href="#" class="ink-underline">
+      <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83"
+           alt="App Store" class="h-10" data-i18n-attr="alt:footer_apple_alt">
+    </a>
+  </div>
+</div>
+
+
+    <!-- Divider -->
+    <div class="mt-12 mb-3 border-t border-white/10" data-reveal="right"></div>
+
+    <!-- حقوق النشر -->
+ <div class="pt-4 w-full text-center sm:text-center text-sm text-white/60 font-bold" data-reveal="right" data-i18n="footer_rights">
+  © 2025 Siyahatna. All rights reserved.
+</div>
+
+
+  </div>
+</footer>
+
+<SCript src="translation.js"></SCript>
+<script src="indexmain.js"></script>
+
+  
+</body>
+</html>
+ 
+
+
+
+
+
+
+
+
+
+
+
+   
+
+
+
+
+ 

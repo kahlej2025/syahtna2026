@@ -1,0 +1,977 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./src/output.css" rel="stylesheet">
+  <link href="supermarket3.css" rel="stylesheet">
+   <style>
+  [dir="rtl"] .cat-badge { left: auto; right: 1rem; }
+</style>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+</head>
+<body>
+ <!-- Navbar (Responsive) -->
+<nav class="  w-full z-50 bg-teal-700">
+  <div class="mx-auto max-w-8xl px-4">
+    <div class="flex items-center h-16">
+<!-- Left: Logo + My Account Icon -->
+<div class="flex items-center gap-4 flex-1">
+  <!-- Logo (صورة فقط بدون رابط) -->
+  <img src="img/logo as a mask.png" alt="Siyahatna logo"
+       class="w-10 h-10 rounded-full"
+       data-i18n-attr="alt:brand_alt">
+         <span class="text-white text-xl font-bold" data-i18n="brand_aria">Siyahatna</span>
+
+  <!-- My Account Icon -->
+  <a href="account.html" class="text-white p-2 rounded-full hover:bg-white/20 transition-colors">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M5.121 17.804A12.035 12.035 0 0112 15c2.636 0 5.088.85 7.121 2.804M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+    </svg>
+  </a>
+</div>
+      <!-- centered links -->
+     <ul class="hidden md:flex items-center justify-center gap-8 border-t border-b border-white/40 py-1 flex-1">
+  <li class="nav-item opacity-0 translate-y-2 transition-all duration-500 will-change-transform">
+    <a href="index.html" class="nav-link relative px-2 py-1 text-white font-medium transition-colors duration-300 hover:text-yellow-400
+                      after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-full after:bg-yellow-400
+                      after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
+      <span data-i18n="nav_home">Home</span>
+    </a>
+  </li>
+  <li class="nav-item opacity-0 translate-y-2 transition-all duration-500 will-change-transform">
+    <a href="plan.html" class="nav-link relative px-2 py-1 text-white font-medium transition-colors duration-300 hover:text-yellow-400
+                      after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-full after:bg-yellow-400
+                      after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
+      <span data-i18n="nav_categories">Travel itinerary</span>
+    </a>
+  </li>
+  <li class="nav-item opacity-0 translate-y-2 transition-all duration-500 will-change-transform">
+    <a href="about.html" class="nav-link relative px-2 py-1 text-white font-medium transition-colors duration-300 hover:text-yellow-400
+                      after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-full after:bg-yellow-400
+                      after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
+      <span data-i18n="nav_about">About</span>
+    </a>
+  </li>
+  <li class="nav-item opacity-0 translate-y-2 transition-all duration-500 will-change-transform">
+    <a href="contactus.html" class="nav-link relative px-2 py-1 text-white font-medium transition-colors duration-300 hover:text-yellow-400
+                      after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-full after:bg-yellow-400
+                      after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
+      <span data-i18n="nav_deals">Contact us</span>
+    </a>
+  </li>
+</ul>
+
+
+     <!-- Right: Auth (md+) -->
+<div class="hidden md:flex justify-end items-center gap-3 flex-1">
+ <!-- Language Dropdown Desktop -->
+<div class="relative">
+  <button id="langBtnDesktop"
+          class="flex items-center gap-2 px-4 py-1.5 bg-white text-black rounded-lg font-medium hover:bg-yellow-400 transition"
+          aria-haspopup="true" aria-expanded="false">
+    <span data-i18n="lang_btn">Language</span>
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+    </svg>
+  </button>
+  <div id="langMenuDesktop" class="absolute right-0 mt-2 w-32 rounded-lg bg-white shadow-lg ring-1 ring-black/5 hidden z-50">
+    <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="en">English</a>
+    <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="ar">العربية</a>
+  </div>
+</div>
+
+
+  <a href="register.html"
+  class="inline-block px-4 py-1.5 bg-white text-black rounded-lg font-medium hover:bg-yellow-400 transition"
+  data-i18n="nav_register">
+  Register
+</a>
+  <a href="login.html"
+  class="px-4 py-1.5 border border-white text-white rounded-lg font-medium 
+         hover:bg-yellow-400 hover:text-black transition inline-block text-center"
+  data-i18n="nav_login">
+  Log in
+</a>
+
+</div>
+
+      <!-- Mobile: Hamburger -->
+      <button id="navToggle" class="md:hidden ml-auto inline-flex items-center justify-center p-2 rounded-lg border border-white/40 text-white"
+              aria-label="Open menu" aria-expanded="false">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+<div id="mobileMenu" class="md:hidden hidden">
+  <div class="bg-black/90 border-t border-white/10">
+    <div class="px-4 py-4 space-y-2">
+      <a href="index.html" class="block px-3 py-2 rounded-md text-white/90 hover:bg-white/10" data-i18n="nav_home">Home</a>
+      <a href="plan.html" class="block px-3 py-2 rounded-md text-white/90 hover:bg-white/10" data-i18n="nav_categories">Travel itinerary</a>
+      <a href="about.html" class="block px-3 py-2 rounded-md text-white/90 hover:bg-white/10" data-i18n="nav_about">About</a>
+      <a href="contactus.html" class="block px-3 py-2 rounded-md text-white/90 hover:bg-white/10" data-i18n="nav_deals">Contact us</a>
+
+      <!-- Language Dropdown Mobile -->
+      <div class="relative">
+        <button id="langBtnMobile"
+                class="w-full flex items-center justify-between px-4 py-2 bg-white text-black rounded-lg font-medium hover:bg-yellow-400 transition"
+                aria-haspopup="true" aria-expanded="false">
+          <span data-i18n="lang_btn">Language</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div id="langMenuMobile"
+             class="absolute left-0 right-0 mt-2 rounded-lg bg-white shadow-lg ring-1 ring-black/5 hidden">
+          <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="en">English</a>
+          <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="ar">العربية</a>
+        </div>
+      </div>
+
+      <div class="pt-3 flex items-center gap-2">
+       <a href="register.html"
+  class="flex-1 px-4 py-2 bg-white text-black rounded-lg font-medium hover:bg-yellow-400 hover:text-black transition inline-block text-center"
+  data-i18n="nav_register">
+  Register
+</a>
+       <a href="login.html"
+  class="flex-1 px-4 py-2 border border-white text-white rounded-lg font-medium 
+         hover:bg-yellow-400 hover:text-black transition inline-block text-center"
+  data-i18n="nav_login">
+  Log in
+</a>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+</nav>
+
+<!-- ===== Supermarket Categories Navbar (Scoped) ===== -->
+<div id="supermarketNavbar" class="w-full">
+  <header class="sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-2 md:py-3 flex items-center justify-between bg-transparent">
+      <div class="w-full bg-white/30 backdrop-blur-sm border border-white/20 rounded-2xl px-3 md:px-5 py-2 flex items-center gap-3 md:gap-6 shadow-lg">
+        <!-- Left soft arrow -->
+        <button id="super_scrollLeft" aria-label="Scroll left"
+          class="super_arrow-btn w-9 h-9 md:w-11 md:h-11 flex items-center justify-center rounded-full shadow-sm focus:outline-none focus:ring-4 focus:ring-amber-200/50">
+          <!-- SVG gradient left -->
+          <svg class="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="super_g1" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0%" stop-color="#f59e0b"/>
+                <stop offset="100%" stop-color="#f97316"/>
+              </linearGradient>
+            </defs>
+            <path d="M15 19l-7-7 7-7" stroke="url(#super_g1)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+
+        <!-- Nav viewport -->
+        <div class="relative flex-1 overflow-hidden">
+          <div class="pointer-events-none absolute left-0 top-0 bottom-0 w-12 md:w-20" style="background: linear-gradient(90deg, rgba(255,255,255,0.95), rgba(255,255,255,0.0)); mix-blend-mode: overlay;"></div>
+          <div class="pointer-events-none absolute right-0 top-0 bottom-0 w-12 md:w-20" style="background: linear-gradient(270deg, rgba(255,255,255,0.95), rgba(255,255,255,0.0)); mix-blend-mode: overlay;"></div>
+
+          <nav id="categoriesSlider" role="navigation" aria-label="Supermarket categories"
+            class="flex gap-2 md:gap-4 items-center overflow-x-auto scrollbar-hide px-2 md:px-4 py-1 touch-pan-x"
+            tabindex="0" style="scroll-snap-type: x mandatory; scroll-behavior: smooth;">
+            <!-- each item (you can output these dynamically) -->
+            <a href="#" class="super-nav-item" data-key="fruits">Fruits</a>
+            <a href="#" class="super-nav-item" data-key="vegs">Vegetables</a>
+            <a href="#" class="super-nav-item" data-key="poultry">Fresh Poultry</a>
+            <a href="#" class="super-nav-item" data-key="dairy">Dairy &amp; Eggs</a>
+            <a href="#" class="super-nav-item" data-key="herbs">Herbs</a>
+            <a href="#" class="super-nav-item" data-key="bev">Beverages</a>
+            <a href="#" class="super-nav-item" data-key="clean">Cleaning</a>
+            <a href="#" class="super-nav-item" data-key="elec">Electronics</a>
+            <a href="#" class="super-nav-item" data-key="fit">Fitness</a>
+            <a href="#" class="super-nav-item" data-key="bakery">Bakery</a>
+            <a href="#" class="super-nav-item" data-key="snacks">Snacks</a>
+            <a href="#" class="super-nav-item" data-key="home">Household</a>
+          </nav>
+        </div>
+
+        <!-- Right soft arrow -->
+        <button id="super_scrollRight" aria-label="Scroll right"
+          class="super_arrow-btn w-9 h-9 md:w-11 md:h-11 flex items-center justify-center rounded-full shadow-sm focus:outline-none focus:ring-4 focus:ring-amber-200/50">
+          <svg class="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="super_g2" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0%" stop-color="#f97316"/>
+                <stop offset="100%" stop-color="#f59e0b"/>
+              </linearGradient>
+            </defs>
+            <path d="M9 5l7 7-7 7" stroke="url(#super_g2)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+</div>
+
+
+
+<!-- ===== header ===== -->
+<section class="header-anim">
+  <div class="max-w-full mx-auto px-6 lg:px-12 mt-6">
+    <div class="grid gap-6 lg:grid-cols-6">
+
+      <!-- ===== logo ===== -->
+      <div class="lg:col-span-1 py-4">
+        <div class="flex items-center gap-2 shrink-0 order-1">
+          <img src="img/market-logo1.png"
+               alt="Supermarket Logo"
+               class="h-12 w-auto"
+               data-i18n-attr="alt:brand_alt">
+          <div>
+            <h1 class="text-lg font-bold text-green-600 brand-shine" data-i18n="brand">supermarket</h1>
+            <p class="text-xs text-gray-500" data-i18n="brand_slogan">Slogan Here</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== search bar ===== -->
+      <aside class="lg:col-span-4 bg-white rounded-2xl p-5 space-y-6">
+        <div class="order-2 w-full sm:order-2 sm:flex-1 sm:max-w-md md:max-w-2xl sm:mx-4">
+          <div class="flex items-center border border-gray-300 rounded-full overflow-hidden search-anim">
+            <button class="px-3 text-gray-500 spin-on-hover" aria-label="Filter" data-i18n-attr="aria-label:filter_btn">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+                   viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M4 6h16M4 12h16M4 18h16"/>
+              </svg>
+            </button>
+            <input type="text"
+                   placeholder="Search for product"
+                   class="flex-1 px-3 py-2 outline-none text-sm min-w-0"
+                   data-i18n-attr="placeholder:search_placeholder">
+            <button class="bg-red-600 text-white px-4 py-2 btn-ripple"
+                    aria-label="Search" data-i18n-attr="aria-label:search_btn">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor"
+                   viewBox="0 0 20 20">
+                <path fill-rule="evenodd"
+                      d="M12.9 14.32a8 8 0 111.414-1.414l4.387 4.387a1 1 0 01-1.414 1.414l-4.387-4.387zM14 8a6 6 0 11-12 0 6 6 0 0112 0z"
+                      clip-rule="evenodd" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </aside>
+
+      <!-- ===== icons===== -->
+      <aside class="lg:col-span-1 bg-white rounded-2xl p-5 space-y-6 icons-anim">
+        <div class="max-w-full mx-auto px-4 sm:px-6">
+          <div class="flex items-center justify-center sm:justify-end gap-6 sm:gap-8 py-2 text-sm text-gray-700">
+
+            
+<a href="Supermarket6.html"
+   class="flex flex-col items-center hover:opacity-80 transition relative"
+   data-main-cart>
+  <img src="img/blackcart.png" alt="Cart"
+       class="h-6 w-6 mb-1" data-i18n-attr="alt:cart_alt">
+  <span class="text-xs" data-i18n="cart">Cart</span>
+
+  <!-- عدّاد -->
+  <span data-cart-badge
+        class="hidden absolute top-0 right-0 translate-x-1/2 -translate-y-1/2
+               bg-red-600 text-white text-xs w-5 h-5 flex items-center justify-center
+               rounded-full font-bold transition-transform">0</span>
+</a>
+
+
+
+
+
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- ===== Results Section (Title + Sidebar + Cards in Grid) ===== -->
+<section id="resultsSection">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12">
+
+   <div class="mb-6 mt-10 flex items-center justify-between border border-gray-300 rounded-xl p-4">
+  <!-- Left: Title -->
+  <div class="flex items-center gap-3">
+    <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900" data-i18n="snacks_title">Snacks</h2>
+
+    <!-- شارة النتائج بجانب العنوان -->
+    <span class="inline-flex items-center gap-1 text-sm px-2 py-1 rounded-md bg-gray-100 text-gray-700">
+      <span data-i18n="results_label">Results</span>:
+      <b id="resultsCount">0</b>
+    </span>
+  </div>
+</div>
+
+    <!-- Grid: Sidebar (1/4) + Cards (3/4) -->
+    <div class="grid gap-6 lg:grid-cols-4">
+
+      <!-- ===== Filters Sidebar ===== -->
+      <div class="space-y-6
+            [&_:is(input,select,textarea,button):focus]:outline-none
+            [&_:is(input,select,textarea,button):focus]:ring-0">
+
+
+        <!-- Header -->
+        <div>
+          <h3 class="text-lg font-semibold text-gray-900" data-i18n="filter_by">Filter by</h3>
+        </div>
+
+        <!-- Search small -->
+        <div>
+          <label class="text-sm text-gray-700" data-i18n="search_label">Search for product</label>
+          <div class="mt-2 relative">
+            <input id="fltSearch" type="text"
+                   placeholder="Search..."
+                   data-i18n-attr="placeholder:search_placeholder"
+                   class="w-full rounded-lg border border-gray-300 pl-10 pr-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:border-emerald-600">
+            <svg class="w-4 h-4 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+              <circle cx="11" cy="11" r="7" stroke-width="2"></circle>
+              <path d="M20 20L17 17" stroke-width="2" stroke-linecap="round"></path>
+            </svg>
+          </div>
+        </div>
+
+        <hr class="border-gray-200">
+
+      <!-- By price -->
+<div>
+  <h4 class="font-semibold text-gray-900" data-i18n="by_price">By price</h4>
+  <div class="mt-3 grid grid-cols-2 gap-3">
+    <!-- From -->
+    <div>
+      <label class="block text-sm font-medium text-gray-700 mb-1" data-i18n="price_from">From</label>
+      <div class="relative">
+        <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-xs" data-i18n="currency_sar">SAR</span>
+        <input id="fltPriceFrom" type="number" inputmode="numeric" step="0.01"
+               class="w-full rounded-lg border border-gray-300 pl-12 pr-3 py-2 text-sm
+                      focus:outline-none focus:ring-0 focus:border-emerald-600 appearance-none">
+      </div>
+    </div>
+
+    <!-- To -->
+    <div>
+      <label class="block text-sm font-medium text-gray-700 mb-1" data-i18n="price_to">To</label>
+      <div class="relative">
+        <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-xs" data-i18n="currency_sar">SAR</span>
+        <input id="fltPriceTo" type="number" inputmode="numeric" step="0.01"
+               class="w-full rounded-lg border border-gray-300 pl-12 pr-3 py-2 text-sm
+                      focus:outline-none focus:ring-0 focus:border-emerald-600 appearance-none">
+      </div>
+    </div>
+  </div>
+</div>
+
+        <!-- Product status (chips/toggles) -->
+        <div>
+          <h4 class="font-semibold text-gray-900" data-i18n="product_status">Product status</h4>
+          <div class="mt-3 flex flex-wrap gap-2">
+            <label class="inline-flex items-center gap-2">
+              <input id="fltSale" type="checkbox" class="peer">
+              <span class="px-3 py-1.5 rounded-full text-sm border border-gray-300 text-gray-700 peer-checked:bg-emerald-700 peer-checked:text-white peer-checked:border-teal-700 cursor-pointer" data-i18n="status_sale">On sale</span>
+            </label>
+            <label class="inline-flex items-center gap-2">
+              <input id="fltStock" type="checkbox" class="peer">
+              <span class="px-3 py-1.5 rounded-full text-sm border border-gray-300 text-gray-700 peer-checked:bg-emerald-700 peer-checked:text-white peer-checked:border-teal-700 cursor-pointer" data-i18n="status_stock">In stock</span>
+            </label>
+            <label class="inline-flex items-center gap-2">
+              <input id="fltBest" type="checkbox" class="peer">
+              <span class="px-3 py-1.5 rounded-full text-sm border border-gray-300 text-gray-700 peer-checked:bg-emerald-700 peer-checked:text-white peer-checked:border-teal-700 cursor-pointer" data-i18n="status_best">Best seller</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Category -->
+        <div>
+          <h4 class="font-semibold text-gray-900" data-i18n="category">Category</h4>
+          <ul id="fltCats" class="mt-3 space-y-2 text-sm">
+            <li class="flex items-center gap-2">
+              <input type="checkbox" value="dairy"   class="h-4 w-4 accent-emerald-700 rounded-sm border-gray-300">
+              <span data-i18n="cat_dairy">Dairy & Eggs</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <input type="checkbox" value="drinks"  class="h-4 w-4 accent-emerald-700 rounded-sm border-gray-300">
+              <span data-i18n="cat_drinks">Drinks</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <input type="checkbox" value="meat"    class="h-4 w-4 accent-emerald-700 rounded-sm border-gray-300">
+              <span data-i18n="cat_meat">Meat & Poultry</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <input type="checkbox" value="frozen"  class="h-4 w-4 accent-emerald-700 rounded-sm border-gray-300">
+              <span data-i18n="cat_frozen">Frozen</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <input type="checkbox" value="bakery"  class="h-4 w-4 accent-emerald-700 rounded-sm border-gray-300">
+              <span data-i18n="cat_bakery">Bakery</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <input type="checkbox" value="cleaning" class="h-4 w-4 accent-emerald-700 rounded-sm border-gray-300">
+              <span data-i18n="cat_cleaning">Cleaning</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Store list -->
+        <div>
+          <h4 class="font-semibold text-gray-900" data-i18n="store">Store</h4>
+          <ul id="fltStores" class="mt-3 max-h-44 overflow-auto pr-1 space-y-2 text-sm">
+            <li class="flex items-center gap-2">
+              <input type="checkbox" value="store_1" class="h-4 w-4 accent-emerald-700 rounded-sm border-gray-300">
+              <span data-i18n="store_1">Store name 1</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <input type="checkbox" value="store_2" class="h-4 w-4 accent-emerald-700 rounded-sm border-gray-300">
+              <span data-i18n="store_2">Store name 2</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <input type="checkbox" value="store_3" class="h-4 w-4 accent-emerald-700 rounded-sm border-gray-300">
+              <span data-i18n="store_3">Store name 3</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <input type="checkbox" value="store_4" class="h-4 w-4 accent-emerald-700 rounded-sm border-gray-300">
+              <span data-i18n="store_4">Store name 4</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <input type="checkbox" value="store_5" class="h-4 w-4 accent-emerald-700 rounded-sm border-gray-300">
+              <span data-i18n="store_5">Store name 5</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Actions -->
+        <div class="flex gap-3 pt-2">
+          <button id="btnApply" class="flex-1 py-2 rounded-lg bg-teal-700 hover:bg-teal-800 text-white text-sm font-semibold" data-i18n="btn_apply">Apply</button>
+          <button id="btnReset" class="px-4 py-2 rounded-lg border border-gray-300 text-gray-700 text-sm hover:bg-gray-50" data-i18n="btn_reset">Reset</button>
+        </div>
+
+      </div>
+
+      <!-- ===== Cards (¾ width on lg+) ===== -->
+      <div class="lg:col-span-3">
+        <div id="productsGrid" class="grid sm:grid-cols-2 xl:grid-cols-3 gap-6">
+
+          <!--data-attributes  -->
+          <a href="supermarket5.html"
+             class="block bg-white rounded-xl border border-gray-200 p-4 pt-6 hover:shadow-xl transition group relative"
+             data-name="Spirali Macaroni" data-price="7.9" data-category="bakery" data-store="store_1" data-flags="sale,stock">
+            <img src="img/heart (4).png" alt="Favorite" data-i18n-attr="alt:favorite_alt"
+                 class="absolute top-3 right-3 w-6 h-6 md:w-7 md:h-7 cursor-pointer group-hover:scale-110 transition">
+            <div class="flex justify-center mb-3">
+              <div class="w-28 h-28 md:w-32 md:h-32 flex items-center justify-center">
+                <img src="img/chilli.png" alt="Product Image" data-i18n-attr="alt:product_img_alt"
+                     class="max-h-full max-w-full object-contain transition group-hover:scale-105">
+              </div>
+            </div>
+            <h3 class="text-sm md:text-base text-center mb-2 font-semibold text-gray-800" data-i18n="prod_spirali">Spirali Macaroni</h3>
+            <div class="flex justify-center items-center gap-2 mb-1">
+              <span class="text-lg md:text-xl font-bold text-red-700">7.90</span>
+              <img src="img/currancy logo red.png" alt="Saudi Riyal" class="h-4 w-4 inline"/>
+              <span class="line-through text-xs md:text-sm text-gray-400">12.9</span>
+              <img src="img/currancy logo.png" alt="Saudi Riyal" class="h-4 w-4 inline"/>
+            </div>
+            <p class="text-center text-green-600 text-xs md:text-sm mb-3" data-i18n="discount_40">خصم 40%</p>
+            <div class="flex justify-center">
+              <button type="button" data-add-to-cart
+        class="w-14 h-14 md:w-16 md:h-16 grid place-items-center cursor-pointer drop-shadow-lg"
+        aria-label="Add to cart">
+  <img src="img/cart.png" alt="" class="max-w-full max-h-full pointer-events-none">
+</button>
+
+
+            </div>
+          </a>
+
+         <a href="supermarket5.html"
+             class="block bg-white rounded-xl border border-gray-200 p-4 pt-6 hover:shadow-xl transition group relative"
+             data-name="Spirali Macaroni" data-price="7.9" data-category="bakery" data-store="store_1" data-flags="sale,stock">
+            <img src="img/heart (4).png" alt="Favorite" data-i18n-attr="alt:favorite_alt"
+                 class="absolute top-3 right-3 w-6 h-6 md:w-7 md:h-7 cursor-pointer group-hover:scale-110 transition">
+            <div class="flex justify-center mb-3">
+              <div class="w-28 h-28 md:w-32 md:h-32 flex items-center justify-center">
+                <img src="img/broccele.png" alt="Product Image" data-i18n-attr="alt:product_img_alt"
+                     class="max-h-full max-w-full object-contain transition group-hover:scale-105">
+              </div>
+            </div>
+            <h3 class="text-sm md:text-base text-center mb-2 font-semibold text-gray-800" data-i18n="prod_spirali">Spirali Macaroni</h3>
+            <div class="flex justify-center items-center gap-2 mb-1">
+              <span class="text-lg md:text-xl font-bold text-red-700">7.90</span>
+              <img src="img/currancy logo red.png" alt="Saudi Riyal" class="h-4 w-4 inline"/>
+              <span class="line-through text-xs md:text-sm text-gray-400">12.9</span>
+              <img src="img/currancy logo.png" alt="Saudi Riyal" class="h-4 w-4 inline"/>
+            </div>
+            <p class="text-center text-green-600 text-xs md:text-sm mb-3" data-i18n="discount_40">خصم 40%</p>
+            <div class="flex justify-center">
+              <button type="button" data-add-to-cart
+        class="w-14 h-14 md:w-16 md:h-16 grid place-items-center cursor-pointer drop-shadow-lg"
+        aria-label="Add to cart">
+  <img src="img/cart.png" alt="" class="max-w-full max-h-full pointer-events-none">
+</button>
+
+
+            </div>
+          </a>
+
+         <a href="supermarket5.html"
+             class="block bg-white rounded-xl border border-gray-200 p-4 pt-6 hover:shadow-xl transition group relative"
+             data-name="Spirali Macaroni" data-price="7.9" data-category="bakery" data-store="store_1" data-flags="sale,stock">
+            <img src="img/heart (4).png" alt="Favorite" data-i18n-attr="alt:favorite_alt"
+                 class="absolute top-3 right-3 w-6 h-6 md:w-7 md:h-7 cursor-pointer group-hover:scale-110 transition">
+            <div class="flex justify-center mb-3">
+              <div class="w-28 h-28 md:w-32 md:h-32 flex items-center justify-center">
+                <img src="img/egg.png" alt="Product Image" data-i18n-attr="alt:product_img_alt"
+                     class="max-h-full max-w-full object-contain transition group-hover:scale-105">
+              </div>
+            </div>
+            <h3 class="text-sm md:text-base text-center mb-2 font-semibold text-gray-800" data-i18n="prod_spirali">Spirali Macaroni</h3>
+            <div class="flex justify-center items-center gap-2 mb-1">
+              <span class="text-lg md:text-xl font-bold text-red-700">7.90</span>
+              <img src="img/currancy logo red.png" alt="Saudi Riyal" class="h-4 w-4 inline"/>
+              <span class="line-through text-xs md:text-sm text-gray-400">12.9</span>
+              <img src="img/currancy logo.png" alt="Saudi Riyal" class="h-4 w-4 inline"/>
+            </div>
+            <p class="text-center text-green-600 text-xs md:text-sm mb-3" data-i18n="discount_40">خصم 40%</p>
+            <div class="flex justify-center">
+             <button type="button" data-add-to-cart
+        class="w-14 h-14 md:w-16 md:h-16 grid place-items-center cursor-pointer drop-shadow-lg"
+        aria-label="Add to cart">
+  <img src="img/cart.png" alt="" class="max-w-full max-h-full pointer-events-none">
+</button>
+
+
+            </div>
+          </a>
+          <!--data-attributes  -->
+          <a href="supermarket5.html"
+             class="block bg-white rounded-xl border border-gray-200 p-4 pt-6 hover:shadow-xl transition group relative"
+             data-name="Spirali Macaroni" data-price="7.9" data-category="bakery" data-store="store_1" data-flags="sale,stock">
+            <img src="img/heart (4).png" alt="Favorite" data-i18n-attr="alt:favorite_alt"
+                 class="absolute top-3 right-3 w-6 h-6 md:w-7 md:h-7 cursor-pointer group-hover:scale-110 transition">
+            <div class="flex justify-center mb-3">
+              <div class="w-28 h-28 md:w-32 md:h-32 flex items-center justify-center">
+                <img src="img/applefruit.png" alt="Product Image" data-i18n-attr="alt:product_img_alt"
+                     class="max-h-full max-w-full object-contain transition group-hover:scale-105">
+              </div>
+            </div>
+            <h3 class="text-sm md:text-base text-center mb-2 font-semibold text-gray-800" data-i18n="prod_spirali">Spirali Macaroni</h3>
+            <div class="flex justify-center items-center gap-2 mb-1">
+              <span class="text-lg md:text-xl font-bold text-red-700">7.90</span>
+              <img src="img/currancy logo red.png" alt="Saudi Riyal" class="h-4 w-4 inline"/>
+              <span class="line-through text-xs md:text-sm text-gray-400">12.9</span>
+              <img src="img/currancy logo.png" alt="Saudi Riyal" class="h-4 w-4 inline"/>
+            </div>
+            <p class="text-center text-green-600 text-xs md:text-sm mb-3" data-i18n="discount_40">خصم 40%</p>
+            <div class="flex justify-center">
+              <button type="button" data-add-to-cart
+        class="w-14 h-14 md:w-16 md:h-16 grid place-items-center cursor-pointer drop-shadow-lg"
+        aria-label="Add to cart">
+  <img src="img/cart.png" alt="" class="max-w-full max-h-full pointer-events-none">
+</button>
+
+
+            </div>
+          </a>
+
+           <a href="supermarket5.html"
+             class="block bg-white rounded-xl border border-gray-200 p-4 pt-6 hover:shadow-xl transition group relative"
+             data-name="Spirali Macaroni" data-price="7.9" data-category="bakery" data-store="store_1" data-flags="sale,stock">
+            <img src="img/heart (4).png" alt="Favorite" data-i18n-attr="alt:favorite_alt"
+                 class="absolute top-3 right-3 w-6 h-6 md:w-7 md:h-7 cursor-pointer group-hover:scale-110 transition">
+            <div class="flex justify-center mb-3">
+              <div class="w-28 h-28 md:w-32 md:h-32 flex items-center justify-center">
+                <img src="img/watermelon.png" alt="Product Image" data-i18n-attr="alt:product_img_alt"
+                     class="max-h-full max-w-full object-contain transition group-hover:scale-105">
+              </div>
+            </div>
+            <h3 class="text-sm md:text-base text-center mb-2 font-semibold text-gray-800" data-i18n="prod_spirali">Spirali Macaroni</h3>
+            <div class="flex justify-center items-center gap-2 mb-1">
+              <span class="text-lg md:text-xl font-bold text-red-700">7.90</span>
+              <img src="img/currancy logo red.png" alt="Saudi Riyal" class="h-4 w-4 inline"/>
+              <span class="line-through text-xs md:text-sm text-gray-400">12.9</span>
+              <img src="img/currancy logo.png" alt="Saudi Riyal" class="h-4 w-4 inline"/>
+            </div>
+            <p class="text-center text-green-600 text-xs md:text-sm mb-3" data-i18n="discount_40">خصم 40%</p>
+            <div class="flex justify-center">
+              <button type="button" data-add-to-cart
+        class="w-14 h-14 md:w-16 md:h-16 grid place-items-center cursor-pointer drop-shadow-lg"
+        aria-label="Add to cart">
+  <img src="img/cart.png" alt="" class="max-w-full max-h-full pointer-events-none">
+</button>
+
+
+            </div>
+          </a>
+
+          <a href="supermarket5.html"
+             class="block bg-white rounded-xl border border-gray-200 p-4 pt-6 hover:shadow-xl transition group relative"
+             data-name="Spirali Macaroni" data-price="7.9" data-category="bakery" data-store="store_1" data-flags="sale,stock">
+            <img src="img/heart (4).png" alt="Favorite" data-i18n-attr="alt:favorite_alt"
+                 class="absolute top-3 right-3 w-6 h-6 md:w-7 md:h-7 cursor-pointer group-hover:scale-110 transition">
+            <div class="flex justify-center mb-3">
+              <div class="w-28 h-28 md:w-32 md:h-32 flex items-center justify-center">
+                <img src="img/Cabbage.png" alt="Product Image" data-i18n-attr="alt:product_img_alt"
+                     class="max-h-full max-w-full object-contain transition group-hover:scale-105">
+              </div>
+            </div>
+            <h3 class="text-sm md:text-base text-center mb-2 font-semibold text-gray-800" data-i18n="prod_spirali">Spirali Macaroni</h3>
+            <div class="flex justify-center items-center gap-2 mb-1">
+              <span class="text-lg md:text-xl font-bold text-red-700">7.90</span>
+              <img src="img/currancy logo red.png" alt="Saudi Riyal" class="h-4 w-4 inline"/>
+              <span class="line-through text-xs md:text-sm text-gray-400">12.9</span>
+              <img src="img/currancy logo.png" alt="Saudi Riyal" class="h-4 w-4 inline"/>
+            </div>
+            <p class="text-center text-green-600 text-xs md:text-sm mb-3" data-i18n="discount_40">خصم 40%</p>
+            <div class="flex justify-center">
+              <button type="button" data-add-to-cart
+        class="w-14 h-14 md:w-16 md:h-16 grid place-items-center cursor-pointer drop-shadow-lg"
+        aria-label="Add to cart">
+  <img src="img/cart.png" alt="" class="max-w-full max-h-full pointer-events-none">
+</button>
+
+
+            </div>
+          </a>
+          <!--data-attributes  -->
+          <a href="supermarket5.html"
+             class="block bg-white rounded-xl border border-gray-200 p-4 pt-6 hover:shadow-xl transition group relative"
+             data-name="Spirali Macaroni" data-price="7.9" data-category="bakery" data-store="store_1" data-flags="sale,stock">
+            <img src="img/heart (4).png" alt="Favorite" data-i18n-attr="alt:favorite_alt"
+                 class="absolute top-3 right-3 w-6 h-6 md:w-7 md:h-7 cursor-pointer group-hover:scale-110 transition">
+            <div class="flex justify-center mb-3">
+              <div class="w-28 h-28 md:w-32 md:h-32 flex items-center justify-center">
+                <img src="img/chilli.png" alt="Product Image" data-i18n-attr="alt:product_img_alt"
+                     class="max-h-full max-w-full object-contain transition group-hover:scale-105">
+              </div>
+            </div>
+            <h3 class="text-sm md:text-base text-center mb-2 font-semibold text-gray-800" data-i18n="prod_spirali">Spirali Macaroni</h3>
+            <div class="flex justify-center items-center gap-2 mb-1">
+              <span class="text-lg md:text-xl font-bold text-red-700">7.90</span>
+              <img src="img/currancy logo red.png" alt="Saudi Riyal" class="h-4 w-4 inline"/>
+              <span class="line-through text-xs md:text-sm text-gray-400">12.9</span>
+              <img src="img/currancy logo.png" alt="Saudi Riyal" class="h-4 w-4 inline"/>
+            </div>
+            <p class="text-center text-green-600 text-xs md:text-sm mb-3" data-i18n="discount_40">خصم 40%</p>
+            <div class="flex justify-center">
+            <button type="button" data-add-to-cart
+        class="w-14 h-14 md:w-16 md:h-16 grid place-items-center cursor-pointer drop-shadow-lg"
+        aria-label="Add to cart">
+  <img src="img/cart.png" alt="" class="max-w-full max-h-full pointer-events-none">
+</button>
+
+            </div>
+          </a>
+
+         <a href="supermarket5.html"
+             class="block bg-white rounded-xl border border-gray-200 p-4 pt-6 hover:shadow-xl transition group relative"
+             data-name="Spirali Macaroni" data-price="7.9" data-category="bakery" data-store="store_1" data-flags="sale,stock">
+            <img src="img/heart (4).png" alt="Favorite" data-i18n-attr="alt:favorite_alt"
+                 class="absolute top-3 right-3 w-6 h-6 md:w-7 md:h-7 cursor-pointer group-hover:scale-110 transition">
+            <div class="flex justify-center mb-3">
+              <div class="w-28 h-28 md:w-32 md:h-32 flex items-center justify-center">
+                <img src="img/broccele.png" alt="Product Image" data-i18n-attr="alt:product_img_alt"
+                     class="max-h-full max-w-full object-contain transition group-hover:scale-105">
+              </div>
+            </div>
+            <h3 class="text-sm md:text-base text-center mb-2 font-semibold text-gray-800" data-i18n="prod_spirali">Spirali Macaroni</h3>
+            <div class="flex justify-center items-center gap-2 mb-1">
+              <span class="text-lg md:text-xl font-bold text-red-700">7.90</span>
+              <img src="img/currancy logo red.png" alt="Saudi Riyal" class="h-4 w-4 inline"/>
+              <span class="line-through text-xs md:text-sm text-gray-400">12.9</span>
+              <img src="img/currancy logo.png" alt="Saudi Riyal" class="h-4 w-4 inline"/>
+            </div>
+            <p class="text-center text-green-600 text-xs md:text-sm mb-3" data-i18n="discount_40">خصم 40%</p>
+            <div class="flex justify-center">
+             <button type="button" data-add-to-cart
+        class="w-14 h-14 md:w-16 md:h-16 grid place-items-center cursor-pointer drop-shadow-lg"
+        aria-label="Add to cart">
+  <img src="img/cart.png" alt="" class="max-w-full max-h-full pointer-events-none">
+</button>
+
+
+            </div>
+          </a>
+
+         <a href="supermarket5.html"
+             class="block bg-white rounded-xl border border-gray-200 p-4 pt-6 hover:shadow-xl transition group relative"
+             data-name="Spirali Macaroni" data-price="7.9" data-category="bakery" data-store="store_1" data-flags="sale,stock">
+            <img src="img/heart (4).png" alt="Favorite" data-i18n-attr="alt:favorite_alt"
+                 class="absolute top-3 right-3 w-6 h-6 md:w-7 md:h-7 cursor-pointer group-hover:scale-110 transition">
+            <div class="flex justify-center mb-3">
+              <div class="w-28 h-28 md:w-32 md:h-32 flex items-center justify-center">
+                <img src="img/egg.png" alt="Product Image" data-i18n-attr="alt:product_img_alt"
+                     class="max-h-full max-w-full object-contain transition group-hover:scale-105">
+              </div>
+            </div>
+            <h3 class="text-sm md:text-base text-center mb-2 font-semibold text-gray-800" data-i18n="prod_spirali">Spirali Macaroni</h3>
+            <div class="flex justify-center items-center gap-2 mb-1">
+              <span class="text-lg md:text-xl font-bold text-red-700">7.90</span>
+              <img src="img/currancy logo red.png" alt="Saudi Riyal" class="h-4 w-4 inline"/>
+              <span class="line-through text-xs md:text-sm text-gray-400">12.9</span>
+              <img src="img/currancy logo.png" alt="Saudi Riyal" class="h-4 w-4 inline"/>
+            </div>
+            <p class="text-center text-green-600 text-xs md:text-sm mb-3" data-i18n="discount_40">خصم 40%</p>
+            <div class="flex justify-center">
+              <button type="button" data-add-to-cart
+        class="w-14 h-14 md:w-16 md:h-16 grid place-items-center cursor-pointer drop-shadow-lg"
+        aria-label="Add to cart">
+  <img src="img/cart.png" alt="" class="max-w-full max-h-full pointer-events-none">
+</button>
+
+            </div>
+          </a>
+          <!--data-attributes  -->
+          <a href="supermarket5.html"
+             class="block bg-white rounded-xl border border-gray-200 p-4 pt-6 hover:shadow-xl transition group relative"
+             data-name="Spirali Macaroni" data-price="7.9" data-category="bakery" data-store="store_1" data-flags="sale,stock">
+            <img src="img/heart (4).png" alt="Favorite" data-i18n-attr="alt:favorite_alt"
+                 class="absolute top-3 right-3 w-6 h-6 md:w-7 md:h-7 cursor-pointer group-hover:scale-110 transition">
+            <div class="flex justify-center mb-3">
+              <div class="w-28 h-28 md:w-32 md:h-32 flex items-center justify-center">
+                <img src="img/applefruit.png" alt="Product Image" data-i18n-attr="alt:product_img_alt"
+                     class="max-h-full max-w-full object-contain transition group-hover:scale-105">
+              </div>
+            </div>
+            <h3 class="text-sm md:text-base text-center mb-2 font-semibold text-gray-800" data-i18n="prod_spirali">Spirali Macaroni</h3>
+            <div class="flex justify-center items-center gap-2 mb-1">
+              <span class="text-lg md:text-xl font-bold text-red-700">7.90</span>
+              <img src="img/currancy logo red.png" alt="Saudi Riyal" class="h-4 w-4 inline"/>
+              <span class="line-through text-xs md:text-sm text-gray-400">12.9</span>
+              <img src="img/currancy logo.png" alt="Saudi Riyal" class="h-4 w-4 inline"/>
+            </div>
+            <p class="text-center text-green-600 text-xs md:text-sm mb-3" data-i18n="discount_40">خصم 40%</p>
+            <div class="flex justify-center">
+              <button type="button" data-add-to-cart
+        class="w-14 h-14 md:w-16 md:h-16 grid place-items-center cursor-pointer drop-shadow-lg"
+        aria-label="Add to cart">
+  <img src="img/cart.png" alt="" class="max-w-full max-h-full pointer-events-none">
+</button>
+
+            </div>
+          </a>
+
+           <a href="supermarket5.html"
+             class="block bg-white rounded-xl border border-gray-200 p-4 pt-6 hover:shadow-xl transition group relative"
+             data-name="Spirali Macaroni" data-price="7.9" data-category="bakery" data-store="store_1" data-flags="sale,stock">
+            <img src="img/heart (4).png" alt="Favorite" data-i18n-attr="alt:favorite_alt"
+                 class="absolute top-3 right-3 w-6 h-6 md:w-7 md:h-7 cursor-pointer group-hover:scale-110 transition">
+            <div class="flex justify-center mb-3">
+              <div class="w-28 h-28 md:w-32 md:h-32 flex items-center justify-center">
+                <img src="img/watermelon.png" alt="Product Image" data-i18n-attr="alt:product_img_alt"
+                     class="max-h-full max-w-full object-contain transition group-hover:scale-105">
+              </div>
+            </div>
+            <h3 class="text-sm md:text-base text-center mb-2 font-semibold text-gray-800" data-i18n="prod_spirali">Spirali Macaroni</h3>
+            <div class="flex justify-center items-center gap-2 mb-1">
+              <span class="text-lg md:text-xl font-bold text-red-700">7.90</span>
+              <img src="img/currancy logo red.png" alt="Saudi Riyal" class="h-4 w-4 inline"/>
+              <span class="line-through text-xs md:text-sm text-gray-400">12.9</span>
+              <img src="img/currancy logo.png" alt="Saudi Riyal" class="h-4 w-4 inline"/>
+            </div>
+            <p class="text-center text-green-600 text-xs md:text-sm mb-3" data-i18n="discount_40">خصم 40%</p>
+            <div class="flex justify-center">
+             <button type="button" data-add-to-cart
+        class="w-14 h-14 md:w-16 md:h-16 grid place-items-center cursor-pointer drop-shadow-lg"
+        aria-label="Add to cart">
+  <img src="img/cart.png" alt="" class="max-w-full max-h-full pointer-events-none">
+</button>
+
+
+            </div>
+          </a>
+
+          <a href="supermarket5.html"
+             class="block bg-white rounded-xl border border-gray-200 p-4 pt-6 hover:shadow-xl transition group relative"
+             data-name="Spirali Macaroni" data-price="7.9" data-category="bakery" data-store="store_1" data-flags="sale,stock">
+            <img src="img/heart (4).png" alt="Favorite" data-i18n-attr="alt:favorite_alt"
+                 class="absolute top-3 right-3 w-6 h-6 md:w-7 md:h-7 cursor-pointer group-hover:scale-110 transition">
+            <div class="flex justify-center mb-3">
+              <div class="w-28 h-28 md:w-32 md:h-32 flex items-center justify-center">
+                <img src="img/Cabbage.png" alt="Product Image" data-i18n-attr="alt:product_img_alt"
+                     class="max-h-full max-w-full object-contain transition group-hover:scale-105">
+              </div>
+            </div>
+            <h3 class="text-sm md:text-base text-center mb-2 font-semibold text-gray-800" data-i18n="prod_spirali">Spirali Macaroni</h3>
+            <div class="flex justify-center items-center gap-2 mb-1">
+              <span class="text-lg md:text-xl font-bold text-red-700">7.90</span>
+              <img src="img/currancy logo red.png" alt="Saudi Riyal" class="h-4 w-4 inline"/>
+              <span class="line-through text-xs md:text-sm text-gray-400">12.9</span>
+              <img src="img/currancy logo.png" alt="Saudi Riyal" class="h-4 w-4 inline"/>
+            </div>
+            <p class="text-center text-green-600 text-xs md:text-sm mb-3" data-i18n="discount_40">خصم 40%</p>
+            <div class="flex justify-center">
+              <button type="button" data-add-to-cart
+        class="w-14 h-14 md:w-16 md:h-16 grid place-items-center cursor-pointer drop-shadow-lg"
+        aria-label="Add to cart">
+  <img src="img/cart.png" alt="" class="max-w-full max-h-full pointer-events-none">
+</button>
+
+
+            </div>
+          </a>
+
+        </div>
+
+        <!-- ===== Pagination ===== -->
+        <div class="mt-10  mb-10 flex justify-end [dir='rtl']:justify-end">
+          <nav class="flex items-center gap-2">
+            <a href="#prev" class="px-4 py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-100" data-i18n=" pg_prev">Previous</a>
+            <a href="supermarket3.html" class="px-3 py-2 rounded-lg bg-teal-700 text-white font-semibold">1</a>
+            <a href="supermarket3.html" class="px-3 py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-100">2</a>
+            <a href="supermarket3.html" class="px-3 py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-100">3</a>
+            <span class="px-3 py-2 text-gray-500" data-i18n="pagination_ellipsis">...</span>
+            <a href="supermarket3.html" class="px-3 py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-100">8</a>
+            <a href="supermarket3.html" class="px-4 py-2 rounded-lg bg-teal-700 text-white hover:bg-teal-800 font-semibold" data-i18n="pg_next">Next</a>
+          </nav>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<a
+  href="https://wa.me/201234567890"
+  class="fixed bottom-5 right-4 w-12 h-12 rounded-full bg-green-500 text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform z-50"
+  target="_blank"
+  aria-label="Chat on WhatsApp"
+>
+  <i class="fab fa-whatsapp text-2xl"></i>
+</a>
+
+
+<footer class="relative overflow-hidden bg-teal-700 text-white px-6 py-16 min-h-[600px]">
+  <div class="pointer-events-none absolute inset-0">
+    <div class="absolute -top-28 -left-24 w-[34rem] h-[34rem] rounded-full bg-emerald-100/35 blur-3xl"></div>
+    <div class="absolute -bottom-24 -right-24 w-[30rem] h-[30rem] rounded-full bg-amber-100/40 blur-3xl"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(16,185,129,.07),transparent_60%)]"></div>
+  </div>
+
+  <div class="relative max-w-6xl mx-auto px-4 lg:px-6">
+    <!-- المحتوى -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-center sm:text-start">
+      <!-- Logo / Brand -->
+      <div class="footer-brand-wrap flex flex-col items-center sm:items-start" data-reveal="left">
+        <div class="h-20 w-20 rounded-full bg-black grid place-items-center mb-3">
+          <img src="img/logo as a mask.png" alt="Siyahatna logo"
+               data-i18n-attr="alt:footer_logo_alt" class="h-20 w-20">
+        </div>
+        <span class="footer-brand text-3xl font-extrabold tracking-widest text-white hover:drop-shadow-[0_0_12px_rgba(250,204,21,0.45)]" data-i18n="brand_aria">
+          Siyahatna
+        </span>
+      </div>
+
+      <!-- Pages -->
+      <div data-reveal="right">
+        <h4 class="mb-4 text-base font-bold">
+          <a href="#" class="ink-underline hover:text-yellow-400" data-i18n="footer_categories">All Categories</a>
+        </h4>
+        <ul class="space-y-2">
+          <li><a data-i18n="footer_restaurants" class="font-bold ink-underline hover:text-yellow-400" href="Allrestaurants.html">Restaurants</a></li>
+          <li><a data-i18n="footer_cafe" class="font-bold ink-underline hover:text-yellow-400" href="Allrestaurants.html">Cafe</a></li>
+          <li><a data-i18n="footer_supermarkets" class="font-bold ink-underline hover:text-yellow-400" href="supermarket1.html">Supermarket</a></li>
+          <li><a data-i18n="footer_hotels" class="font-bold ink-underline hover:text-yellow-400" href="hotel-1.html">Hotels</a></li>
+          <li><a data-i18n="footer_parks" class="font-bold ink-underline hover:text-yellow-400" href="parks1.html">Parks</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div data-reveal="left">
+        <h4 class="mb-4 text-base font-bold">
+          <a href="#" class="ink-underline hover:text-yellow-400" data-i18n="footer_contact">Contact</a>
+        </h4>
+        <ul class="space-y-2">
+          <li>
+            <a href="mailto:Support123@gmail.com" class="font-bold ink-underline hover:text-yellow-400" data-i18n="footer_email">
+              <bdi>Email: Support123@gmail.com</bdi>
+            </a>
+          </li>
+          <li>
+            <a href="tel:12345678" class="font-bold ink-underline hover:text-yellow-400" data-i18n="footer_phone1">
+              <bdi>Phone 1: 12345678</bdi>
+            </a>
+          </li>
+          <li>
+            <a href="tel:3455765433345" class="font-bold ink-underline hover:text-yellow-400" data-i18n="footer_phone2">
+              <bdi>Phone 2: 3455765433345</bdi>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Policies -->
+      <div data-reveal="right">
+        <h4 class="mb-4 text-base font-bold">
+          <a href="#" class="ink-underline hover:text-yellow-400" data-i18n="footer_policies">Policies</a>
+        </h4>
+        <ul class="space-y-2">
+          <li><a data-i18n="footer_guidelines" class="font-bold ink-underline hover:text-yellow-400" href="#">Community Guidelines</a></li>
+          <li><a data-i18n="footer_terms" class="font-bold ink-underline hover:text-yellow-400" href="#">Terms of Use</a></li>
+          <li><a data-i18n="footer_privacy" class="font-bold ink-underline hover:text-yellow-400" href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Download app -->
+    <!-- Download app -->
+<div class="mt-12 text-center" data-reveal="left">
+  <h4 class="mb-2 text-base font-bold text-center">
+    <a href="#" class="ink-underline hover:text-yellow-400 inline-block" data-i18n="footer_download">
+      Download Our App
+    </a>
+  </h4>
+
+  <p data-i18n="footer_download_desc" class="text-white/70 text-sm mb-4 font-bold">
+    Get the Latest Version of our Apps
+  </p>
+
+  <div class="flex justify-center gap-4">
+    <a href="#" class="ink-underline">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+           alt="Google Play" class="h-10" data-i18n-attr="alt:footer_google_alt">
+    </a>
+    <a href="#" class="ink-underline">
+      <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83"
+           alt="App Store" class="h-10" data-i18n-attr="alt:footer_apple_alt">
+    </a>
+  </div>
+</div>
+
+
+    <!-- Divider -->
+    <div class="mt-12 mb-3 border-t border-white/10" data-reveal="right"></div>
+
+    <!-- حقوق النشر -->
+ <div class="pt-4 w-full text-center sm:text-center text-sm text-white/60 font-bold" data-reveal="right" data-i18n="footer_rights">
+  © 2025 Siyahatna. All rights reserved.
+</div>
+
+
+  </div>
+</footer>
+
+
+</script>
+<script src="translation.js"></script>
+<script src="supermarket3main.js"></script>
+ 
+  
+</body>
+</html>

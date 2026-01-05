@@ -1,0 +1,822 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n="account.page_title">My Account</title>
+    <link href="./src/output.css" rel="stylesheet" />
+    <link href="login-register.css" rel="stylesheet" />
+    <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+</head>
+
+<body class="min-h-screen bg-gray-100 text-gray-800">
+
+     <!-- ===== Full Background Image ===== -->
+  <div class="fixed inset-0 -z-10">
+    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80"
+         alt="Travel Background"
+         class="w-full h-full object-cover animate-pulse">
+    <div class="absolute inset-0 bg-white/70 backdrop-blur-sm"></div>
+  </div>
+
+
+    <!-- Navbar (Responsive) -->
+<nav class="  w-full z-50 bg-teal-700">
+  <div class="mx-auto max-w-8xl px-4">
+    <div class="flex items-center h-16">
+<!-- Left: Logo + My Account Icon -->
+<div class="flex items-center gap-4 flex-1">
+  <!-- Logo (صورة فقط بدون رابط) -->
+  <img src="img/logo as a mask.png" alt="Siyahatna logo"
+       class="w-10 h-10 rounded-full"
+       data-i18n-attr="alt:brand_alt">
+         <span class="text-white text-xl font-bold" data-i18n="brand_aria">Siyahatna</span>
+
+  <!-- My Account Icon -->
+  <a href="account.html" class="text-white p-2 rounded-full hover:bg-white/20 transition-colors">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M5.121 17.804A12.035 12.035 0 0112 15c2.636 0 5.088.85 7.121 2.804M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+    </svg>
+  </a>
+</div>
+      <!-- centered links -->
+     <ul class="hidden md:flex items-center justify-center gap-8 border-t border-b border-white/40 py-1 flex-1">
+  <li class="nav-item opacity-0 translate-y-2 transition-all duration-500 will-change-transform">
+    <a href="index.html" class="nav-link relative px-2 py-1 text-white font-medium transition-colors duration-300 hover:text-yellow-400
+                      after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-full after:bg-yellow-400
+                      after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
+      <span data-i18n="nav_home">Home</span>
+    </a>
+  </li>
+  <li class="nav-item opacity-0 translate-y-2 transition-all duration-500 will-change-transform">
+    <a href="plan.html" class="nav-link relative px-2 py-1 text-white font-medium transition-colors duration-300 hover:text-yellow-400
+                      after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-full after:bg-yellow-400
+                      after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
+      <span data-i18n="nav_categories">Travel itinerary</span>
+    </a>
+  </li>
+  <li class="nav-item opacity-0 translate-y-2 transition-all duration-500 will-change-transform">
+    <a href="about.html" class="nav-link relative px-2 py-1 text-white font-medium transition-colors duration-300 hover:text-yellow-400
+                      after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-full after:bg-yellow-400
+                      after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
+      <span data-i18n="nav_about">About</span>
+    </a>
+  </li>
+  <li class="nav-item opacity-0 translate-y-2 transition-all duration-500 will-change-transform">
+    <a href="contactus.html" class="nav-link relative px-2 py-1 text-white font-medium transition-colors duration-300 hover:text-yellow-400
+                      after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-full after:bg-yellow-400
+                      after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
+      <span data-i18n="nav_deals">Contact us</span>
+    </a>
+  </li>
+</ul>
+
+
+     <!-- Right: Auth (md+) -->
+<div class="hidden md:flex justify-end items-center gap-3 flex-1">
+ <!-- Language Dropdown Desktop -->
+<div class="relative">
+  <button id="langBtnDesktop"
+          class="flex items-center gap-2 px-4 py-1.5 bg-white text-black rounded-lg font-medium hover:bg-yellow-400 transition"
+          aria-haspopup="true" aria-expanded="false">
+    <span data-i18n="lang_btn">Language</span>
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+    </svg>
+  </button>
+  <div id="langMenuDesktop" class="absolute right-0 mt-2 w-32 rounded-lg bg-white shadow-lg ring-1 ring-black/5 hidden z-50">
+    <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="en">English</a>
+    <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="ar">العربية</a>
+  </div>
+</div>
+
+
+  <a href="register.html"
+  class="inline-block px-4 py-1.5 bg-white text-black rounded-lg font-medium hover:bg-yellow-400 transition"
+  data-i18n="nav_register">
+  Register
+</a>
+  <a href="login.html"
+  class="px-4 py-1.5 border border-white text-white rounded-lg font-medium 
+         hover:bg-yellow-400 hover:text-black transition inline-block text-center"
+  data-i18n="nav_login">
+  Log in
+</a>
+
+</div>
+
+      <!-- Mobile: Hamburger -->
+      <button id="navToggle" class="md:hidden ml-auto inline-flex items-center justify-center p-2 rounded-lg border border-white/40 text-white"
+              aria-label="Open menu" aria-expanded="false">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+<div id="mobileMenu" class="md:hidden hidden">
+  <div class="bg-black/90 border-t border-white/10">
+    <div class="px-4 py-4 space-y-2">
+      <a href="index.html" class="block px-3 py-2 rounded-md text-white/90 hover:bg-white/10" data-i18n="nav_home">Home</a>
+      <a href="plan.html" class="block px-3 py-2 rounded-md text-white/90 hover:bg-white/10" data-i18n="nav_categories">Travel itinerary</a>
+      <a href="about.html" class="block px-3 py-2 rounded-md text-white/90 hover:bg-white/10" data-i18n="nav_about">About</a>
+      <a href="contactus.html" class="block px-3 py-2 rounded-md text-white/90 hover:bg-white/10" data-i18n="nav_deals">Contact us</a>
+
+      <!-- Language Dropdown Mobile -->
+      <div class="relative">
+        <button id="langBtnMobile"
+                class="w-full flex items-center justify-between px-4 py-2 bg-white text-black rounded-lg font-medium hover:bg-yellow-400 transition"
+                aria-haspopup="true" aria-expanded="false">
+          <span data-i18n="lang_btn">Language</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div id="langMenuMobile"
+             class="absolute left-0 right-0 mt-2 rounded-lg bg-white shadow-lg ring-1 ring-black/5 hidden">
+          <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="en">English</a>
+          <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="ar">العربية</a>
+        </div>
+      </div>
+
+      <div class="pt-3 flex items-center gap-2">
+       <a href="register.html"
+  class="flex-1 px-4 py-2 bg-white text-black rounded-lg font-medium hover:bg-yellow-400 hover:text-black transition inline-block text-center"
+  data-i18n="nav_register">
+  Register
+</a>
+       <a href="login.html"
+  class="flex-1 px-4 py-2 border border-white text-white rounded-lg font-medium 
+         hover:bg-yellow-400 hover:text-black transition inline-block text-center"
+  data-i18n="nav_login">
+  Log in
+</a>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+</nav>
+
+
+    <!-- ===== Page Container ===== -->
+    <main class="pt-24 pb-16 mt-8">
+        <div class="max-w-7xl mx-auto px-4">
+
+            <!-- Header / Profile Card -->
+<section class="bg-white rounded-2xl shadow-sm p-6 mb-8">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+
+        <!-- Left: Avatar + Basic Info -->
+        <div class="flex items-center gap-4">
+            <div class="relative">
+                <img src="img/profile.png" alt="Profile"
+                    class="w-20 h-20 rounded-full object-cover border-4 border-teal-100"
+                    data-i18n-attr="alt:account.avatar_alt" />
+                <!-- small edit button -->
+                <label
+                    class="absolute bottom-0 right-0 bg-teal-600 hover:bg-teal-700 text-white w-8 h-8 rounded-full grid place-items-center cursor-pointer shadow"
+                    title="Change photo" data-i18n-attr="title:account.change_photo">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M15.232 5.232l3.536 3.536M9 11l6-6 3 3-6 6H9v-3zM4 20h16" />
+                    </svg>
+                    <input type="file" accept="image/*" class="hidden" id="avatarInput" />
+                </label>
+            </div>
+            <div>
+                <h1 class="text-2xl md:text-3xl font-extrabold text-gray-900" data-i18n="header_title">
+                    My Account
+                </h1>
+                <p class="text-gray-600" data-i18n="header_subtitle">
+                    Manage your profile, bookings, and preferences
+                </p>
+            </div>
+        </div>
+
+        <!-- Right: Quick Actions -->
+        <div class="flex items-center gap-3 flex-wrap">
+            <a href="plan.html"
+                class="px-4 py-2 rounded-full bg-teal-600 text-white font-semibold hover:bg-yellow-400 hover:text-black transition"
+                data-i18n="action_start_planning">
+                Start Planning
+            </a>
+        </div>
+    </div>
+</section>
+
+            <!-- Tabs -->
+            <section class="bg-white rounded-2xl shadow-sm">
+                <!-- Tabs header -->
+                <div class="border-b border-gray-200 px-4">
+                    <nav class="flex flex-wrap gap-2" role="tablist">
+                        <button class="tab-btn px-4 py-3 text-sm font-semibold text-teal-700 border-b-2 border-teal-600"
+                            data-tab="overview" data-i18n="tab_overview">Overview</button>
+                        <button class="tab-btn px-4 py-3 text-sm font-semibold text-gray-600 hover:text-teal-700"
+                            data-tab="bookings" data-i18n="tab_bookings">Bookings</button>
+                        <button class="tab-btn px-4 py-3 text-sm font-semibold text-gray-600 hover:text-teal-700"
+                            data-tab="favorites" data-i18n="tab_favorites">Favorites</button>
+                        <button class="tab-btn px-4 py-3 text-sm font-semibold text-gray-600 hover:text-teal-700"
+                            data-tab="settings" data-i18n="tab_settings">Settings</button>
+                    </nav>
+                </div>
+
+                <!-- Tabs content -->
+                <div class="p-6">
+                    <!-- Overview -->
+                    <div class="tab-panel" id="tab-overview">
+                        <div class="grid md:grid-cols-3 gap-6">
+                            <!-- Stat Cards -->
+                            <div class="rounded-xl border border-gray-200 p-5">
+                                <p class="text-sm text-gray-500" data-i18n="stats_trips_label">Trips Planned</p>
+                                <p class="mt-2 text-3xl font-extrabold text-gray-900">12</p>
+                            </div>
+                            <div class="rounded-xl border border-gray-200 p-5">
+                                <p class="text-sm text-gray-500" data-i18n="stats_bookings_label">Bookings</p>
+                                <p class="mt-2 text-3xl font-extrabold text-gray-900">5</p>
+                            </div>
+                            <div class="rounded-xl border border-gray-200 p-5">
+                                <p class="text-sm text-gray-500" data-i18n="stats_favorites_label">Favorites</p>
+                                <p class="mt-2 text-3xl font-extrabold text-gray-900">18</p>
+                            </div>
+                        </div>
+
+                        <!-- Recent Activity -->
+                        <div class="mt-8">
+                            <h3 class="text-lg font-bold text-gray-900" data-i18n="recent_activity">Recent
+                                Activity</h3>
+                            <ul class="mt-4 space-y-3">
+                                <li class="flex items-center justify-between rounded-xl border border-gray-200 p-4">
+                                    <span class="text-gray-700">Booked <b>Hotel Oasis</b> • Taif</span>
+                                    <span class="text-gray-500 text-sm">Oct 1, 2025</span>
+                                </li>
+                                <li class="flex items-center justify-between rounded-xl border border-gray-200 p-4">
+                                    <span class="text-gray-700">Added <b>Pizza Roma</b> to favorites</span>
+                                    <span class="text-gray-500 text-sm">Sep 27, 2025</span>
+                                </li>
+                                <li class="flex items-center justify-between rounded-xl border border-gray-200 p-4">
+                                    <span class="text-gray-700">Created trip plan: <b>Jeddah Weekend</b></span>
+                                    <span class="text-gray-500 text-sm">Sep 20, 2025</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Bookings -->
+                    <div class="tab-panel hidden" id="tab-bookings">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-lg font-bold text-gray-900" data-i18n="bookings_title">Your Bookings
+                            </h3>
+                            <a href="bookings.html" class="text-teal-700 hover:text-yellow-500 font-semibold text-sm"
+                                data-i18n="account.view_all">View All</a>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <!-- Booking Card -->
+                            <article class="rounded-2xl border border-gray-200 overflow-hidden">
+                                <img src="img/hotel-1.png" class="w-full h-40 object-fit-contain" alt="Hotel image" />
+                                <div class="p-4">
+                                    <div class="flex items-center justify-between">
+                                        <h4 class="font-bold text-gray-900">Nile View Hotel</h4>
+                                        <span class="text-sm text-gray-600">#BKG-2451</span>
+                                    </div>
+                                    <p class="text-sm text-gray-600 mt-1">Check-in: 12 Oct 2025 • 3 nights</p>
+                                    <div class="mt-4 flex items-center justify-between">
+                                        <a href="hotel-3.html"
+                                            class="px-3 py-1.5 rounded-full bg-teal-600 text-white text-sm hover:bg-yellow-400 hover:text-black transition" data-i18n="booking_restaurant_view"  >View</a>
+                                        <a href="#"
+                                            class="px-3 py-1.5 rounded-full border border-gray-300 text-gray-700 text-sm hover:bg-gray-100 transition">Cancel</a>
+                                    </div>   
+                                </div>
+                            </article>
+
+                            <!-- Restaurant Card -->
+                            <article class="rounded-2xl border border-gray-200 overflow-hidden">
+                                <img src="img/restaurant-3.png" class="w-full h-40 object-cover"
+                                    alt="Restaurant image" />
+                                <div class="p-4">
+                                    <div class="flex items-center justify-between">
+                                        <h4 class="font-bold text-gray-900">Al Khobar Grill</h4>
+                                        <span class="text-sm text-gray-600">#RES-1025</span>
+                                    </div>
+                                    <p class="text-sm text-gray-600 mt-1">
+                                        Reservation: 12 Oct 2025 • 7:30 PM • 2 Guests
+                                    </p>
+                                    <div class="mt-4 flex items-center justify-between">
+                                        <a href="restaurantdetails.html"
+                                            class="px-3 py-1.5 rounded-full bg-teal-600 text-white text-sm hover:bg-yellow-400 hover:text-black transition" data-i18n="booking_restaurant_view">
+                                            View Details
+                                        </a>
+                                        <a href="#"
+                                            class="px-3 py-1.5 rounded-full border border-gray-300 text-gray-700 text-sm hover:bg-gray-100 transition">
+                                            Cancel Reservation
+                                        </a>
+                                    </div>
+                                </div>
+                            </article>
+
+                        </div>
+                    </div>
+ 
+                    <!-- Favorites -->
+                    <div class="tab-panel hidden" id="tab-favorites">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-lg font-bold text-gray-900" data-i18n="favorites_title">Your
+                                Favorites</h3>
+                             
+                        </div>
+
+                        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <!-- Fav Card -->
+                            <article class="rounded-2xl border border-gray-200 overflow-hidden">
+                                <img src="img/unit-1.png" class="w-full h-40 object-contain" alt="Restaurant image" />
+                                <div class="p-4">
+                                    <div class="flex items-center justify-between">
+                                        <h4 class="font-bold text-gray-900">Plaza hotel</h4>
+                                        <button class="text-red-500 hover:opacity-80" title="Remove">♥</button>
+                                    </div>
+                                    <a href="hotel-3.html"
+                                        class="mt-3 inline-flex px-3 py-1.5 rounded-full bg-teal-600 text-white text-sm hover:bg-yellow-400 hover:text-black transition" data-i18n="favorites_view" >View</a>
+                                </div>
+                            </article>
+
+                            <!-- Fav Card -->
+                            <article class="rounded-2xl border border-gray-200 overflow-hidden">
+                                <img src="img/park-4.png" class="w-full h-40 object-contain" alt="Restaurant image" />
+                                <div class="p-4">
+                                    <div class="flex items-center justify-between">
+                                        <h4 class="font-bold text-gray-900">Nile park</h4>
+                                        <button class="text-red-500 hover:opacity-80" title="Remove">♥</button>
+                                    </div>
+                                    <a href="parks2.html"
+                                        class="mt-3 inline-flex px-3 py-1.5 rounded-full bg-teal-600 text-white text-sm hover:bg-yellow-400 hover:text-black transition" data-i18n="favorites_view" >View</a>
+                                </div>
+                            </article>
+
+                            <!-- Fav Card -->
+                            <article class="rounded-2xl border border-gray-200 overflow-hidden">
+                                <img src="img/restaurant-3.png" class="w-full h-40 object-contain"
+                                    alt="Restaurant image" />
+                                <div class="p-4">
+                                    <div class="flex items-center justify-between">
+                                        <h4 class="font-bold text-gray-900">Lara restaurant</h4>
+                                        <button class="text-red-500 hover:opacity-80" title="Remove">♥</button>
+                                    </div>
+
+                                    <a href="restaurantdetails.html"
+                                        class="mt-3 inline-flex px-3 py-1.5 rounded-full bg-teal-600 text-white text-sm hover:bg-yellow-400 hover:text-black transition" data-i18n="favorites_view" >View</a>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <!-- Settings -->
+                    <div class="tab-panel hidden" id="tab-settings">
+                        <div class="grid lg:grid-cols-3 gap-8">
+                            <!-- Personal Info -->
+                            <div class="lg:col-span-2 rounded-2xl border border-gray-200 p-6 relative">
+                                <h3 class="text-lg font-bold text-gray-900" data-i18n="settings_personal">
+                                    Personal Information
+                                </h3>
+
+                                <!-- رسالة الإشعار -->
+                                <div id="messageBox"
+                                    class="hidden mt-3 px-4 py-2 rounded-xl text-white text-sm font-medium"></div>
+
+                                <form id="personalForm" class="mt-4 space-y-4">
+                                    <div class="grid sm:grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="block text-sm text-gray-600 mb-1"
+                                                data-i18n="first_name">First Name</label>
+                                            <input id="firstName" type="text"
+                                                class="w-full rounded-xl border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-teal-400"
+                                                placeholder="John" />
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm text-gray-600 mb-1"
+                                                data-i18n="last_name">Last Name</label>
+                                            <input id="lastName" type="text"
+                                                class="w-full rounded-xl border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-teal-400"
+                                                placeholder="Doe" />
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm text-gray-600 mb-1"
+                                                data-i18n="email">Email</label>
+                                            <input id="email" type="email"
+                                                class="w-full rounded-xl border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-teal-400"
+                                                placeholder="you@example.com" />
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm text-gray-600 mb-1"
+                                                data-i18n="phone">Phone</label>
+                                            <input id="phone" type="tel"
+                                                class="w-full rounded-xl border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-teal-400"
+                                                placeholder="+20 1XX XXX XXXX" />
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-center gap-3">
+                                        <button type="button" id="saveBtn"
+                                            class="px-4 py-2 rounded-full bg-teal-600 text-white font-semibold hover:bg-yellow-400 hover:text-black transition"
+                                            data-i18n="save">
+                                            Save Changes
+                                        </button>
+                                        <button type="reset" id="resetBtn"
+                                            class="px-4 py-2 rounded-full border border-gray-300 text-gray-700 hover:bg-gray-100 transition"
+                                            data-i18n="reset">
+                                            Reset
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+
+                            
+
+
+                            <!-- Security -->
+                            <div class="rounded-2xl border border-gray-200 p-6">
+                                <h3 class="text-lg font-bold text-gray-900" data-i18n="settings_security">
+                                    Security</h3>
+                                <div class="mt-4 space-y-4">
+                                    <button
+                                        class="w-full px-4 py-2 rounded-xl border border-gray-300 text-gray-700 hover:bg-gray-100 transition"
+                                        data-i18n="change_password">Change Password</button>
+                                    <div
+                                        class="flex items-center justify-between rounded-xl border border-gray-200 p-3">
+                                        <a href="#" class="text-red-600 hover:text-red-700 text-sm font-semibold"
+                                            data-i18n="logout">Log out</a>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!-- Toast -->
+                            <div id="secToast"
+                                class="fixed bottom-6 right-6 hidden px-4 py-3 rounded-xl text-white text-sm shadow-lg z-50">
+                            </div>
+
+                            <!-- Change Password Modal -->
+                            <div id="pwModal" class="fixed inset-0 hidden items-center justify-center bg-black/40 z-40">
+                                <div class="bg-white w-full max-w-md rounded-2xl p-6 shadow-xl">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <h4 class="text-lg font-bold" data-i18n="change_password">Change Password</h4>
+                                        <button id="pwClose" class="p-2 rounded-lg hover:bg-gray-100"
+                                            aria-label="Close">&times;</button>
+                                    </div>
+                                    <form id="pwForm" class="space-y-3">
+                                        <div>
+                                            <label class="block text-sm text-gray-600 mb-1"data-i18n="current_password" >Current password</label>
+                                            <input id="pwCurrent" type="password"
+                                                class="w-full rounded-xl border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-teal-400">
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm text-gray-600 mb-1" data-i18n="new_password">New password</label>
+                                            <input id="pwNew" type="password"
+                                                class="w-full rounded-xl border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-teal-400">
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm text-gray-600 mb-1"data-i18n="confirm_password" >Confirm new password</label>
+                                            <input id="pwConfirm" type="password"
+                                                class="w-full rounded-xl border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-teal-400">
+                                        </div>
+
+                                        <p id="pwError" class="hidden text-sm text-red-600"></p>
+
+                                        <div class="flex items-center justify-end gap-2 pt-2">
+                                            <button type="button" id="pwCancel"
+                                                class="px-4 py-2 rounded-full border border-gray-300 text-gray-700 hover:bg-gray-100" data-i18n="cancel">Cancel</button>
+                                            <button type="submit" id="pwSubmit"
+                                                class="px-4 py-2 rounded-full bg-teal-600 text-white font-semibold hover:bg-yellow-400 hover:text-black transition disabled:opacity-60 disabled:cursor-not-allowed" data-i18n="save">
+                                                Save
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                           
+
+                           <!-- Addresses -->
+<div class="lg:col-span-2 rounded-2xl border border-gray-200 p-6">
+  <div class="flex items-center justify-between mb-3">
+    <h3 class="text-lg font-bold text-gray-900" data-i18n="settings_addresses">Addresses</h3>
+    <button id="addrAddBtn"
+      class="px-3 py-1.5 rounded-full bg-teal-600 text-white text-sm font-semibold hover:bg-yellow-400 hover:text-black transition"
+      data-i18n="address_add">Add New Address</button>
+  </div>
+
+  <div id="addressesGrid" class="mt-4 grid sm:grid-cols-2 gap-4">
+    <!-- Address Card -->
+    <article class="rounded-xl border border-gray-200 p-4 hover:shadow-sm transition" data-address-id="home-001">
+      <div class="flex items-start justify-between">
+        <div>
+          <p class="text-xs uppercase tracking-wide text-gray-500" data-i18n="address_home">Home</p>
+          <p class="mt-1 text-gray-800" data-i18n="address_country_city">Saudi Arabia, Taif</p>
+        </div>
+        <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-teal-50 text-teal-700">
+          <!-- icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0h4" />
+          </svg>
+        </span>
+      </div>
+
+      <div class="mt-3 flex flex-wrap gap-2">
+        <button class="addrEditBtn px-3 py-1.5 rounded-full border border-gray-300 text-sm hover:bg-gray-100"
+          data-i18n="address_edit">Edit</button>
+        <button class="addrRemoveBtn px-3 py-1.5 rounded-full border border-gray-300 text-sm hover:bg-gray-100 text-red-600"
+          data-i18n="address_remove">Remove</button>
+      </div>
+    </article>
+  </div>
+</div>
+
+<!-- Toast (shared for addresses) -->
+<div id="addrToast"
+  class="fixed bottom-6 right-6 hidden px-4 py-3 rounded-xl text-white text-sm shadow-lg z-50"></div>
+
+<!-- Add/Edit Address Modal -->
+<div id="addrModal" class="fixed inset-0 hidden items-center justify-center bg-black/40 z-40">
+  <div class="bg-white w-full max-w-md rounded-2xl p-6 shadow-xl">
+    <div class="flex items-center justify-between mb-4">
+      <h4 id="addrModalTitle" class="text-lg font-bold" data-i18n="address_add">Add New Address</h4>
+      <button id="addrClose" class="p-2 rounded-lg hover:bg-gray-100" aria-label="Close">&times;</button>
+    </div>
+
+    <form id="addrForm" class="space-y-3">
+      <input type="hidden" id="addrId" />
+      <div>
+        <label class="block text-sm text-gray-600 mb-1" data-i18n="address_label">Label</label>
+        <input id="addrLabel" type="text" placeholder="Home / Office"
+          class="w-full rounded-xl border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-teal-400">
+      </div>
+      <div>
+        <label class="block text-sm text-gray-600 mb-1" data-i18n="address_line1">Address Line 1</label>
+        <input id="addrLine1" type="text" placeholder="Street, Building"
+          class="w-full rounded-xl border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-teal-400">
+      </div>
+      <div>
+        <label class="block text-sm text-gray-600 mb-1" data-i18n="address_linee">Address Line 2 (optional)</label>
+        <input id="addrLine2" type="text" placeholder="Apartment, Floor (optional)"
+          class="w-full rounded-xl border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-teal-400">
+      </div>
+      <div class="grid grid-cols-2 gap-3">
+        <div>
+          <label class="block text-sm text-gray-600 mb-1" data-i18n="city">City</label>
+          <input id="addrCity" type="text" placeholder="City"
+            class="w-full rounded-xl border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-teal-400">
+        </div>
+        <div>
+          <label class="block text-sm text-gray-600 mb-1" data-i18n="country">Country</label>
+          <input id="addrCountry" type="text" placeholder="Country"
+            class="w-full rounded-xl border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-teal-400">
+        </div>
+      </div>
+      <div>
+        <label class="block text-sm text-gray-600 mb-1" data-i18n="zip">ZIP / Postal Code</label>
+        <input id="addrZip" type="text" placeholder="XXXXX"
+          class="w-full rounded-xl border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-teal-400">
+      </div>
+
+      <p id="addrError" class="hidden text-sm text-red-600"></p>
+
+      <div class="flex items-center justify-end gap-2 pt-2">
+        <button type="button" id="addrCancel"
+          class="px-4 py-2 rounded-full border border-gray-300 text-gray-700 hover:bg-gray-100"
+          data-i18n="cancel">Cancel</button>
+        <button type="submit" id="addrSubmit"
+          class="px-4 py-2 rounded-full bg-teal-600 text-white font-semibold hover:bg-yellow-400 hover:text-black transition disabled:opacity-60 disabled:cursor-not-allowed"
+          data-i18n="save" data-i18n="save" >Save</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+                            
+
+
+                            <!-- Payments -->
+                            <div class="rounded-2xl border border-gray-200 p-6">
+                                <h3 class="text-lg font-bold text-gray-900" data-i18n="settings_payments">
+                                    Payment Methods</h3>
+                                <div class="mt-4 space-y-3">
+                                    <div
+                                        class="flex items-center justify-between rounded-xl border border-gray-200 p-3">
+                                        <div class="flex items-center gap-3">
+                                            <img src="img/visa.png" class="w-10 h-6 object-contain" alt="Visa" />
+                                            <div>
+                                                <p class="text-sm font-semibold text-gray-800">**** **** **** 5123</p>
+                                                <p class="text-xs text-gray-500">Exp 02/27</p>
+                                            </div>
+                                        </div>
+                                        <button
+                                            class="px-3 py-1.5 rounded-full border border-gray-300 text-sm hover:bg-gray-100" data-i18n="payment_remove">Remove</button>
+                                    </div>
+                                    <button
+                                        class="w-full px-4 py-2 rounded-xl bg-teal-600 text-white font-semibold hover:bg-yellow-400 hover:text-black transition"
+                                        data-i18n="add_payment">Add New Card</button>
+                                </div>
+                            </div>
+
+                            <!-- Add Payment Modal -->
+<div id="addCardModal" class="fixed inset-0 hidden items-center justify-center bg-black/40 z-40">
+  <div class="bg-white w-full max-w-md rounded-2xl p-6 shadow-xl">
+    <div class="flex items-center justify-between mb-4">
+      <h4 class="text-lg font-bold" data-i18n="add_payment">Add New Card</h4>
+      <button id="addCardClose" class="p-2 rounded-lg hover:bg-gray-100" aria-label="Close">&times;</button>
+    </div>
+
+    <form id="addCardForm" class="space-y-3">
+      <div>
+        <label class="block text-sm text-gray-600 mb-1" data-i18n="form.card_number">Card Number</label>
+        <input id="cardNumber" type="text" maxlength="19" placeholder="1234 5678 9012 3456"
+          class="w-full rounded-xl border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-teal-400">
+      </div>
+      <div class="grid grid-cols-2 gap-3">
+        <div>
+          <label class="block text-sm text-gray-600 mb-1" data-i18n="form.expiry_date">Expiry Date</label>
+          <input id="cardExpiry" type="text" placeholder="MM/YY"
+            class="w-full rounded-xl border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-teal-400">
+        </div>
+        <div>
+          <label class="block text-sm text-gray-600 mb-1" data-i18n="form.cvv">CVV</label>
+          <input id="cardCVV" type="password" maxlength="4" placeholder="123"
+            class="w-full rounded-xl border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-teal-400">
+        </div>
+      </div>
+
+      <p id="cardError" class="hidden text-sm text-red-600"></p>
+
+      <div class="flex items-center justify-end gap-2 pt-2">
+        <button type="button" id="cardCancel"
+          class="px-4 py-2 rounded-full border border-gray-300 text-gray-700 hover:bg-gray-100"
+          data-i18n="cancel">Cancel</button>
+        <button type="submit" id="cardSubmit"
+          class="px-4 py-2 rounded-full bg-teal-600 text-white font-semibold hover:bg-yellow-400 hover:text-black transition disabled:opacity-60 disabled:cursor-not-allowed"
+          data-i18n="save">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Toast (shared) -->
+<div id="paymentToast"
+  class="fixed bottom-6 right-6 hidden px-4 py-3 rounded-xl text-white text-sm shadow-lg z-50"></div>
+
+
+                            
+
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+     <a
+  href="https://wa.me/201234567890"
+  class="fixed bottom-5 right-4 w-12 h-12 rounded-full bg-green-500 text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform z-50"
+  target="_blank"
+  aria-label="Chat on WhatsApp"
+>
+  <i class="fab fa-whatsapp text-2xl"></i>
+</a>
+
+
+    
+
+<footer class="relative overflow-hidden bg-teal-700 text-white px-6 py-16 min-h-[600px]">
+  <div class="pointer-events-none absolute inset-0">
+    <div class="absolute -top-28 -left-24 w-[34rem] h-[34rem] rounded-full bg-emerald-100/35 blur-3xl"></div>
+    <div class="absolute -bottom-24 -right-24 w-[30rem] h-[30rem] rounded-full bg-amber-100/40 blur-3xl"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(16,185,129,.07),transparent_60%)]"></div>
+  </div>
+
+  <div class="relative max-w-6xl mx-auto px-4 lg:px-6">
+    <!-- المحتوى -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-center sm:text-start">
+      <!-- Logo / Brand -->
+      <div class="footer-brand-wrap flex flex-col items-center sm:items-start" data-reveal="left">
+        <div class="h-20 w-20 rounded-full bg-black grid place-items-center mb-3">
+          <img src="img/logo as a mask.png" alt="Siyahatna logo"
+               data-i18n-attr="alt:footer_logo_alt" class="h-20 w-20">
+        </div>
+        <span class="footer-brand text-3xl font-extrabold tracking-widest text-white hover:drop-shadow-[0_0_12px_rgba(250,204,21,0.45)]" data-i18n="brand_aria">
+          Siyahatna
+        </span>
+      </div>
+
+      <!-- Pages -->
+      <div data-reveal="right">
+        <h4 class="mb-4 text-base font-bold">
+          <a href="#" class="ink-underline hover:text-yellow-400" data-i18n="footer_categories">All Categories</a>
+        </h4>
+        <ul class="space-y-2">
+          <li><a data-i18n="footer_restaurants" class="font-bold ink-underline hover:text-yellow-400" href="Allrestaurants.html">Restaurants</a></li>
+          <li><a data-i18n="footer_cafe" class="font-bold ink-underline hover:text-yellow-400" href="Allrestaurants.html">Cafe</a></li>
+          <li><a data-i18n="footer_supermarkets" class="font-bold ink-underline hover:text-yellow-400" href="supermarket1.html">Supermarket</a></li>
+          <li><a data-i18n="footer_hotels" class="font-bold ink-underline hover:text-yellow-400" href="hotel-1.html">Hotels</a></li>
+          <li><a data-i18n="footer_parks" class="font-bold ink-underline hover:text-yellow-400" href="parks1.html">Parks</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div data-reveal="left">
+        <h4 class="mb-4 text-base font-bold">
+          <a href="#" class="ink-underline hover:text-yellow-400" data-i18n="footer_contact">Contact</a>
+        </h4>
+        <ul class="space-y-2">
+          <li>
+            <a href="mailto:Support123@gmail.com" class="font-bold ink-underline hover:text-yellow-400" data-i18n="footer_email">
+              <bdi>Email: Support123@gmail.com</bdi>
+            </a>
+          </li>
+          <li>
+            <a href="tel:12345678" class="font-bold ink-underline hover:text-yellow-400" data-i18n="footer_phone1">
+              <bdi>Phone 1: 12345678</bdi>
+            </a>
+          </li>
+          <li>
+            <a href="tel:3455765433345" class="font-bold ink-underline hover:text-yellow-400" data-i18n="footer_phone2">
+              <bdi>Phone 2: 3455765433345</bdi>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Policies -->
+      <div data-reveal="right">
+        <h4 class="mb-4 text-base font-bold">
+          <a href="#" class="ink-underline hover:text-yellow-400" data-i18n="footer_policies">Policies</a>
+        </h4>
+        <ul class="space-y-2">
+          <li><a data-i18n="footer_guidelines" class="font-bold ink-underline hover:text-yellow-400" href="#">Community Guidelines</a></li>
+          <li><a data-i18n="footer_terms" class="font-bold ink-underline hover:text-yellow-400" href="#">Terms of Use</a></li>
+          <li><a data-i18n="footer_privacy" class="font-bold ink-underline hover:text-yellow-400" href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Download app -->
+    <!-- Download app -->
+<div class="mt-12 text-center" data-reveal="left">
+  <h4 class="mb-2 text-base font-bold text-center">
+    <a href="#" class="ink-underline hover:text-yellow-400 inline-block" data-i18n="footer_download">
+      Download Our App
+    </a>
+  </h4>
+
+  <p data-i18n="footer_download_desc" class="text-white/70 text-sm mb-4 font-bold">
+    Get the Latest Version of our Apps
+  </p>
+
+  <div class="flex justify-center gap-4">
+    <a href="#" class="ink-underline">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+           alt="Google Play" class="h-10" data-i18n-attr="alt:footer_google_alt">
+    </a>
+    <a href="#" class="ink-underline">
+      <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83"
+           alt="App Store" class="h-10" data-i18n-attr="alt:footer_apple_alt">
+    </a>
+  </div>
+</div>
+
+
+    <!-- Divider -->
+    <div class="mt-12 mb-3 border-t border-white/10" data-reveal="right"></div>
+
+    <!-- حقوق النشر -->
+ <div class="pt-4 w-full text-center sm:text-center text-sm text-white/60 font-bold" data-reveal="right" data-i18n="footer_rights">
+  © 2025 Siyahatna. All rights reserved.
+</div>
+
+
+  </div>
+</footer>
+
+
+<script src="translation.js"></script>
+<script src="accountmain.js"></script>
+ 
+
+
+
+
+</body>
+</html>

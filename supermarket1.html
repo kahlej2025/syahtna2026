@@ -1,0 +1,891 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./src/output.css" rel="stylesheet">
+  <link href="supermarket1.css" rel="stylesheet">
+
+    <style>
+  [dir="rtl"] .cat-badge { left: auto; right: 1rem; }
+</style>
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+</head>
+
+
+<body>
+ 
+<!-- Navbar (Responsive) -->
+<nav class="  w-full z-50 bg-teal-700">
+  <div class="mx-auto max-w-8xl px-4">
+    <div class="flex items-center h-16">
+<!-- Left: Logo + My Account Icon -->
+<div class="flex items-center gap-4 flex-1">
+  <!-- Logo (صورة فقط بدون رابط) -->
+  <img src="img/logo as a mask.png" alt="Siyahatna logo"
+       class="w-10 h-10 rounded-full"
+       data-i18n-attr="alt:brand_alt">
+         <span class="text-white text-xl font-bold" data-i18n="brand_aria">Siyahatna</span>
+
+  <!-- My Account Icon -->
+  <a href="account.html" class="text-white p-2 rounded-full hover:bg-white/20 transition-colors">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M5.121 17.804A12.035 12.035 0 0112 15c2.636 0 5.088.85 7.121 2.804M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+    </svg>
+  </a>
+</div>
+      <!-- centered links -->
+     <ul class="hidden md:flex items-center justify-center gap-8 border-t border-b border-white/40 py-1 flex-1">
+  <li class="nav-item opacity-0 translate-y-2 transition-all duration-500 will-change-transform">
+    <a href="index.html" class="nav-link relative px-2 py-1 text-white font-medium transition-colors duration-300 hover:text-yellow-400
+                      after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-full after:bg-yellow-400
+                      after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
+      <span data-i18n="nav_home">Home</span>
+    </a>
+  </li>
+  <li class="nav-item opacity-0 translate-y-2 transition-all duration-500 will-change-transform">
+    <a href="plan.html" class="nav-link relative px-2 py-1 text-white font-medium transition-colors duration-300 hover:text-yellow-400
+                      after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-full after:bg-yellow-400
+                      after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
+      <span data-i18n="nav_categories">Travel itinerary</span>
+    </a>
+  </li>
+  <li class="nav-item opacity-0 translate-y-2 transition-all duration-500 will-change-transform">
+    <a href="about.html" class="nav-link relative px-2 py-1 text-white font-medium transition-colors duration-300 hover:text-yellow-400
+                      after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-full after:bg-yellow-400
+                      after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
+      <span data-i18n="nav_about">About</span>
+    </a>
+  </li>
+  <li class="nav-item opacity-0 translate-y-2 transition-all duration-500 will-change-transform">
+    <a href="contactus.html" class="nav-link relative px-2 py-1 text-white font-medium transition-colors duration-300 hover:text-yellow-400
+                      after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-full after:bg-yellow-400
+                      after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
+      <span data-i18n="nav_deals">Contact us</span>
+    </a>
+  </li>
+</ul>
+
+
+     <!-- Right: Auth (md+) -->
+<div class="hidden md:flex justify-end items-center gap-3 flex-1">
+ <!-- Language Dropdown Desktop -->
+<div class="relative">
+  <button id="langBtnDesktop"
+          class="flex items-center gap-2 px-4 py-1.5 bg-white text-black rounded-lg font-medium hover:bg-yellow-400 transition"
+          aria-haspopup="true" aria-expanded="false">
+    <span data-i18n="lang_btn">Language</span>
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+    </svg>
+  </button>
+  <div id="langMenuDesktop" class="absolute right-0 mt-2 w-32 rounded-lg bg-white shadow-lg ring-1 ring-black/5 hidden z-50">
+    <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="en">English</a>
+    <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="ar">العربية</a>
+  </div>
+</div>
+
+
+  <a href="register.html"
+  class="inline-block px-4 py-1.5 bg-white text-black rounded-lg font-medium hover:bg-yellow-400 transition"
+  data-i18n="nav_register">
+  Register
+</a>
+  <a href="login.html"
+  class="px-4 py-1.5 border border-white text-white rounded-lg font-medium 
+         hover:bg-yellow-400 hover:text-black transition inline-block text-center"
+  data-i18n="nav_login">
+  Log in
+</a>
+
+</div>
+
+      <!-- Mobile: Hamburger -->
+      <button id="navToggle" class="md:hidden ml-auto inline-flex items-center justify-center p-2 rounded-lg border border-white/40 text-white"
+              aria-label="Open menu" aria-expanded="false">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+<div id="mobileMenu" class="md:hidden hidden">
+  <div class="bg-black/90 border-t border-white/10">
+    <div class="px-4 py-4 space-y-2">
+      <a href="index.html" class="block px-3 py-2 rounded-md text-white/90 hover:bg-white/10" data-i18n="nav_home">Home</a>
+      <a href="plan.html" class="block px-3 py-2 rounded-md text-white/90 hover:bg-white/10" data-i18n="nav_categories">Travel itinerary</a>
+      <a href="about.html" class="block px-3 py-2 rounded-md text-white/90 hover:bg-white/10" data-i18n="nav_about">About</a>
+      <a href="contactus.html" class="block px-3 py-2 rounded-md text-white/90 hover:bg-white/10" data-i18n="nav_deals">Contact us</a>
+
+      <!-- Language Dropdown Mobile -->
+      <div class="relative">
+        <button id="langBtnMobile"
+                class="w-full flex items-center justify-between px-4 py-2 bg-white text-black rounded-lg font-medium hover:bg-yellow-400 transition"
+                aria-haspopup="true" aria-expanded="false">
+          <span data-i18n="lang_btn">Language</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div id="langMenuMobile"
+             class="absolute left-0 right-0 mt-2 rounded-lg bg-white shadow-lg ring-1 ring-black/5 hidden">
+          <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="en">English</a>
+          <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="ar">العربية</a>
+        </div>
+      </div>
+
+      <div class="pt-3 flex items-center gap-2">
+       <a href="register.html"
+  class="flex-1 px-4 py-2 bg-white text-black rounded-lg font-medium hover:bg-yellow-400 hover:text-black transition inline-block text-center"
+  data-i18n="nav_register">
+  Register
+</a>
+       <a href="login.html"
+  class="flex-1 px-4 py-2 border border-white text-white rounded-lg font-medium 
+         hover:bg-yellow-400 hover:text-black transition inline-block text-center"
+  data-i18n="nav_login">
+  Log in
+</a>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+</nav>
+
+
+ 
+ 
+<!-- Hero Section Slider -->
+<section class="relative h-[90vh] w-full overflow-hidden">
+  <div
+    class="relative w-full h-full overflow-hidden shadow cursor-pointer"
+    id="mainHero"
+    data-main-slider
+    data-interval="4000"
+  >
+    <!-- Slides (Images) -->
+    <img
+      src="img/supermarket-hero.png"
+      class="main-hero-img absolute inset-0 w-full h-full object-fit opacity-100 transition-opacity duration-700"
+      alt="Main Image 1"
+      data-main-slide
+    />
+
+    <img
+      src="img/herosection2.png"
+      class="main-hero-img absolute inset-0 w-full h-full object-fit opacity-0 transition-opacity duration-700"
+      alt="Main Image 2"
+      data-main-slide
+    />
+
+     
+
+     
+    <div class="absolute inset-0 bg-black/50"></div>
+
+     
+    <div class="absolute inset-0 flex flex-col items-center justify-center gap-6 px-4">
+  
+       
+    </div>
+  </div>
+</section>
+
+<script>
+  // main hero slider
+  (function () {
+    "use strict";
+
+    document.addEventListener("DOMContentLoaded", function () {
+      var slider = document.querySelector("[data-main-slider]");
+      if (!slider) return;
+
+      var slides = Array.prototype.slice.call(
+        slider.querySelectorAll("[data-main-slide]")
+      );
+      if (!slides.length) return;
+
+      var currentIndex = 0;
+      var intervalAttr = slider.getAttribute("data-interval");
+      var intervalMs = parseInt(intervalAttr, 10);
+      if (isNaN(intervalMs) || intervalMs <= 0) {
+        intervalMs = 4000;  
+      }
+
+ 
+      slides.forEach(function (slide, index) {
+        if (index === 0) {
+          slide.classList.remove("opacity-0");
+          slide.classList.add("opacity-100");
+        } else {
+          slide.classList.remove("opacity-100");
+          slide.classList.add("opacity-0");
+        }
+      });
+
+      function goTo(index) {
+        if (!slides.length) return;
+        currentIndex = (index + slides.length) % slides.length;
+
+        slides.forEach(function (slide, i) {
+          if (i === currentIndex) {
+            slide.classList.remove("opacity-0");
+            slide.classList.add("opacity-100");
+          } else {
+            slide.classList.remove("opacity-100");
+            slide.classList.add("opacity-0");
+          }
+        });
+      }
+
+      function next() {
+        goTo(currentIndex + 1);
+      }
+
+      var timerId = setInterval(next, intervalMs);
+ 
+      slider.addEventListener("mouseenter", function () {
+        clearInterval(timerId);
+      });
+
+      slider.addEventListener("mouseleave", function () {
+        timerId = setInterval(next, intervalMs);
+      });
+    });
+  })();
+</script>
+
+
+
+
+<!-- ===== Search Section ===== -->
+<section id="search" class="relative py-10 bg-gray-50">
+  <div class="max-w-4xl mx-auto px-6">
+    <div id="heroSearch" 
+         class="w-full opacity-0 translate-y-6 transition-all duration-700 ease-out">
+      <div class="flex justify-between flex-col sm:flex-row items-stretch gap-3 sm:gap-0 bg-white rounded-lg shadow-lg overflow-hidden w-full">
+        
+        <!-- City Dropdown -->
+        <div class="flex items-center px-4 py-3 sm:w-auto">
+          <img src="img/location-pin.png"
+               alt="City"
+               class="w-4 h-4 mr-2 [dir='rtl']:mr-0 [dir='rtl']:ml-2 shrink-0 object-contain"
+               data-i18n-attr="alt:city_icon_alt">
+          <div class="relative flex-1 min-w-0">
+            <select class="appearance-none bg-transparent text-gray-600 font-medium outline-none pr-6 w-full truncate"
+                    aria-label="Select your city"
+                    data-i18n-attr="aria-label:city_select_aria">
+              <option class="text-gray-800" data-i18n="city_placeholder">Select your city</option>
+              <option class="text-gray-800" data-i18n="city_jeddah">Jeddah</option>
+              <option class="text-gray-800" data-i18n="city_riyadh">Riyadh</option>
+              <option class="text-gray-800" data-i18n="city_dammam">Dammam</option>
+              <option class="text-gray-800" data-i18n="city_makkah">Makkah</option>
+              <option class="text-gray-800" data-i18n="city_madinah">Madinah</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Supermarket Dropdown -->
+        <div class="flex items-center px-4 py-3 sm:w-auto">
+          <img src="img/search2.png"
+               alt="Supermarket"
+               class="w-4 h-4 mr-2 [dir='rtl']:mr-0 [dir='rtl']:ml-2 shrink-0 object-contain"
+               data-i18n-attr="alt:supermarket_icon_alt">
+          <div class="relative flex-1 min-w-0">
+            <select class="appearance-none bg-transparent text-gray-600 font-medium outline-none pr-6 w-full truncate"
+                    aria-label="Search for your favorite supermarket"
+                    data-i18n-attr="aria-label:market_select_aria">
+              <option class="text-gray-800" data-i18n="market_placeholder">Search for your favorite supermarket</option>
+              <option class="text-gray-800" data-i18n="market_1">Supermarket 1</option>
+              <option class="text-gray-800" data-i18n="market_2">Supermarket 2</option>
+              <option class="text-gray-800" data-i18n="market_3">Supermarket 3</option>
+              <option class="text-gray-800" data-i18n="market_4">Supermarket 4</option>
+              <option class="text-gray-800" data-i18n="market_5">Supermarket 5</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Search Button -->
+        <button class="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 bg-teal-600 text-white font-semibold hover:bg-teal-700 transition shrink-0 rounded-lg sm:rounded-none"
+                data-i18n="search_btn"
+                data-i18n-attr="aria-label:search_btn_aria"
+                aria-label="Search">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="11" cy="11" r="7" stroke-width="1.5"/>
+            <line x1="16.65" y1="16.65" x2="21" y2="21" stroke-width="1.5"/>
+          </svg>
+          Search
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+ 
+
+<!-- ===== Browse by Supermarkets ===== -->
+<section class="bg-white py-12">
+  <div class="mx-auto max-w-6xl px-6">
+    <h2 class="text-xl md:text-2xl font-bold text-gray-800 mb-8 text-left">
+      Browse by Category
+    </h2>
+
+    <style>
+     
+      .marketSwiper .swiper-wrapper {
+        display: flex;
+        flex-direction: row;
+      }
+
+      
+      .marketSwiper .swiper-slide {
+        flex: 0 0 auto;
+        width: 260px;
+        margin-right: 1.5rem;
+      }
+
+      .marketSwiper {
+        position: relative;
+        overflow: hidden;
+        padding-top: 2.5rem;    
+        padding-bottom: 3rem;   
+      }
+ 
+      .marketSwiper .swiper-button-prev,
+      .marketSwiper .swiper-button-next {
+        top: 0.5rem;
+        bottom: auto;
+        transform: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 9999px;
+        background: #ffffff;
+        border: 1px solid #e5e7eb;
+        box-shadow: 0 8px 20px rgba(15,23,42,0.12);
+        color: #111827;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .marketSwiper .swiper-button-prev {
+        left: auto;
+        right: 3.25rem;
+      }
+
+      .marketSwiper .swiper-button-next {
+        right: 0.75rem;
+      }
+
+      .marketSwiper .swiper-button-prev::after,
+      .marketSwiper .swiper-button-next::after {
+        font-size: 18px;
+        font-weight: 700;
+      }
+
+      .marketSwiper .swiper-pagination {
+        bottom: 0;
+      }
+    </style>
+
+    <!-- Swiper Container -->
+    <div class="swiper marketSwiper">
+      <div class="swiper-wrapper">
+
+        <!-- Slide 1: Hypermarkets -->
+        <div class="swiper-slide">
+          <a href="Allsupermarkets.html"
+             class="block rounded-[32px] overflow-hidden shadow-lg hover:shadow-xl transition group">
+            <div class="relative h-[160px] md:h-[180px]">
+            
+              <img src="./img/market-hyper.jpg"
+                   class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                   alt="Hypermarkets" />
+              <div class="absolute inset-0 bg-black/40 transition-opacity duration-500 group-hover:opacity-0"></div>
+              <span
+                class="absolute bottom-3 left-4 text-white font-semibold px-3 py-1 rounded-full
+                       text-sm bg-black/40 backdrop-blur-sm">
+                Hypermarkets
+              </span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Slide 2: Local Markets -->
+        <div class="swiper-slide">
+          <a href="Allsupermarkets.html"
+             class="block rounded-[32px] overflow-hidden shadow-lg hover:shadow-xl transition group">
+            <div class="relative h-[160px] md:h-[180px]">
+              <img src="./img/market-local.jpg"
+                   class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                   alt="Local Markets" />
+              <div class="absolute inset-0 bg-black/40 transition-opacity duration-500 group-hover:opacity-0"></div>
+              <span
+                class="absolute bottom-3 left-4 text-white font-semibold px-3 py-1 rounded-full
+                       text-sm bg-black/40 backdrop-blur-sm">
+                Local Markets
+              </span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Slide 3: Organic Stores -->
+        <div class="swiper-slide">
+          <a href="Allsupermarkets.html"
+             class="block rounded-[32px] overflow-hidden shadow-lg hover:shadow-xl transition group">
+            <div class="relative h-[160px] md:h-[180px]">
+              <img src="./img/market-organic.jpg"
+                   class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                   alt="Organic Stores" />
+              <div class="absolute inset-0 bg-black/40 transition-opacity duration-500 group-hover:opacity-0"></div>
+              <span
+                class="absolute bottom-3 left-4 text-white font-semibold px-3 py-1 rounded-full
+                       text-sm bg-black/40 backdrop-blur-sm">
+                Organic Stores
+              </span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Slide 4: 24/7 Stores -->
+        <div class="swiper-slide">
+          <a href="Allsupermarkets.html"
+             class="block rounded-[32px] overflow-hidden shadow-lg hover:shadow-xl transition group">
+            <div class="relative h-[160px] md:h-[180px]">
+              <img src="./img/market-24-7.jpg"
+                   class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                   alt="24/7 Stores" />
+              <div class="absolute inset-0 bg-black/40 transition-opacity duration-500 group-hover:opacity-0"></div>
+              <span
+                class="absolute bottom-3 left-4 text-white font-semibold px-3 py-1 rounded-full
+                       text-sm bg-black/40 backdrop-blur-sm">
+                24/7 Stores
+              </span>
+            </div>
+          </a>
+        </div>
+
+         <!-- Slide 3: Organic Stores -->
+        <div class="swiper-slide">
+          <a href="Allsupermarkets.html"
+             class="block rounded-[32px] overflow-hidden shadow-lg hover:shadow-xl transition group">
+            <div class="relative h-[160px] md:h-[180px]">
+              <img src="./img/market-organic.jpg"
+                   class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                   alt="Organic Stores" />
+              <div class="absolute inset-0 bg-black/40 transition-opacity duration-500 group-hover:opacity-0"></div>
+              <span
+                class="absolute bottom-3 left-4 text-white font-semibold px-3 py-1 rounded-full
+                       text-sm bg-black/40 backdrop-blur-sm">
+                Organic Stores
+              </span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Slide 4: 24/7 Stores -->
+        <div class="swiper-slide">
+          <a href="Allsupermarkets.html"
+             class="block rounded-[32px] overflow-hidden shadow-lg hover:shadow-xl transition group">
+            <div class="relative h-[160px] md:h-[180px]">
+              <img src="./img/market-24-7.jpg"
+                   class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                   alt="24/7 Stores" />
+              <div class="absolute inset-0 bg-black/40 transition-opacity duration-500 group-hover:opacity-0"></div>
+              <span
+                class="absolute bottom-3 left-4 text-white font-semibold px-3 py-1 rounded-full
+                       text-sm bg-black/40 backdrop-blur-sm">
+                24/7 Stores
+              </span>
+            </div>
+          </a>
+        </div>
+
+
+      </div>
+
+     
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+
+      
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</section>
+
+ 
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    new Swiper(".marketSwiper", {
+      loop: false,
+      spaceBetween: 0,
+      grabCursor: true,
+      slidesPerView: "auto",
+      centeredSlides: false,
+
+      pagination: {
+        el: ".marketSwiper .swiper-pagination",
+        clickable: true,
+      },
+
+      navigation: {
+        nextEl: ".marketSwiper .swiper-button-next",
+        prevEl: ".marketSwiper .swiper-button-prev",
+      },
+    });
+  });
+</script>
+
+
+ 
+
+<!-- ===== Supermarkets in Jeddah ===== -->
+<section aria-labelledby="supermarketsTitle" class="py-10 animate-section-fade">
+  <div class="container mx-auto max-w-screen-xl px-4">
+    <h2 id="supermarketsTitle"
+   class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-center mb-10
+          bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-600
+          bg-clip-text text-transparent
+          tracking-wide drop-shadow-md animate-gradient-shine">
+  Supermarkets in Jeddah
+</h2>
+
+
+    <!-- الحاوية الرئيسية وسط الصفحة -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-5 mx-auto">
+      
+      <!-- item -->
+<a href="supermarket2.html" class="group card" data-i18n-attr="aria-label:supermarket_item_2_label" aria-label="Hyper Market">
+  <div class="card-box aspect-square max-w-[120px] mx-auto">
+    <img src="img/market-logo2.png" class="max-h-full max-w-full object-contain"
+         alt="Supermarket 2" data-i18n-attr="alt:supermarket_item_2_alt">
+  </div>
+  <p class="card-title font-bold text-gray-900 text-base sm:text-lg" data-i18n="supermarket_item_2_label">
+    Hyper Market
+  </p>
+</a>
+
+<!-- item -->
+<a href="supermarket2.html" class="group card" data-i18n-attr="aria-label:supermarket_item_3_label" aria-label="Hyper Market">
+  <div class="card-box aspect-square max-w-[120px] mx-auto">
+    <img src="img/market-logo3.png" class="max-h-full max-w-full object-contain"
+         alt="Supermarket 3" data-i18n-attr="alt:supermarket_item_3_alt">
+  </div>
+  <p class="card-title font-bold text-gray-900 text-base sm:text-lg" data-i18n="supermarket_item_3_label">
+    Hyper Market
+  </p>
+</a>
+
+<!-- item -->
+<a href="supermarket2.html" class="group card" data-i18n-attr="aria-label:supermarket_item_4_label" aria-label="Hyper Market">
+  <div class="card-box aspect-square max-w-[120px] mx-auto">
+    <img src="img/market-logo4.png" class="max-h-full max-w-full object-contain"
+         alt="Supermarket 4" data-i18n-attr="alt:supermarket_item_4_alt">
+  </div>
+  <p class="card-title font-bold text-gray-900 text-base sm:text-lg" data-i18n="supermarket_item_4_label">
+    Hyper Market
+  </p>
+</a>
+
+<!-- item -->
+<a href="supermarket2.html" class="group card" data-i18n-attr="aria-label:supermarket_item_5_label" aria-label="Hyper Market">
+  <div class="card-box aspect-square max-w-[120px] mx-auto">
+    <img src="img/market-logo5.png" class="max-h-full max-w-full object-contain"
+         alt="Supermarket 5" data-i18n-attr="alt:supermarket_item_5_alt">
+  </div>
+  <p class="card-title font-bold text-gray-900 text-base sm:text-lg" data-i18n="supermarket_item_5_label">
+    Hyper Market
+  </p>
+</a>
+
+<!-- item -->
+<a href="supermarket2.html" class="group card" data-i18n-attr="aria-label:supermarket_item_1_label" aria-label="Hyper Market">
+  <div class="card-box aspect-square max-w-[120px] mx-auto">
+    <img src="img/market-logo1.png" class="max-h-full max-w-full object-contain"
+         alt="Supermarket 1" data-i18n-attr="alt:supermarket_item_1_alt">
+  </div>
+  <p class="card-title font-bold text-gray-900 text-base sm:text-lg" data-i18n="supermarket_item_1_label">
+    Hyper Market
+  </p>
+</a>
+ <!-- item -->
+<a href="supermarket2.html" class="group card" data-i18n-attr="aria-label:supermarket_item_2_label" aria-label="Hyper Market">
+  <div class="card-box aspect-square max-w-[120px] mx-auto">
+    <img src="img/market-logo2.png" class="max-h-full max-w-full object-contain"
+         alt="Supermarket 2" data-i18n-attr="alt:supermarket_item_2_alt">
+  </div>
+  <p class="card-title font-bold text-gray-900 text-base sm:text-lg" data-i18n="supermarket_item_2_label">
+    Hyper Market
+  </p>
+</a>
+
+<!-- item -->
+<a href="supermarket2.html" class="group card" data-i18n-attr="aria-label:supermarket_item_3_label" aria-label="Hyper Market">
+  <div class="card-box aspect-square max-w-[120px] mx-auto">
+    <img src="img/market-logo3.png" class="max-h-full max-w-full object-contain"
+         alt="Supermarket 3" data-i18n-attr="alt:supermarket_item_3_alt">
+  </div>
+  <p class="card-title font-bold text-gray-900 text-base sm:text-lg" data-i18n="supermarket_item_3_label">
+    Hyper Market
+  </p>
+</a>
+
+<!-- item -->
+<a href="supermarket2.html" class="group card" data-i18n-attr="aria-label:supermarket_item_4_label" aria-label="Hyper Market">
+  <div class="card-box aspect-square max-w-[120px] mx-auto">
+    <img src="img/market-logo4.png" class="max-h-full max-w-full object-contain"
+         alt="Supermarket 4" data-i18n-attr="alt:supermarket_item_4_alt">
+  </div>
+  <p class="card-title font-bold text-gray-900 text-base sm:text-lg" data-i18n="supermarket_item_4_label">
+    Hyper Market
+  </p>
+</a>
+
+<!-- item -->
+<a href="supermarket2.html" class="group card" data-i18n-attr="aria-label:supermarket_item_5_label" aria-label="Hyper Market">
+  <div class="card-box aspect-square max-w-[120px] mx-auto">
+    <img src="img/market-logo5.png" class="max-h-full max-w-full object-contain"
+         alt="Supermarket 5" data-i18n-attr="alt:supermarket_item_5_alt">
+  </div>
+  <p class="card-title font-bold text-gray-900 text-base sm:text-lg" data-i18n="supermarket_item_5_label">
+    Hyper Market
+  </p>
+</a>
+
+<!-- item -->
+<a href="supermarket2.html" class="group card" data-i18n-attr="aria-label:supermarket_item_1_label" aria-label="Hyper Market">
+  <div class="card-box aspect-square max-w-[120px] mx-auto">
+    <img src="img/market-logo1.png" class="max-h-full max-w-full object-contain"
+         alt="Supermarket 1" data-i18n-attr="alt:supermarket_item_1_alt">
+  </div>
+  <p class="card-title font-bold text-gray-900 text-base sm:text-lg" data-i18n="supermarket_item_1_label">
+    Hyper Market
+  </p>
+</a>
+ <!-- item -->
+<a href="supermarket2.html" class="group card" data-i18n-attr="aria-label:supermarket_item_2_label" aria-label="Hyper Market">
+  <div class="card-box aspect-square max-w-[120px] mx-auto">
+    <img src="img/market-logo2.png" class="max-h-full max-w-full object-contain"
+         alt="Supermarket 2" data-i18n-attr="alt:supermarket_item_2_alt">
+  </div>
+  <p class="card-title font-bold text-gray-900 text-base sm:text-lg" data-i18n="supermarket_item_2_label">
+    Hyper Market
+  </p>
+</a>
+
+<!-- item -->
+<a href="supermarket2.html" class="group card" data-i18n-attr="aria-label:supermarket_item_3_label" aria-label="Hyper Market">
+  <div class="card-box aspect-square max-w-[120px] mx-auto">
+    <img src="img/market-logo3.png" class="max-h-full max-w-full object-contain"
+         alt="Supermarket 3" data-i18n-attr="alt:supermarket_item_3_alt">
+  </div>
+  <p class="card-title font-bold text-gray-900 text-base sm:text-lg" data-i18n="supermarket_item_3_label">
+    Hyper Market
+  </p>
+</a>
+
+<!-- item -->
+<a href="supermarket2.html" class="group card" data-i18n-attr="aria-label:supermarket_item_4_label" aria-label="Hyper Market">
+  <div class="card-box aspect-square max-w-[120px] mx-auto">
+    <img src="img/market-logo4.png" class="max-h-full max-w-full object-contain"
+         alt="Supermarket 4" data-i18n-attr="alt:supermarket_item_4_alt">
+  </div>
+  <p class="card-title font-bold text-gray-900 text-base sm:text-lg" data-i18n="supermarket_item_4_label">
+    Hyper Market
+  </p>
+</a>
+
+<!-- item -->
+<a href="supermarket2.html" class="group card" data-i18n-attr="aria-label:supermarket_item_5_label" aria-label="Hyper Market">
+  <div class="card-box aspect-square max-w-[120px] mx-auto">
+    <img src="img/market-logo5.png" class="max-h-full max-w-full object-contain"
+         alt="Supermarket 5" data-i18n-attr="alt:supermarket_item_5_alt">
+  </div>
+  <p class="card-title font-bold text-gray-900 text-base sm:text-lg" data-i18n="supermarket_item_5_label">
+    Hyper Market
+  </p>
+</a>
+
+<!-- item -->
+<a href="supermarket2.html" class="group card" data-i18n-attr="aria-label:supermarket_item_1_label" aria-label="Hyper Market">
+  <div class="card-box aspect-square max-w-[120px] mx-auto">
+    <img src="img/market-logo1.png" class="max-h-full max-w-full object-contain"
+         alt="Supermarket 1" data-i18n-attr="alt:supermarket_item_1_alt">
+  </div>
+  <p class="card-title font-bold text-gray-900 text-base sm:text-lg" data-i18n="supermarket_item_1_label">
+    Hyper Market
+  </p>
+</a>
+
+    </div>
+  </div>
+</section>
+ 
+
+
+
+
+
+
+
+
+
+
+<!-- ===== Offers Slider Section ===== -->
+<section class="pb-16 bg-white mb-12  mt-10 ">
+  <div class="max-w-7xl mx-auto px-6">
+    <!-- Slider Wrapper -->
+    <div class="relative w-full h-56 md:h-72 overflow-hidden rounded-2xl shadow-lg slider-frame bg-gray-100" dir="ltr">
+  <div id="offerSlider" class="flex transition-transform duration-700 h-full">
+    <img src="img/market-offer1.png" alt="Offer 1" class="w-full h-full flex-shrink-0 object-fit:contain">
+    <img src="img/market-offer2.png" alt="Offer 2" class="w-full h-full flex-shrink-0 object-fit:contain">
+    <img src="img/market-offer3.png" alt="Offer 3" class="w-full h-full flex-shrink-0 object-fit:contain">
+  </div>
+</div>
+
+  </div>
+</section>
+<a
+  href="https://wa.me/201234567890"
+  class="fixed bottom-5 right-4 w-12 h-12 rounded-full bg-green-500 text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform z-50"
+  target="_blank"
+  aria-label="Chat on WhatsApp"
+>
+  <i class="fab fa-whatsapp text-2xl"></i>
+</a>
+
+<footer class="relative overflow-hidden bg-teal-700 text-white px-6 py-16 min-h-[600px]">
+  <div class="pointer-events-none absolute inset-0">
+    <div class="absolute -top-28 -left-24 w-[34rem] h-[34rem] rounded-full bg-emerald-100/35 blur-3xl"></div>
+    <div class="absolute -bottom-24 -right-24 w-[30rem] h-[30rem] rounded-full bg-amber-100/40 blur-3xl"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(16,185,129,.07),transparent_60%)]"></div>
+  </div>
+
+  <div class="relative max-w-6xl mx-auto px-4 lg:px-6">
+    <!-- المحتوى -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-center sm:text-start">
+      <!-- Logo / Brand -->
+      <div class="footer-brand-wrap flex flex-col items-center sm:items-start" data-reveal="left">
+        <div class="h-20 w-20 rounded-full bg-black grid place-items-center mb-3">
+          <img src="img/logo as a mask.png" alt="Siyahatna logo"
+               data-i18n-attr="alt:footer_logo_alt" class="h-20 w-20">
+        </div>
+        <span class="footer-brand text-3xl font-extrabold tracking-widest text-white hover:drop-shadow-[0_0_12px_rgba(250,204,21,0.45)]" data-i18n="brand_aria">
+          Siyahatna
+        </span>
+      </div>
+
+      <!-- Pages -->
+      <div data-reveal="right">
+        <h4 class="mb-4 text-base font-bold">
+          <a href="#" class="ink-underline hover:text-yellow-400" data-i18n="footer_categories">All Categories</a>
+        </h4>
+        <ul class="space-y-2">
+          <li><a data-i18n="footer_restaurants" class="font-bold ink-underline hover:text-yellow-400" href="Allrestaurants.html">Restaurants</a></li>
+          <li><a data-i18n="footer_cafe" class="font-bold ink-underline hover:text-yellow-400" href="Allrestaurants.html">Cafe</a></li>
+          <li><a data-i18n="footer_supermarkets" class="font-bold ink-underline hover:text-yellow-400" href="supermarket1.html">Supermarket</a></li>
+          <li><a data-i18n="footer_hotels" class="font-bold ink-underline hover:text-yellow-400" href="hotel-1.html">Hotels</a></li>
+          <li><a data-i18n="footer_parks" class="font-bold ink-underline hover:text-yellow-400" href="parks1.html">Parks</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div data-reveal="left">
+        <h4 class="mb-4 text-base font-bold">
+          <a href="#" class="ink-underline hover:text-yellow-400" data-i18n="footer_contact">Contact</a>
+        </h4>
+        <ul class="space-y-2">
+          <li>
+            <a href="mailto:Support123@gmail.com" class="font-bold ink-underline hover:text-yellow-400" data-i18n="footer_email">
+              <bdi>Email: Support123@gmail.com</bdi>
+            </a>
+          </li>
+          <li>
+            <a href="tel:12345678" class="font-bold ink-underline hover:text-yellow-400" data-i18n="footer_phone1">
+              <bdi>Phone 1: 12345678</bdi>
+            </a>
+          </li>
+          <li>
+            <a href="tel:3455765433345" class="font-bold ink-underline hover:text-yellow-400" data-i18n="footer_phone2">
+              <bdi>Phone 2: 3455765433345</bdi>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Policies -->
+      <div data-reveal="right">
+        <h4 class="mb-4 text-base font-bold">
+          <a href="#" class="ink-underline hover:text-yellow-400" data-i18n="footer_policies">Policies</a>
+        </h4>
+        <ul class="space-y-2">
+          <li><a data-i18n="footer_guidelines" class="font-bold ink-underline hover:text-yellow-400" href="#">Community Guidelines</a></li>
+          <li><a data-i18n="footer_terms" class="font-bold ink-underline hover:text-yellow-400" href="#">Terms of Use</a></li>
+          <li><a data-i18n="footer_privacy" class="font-bold ink-underline hover:text-yellow-400" href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Download app -->
+    <!-- Download app -->
+<div class="mt-12 text-center" data-reveal="left">
+  <h4 class="mb-2 text-base font-bold text-center">
+    <a href="#" class="ink-underline hover:text-yellow-400 inline-block" data-i18n="footer_download">
+      Download Our App
+    </a>
+  </h4>
+
+  <p data-i18n="footer_download_desc" class="text-white/70 text-sm mb-4 font-bold">
+    Get the Latest Version of our Apps
+  </p>
+
+  <div class="flex justify-center gap-4">
+    <a href="#" class="ink-underline">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+           alt="Google Play" class="h-10" data-i18n-attr="alt:footer_google_alt">
+    </a>
+    <a href="#" class="ink-underline">
+      <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83"
+           alt="App Store" class="h-10" data-i18n-attr="alt:footer_apple_alt">
+    </a>
+  </div>
+</div>
+
+
+    <!-- Divider -->
+    <div class="mt-12 mb-3 border-t border-white/10" data-reveal="right"></div>
+
+    <!-- حقوق النشر -->
+ <div class="pt-4 w-full text-center sm:text-center text-sm text-white/60 font-bold" data-reveal="right" data-i18n="footer_rights">
+  © 2025 Siyahatna. All rights reserved.
+</div>
+
+
+  </div>
+</footer>
+
+
+
+<script src="translation.js"></script>
+
+<script src="supermarket1main.js"></script>
+
+
+
+    
+</body>

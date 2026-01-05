@@ -1,0 +1,221 @@
+ /*title*/
+  .title-anim {
+    /* Gradient متحرك */
+    background: linear-gradient(90deg, #0d9488, #059669, #d97706, #b91c1c);
+    background-size: 300% 300%;
+
+    /* Clip النص */
+    background-clip: text;
+    -webkit-background-clip: text;
+
+    /* اجعل النص شفاف علشان يبان التدرج */
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+
+    /* أنيميشن التدفق */
+    animation: gradientFlow 6s ease-in-out infinite;
+  }
+
+  @keyframes gradientFlow {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+
+
+ 
+/*Animation on card ready to travel*/
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(40px) scale(0.95); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.animate-card-in {
+  animation: cardIn .8s cubic-bezier(.22,1,.36,1) both;
+}
+
+/* === Hover effect on the card === */
+.cta-card {
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+.cta-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 24px rgba(0,0,0,.15);
+}
+
+/* === Button subtle pulse === */
+@keyframes btnPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+.animate-btn-pulse {
+  animation: btnPulse 2s ease-in-out infinite;
+}
+
+
+/* Direction-aware Cards Animations (styles)*/
+ 
+ 
+  .cards-animate .card-anim {
+    opacity: 0;
+    transform: translateX(40px) translateY(12px) rotateX(5deg);
+    transform-origin: center bottom;
+    transition: opacity .7s ease, transform .7s cubic-bezier(.2,.8,.2,1);
+    will-change: transform, opacity;
+  }
+  .cards-animate.in .card-anim {
+    opacity: 1;
+    transform: translateX(0) translateY(0) rotateX(0deg);
+  }
+  [dir="rtl"] .cards-animate .card-anim {
+    transform: translateX(-40px) translateY(12px) rotateX(5deg);
+  }
+  [dir="rtl"] .cards-animate.in .card-anim {
+    transform: translateX(0) translateY(0) rotateX(0deg);
+  }
+
+   
+  .cards-animate.in .card-anim:nth-child(1){ transition-delay: .05s }
+  .cards-animate.in .card-anim:nth-child(2){ transition-delay: .10s }
+  .cards-animate.in .card-anim:nth-child(3){ transition-delay: .15s }
+  .cards-animate.in .card-anim:nth-child(4){ transition-delay: .20s }
+  .cards-animate.in .card-anim:nth-child(5){ transition-delay: .25s }
+  .cards-animate.in .card-anim:nth-child(6){ transition-delay: .30s }
+  .cards-animate.in .card-anim:nth-child(7){ transition-delay: .35s }
+  .cards-animate.in .card-anim:nth-child(8){ transition-delay: .40s }
+ 
+  .card-anim {
+    transition: transform .25s ease, box-shadow .25s ease, opacity .25s ease, visibility .25s ease;
+  }
+  .card-anim:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 28px rgba(0,0,0,.10);
+  }
+ 
+   
+  .card-img { transition: transform .6s ease; }
+  .card-anim:hover .card-img { transform: scale(1.06); }
+
+  
+  .fav-btn { transition: transform .2s ease; }
+  .card-anim:hover .fav-btn { transform: scale(1.08); }
+  .fav-btn:active { transform: scale(0.95); }
+
+  
+  .badge { position: relative; overflow: hidden; }
+  .badge::after{
+    content:""; position:absolute; inset:0; transform: translateX(-120%);
+    background: linear-gradient(110deg, transparent 0%, rgba(255,255,255,.25) 45%, rgba(255,255,255,.45) 50%, rgba(255,255,255,.25) 55%, transparent 70%);
+    transition: transform .9s ease;
+    pointer-events: none;
+  }
+  .card-anim:hover .badge::after{ transform: translateX(120%); }
+
+  /* =========================
+     Filtering States (Tabs + Cards)
+     ========================= */
+  .tab-btn[aria-pressed="true"] {
+    background-color: #0f766e;  
+    color: #fff;
+  }
+  .tab-btn[aria-pressed="false"] {
+    background-color: #e5e7eb;  
+    color: #111827;  
+  }
+ 
+  .card-hide {
+    opacity: 0 !important;
+    transform: translateY(6px) scale(.98) !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
+    display: none !important;  
+  }
+
+  /* =========================
+     Accessibility: Reduced Motion
+     ========================= */
+  @media (prefers-reduced-motion: reduce){
+    .cards-animate .card-anim,
+    .card-anim:hover,
+    .card-img,
+    .fav-btn,
+    .badge::after {
+      transition: none !important;
+      transform: none !important;
+      opacity: 1 !important;
+      box-shadow: none !important;
+    }
+  }
+
+
+
+  
+ 
+  /* next pre btn*/
+  @keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  /* نبضة قصيرة عند الضغط */
+  @keyframes buttonPop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.06); }
+    100% { transform: scale(1); }
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .animate-fade-slide-up { animation: fadeSlideUp .45s ease-out both; }
+    .animate-pop-once { animation: buttonPop .22s ease-out 1; }
+  }
+ 
+
+    /*footer*/
+  .ink-underline {
+    position: relative;
+    display: inline-block;
+  }
+  .ink-underline::after {
+    content: "";
+    position: absolute;
+    left: 50%; bottom: -3px;
+    width: 0; height: 2px;
+    border-radius: 9999px;
+    background: linear-gradient(90deg,#facc15,#fde047,#facc15);
+    transform: translateX(-50%);
+    transition: width .42s cubic-bezier(.22,1,.36,1), height .42s cubic-bezier(.22,1,.36,1);
+  }
+  .ink-underline:hover::after,
+  .ink-underline:focus-visible::after {
+    width: 100%; height: 3px;
+  }
+
+  [data-reveal]{opacity:0; will-change:transform,opacity;}
+  @keyframes revealLeft {
+    from {opacity:0; transform:translateX(-40px);}
+    to   {opacity:1; transform:translateX(0);}
+  }
+  @keyframes revealRight {
+    from {opacity:0; transform:translateX(40px);}
+    to   {opacity:1; transform:translateX(0);}
+  }
+
+  .is-inview[data-reveal="left"]  {animation:revealLeft .7s cubic-bezier(.22,1,.36,1) both}
+  .is-inview[data-reveal="right"] {animation:revealRight .7s cubic-bezier(.22,1,.36,1) both}
+
+  .is-inview{animation-delay:var(--rv-delay,0s)}
+
+  @media (prefers-reduced-motion: reduce){
+    .ink-underline::after{transition:none}
+    [data-reveal]{opacity:1 !important; transform:none !important; animation:none !important}
+  }
+ 
+
+
+ 
+ 
+
+      
+
+
+
+ 

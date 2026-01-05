@@ -1,0 +1,689 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./src/output.css" rel="stylesheet">
+  <link href="payment.css" rel="stylesheet">
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+ 
+</head>
+<body class="bg-gray-100">
+
+<!-- Navbar (Responsive) -->
+<nav class="  w-full z-50 bg-teal-700">
+  <div class="mx-auto max-w-8xl px-4">
+    <div class="flex items-center h-16">
+<!-- Left: Logo + My Account Icon -->
+<div class="flex items-center gap-4 flex-1">
+  <!-- Logo (صورة فقط بدون رابط) -->
+  <img src="img/logo as a mask.png" alt="Siyahatna logo"
+       class="w-10 h-10 rounded-full"
+       data-i18n-attr="alt:brand_alt">
+         <span class="text-white text-xl font-bold" data-i18n="brand_aria">Siyahatna</span>
+
+  <!-- My Account Icon -->
+  <a href="account.html" class="text-white p-2 rounded-full hover:bg-white/20 transition-colors">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M5.121 17.804A12.035 12.035 0 0112 15c2.636 0 5.088.85 7.121 2.804M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+    </svg>
+  </a>
+</div>
+      <!-- centered links -->
+     <ul class="hidden md:flex items-center justify-center gap-8 border-t border-b border-white/40 py-1 flex-1">
+  <li class="nav-item opacity-0 translate-y-2 transition-all duration-500 will-change-transform">
+    <a href="index.html" class="nav-link relative px-2 py-1 text-white font-medium transition-colors duration-300 hover:text-yellow-400
+                      after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-full after:bg-yellow-400
+                      after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
+      <span data-i18n="nav_home">Home</span>
+    </a>
+  </li>
+  <li class="nav-item opacity-0 translate-y-2 transition-all duration-500 will-change-transform">
+    <a href="plan.html" class="nav-link relative px-2 py-1 text-white font-medium transition-colors duration-300 hover:text-yellow-400
+                      after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-full after:bg-yellow-400
+                      after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
+      <span data-i18n="nav_categories">Travel itinerary</span>
+    </a>
+  </li>
+  <li class="nav-item opacity-0 translate-y-2 transition-all duration-500 will-change-transform">
+    <a href="about.html" class="nav-link relative px-2 py-1 text-white font-medium transition-colors duration-300 hover:text-yellow-400
+                      after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-full after:bg-yellow-400
+                      after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
+      <span data-i18n="nav_about">About</span>
+    </a>
+  </li>
+  <li class="nav-item opacity-0 translate-y-2 transition-all duration-500 will-change-transform">
+    <a href="contactus.html" class="nav-link relative px-2 py-1 text-white font-medium transition-colors duration-300 hover:text-yellow-400
+                      after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-full after:bg-yellow-400
+                      after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
+      <span data-i18n="nav_deals">Contact us</span>
+    </a>
+  </li>
+</ul>
+
+
+     <!-- Right: Auth (md+) -->
+<div class="hidden md:flex justify-end items-center gap-3 flex-1">
+ <!-- Language Dropdown Desktop -->
+<div class="relative">
+  <button id="langBtnDesktop"
+          class="flex items-center gap-2 px-4 py-1.5 bg-white text-black rounded-lg font-medium hover:bg-yellow-400 transition"
+          aria-haspopup="true" aria-expanded="false">
+    <span data-i18n="lang_btn">Language</span>
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+    </svg>
+  </button>
+  <div id="langMenuDesktop" class="absolute right-0 mt-2 w-32 rounded-lg bg-white shadow-lg ring-1 ring-black/5 hidden z-50">
+    <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="en">English</a>
+    <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="ar">العربية</a>
+  </div>
+</div>
+
+
+  <a href="register.html"
+  class="inline-block px-4 py-1.5 bg-white text-black rounded-lg font-medium hover:bg-yellow-400 transition"
+  data-i18n="nav_register">
+  Register
+</a>
+  <a href="login.html"
+  class="px-4 py-1.5 border border-white text-white rounded-lg font-medium 
+         hover:bg-yellow-400 hover:text-black transition inline-block text-center"
+  data-i18n="nav_login">
+  Log in
+</a>
+
+</div>
+
+      <!-- Mobile: Hamburger -->
+      <button id="navToggle" class="md:hidden ml-auto inline-flex items-center justify-center p-2 rounded-lg border border-white/40 text-white"
+              aria-label="Open menu" aria-expanded="false">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+<div id="mobileMenu" class="md:hidden hidden">
+  <div class="bg-black/90 border-t border-white/10">
+    <div class="px-4 py-4 space-y-2">
+      <a href="index.html" class="block px-3 py-2 rounded-md text-white/90 hover:bg-white/10" data-i18n="nav_home">Home</a>
+      <a href="plan.html" class="block px-3 py-2 rounded-md text-white/90 hover:bg-white/10" data-i18n="nav_categories">Travel itinerary</a>
+      <a href="about.html" class="block px-3 py-2 rounded-md text-white/90 hover:bg-white/10" data-i18n="nav_about">About</a>
+      <a href="contactus.html" class="block px-3 py-2 rounded-md text-white/90 hover:bg-white/10" data-i18n="nav_deals">Contact us</a>
+
+      <!-- Language Dropdown Mobile -->
+      <div class="relative">
+        <button id="langBtnMobile"
+                class="w-full flex items-center justify-between px-4 py-2 bg-white text-black rounded-lg font-medium hover:bg-yellow-400 transition"
+                aria-haspopup="true" aria-expanded="false">
+          <span data-i18n="lang_btn">Language</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div id="langMenuMobile"
+             class="absolute left-0 right-0 mt-2 rounded-lg bg-white shadow-lg ring-1 ring-black/5 hidden">
+          <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="en">English</a>
+          <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="ar">العربية</a>
+        </div>
+      </div>
+
+      <div class="pt-3 flex items-center gap-2">
+       <a href="register.html"
+  class="flex-1 px-4 py-2 bg-white text-black rounded-lg font-medium hover:bg-yellow-400 hover:text-black transition inline-block text-center"
+  data-i18n="nav_register">
+  Register
+</a>
+       <a href="login.html"
+  class="flex-1 px-4 py-2 border border-white text-white rounded-lg font-medium 
+         hover:bg-yellow-400 hover:text-black transition inline-block text-center"
+  data-i18n="nav_login">
+  Log in
+</a>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+</nav>
+
+
+
+<main class="container mx-auto p-6">
+  <header class="mt-6 mb-8">
+    <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800" data-i18n="checkout_page_title">
+      Checkout
+    </h1>
+    <p class="mt-2 text-gray-600 text-sm sm:text-base" data-i18n="checkout_page_subtitle">
+      Complete your order and payment securely
+    </p>
+  </header>
+  <!-- Grid Layout -->
+  <section class="grid grid-cols-1 lg:grid-cols-6 gap-6 w-full max-w-8xl mx-auto mt-10">
+    
+    <!-- Main Section -->
+    <div class="lg:col-span-4 bg-white p-6 rounded-xl shadow space-y-8 order-1">
+      
+       <section class="space-y-6">
+<!-- Contact -->
+<!-- Contact -->
+<div class="bg-white border border-teal-200 rounded-2xl p-6 card-soft reveal">
+  <h2 class="text-lg font-semibold mb-4" data-i18n="checkout_contact_title">Contact & Billing</h2>
+  <div class="grid sm:grid-cols-2 gap-4">
+
+    <!-- Full name -->
+    <div class="sm:col-span-2">
+      <label class="block text-sm font-medium mb-1" data-i18n="checkout_fullname_label">Full name</label>
+      <input
+        type="text" id="fullName" required
+        class="input-soft w-full rounded-xl border border-teal-300 px-3 py-2 shadow-sm focus:ring-2 focus:ring-teal-400 focus:border-teal-400"
+        data-i18n-placeholder="checkout_fullname_ph"
+        placeholder="John Doe">
+    </div>
+
+    <!-- Phone -->
+    <div>
+      <label class="block text-sm font-medium mb-1" data-i18n="checkout_phone_label">Phone</label>
+      <input
+        type="tel" id="phone" required
+        class="input-soft w-full rounded-xl border border-teal-300 px-3 py-2 shadow-sm focus:ring-2 focus:ring-teal-400 focus:border-teal-400"
+        data-i18n-placeholder="checkout_phone_ph"
+        placeholder="+966 5x xxx xxxx">
+    </div>
+
+    <!-- City -->
+    <div>
+      <label class="block text-sm font-medium mb-1" data-i18n="checkout_city_label">City</label>
+      <input
+        type="text" id="city"
+        class="input-soft w-full rounded-xl border border-teal-300 px-3 py-2 shadow-sm focus:ring-2 focus:ring-teal-400 focus:border-teal-400"
+        data-i18n-placeholder="checkout_city_ph"
+        placeholder="Riyadh">
+    </div>
+
+    <!-- Email -->
+    <div class="sm:col-span-2">
+      <label class="block text-sm font-medium mb-1" data-i18n="checkout_email_label">Email</label>
+      <input
+        type="email" id="email" required
+        class="input-soft w-full rounded-xl border border-teal-300 px-3 py-2 shadow-sm focus:ring-2 focus:ring-teal-400 focus:border-teal-400"
+        data-i18n-placeholder="checkout_email_ph"
+        placeholder="you@example.com">
+    </div>
+
+    <!-- Billing address -->
+    <div class="sm:col-span-2">
+      <label class="block text-sm font-medium mb-1" data-i18n="checkout_address_label">Billing address</label>
+      <input
+        type="text" id="address"
+        class="input-soft w-full rounded-xl border border-teal-300 px-3 py-2 shadow-sm focus:ring-2 focus:ring-teal-400 focus:border-teal-400"
+        data-i18n-placeholder="checkout_address_ph"
+        placeholder="Street, building, apartment">
+    </div>
+  </div>
+</div>
+
+ <!-- Payment Methods -->
+<div class="payment-section bg-white border border-teal-200 rounded-2xl p-6 reveal">
+  <h2 class="text-lg font-semibold mb-4" data-i18n="pay_title">Payment method</h2>
+
+  <!-- Methods -->
+  <div class="border border-teal-200 rounded-xl p-4 space-y-2 mb-6 bg-gray-50" id="payMethodGroup">
+    <label class="flex items-center gap-3 p-3 border border-teal-200 rounded-lg cursor-pointer transition-all duration-200 hover:bg-teal-50/50">
+      <input type="radio" name="payMethod" value="online" class="accent-teal-600 focus:outline-none focus:ring-0">
+      <div class="flex items-center gap-3">
+        <span class="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-primary/10 text-primary">💳</span>
+        <div>
+          <div class="font-medium" data-i18n="pay_online">Online payment</div>
+          <div class="text-xs text-gray-500" data-i18n="pay_online_desc">Visa, Mastercard, Apple Pay, Google Pay</div>
+        </div>
+      </div>
+    </label>
+
+    <label class="flex items-center gap-3 p-3 border border-teal-200 rounded-lg cursor-pointer transition-all duration-200 hover:bg-teal-50/50">
+      <input type="radio" name="payMethod" value="bank" class="accent-teal-600 focus:outline-none focus:ring-0">
+      <div class="flex items-center gap-3">
+        <span class="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-primary/10 text-primary">🏦</span>
+        <div>
+          <div class="font-medium" data-i18n="pay_bank">Bank transfer</div>
+          <div class="text-xs text-gray-500" data-i18n="pay_bank_desc">Transfer to bank account & upload receipt</div>
+        </div>
+      </div>
+    </label>
+
+    <label class="flex items-center gap-3 p-3 border border-teal-200 rounded-lg cursor-pointer transition-all duration-200 hover:bg-teal-50/50">
+      <input type="radio" name="payMethod" value="cash" class="accent-teal-600 focus:outline-none focus:ring-0">
+      <div class="flex items-center gap-3">
+        <span class="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-primary/10 text-primary">💵</span>
+        <div>
+          <div class="font-medium" data-i18n="pay_cash">Cash on delivery</div>
+          <div class="text-xs text-gray-500" data-i18n="pay_cash_desc">Extra COD fee may apply</div>
+        </div>
+      </div>
+    </label>
+  </div>
+
+  <!-- Panels -->
+  <div class="border border-teal-200 rounded-xl p-4 bg-white">
+
+    <!-- Online -->
+    <div id="panel-online" class="hidden">
+      <h3 class="font-medium mb-3" data-i18n="panel_online_title">Online Payment</h3>
+
+      <!-- Selector -->
+      <div class="grid gap-3 sm:grid-cols-4 mb-4" id="cardMethodGroup">
+        <label class="flex items-center justify-center gap-2 border border-teal-200 rounded-lg p-2 cursor-pointer hover:bg-teal-50/50">
+          <input type="radio" name="cardMethod" value="visa" class="sr-only">
+          <img src="img/visa.png" alt="Visa" class="h-6"><span class="text-sm" data-i18n="card_visa">Visa</span>
+        </label>
+        <label class="flex items-center justify-center gap-2 border border-teal-200 rounded-lg p-2 cursor-pointer hover:bg-teal-50/50">
+          <input type="radio" name="cardMethod" value="mastercard" class="sr-only">
+          <img src="img/mastercard.png" alt="Mastercard" class="h-6"><span class="text-sm" data-i18n="card_mastercard">Mastercard</span>
+        </label>
+        <label class="flex items-center justify-center gap-2 border border-teal-200 rounded-lg p-2 cursor-pointer hover:bg-teal-50/50">
+          <input type="radio" name="cardMethod" value="apple" class="sr-only">
+          <img src="img/apple-pay.png" alt="Apple Pay" class="h-6"><span class="text-sm" data-i18n="card_apple">Apple Pay</span>
+        </label>
+        <label class="flex items-center justify-center gap-2 border border-teal-200 rounded-lg p-2 cursor-pointer hover:bg-teal-50/50">
+          <input type="radio" name="cardMethod" value="google" class="sr-only">
+          <img src="img/google-pay.png" alt="Google Pay" class="h-6"><span class="text-sm" data-i18n="card_google">Google Pay</span>
+        </label>
+      </div>
+
+      <!-- Card Details -->
+      <div id="cardDetails" class="hidden">
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="sm:col-span-2">
+            <label class="block text-sm font-medium mb-1" data-i18n="card_name">Cardholder name</label>
+            <input id="cardName" type="text"
+              class="w-full rounded-lg border border-teal-300 px-3 py-2 focus:outline-none focus:ring-0 focus:border-teal-600"
+              data-i18n-placeholder="card_name_ph" placeholder="JOHN A DOE">
+          </div>
+          <div class="sm:col-span-2">
+            <label class="block text-sm font-medium mb-1" data-i18n="card_number">Card number</label>
+            <input id="cardNumber" type="text" autocomplete="cc-number"
+              class="w-full rounded-lg border border-teal-300 px-3 py-2 pr-12 focus:outline-none focus:ring-0 focus:border-teal-600"
+              data-i18n-placeholder="card_number_ph" placeholder="XXXX XXXX XXXX XXXX">
+            <p class="text-xs text-gray-500 mt-1" data-i18n="card_secure_note">We never store your full card number.</p>
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-1" data-i18n="card_exp">Expiry</label>
+            <input id="cardExp" type="text" autocomplete="cc-exp"
+              class="w-full rounded-lg border border-teal-300 px-3 py-2 focus:outline-none focus:ring-0 focus:border-teal-600"
+              data-i18n-placeholder="card_exp_ph" placeholder="MM/YY">
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-1" data-i18n="card_cvv">CVV</label>
+            <input id="cardCvv" type="password" autocomplete="cc-csc"
+              class="w-full rounded-lg border border-teal-300 px-3 py-2 focus:outline-none focus:ring-0 focus:border-teal-600"
+              data-i18n-placeholder="card_cvv_ph" placeholder="•••">
+          </div>
+        </div>
+
+        <div class="mt-4 flex items-center gap-2 text-xs text-gray-500">
+          <input type="checkbox" id="saveCard" class="rounded border-teal-300 accent-teal-600 focus:outline-none focus:ring-0">
+          <label for="saveCard" data-i18n="card_save">Save card for faster checkout next time</label>
+        </div>
+      </div>
+
+      <!-- Wallet Details (Apple/Google Pay) -->
+      <div id="walletDetails" class="hidden">
+        <div class="rounded-xl border border-teal-200 p-3 bg-teal-50/40 flex items-center gap-3">
+          <img id="walletLogo" src="img/apple-pay.png" alt="" class="h-5 w-auto">
+          <span id="walletTitle" class="font-medium">Pay with Apple Pay</span>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-4 mt-3">
+          <div>
+            <label class="block text-sm font-medium mb-1">Full name</label>
+            <input id="walletName" type="text" class="w-full rounded-lg border border-teal-300 px-3 py-2 focus:outline-none focus:ring-0 focus:border-teal-600" placeholder="John A. Doe">
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-1">Phone</label>
+            <input id="walletPhone" type="tel" class="w-full rounded-lg border border-teal-300 px-3 py-2 focus:outline-none focus:ring-0 focus:border-teal-600" placeholder="+966 5x xxx xxxx">
+          </div>
+          <div class="sm:col-span-2">
+            <label class="block text-sm font-medium mb-1">Email</label>
+            <input id="walletEmail" type="email" class="w-full rounded-lg border border-teal-300 px-3 py-2 focus:outline-none focus:ring-0 focus:border-teal-600" placeholder="you@example.com">
+          </div>
+          <div class="sm:col-span-2">
+            <label class="block text-sm font-medium mb-1">Billing address</label>
+            <input id="walletAddr" type="text" class="w-full rounded-lg border border-teal-300 px-3 py-2 focus:outline-none focus:ring-0 focus:border-teal-600" placeholder="Street, building, apartment">
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-1">City</label>
+            <input id="walletCity" type="text" class="w-full rounded-lg border border-teal-300 px-3 py-2 focus:outline-none focus:ring-0 focus:border-teal-600" placeholder="Riyadh">
+          </div>
+          <div class="sm:col-span-2">
+            <label class="block text-sm font-medium mb-1">Order note (optional)</label>
+            <textarea id="walletNote" class="w-full rounded-lg border border-teal-300 px-3 py-2 focus:outline-none focus:ring-0 focus:border-teal-600" rows="2" placeholder="Any delivery notes…"></textarea>
+          </div>
+        </div>
+
+        <div class="mt-3 flex items-center gap-2 text-xs text-gray-600">
+          <input type="checkbox" id="saveWallet" class="rounded border-teal-300 accent-teal-600 focus:outline-none focus:ring-0">
+          <label for="saveWallet">Save these details for faster checkout</label>
+        </div>
+
+        <button id="walletButton"
+          class="mt-4 inline-flex items-center gap-2 rounded-lg bg-black text-white px-4 py-2 focus:outline-none focus:ring-0">
+          Continue with Apple Pay
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Bank -->
+    <div id="panel-bank" class="hidden">
+      <h3 class="font-medium mb-3" data-i18n="panel_bank_title">Bank Transfer</h3>
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div class="sm:col-span-2">
+          <label class="block text-sm font-medium mb-1" data-i18n="bank_holder">Account holder name</label>
+          <input type="text" class="w-full rounded-lg border border-teal-300 px-3 py-2 focus:outline-none focus:ring-0 focus:border-teal-600">
+        </div>
+        <div>
+          <label class="block text-sm font-medium mb-1" data-i18n="bank_name">Bank name</label>
+          <input type="text" class="w-full rounded-lg border border-teal-300 px-3 py-2 focus:outline-none focus:ring-0 focus:border-teal-600">
+        </div>
+        <div>
+          <label class="block text-sm font-medium mb-1" data-i18n="bank_swift">SWIFT / BIC</label>
+          <input type="text" class="w-full rounded-lg border border-teal-300 px-3 py-2 focus:outline-none focus:ring-0 focus:border-teal-600">
+        </div>
+        <div class="sm:col-span-2">
+          <label class="block text-sm font-medium mb-1" data-i18n="bank_iban">IBAN</label>
+          <input type="text" class="w-full rounded-lg border border-teal-300 px-3 py-2 focus:outline-none focus:ring-0 focus:border-teal-600">
+        </div>
+        <div class="sm:col-span-2">
+          <label class="block text-sm font-medium mb-1" data-i18n="bank_upload">Upload receipt</label>
+          <input id="bankFile" type="file" class="w-full rounded-lg border border-teal-300 px-3 py-2 focus:outline-none focus:ring-0 focus:border-teal-600">
+          <p id="bankFileHint" class="text-xs text-gray-500 mt-1" data-i18n="bank_upload_hint">Accepted: JPG, PNG, PDF.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cash -->
+    <div id="panel-cash" class="hidden">
+      <h3 class="font-medium mb-3" data-i18n="panel_cash_title">Cash on Delivery</h3>
+      <p class="text-sm text-gray-700 mb-3" data-i18n="panel_cash_desc">Have exact amount ready. A COD fee may apply.</p>
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-sm font-medium mb-1" data-i18n="cash_date">Delivery date</label>
+          <input type="date" class="w-full rounded-lg border border-teal-300 px-3 py-2 focus:outline-none focus:ring-0 focus:border-teal-600">
+        </div>
+        <div>
+          <label class="block text-sm font-medium mb-1" data-i18n="cash_time">Time window</label>
+          <select class="w-full rounded-lg border border-teal-300 px-3 py-2 focus:outline-none focus:ring-0 focus:border-teal-600">
+            <option data-i18n="cash_any">Anytime</option>
+            <option data-i18n="cash_morning">9:00–12:00</option>
+            <option data-i18n="cash_afternoon">12:00–16:00</option>
+            <option data-i18n="cash_evening">16:00–20:00</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Action -->
+  <div class="mt-4 flex flex-col md:flex-row items-start md:items-center gap-3">
+    <a id="payNowLink" href="#"
+       class="paylink animate-pop inline-flex items-center gap-2 px-5 py-2.5 rounded-lg
+              bg-teal-600 text-white border border-teal-600
+              hover:bg-teal-700 active:bg-teal-800
+              shadow-sm hover:shadow-md active:opacity-90
+              focus:outline-none focus:ring-0
+              transition btn-shine" aria-label="Pay now link">
+      <span>Pay now</span>
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+      </svg>
+    </a>
+
+    <p id="btnHint" class="text-xs text-gray-500 mt-1 md:mt-0 md:ms-2" data-i18n="btn_hint">
+      Your card will be charged securely.
+    </p>
+  </div>
+</div>
+
+
+
+
+
+</section>
+
+
+     
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="lg:col-span-2 bg-white p-6 rounded-xl shadow order-2">
+       
+
+       <div class="bg-white border border-teal-100 rounded-2xl p-6 reveal">
+    <h3 class="text-lg font-semibold mb-4" data-i18n="summary_title">Order summary</h3>
+    <ul class="divide-y">
+      <li class="py-3 flex items-center justify-between">
+        <div>
+          <div class="font-medium" data-i18n="item_a">Item A</div>
+          <div class="text-xs text-gray-500" data-i18n="item_qty1">Qty 1</div>
+        </div>
+        <div class="flex items-center gap-1">
+          <span>120.00</span>
+          <img src="img/currancy logo.png" alt="SAR" class="h-4 w-4 object-contain">
+        </div>
+      </li>
+      <li class="py-3 flex items-center justify-between">
+        <div>
+          <div class="font-medium" data-i18n="item_b">Item B</div>
+          <div class="text-xs text-gray-500" data-i18n="item_qty2">Qty 2</div>
+        </div>
+        <div class="flex items-center gap-1">
+          <span>80.00</span>
+          <img src="img/currancy logo.png" alt="SAR" class="h-4 w-4 object-contain">
+        </div>
+      </li>
+    </ul>
+
+    <div class="mt-4 space-y-1 text-sm">
+      <div class="flex items-center justify-between">
+        <span data-i18n="summary_subtotal">Subtotal</span>
+        <div class="flex items-center gap-1">
+          <span id="subTotal">200.00</span>
+          <img src="img/currancy logo.png" alt="SAR" class="h-4 w-4 object-contain">
+        </div>
+      </div>
+      <div class="flex items-center justify-between">
+        <span data-i18n="summary_shipping">Shipping</span>
+        <div class="flex items-center gap-1">
+          <span id="ship">15.00</span>
+          <img src="img/currancy logo.png" alt="SAR" class="h-4 w-4 object-contain">
+        </div>
+      </div>
+      <div class="flex items-center justify-between text-teal-700">
+        <span data-i18n="summary_discount">Discount</span>
+        <div class="flex items-center gap-1">
+          <span id="disc">- 0.00</span>
+          <img src="img/teal currancy logo.png" alt="SAR" class="h-4 w-4 object-contain">
+        </div>
+      </div>
+      <div class="border-t pt-2 font-semibold flex items-center justify-between">
+        <span data-i18n="summary_total">Total</span>
+        <div class="flex items-center gap-1">
+          <span id="grand">215.00</span>
+          <img src="img/currancy logo.png" alt="SAR" class="h-4 w-4 object-contain">
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-4 flex gap-2">
+      <input type="text" id="coupon" 
+             class="flex-1 rounded-lg border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-teal-600 focus:border-teal-600 shadow-sm" 
+             placeholder="Coupon code"
+             data-i18n-placeholder="coupon_ph">
+     <button id="applyCoupon"
+        class="coupon-btn relative overflow-hidden rounded-lg border border-teal-300 px-4 py-2
+               font-medium text-teal-700 hover:bg-teal-50 active:bg-teal-100 transition
+               focus:outline-none focus:ring-0"
+        data-i18n="coupon_apply">
+  Apply
+</button>
+
+
+
+
+
+    </div>
+    <p id="couponMsg" class="text-xs mt-2"></p>
+
+    <p class="text-xs text-gray-500 mt-2" data-i18n="summary_note">
+      Example only — wire up totals to your cart logic.
+    </p>
+  </div>
+
+  <div class="bg-white border rounded-2xl p-6 reveal">
+    <h3 class="text-lg font-semibold mb-3" data-i18n="help_title">Need help?</h3>
+    <p class="text-sm text-gray-600" data-i18n="help_text">
+      Chat with us on WhatsApp or email 
+    <a href="mailto:support@example.com" class="sb-link">support@example.com</a>
+
+    </p>
+  </div>
+    </aside>
+  </section>
+</main>
+
+<a
+  href="https://wa.me/201234567890"
+  class="fixed bottom-5 right-4 w-12 h-12 rounded-full bg-green-500 text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform z-50"
+  target="_blank"
+  aria-label="Chat on WhatsApp"
+>
+  <i class="fab fa-whatsapp text-2xl"></i>
+</a>
+ 
+<footer class="relative overflow-hidden bg-teal-700 text-white px-6 py-16 min-h-[600px]">
+  <div class="pointer-events-none absolute inset-0">
+    <div class="absolute -top-28 -left-24 w-[34rem] h-[34rem] rounded-full bg-emerald-100/35 blur-3xl"></div>
+    <div class="absolute -bottom-24 -right-24 w-[30rem] h-[30rem] rounded-full bg-amber-100/40 blur-3xl"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(16,185,129,.07),transparent_60%)]"></div>
+  </div>
+
+  <div class="relative max-w-6xl mx-auto px-4 lg:px-6">
+    <!-- المحتوى -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-center sm:text-start">
+      <!-- Logo / Brand -->
+      <div class="footer-brand-wrap flex flex-col items-center sm:items-start" data-reveal="left">
+        <div class="h-20 w-20 rounded-full bg-black grid place-items-center mb-3">
+          <img src="img/logo as a mask.png" alt="Siyahatna logo"
+               data-i18n-attr="alt:footer_logo_alt" class="h-20 w-20">
+        </div>
+        <span class="footer-brand text-3xl font-extrabold tracking-widest text-white hover:drop-shadow-[0_0_12px_rgba(250,204,21,0.45)]" data-i18n="brand_aria">
+          Siyahatna
+        </span>
+      </div>
+
+      <!-- Pages -->
+      <div data-reveal="right">
+        <h4 class="mb-4 text-base font-bold">
+          <a href="#" class="ink-underline hover:text-yellow-400" data-i18n="footer_categories">All Categories</a>
+        </h4>
+        <ul class="space-y-2">
+          <li><a data-i18n="footer_restaurants" class="font-bold ink-underline hover:text-yellow-400" href="Allrestaurants.html">Restaurants</a></li>
+          <li><a data-i18n="footer_cafe" class="font-bold ink-underline hover:text-yellow-400" href="Allrestaurants.html">Cafe</a></li>
+          <li><a data-i18n="footer_supermarkets" class="font-bold ink-underline hover:text-yellow-400" href="supermarket1.html">Supermarket</a></li>
+          <li><a data-i18n="footer_hotels" class="font-bold ink-underline hover:text-yellow-400" href="hotel-1.html">Hotels</a></li>
+          <li><a data-i18n="footer_parks" class="font-bold ink-underline hover:text-yellow-400" href="parks1.html">Parks</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div data-reveal="left">
+        <h4 class="mb-4 text-base font-bold">
+          <a href="#" class="ink-underline hover:text-yellow-400" data-i18n="footer_contact">Contact</a>
+        </h4>
+        <ul class="space-y-2">
+          <li>
+            <a href="mailto:Support123@gmail.com" class="font-bold ink-underline hover:text-yellow-400" data-i18n="footer_email">
+              <bdi>Email: Support123@gmail.com</bdi>
+            </a>
+          </li>
+          <li>
+            <a href="tel:12345678" class="font-bold ink-underline hover:text-yellow-400" data-i18n="footer_phone1">
+              <bdi>Phone 1: 12345678</bdi>
+            </a>
+          </li>
+          <li>
+            <a href="tel:3455765433345" class="font-bold ink-underline hover:text-yellow-400" data-i18n="footer_phone2">
+              <bdi>Phone 2: 3455765433345</bdi>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Policies -->
+      <div data-reveal="right">
+        <h4 class="mb-4 text-base font-bold">
+          <a href="#" class="ink-underline hover:text-yellow-400" data-i18n="footer_policies">Policies</a>
+        </h4>
+        <ul class="space-y-2">
+          <li><a data-i18n="footer_guidelines" class="font-bold ink-underline hover:text-yellow-400" href="#">Community Guidelines</a></li>
+          <li><a data-i18n="footer_terms" class="font-bold ink-underline hover:text-yellow-400" href="#">Terms of Use</a></li>
+          <li><a data-i18n="footer_privacy" class="font-bold ink-underline hover:text-yellow-400" href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Download app -->
+    <!-- Download app -->
+<div class="mt-12 text-center" data-reveal="left">
+  <h4 class="mb-2 text-base font-bold text-center">
+    <a href="#" class="ink-underline hover:text-yellow-400 inline-block" data-i18n="footer_download">
+      Download Our App
+    </a>
+  </h4>
+
+  <p data-i18n="footer_download_desc" class="text-white/70 text-sm mb-4 font-bold">
+    Get the Latest Version of our Apps
+  </p>
+
+  <div class="flex justify-center gap-4">
+    <a href="#" class="ink-underline">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+           alt="Google Play" class="h-10" data-i18n-attr="alt:footer_google_alt">
+    </a>
+    <a href="#" class="ink-underline">
+      <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83"
+           alt="App Store" class="h-10" data-i18n-attr="alt:footer_apple_alt">
+    </a>
+  </div>
+</div>
+
+
+    <!-- Divider -->
+    <div class="mt-12 mb-3 border-t border-white/10" data-reveal="right"></div>
+
+    <!-- حقوق النشر -->
+ <div class="pt-4 w-full text-center sm:text-center text-sm text-white/60 font-bold" data-reveal="right" data-i18n="footer_rights">
+  © 2025 Siyahatna. All rights reserved.
+</div>
+
+
+  </div>
+</footer>
+
+
+
+
+<SCript src="translation.js"></SCript>
+<SCript src="paymentmain.js"></SCript>

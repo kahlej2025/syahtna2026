@@ -1,0 +1,221 @@
+ 
+ /*hero*/
+  @keyframes fadeLeft {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  .animate-fadeLeft {
+    animation: fadeLeft 1s ease-out forwards;
+  }
+
+  @keyframes fadeRight {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  .animate-fadeRight {
+    animation: fadeRight 1s ease-out forwards;
+  }
+
+  @keyframes fadeUpBounce {
+    0%   { opacity: 0; transform: translateY(60px); }
+    60%  { opacity: 1; transform: translateY(-8px); }
+    80%  { transform: translateY(4px); }
+    100% { transform: translateY(0); }
+  }
+  .animate-fadeUpBounce {
+    animation: fadeUpBounce 1s ease-out forwards;
+  }
+
+
+
+  
+ 
+/* أنيميشن لمعان */
+@keyframes gradient-shine {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient-shine {
+  background-size: 200% auto; /* يحرك التدريج */
+  animation: gradient-shine 3s linear infinite;
+}
+
+
+
+
+
+ 
+  /* متغيرات عامة */
+  :root{
+    --card-radius: .5rem;
+    --card-border: 1px solid #e5e7eb; /* gray-200 */
+    --shadow-sm: 0 1px 2px rgba(0,0,0,.06);
+    --shadow-md: 0 4px 10px rgba(0,0,0,.10);
+    --anim-dur: .6s;
+    --anim-ease: cubic-bezier(.22,.61,.36,1);
+    --stagger: 80ms;
+  }
+
+  /* أنيميشن العنوان والقسم */
+  @keyframes title-in {
+    0% { opacity: 0; transform: translateY(12px) }
+    100% { opacity: 1; transform: translateY(0) }
+  }
+  .animate-title-in { animation: title-in .7s var(--anim-ease) forwards; }
+
+  @keyframes section-fade {
+    0% { opacity: 0 }
+    100% { opacity: 1 }
+  }
+  .animate-section-fade { animation: section-fade .4s ease-out forwards; }
+
+  /* أنيميشن ظهور الكروت */
+  @keyframes rise-fade {
+    0%   { opacity: 0; transform: translateY(18px) scale(.98); }
+    60%  { opacity: 1; transform: translateY(0)     scale(1.00); }
+    100% { opacity: 1; transform: translateY(0)     scale(1.00); }
+  }
+
+  /* بنية الكارت */
+  .card{
+    display: block;
+    outline: none;
+  }
+  .card:focus-visible .card-box{
+    box-shadow: 0 0 0 3px rgba(16,185,129,.35); /* ring-emerald-500/35 */
+  }
+
+  .card-box{
+    aspect-ratio: 1 / 1;        /* مربع */
+    border: var(--card-border);
+    border-radius: var(--card-radius);
+    background: #fff;
+    padding: 1rem;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow: var(--shadow-sm);
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    will-change: transform;
+  }
+
+  .card-title{
+    margin-top:.5rem;            /* mt-2 */
+    text-align:center;
+    font-size:.875rem;           /* ~ sm:text-sm */
+    line-height:1.25rem;
+    color:#374151;               /* gray-700 */
+  }
+
+  /* hover/active */
+  .card:hover .card-box{
+    transform: translateY(-3px) scale(1.015);
+    box-shadow: var(--shadow-md);
+    border-color:#d1d5db;        /* gray-300 */
+  }
+  .card:active .card-box{ transform: translateY(-1px) scale(1.005); }
+
+  /* الحالة الابتدائية والظهور */
+  .card[data-animate]{ opacity:0; transform: translateY(16px) scale(.985); }
+  .card.is-visible{ animation: rise-fade var(--anim-dur) var(--anim-ease) forwards; }
+
+  /* Stagger delays */
+  .card.is-visible:nth-child(1){  animation-delay: calc(var(--stagger) * 0); }
+  .card.is-visible:nth-child(2){  animation-delay: calc(var(--stagger) * 1); }
+  .card.is-visible:nth-child(3){  animation-delay: calc(var(--stagger) * 2); }
+  .card.is-visible:nth-child(4){  animation-delay: calc(var(--stagger) * 3); }
+  .card.is-visible:nth-child(5){  animation-delay: calc(var(--stagger) * 4); }
+  .card.is-visible:nth-child(6){  animation-delay: calc(var(--stagger) * 5); }
+  .card.is-visible:nth-child(7){  animation-delay: calc(var(--stagger) * 6); }
+  .card.is-visible:nth-child(8){  animation-delay: calc(var(--stagger) * 7); }
+  .card.is-visible:nth-child(9){  animation-delay: calc(var(--stagger) * 8); }
+  .card.is-visible:nth-child(10){ animation-delay: calc(var(--stagger) * 9); }
+ 
+  @media (prefers-reduced-motion: reduce){
+    .animate-title-in,
+    .animate-section-fade,
+    .card.is-visible{ animation: none !important; }
+    .card, .card-box{ transition: none !important; }
+    .card[data-animate]{ opacity:1; transform:none; }
+  }
+
+
+
+
+  
+/* أبعاد متجاوبة */
+.slider-frame{ aspect-ratio: 16 / 5; }
+@media (max-width: 1024px){
+  .slider-frame{ aspect-ratio: 16 / 7; }
+}
+@media (max-width: 640px){
+  .slider-frame{ aspect-ratio: 16 / 10; }
+}
+
+/* السلايدز */
+#offerSlider{ height: 100%; }
+#offerSlider > img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  flex: 0 0 100%;
+}
+
+
+
+
+  
+ 
+  .ink-underline {
+    position: relative;
+    display: inline-block;
+  }
+  .ink-underline::after {
+    content: "";
+    position: absolute;
+    left: 50%; bottom: -3px;
+    width: 0; height: 2px;
+    border-radius: 9999px;
+    background: linear-gradient(90deg,#facc15,#fde047,#facc15);
+    transform: translateX(-50%);
+    transition: width .42s cubic-bezier(.22,1,.36,1), height .42s cubic-bezier(.22,1,.36,1);
+  }
+  .ink-underline:hover::after,
+  .ink-underline:focus-visible::after {
+    width: 100%; height: 3px;
+  }
+
+  [data-reveal]{opacity:0; will-change:transform,opacity;}
+  @keyframes revealLeft {
+    from {opacity:0; transform:translateX(-40px);}
+    to   {opacity:1; transform:translateX(0);}
+  }
+  @keyframes revealRight {
+    from {opacity:0; transform:translateX(40px);}
+    to   {opacity:1; transform:translateX(0);}
+  }
+
+  .is-inview[data-reveal="left"]  {animation:revealLeft .7s cubic-bezier(.22,1,.36,1) both}
+  .is-inview[data-reveal="right"] {animation:revealRight .7s cubic-bezier(.22,1,.36,1) both}
+
+  .is-inview{animation-delay:var(--rv-delay,0s)}
+
+  @media (prefers-reduced-motion: reduce){
+    .ink-underline::after{transition:none}
+    [data-reveal]{opacity:1 !important; transform:none !important; animation:none !important}
+  }
+ 
+
+
+
+ 
+ 
+ 
+
+ 

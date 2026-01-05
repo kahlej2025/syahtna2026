@@ -1,0 +1,913 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./src/output.css" rel="stylesheet">
+  <link href="restaurant.css" rel="stylesheet">
+
+  <style>
+  [dir="rtl"] .cat-badge { left: auto; right: 1rem; }
+</style>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+</head>
+<body>
+
+ 
+
+<!-- Navbar (Responsive) -->
+<nav class="  w-full z-50 bg-teal-700">
+  <div class="mx-auto max-w-8xl px-4">
+    <div class="flex items-center h-16">
+<!-- Left: Logo + My Account Icon -->
+<div class="flex items-center gap-4 flex-1">
+  <!-- Logo (صورة فقط بدون رابط) -->
+  <img src="img/logo as a mask.png" alt="Siyahatna logo"
+       class="w-10 h-10 rounded-full"
+       data-i18n-attr="alt:brand_alt">
+         <span class="text-white text-xl font-bold" data-i18n="brand_aria">Siyahatna</span>
+
+  <!-- My Account Icon -->
+  <a href="account.html" class="text-white p-2 rounded-full hover:bg-white/20 transition-colors">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M5.121 17.804A12.035 12.035 0 0112 15c2.636 0 5.088.85 7.121 2.804M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+    </svg>
+  </a>
+</div>
+      <!-- centered links -->
+     <ul class="hidden md:flex items-center justify-center gap-8 border-t border-b border-white/40 py-1 flex-1">
+  <li class="nav-item opacity-0 translate-y-2 transition-all duration-500 will-change-transform">
+    <a href="index.html" class="nav-link relative px-2 py-1 text-white font-medium transition-colors duration-300 hover:text-yellow-400
+                      after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-full after:bg-yellow-400
+                      after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
+      <span data-i18n="nav_home">Home</span>
+    </a>
+  </li>
+  <li class="nav-item opacity-0 translate-y-2 transition-all duration-500 will-change-transform">
+    <a href="plan.html" class="nav-link relative px-2 py-1 text-white font-medium transition-colors duration-300 hover:text-yellow-400
+                      after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-full after:bg-yellow-400
+                      after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
+      <span data-i18n="nav_categories">Travel itinerary</span>
+    </a>
+  </li>
+  <li class="nav-item opacity-0 translate-y-2 transition-all duration-500 will-change-transform">
+    <a href="about.html" class="nav-link relative px-2 py-1 text-white font-medium transition-colors duration-300 hover:text-yellow-400
+                      after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-full after:bg-yellow-400
+                      after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
+      <span data-i18n="nav_about">About</span>
+    </a>
+  </li>
+  <li class="nav-item opacity-0 translate-y-2 transition-all duration-500 will-change-transform">
+    <a href="contactus.html" class="nav-link relative px-2 py-1 text-white font-medium transition-colors duration-300 hover:text-yellow-400
+                      after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-full after:bg-yellow-400
+                      after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
+      <span data-i18n="nav_deals">Contact us</span>
+    </a>
+  </li>
+</ul>
+
+
+     <!-- Right: Auth (md+) -->
+<div class="hidden md:flex justify-end items-center gap-3 flex-1">
+ <!-- Language Dropdown Desktop -->
+<div class="relative">
+  <button id="langBtnDesktop"
+          class="flex items-center gap-2 px-4 py-1.5 bg-white text-black rounded-lg font-medium hover:bg-yellow-400 transition"
+          aria-haspopup="true" aria-expanded="false">
+    <span data-i18n="lang_btn">Language</span>
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+    </svg>
+  </button>
+  <div id="langMenuDesktop" class="absolute right-0 mt-2 w-32 rounded-lg bg-white shadow-lg ring-1 ring-black/5 hidden z-50">
+    <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="en">English</a>
+    <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="ar">العربية</a>
+  </div>
+</div>
+
+
+  <a href="register.html"
+  class="inline-block px-4 py-1.5 bg-white text-black rounded-lg font-medium hover:bg-yellow-400 transition"
+  data-i18n="nav_register">
+  Register
+</a>
+  <a href="login.html"
+  class="px-4 py-1.5 border border-white text-white rounded-lg font-medium 
+         hover:bg-yellow-400 hover:text-black transition inline-block text-center"
+  data-i18n="nav_login">
+  Log in
+</a>
+
+</div>
+
+      <!-- Mobile: Hamburger -->
+      <button id="navToggle" class="md:hidden ml-auto inline-flex items-center justify-center p-2 rounded-lg border border-white/40 text-white"
+              aria-label="Open menu" aria-expanded="false">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+<div id="mobileMenu" class="md:hidden hidden">
+  <div class="bg-black/90 border-t border-white/10">
+    <div class="px-4 py-4 space-y-2">
+      <a href="index.html" class="block px-3 py-2 rounded-md text-white/90 hover:bg-white/10" data-i18n="nav_home">Home</a>
+      <a href="plan.html" class="block px-3 py-2 rounded-md text-white/90 hover:bg-white/10" data-i18n="nav_categories">Travel itinerary</a>
+      <a href="about.html" class="block px-3 py-2 rounded-md text-white/90 hover:bg-white/10" data-i18n="nav_about">About</a>
+      <a href="contactus.html" class="block px-3 py-2 rounded-md text-white/90 hover:bg-white/10" data-i18n="nav_deals">Contact us</a>
+
+      <!-- Language Dropdown Mobile -->
+      <div class="relative">
+        <button id="langBtnMobile"
+                class="w-full flex items-center justify-between px-4 py-2 bg-white text-black rounded-lg font-medium hover:bg-yellow-400 transition"
+                aria-haspopup="true" aria-expanded="false">
+          <span data-i18n="lang_btn">Language</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div id="langMenuMobile"
+             class="absolute left-0 right-0 mt-2 rounded-lg bg-white shadow-lg ring-1 ring-black/5 hidden">
+          <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="en">English</a>
+          <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="ar">العربية</a>
+        </div>
+      </div>
+
+      <div class="pt-3 flex items-center gap-2">
+       <a href="register.html"
+  class="flex-1 px-4 py-2 bg-white text-black rounded-lg font-medium hover:bg-yellow-400 hover:text-black transition inline-block text-center"
+  data-i18n="nav_register">
+  Register
+</a>
+       <a href="login.html"
+  class="flex-1 px-4 py-2 border border-white text-white rounded-lg font-medium 
+         hover:bg-yellow-400 hover:text-black transition inline-block text-center"
+  data-i18n="nav_login">
+  Log in
+</a>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+</nav>
+<!-- ===== Hero Section – Restaurants (Images Only) ===== -->
+<section
+  id="resto-hero"
+  class="relative h-[90vh] w-full overflow-hidden"
+  data-resto-images="./img/restaurant cover.jpeg, ./img/herosection2.png"
+>
+  <!-- Image slider container -->
+  <div class="absolute inset-0 w-full h-full">
+    <img id="resto-img1"
+         src="./img/restaurant cover.jpeg"
+         alt="Local restaurants and Egyptian food"
+         role="presentation" aria-hidden="true"
+         loading="eager" decoding="async"
+         class="absolute inset-0 w-full h-full object-fit:contain transition-opacity duration-700 opacity-100  " />
+
+    <img id="resto-img2"
+         src="./img/ads.png"
+         alt="Food tours and street food in Egypt"
+         role="presentation" aria-hidden="true"
+         loading="lazy" decoding="async"
+         class="absolute inset-0 w-full h-full object-fit:contain transition-opacity duration-700 opacity-0  " />
+  </div>
+
+  <div class="absolute inset-0 bg-black/60 z-10 pointer-events-none "></div>
+</section>
+
+
+<script>
+  // === Restaurants hero image slider (separate from main hero) ===
+  (function () {
+    "use strict";
+
+    document.addEventListener("DOMContentLoaded", function () {
+      var hero = document.getElementById("resto-hero");
+      if (!hero) return;
+
+      // ناخد الصور من الـ data-resto-images
+      var imagesAttr = hero.getAttribute("data-resto-images");
+      if (!imagesAttr) return;
+
+      var imgs = imagesAttr
+        .split(",")
+        .map(function (s) { return s.trim(); })
+        .filter(function (s) { return s.length > 0; });
+
+      if (!imgs.length) return;
+
+      var img1 = document.getElementById("resto-img1");
+      var img2 = document.getElementById("resto-img2");
+      if (!img1 || !img2) return;
+
+      var currentIndex = 0;
+      var isFirstVisible = true;
+      var intervalMs = 4000; // 4 ثواني بين كل صورة
+
+      // إعداد أول صورتين
+      img1.src = imgs[0];
+      if (imgs.length > 1) {
+        img2.src = imgs[1];
+      } else {
+        img2.src = imgs[0];
+      }
+
+      function swapImage() {
+        if (imgs.length < 2) return;
+
+        currentIndex = (currentIndex + 1) % imgs.length;
+        var nextSrc = imgs[currentIndex];
+
+        if (isFirstVisible) {
+          img2.src = nextSrc;
+          img2.classList.remove("opacity-0");
+          img2.classList.add("opacity-100");
+
+          img1.classList.remove("opacity-100");
+          img1.classList.add("opacity-0");
+        } else {
+          img1.src = nextSrc;
+          img1.classList.remove("opacity-0");
+          img1.classList.add("opacity-100");
+
+          img2.classList.remove("opacity-100");
+          img2.classList.add("opacity-0");
+        }
+
+        isFirstVisible = !isFirstVisible;
+      }
+
+      setInterval(swapImage, intervalMs);
+    });
+  })();
+</script>
+
+
+<!-- search-->
+<section class="max-w-7xl mx-auto mt-6 bg-yellow-400 p-4 rounded-lg">
+  <div class="w-full max-w-6xl mx-auto">
+    <div class="flex flex-col sm:flex-row items-stretch gap-3 sm:gap-0 bg-white rounded-lg shadow-lg overflow-hidden w-full">
+      
+      <!-- City Dropdown -->
+      <div class="flex items-center px-4 py-3 border border-gray-200 sm:border-0 sm:border-r [dir='rtl']:sm:border-l [dir='rtl']:sm:border-r-0 rounded-lg sm:rounded-none w-full sm:w-auto bg-white">
+        <!-- Location Icon -->
+        <svg class="w-6 h-6 text-teal-600 mr-2 [dir='rtl']:mr-0 [dir='rtl']:ml-2 shrink-0"
+             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M12 21s-6-5.33-6-10a6 6 0 1 1 12 0c0 4.67-6 10-6 10Z"/>
+          <circle cx="12" cy="11" r="2.5"/>
+        </svg>
+
+        <!-- Select -->
+        <div class="relative flex-1 min-w-0">
+          <select class="appearance-none bg-white text-gray-800 font-medium outline-none pr-6 w-full truncate" data-i18n-select="hero_cities">
+            <option value="jeddah">Jeddah</option>
+            <option value="riyadh">Riyadh</option>
+            <option value="dammam">Dammam</option>
+            <option value="mecca">Mecca</option>
+            <option value="medina">Medina</option>
+            <option value="khobar">Khobar</option>
+            <option value="abha">Abha</option>
+            <option value="tabuk">Tabuk</option>
+            <option value="alula">AlUla</option>
+            <option value="najran">Najran</option>
+            <option value="jazan">Jazan</option>
+          </select>
+          <!-- Down arrow -->
+          <svg class="w-4 h-4 text-gray-500 pointer-events-none absolute top-1/2 -translate-y-1/2 right-0 [dir='rtl']:right-auto [dir='rtl']:left-0"
+               viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="m6 9 6 6 6-6" stroke-width="1.5" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- Input with Search Icon -->
+      <div class="relative flex-1 min-w-0">
+        <div class="flex items-center bg-white rounded-lg sm:rounded-none overflow-hidden border border-gray-200 sm:border-0 sm:border-x">
+          <!-- Icon -->
+          <svg class="w-6 h-6 text-gray-500 ml-3 [dir='rtl']:ml-0 [dir='rtl']:mr-3 shrink-0"
+               viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="11" cy="11" r="7" stroke-width="1.5"/>
+            <line x1="16.65" y1="16.65" x2="21" y2="21" stroke-width="1.5"/>
+          </svg>
+
+          <!-- Input -->
+          <input list="restaurants"
+                 type="text"
+                 class="flex-1 min-w-0 px-3 py-3 text-gray-800 placeholder-gray-600 outline-none bg-white"
+                 placeholder="Restaurant or café name"
+                 data-i18n-placeholder="hero_search_ph" />
+
+          <!-- Datalist -->
+          <datalist id="restaurants">
+            <option value="Starbucks"></option>
+            <option value="Costa Coffee"></option>
+            <option value="Pizza Hut"></option>
+            <option value="Domino's"></option>
+            <option value="McDonald's"></option>
+            <option value="Burger King"></option>
+            <option value="Kudu"></option>
+            <option value="Al Baik"></option>
+          </datalist>
+        </div>
+      </div>
+
+      <!-- Search Button -->
+      <button class="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 bg-teal-600 text-white font-semibold hover:bg-teal-700 transition shrink-0 rounded-lg sm:rounded-none"
+              data-i18n="hero_search_btn">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <circle cx="11" cy="11" r="7" stroke-width="1.5"/>
+          <line x1="16.65" y1="16.65" x2="21" y2="21" stroke-width="1.5"/>
+        </svg>
+        Search
+      </button>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<!-- ===== Browse by Categories ===== -->
+<section class="bg-white py-12">
+  <div class="mx-auto max-w-6xl px-6">
+    <h2 id="catTitle"
+        data-i18n="cat_title"
+        class="text-xl md:text-2xl font-bold text-gray-800 mb-8 text-left">
+      Browse by Category
+    </h2>
+
+    <style>
+      .myCatSwiper .swiper-slide {
+        width: min(410px, calc(100% - 3rem)); /* صغّرنا العرض هنا */
+        margin-right: 2.5rem;
+      }
+
+      .myCatSwiper {
+        padding-top: 2.5rem;
+        padding-bottom: 3rem;
+      }
+
+      .myCatSwiper .swiper-button-prev,
+      .myCatSwiper .swiper-button-next {
+        top: 0.5rem;
+        bottom: auto;
+        transform: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 9999px;
+        background: #ffffff;
+        border: 1px solid #e5e7eb;
+        box-shadow: 0 8px 20px rgba(15,23,42,0.12);
+        color: #111827;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .myCatSwiper .swiper-button-prev {
+        left: auto;
+        right: 3.25rem;
+      }
+
+      .myCatSwiper .swiper-button-next {
+        right: 0.75rem;
+      }
+
+      .myCatSwiper .swiper-button-prev::after,
+      .myCatSwiper .swiper-button-next::after {
+        font-size: 18px;
+        font-weight: 700;
+      }
+
+      .myCatSwiper .swiper-pagination {
+        bottom: 0;
+      }
+    </style>
+
+    <!-- Swiper Container -->
+    <div class="swiper myCatSwiper">
+      <div class="swiper-wrapper">
+
+        <!-- Slide 1 -->
+        <div class="swiper-slide">
+          <a href="Allrestaurants.html"
+             class="block rounded-[32px] overflow-hidden shadow-lg hover:shadow-xl transition group">
+            <div class="relative h-[220px] md:h-[260px]">
+              <img src="./img/restaurant cover.jpeg"
+                   class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                   alt="Restaurants" />
+              <div class="absolute inset-0 bg-black/50 transition-opacity duration-500 group-hover:opacity-0"></div>
+              <span
+                class="cat-badge absolute bottom-3 left-4 text-white font-semibold px-3 py-1 rounded-full
+                       text-sm transition-all duration-500 group-hover:bottom-6 group-hover:bg-black">
+                Restaurants
+              </span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="swiper-slide">
+          <a href="Allrestaurants.html"
+             class="block rounded-[32px] overflow-hidden shadow-lg hover:shadow-xl transition group">
+            <div class="relative h-[220px] md:h-[260px]">
+              <img src="./img/coffe-logo.png"
+                   class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                   alt="Cafe" />
+              <div class="absolute inset-0 bg-black/50 transition-opacity duration-500 group-hover:opacity-0"></div>
+              <span
+                class="cat-badge absolute bottom-3 left-4 text-white font-semibold px-3 py-1 rounded-full
+                       text-sm transition-all duration-500 group-hover:bottom-6 group-hover:bg-black">
+                Cafe
+              </span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="swiper-slide">
+          <a href="Allrestaurants.html"
+             class="block rounded-[32px] overflow-hidden shadow-lg hover:shadow-xl transition group">
+            <div class="relative h-[220px] md:h-[260px]">
+              <img src="./img/restaurant cover.jpeg"
+                   class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                   alt="Restaurants" />
+              <div class="absolute inset-0 bg-black/50 transition-opacity duration-500 group-hover:opacity-0"></div>
+              <span
+                class="cat-badge absolute bottom-3 left-4 text-white font-semibold px-3 py-1 rounded-full
+                       text-sm transition-all duration-500 group-hover:bottom-6 group-hover:bg-black">
+                Restaurants
+              </span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="swiper-slide">
+          <a href="Allrestaurants.html"
+             class="block rounded-[32px] overflow-hidden shadow-lg hover:shadow-xl transition group">
+            <div class="relative h-[220px] md:h-[260px]">
+              <img src="./img/coffe-logo.png"
+                   class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                   alt="Cafe" />
+              <div class="absolute inset-0 bg-black/50 transition-opacity duration-500 group-hover:opacity-0"></div>
+              <span
+                class="cat-badge absolute bottom-3 left-4 text-white font-semibold px-3 py-1 rounded-full
+                       text-sm transition-all duration-500 group-hover:bottom-6 group-hover:bg-black">
+                Cafe
+              </span>
+            </div>
+          </a>
+        </div>
+
+      </div>
+
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const catSwiper = new Swiper(".myCatSwiper", {
+      loop: false,
+      spaceBetween: 0,
+      grabCursor: true,
+      slidesPerView: "auto",
+      centeredSlides: false,
+      pagination: {
+        el: ".myCatSwiper .swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".myCatSwiper .swiper-button-next",
+        prevEl: ".myCatSwiper .swiper-button-prev",
+      },
+    });
+  });
+</script>
+
+
+
+
+<!-- ===== Restaurants / Deals Section (4 columns with SAR logo) ===== -->
+<section class="bg-white py-14" id="deals-section">
+  <div class="mx-auto max-w-7xl px-6">
+
+    <!-- Title -->
+    <div class="flex items-end justify-between mb-8">
+      <h2 class="headline-sweep text-2xl md:text-3xl font-bold text-gray-900 text-[start]" data-i18n="deals_header">
+        Browse By Deals & Special Offers
+      </h2>
+
+      <a href="#" class="link-arrow hidden sm:inline-flex items-center gap-2 text-teal-600 font-semibold hover:underline">
+        <span data-i18n="deals_view_all">See Full List</span>
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+
+    <!-- Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      <!-- Card 1 -->
+      <a href="restaurantdetails.html" 
+         class="deal-card group rounded-[28px] overflow-hidden shadow-lg bg-white hover:shadow-xl hover:-translate-y-1 transition duration-300 will-change-transform block" 
+         data-delay="0">
+        <div class="relative h-56 overflow-hidden">
+          <img src="./img/restaurant-3.png" alt="Restaurant cover"
+               class="deal-img absolute inset-0 w-full h-full object-fit:contain transition-transform duration-500 group-hover:scale-[1.06]">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        </div>
+        <div class="p-4">
+          <h3 class="text-lg font-bold text-gray-900" data-i18n="deal_title_1">Restaurant 1</h3>
+          <p class="text-sm text-gray-600" data-i18n="deal_address">King Abd Al-Aziz Road</p>
+          <div class="mt-4 flex items-center justify-between">
+            <span class="btn-cta px-3 py-1.5 rounded-full text-xs font-bold bg-teal-600 text-white">RESERVE NOW</span>
+            <span class="price-badge flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold bg-blue-600/10 text-blue-700 badge-float">
+              149
+              <img src="./img/currancy logo.png" alt="SAR" class="w-4 h-4 inline-block">
+            </span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 2 -->
+      <a href="restaurantdetails.html" 
+         class="deal-card group rounded-[28px] overflow-hidden shadow-lg bg-white hover:shadow-xl hover:-translate-y-1 transition duration-300 will-change-transform block" 
+         data-delay="100">
+        <div class="relative h-56 overflow-hidden">
+          <img src="./img/restaurant-4.png" alt="Restaurant cover"
+               class="deal-img absolute inset-0 w-full h-full object-fit:contain transition-transform duration-500 group-hover:scale-[1.06]">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        </div>
+        <div class="p-4">
+          <h3 class="text-lg font-bold text-gray-900" data-i18n="deal_title_2">Restaurant 2</h3>
+          <p class="text-sm text-gray-600" data-i18n="deal_address">King Abd Al-Aziz Road</p>
+          <div class="mt-4 flex items-center justify-between">
+            <span class="btn-cta px-3 py-1.5 rounded-full text-xs font-bold bg-teal-600 text-white">RESERVE NOW</span>
+            <span class="price-badge flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold bg-blue-600/10 text-blue-700 badge-float">
+              149
+              <img src="./img/currancy logo.png" alt="SAR" class="w-4 h-4 inline-block">
+            </span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 3 -->
+      <a href="restaurantdetails.html" 
+         class="deal-card group rounded-[28px] overflow-hidden shadow-lg bg-white hover:shadow-xl hover:-translate-y-1 transition duration-300 will-change-transform block" 
+         data-delay="200">
+        <div class="relative h-56 overflow-hidden">
+          <img src="./img/restaurant-5.png" alt="Restaurant cover"
+               class="deal-img absolute inset-0 w-full h-full object-fit:contain transition-transform duration-500 group-hover:scale-[1.06]">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        </div>
+        <div class="p-4">
+          <h3 class="text-lg font-bold text-gray-900" data-i18n="deal_title_3">Restaurant 3</h3>
+          <p class="text-sm text-gray-600" data-i18n="deal_address">King Abd Al-Aziz Road</p>
+          <div class="mt-4 flex items-center justify-between">
+            <span class="btn-cta px-3 py-1.5 rounded-full text-xs font-bold bg-teal-600 text-white">RESERVE NOW</span>
+            <span class="price-badge flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold bg-blue-600/10 text-blue-700 badge-float">
+              149
+              <img src="./img/currancy logo.png" alt="SAR" class="w-4 h-4 inline-block">
+            </span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 4 -->
+      <a href="restaurantdetails.html" 
+         class="deal-card group rounded-[28px] overflow-hidden shadow-lg bg-white hover:shadow-xl hover:-translate-y-1 transition duration-300 will-change-transform block" 
+         data-delay="300">
+        <div class="relative h-56 overflow-hidden">
+          <img src="./img/restaurant-3.png" alt="Restaurant cover"
+               class="deal-img absolute inset-0 w-full h-full object-fit:contain transition-transform duration-500 group-hover:scale-[1.06]">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        </div>
+        <div class="p-4">
+          <h3 class="text-lg font-bold text-gray-900" data-i18n="deal_title_4">Restaurant 4</h3>
+          <p class="text-sm text-gray-600" data-i18n="deal_address">King Abd Al-Aziz Road</p>
+          <div class="mt-4 flex items-center justify-between">
+            <span class="btn-cta px-3 py-1.5 rounded-full text-xs font-bold bg-teal-600 text-white">RESERVE NOW</span>
+            <span class="price-badge flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold bg-blue-600/10 text-blue-700 badge-float">
+              149
+              <img src="./img/currancy logo.png" alt="SAR" class="w-4 h-4 inline-block">
+            </span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+<!-- ===== Pick up your plate (Categories row) ===== -->
+<section class="bg-white py-12">
+  <div class="mx-auto max-w-7xl px-6">
+    <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6" data-i18n="plate_title">
+      Pick up your plate
+    </h2>
+
+    <div class="relative">
+      <ul id="catStrip"
+         class="no-scrollbar overflow-x-auto snap-x snap-mandatory scroll-smooth
+                flex justify-center items-start gap-6 md:gap-8 py-2 mx-auto max-w-fit">
+
+        <!-- Italian -->
+        <li class="snap-start shrink-0 w-24 md:w-28 text-center">
+          <a href="Allrestaurants.html" class="group block">
+            <div class="size-24 md:size-28 rounded-full overflow-hidden bg-white ring-1 ring-black/10 shadow-sm grid place-items-center">
+              <img src="./img/plate-1.png" alt="Italian Food" class="w-full h-full object-fit:contain spin-slow" />
+            </div>
+            <span class="mt-2 block text-xs md:text-sm font-medium text-gray-700" data-i18n="plate_italian">Italian Food</span>
+          </a>
+        </li>
+
+        <!-- Khaleeji -->
+        <li class="snap-start shrink-0 w-24 md:w-28 text-center">
+          <a href="Allrestaurants.html" class="group block">
+            <div class="size-24 md:size-28 rounded-full overflow-hidden bg-white ring-1 ring-black/10 shadow-sm grid place-items-center">
+              <img src="./img/plate-2.png" alt="Khaleeji Food" class="w-full h-full object-fit:contain spin-slow" />
+            </div>
+            <span class="mt-2 block text-xs md:text-sm font-medium text-gray-700" data-i18n="plate_khaleeji">Khaleeji Food</span>
+          </a>
+        </li>
+
+        <!-- Pizza -->
+        <li class="snap-start shrink-0 w-24 md:w-28 text-center">
+          <a href="Allrestaurants.html" class="group block">
+            <div class="size-24 md:size-28 rounded-full overflow-hidden bg-white ring-1 ring-black/10 shadow-sm grid place-items-center">
+              <img src="./img/plate-3.png" alt="Pizza" class="w-full h-full object-fit:contain spin-slow" />
+            </div>
+            <span class="mt-2 block text-xs md:text-sm font-medium text-gray-700" data-i18n="plate_pizza">Pizza</span>
+          </a>
+        </li>
+
+        <!-- Indian -->
+        <li class="snap-start shrink-0 w-24 md:w-28 text-center">
+          <a href="Allrestaurants.html" class="group block">
+            <div class="size-24 md:size-28 rounded-full overflow-hidden bg-white ring-1 ring-black/10 shadow-sm grid place-items-center">
+              <img src="./img/plate-4.png" alt="Indian Food" class="w-full h-full object-fit:contain spin-slow" />
+            </div>
+            <span class="mt-2 block text-xs md:text-sm font-medium text-gray-700" data-i18n="plate_indian">Indian Food</span>
+          </a>
+        </li>
+
+        <!-- Egyptian -->
+        <li class="snap-start shrink-0 w-24 md:w-28 text-center">
+          <a href="Allrestaurants.html" class="group block">
+            <div class="size-24 md:size-28 rounded-full overflow-hidden bg-white ring-1 ring-black/10 shadow-sm grid place-items-center">
+              <img src="./img/plate-5.png" alt="Egyptian Food" class="w-full h-full object-fit:contain spin-slow" />
+            </div>
+            <span class="mt-2 block text-xs md:text-sm font-medium text-gray-700" data-i18n="plate_egyptian">Egyptian Food</span>
+          </a>
+        </li>
+
+        <!-- Korean -->
+        <li class="snap-start shrink-0 w-24 md:w-28 text-center">
+          <a href="korean.html" class="group block">
+            <div class="size-24 md:size-28 rounded-full overflow-hidden bg-white ring-1 ring-black/10 shadow-sm grid place-items-center">
+              <img src="./img/plate-6.png" alt="Korean Food" class="w-full h-full object-fit:contain spin-slow" />
+            </div>
+            <span class="mt-2 block text-xs md:text-sm font-medium text-gray-700" data-i18n="plate_korean">Korean Food</span>
+          </a>
+        </li>
+
+        <!-- Korean (ثاني) -->
+        <li class="snap-start shrink-0 w-24 md:w-28 text-center">
+          <a href="Allrestaurants.html" class="group block">
+            <div class="size-24 md:size-28 rounded-full overflow-hidden bg-white ring-1 ring-black/10 shadow-sm grid place-items-center">
+              <img src="./img/plate-7.png" alt="Korean Food" class="w-full h-full object-fit:contain spin-slow" />
+            </div>
+            <span class="mt-2 block text-xs md:text-sm font-medium text-gray-700" data-i18n="plate_korean">Korean Food</span>
+          </a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== How does it work? ===== -->
+<section class="bg-white py-14 mb-6" data-section="how">
+  <div class="mx-auto max-w-7xl px-6">
+    <!-- Title -->
+    <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-align: start;" data-i18n="how_title">
+      How does it work?
+    </h2>
+
+    <!-- Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      <!-- Card 1 -->
+      <article class="how-card group bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition p-6 text-center reveal" data-delay="0ms">
+        <span class="block h-1 w-10 mx-auto rounded bg-teal-500/60 scale-x-0 group-hover:scale-x-100 transition-transform origin-center mb-4"></span>
+        <div class="mx-auto mb-4 w-12 h-12 grid place-items-center">
+          <img src="./img/thumbs-up.png" alt="Exclusive benefits" class="w-11 h-11 object-contain icon-bob group-hover:scale-110 group-hover:rotate-2 transition-transform duration-300" />
+        </div>
+        <h3 class="font-semibold text-gray-900" data-i18n="how_card1_title">Exclusive benefits</h3>
+        <p class="text-sm text-gray-600 mt-2" data-i18n="how_card1_desc">
+          Enjoy exclusive offers at a wide range of restaurants and cafes, along with many perks through our loyalty program.
+        </p>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="how-card group bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition p-6 text-center reveal" data-delay="100ms">
+        <span class="block h-1 w-10 mx-auto rounded bg-teal-500/60 scale-x-0 group-hover:scale-x-100 transition-transform origin-center mb-4"></span>
+        <div class="mx-auto mb-4 w-12 h-12 grid place-items-center">
+          <img src="./img/direction (2).png" alt="Smart navigation" class="w-11 h-11 object-contain icon-bob group-hover:scale-110 group-hover:rotate-2 transition-transform duration-300" />
+        </div>
+        <h3 class="font-semibold text-gray-900" data-i18n="how_card2_title">Smart navigation</h3>
+        <p class="text-sm text-gray-600 mt-2" data-i18n="how_card2_desc">
+          Find places nearby quickly with clear directions and time-saving suggestions.
+        </p>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="how-card group bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition p-6 text-center reveal" data-delay="200ms">
+        <span class="block h-1 w-10 mx-auto rounded bg-teal-500/60 scale-x-0 group-hover:scale-x-100 transition-transform origin-center mb-4"></span>
+        <div class="mx-auto mb-4 w-12 h-12 grid place-items-center">
+          <img src="./img/customer-review (1).png" alt="Reviews" class="w-11 h-11 object-contain icon-bob group-hover:scale-110 group-hover:rotate-2 transition-transform duration-300" />
+        </div>
+        <h3 class="font-semibold text-gray-900" data-i18n="how_card3_title">Reviews</h3>
+        <p class="text-sm text-gray-600 mt-2" data-i18n="how_card3_desc">
+          Trusted recommendations and reviews from a vibrant community.
+        </p>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="how-card group bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition p-6 text-center reveal" data-delay="300ms">
+        <span class="block h-1 w-10 mx-auto rounded bg-teal-500/60 scale-x-0 group-hover:scale-x-100 transition-transform origin-center mb-4"></span>
+        <div class="mx-auto mb-4 w-12 h-12 grid place-items-center">
+          <img src="./img/reserved.png" alt="Easy Reservation" class="w-11 h-11 object-contain icon-bob group-hover:scale-110 group-hover:rotate-2 transition-transform duration-300" />
+        </div>
+        <h3 class="font-semibold text-gray-900" data-i18n="how_card4_title">Easy Reservation</h3>
+        <p class="text-sm text-gray-600 mt-2" data-i18n="how_card4_desc">
+          Fast, free, and accessible anytime, anywhere.
+        </p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+ <a
+  href="https://wa.me/201234567890"
+  class="fixed bottom-5 right-4 w-12 h-12 rounded-full bg-green-500 text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform z-50"
+  target="_blank"
+  aria-label="Chat on WhatsApp"
+>
+  <i class="fab fa-whatsapp text-2xl"></i>
+</a>
+
+<footer class="relative overflow-hidden bg-teal-700 text-white px-6 py-16 min-h-[600px]">
+  <div class="pointer-events-none absolute inset-0">
+    <div class="absolute -top-28 -left-24 w-[34rem] h-[34rem] rounded-full bg-emerald-100/35 blur-3xl"></div>
+    <div class="absolute -bottom-24 -right-24 w-[30rem] h-[30rem] rounded-full bg-amber-100/40 blur-3xl"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(16,185,129,.07),transparent_60%)]"></div>
+  </div>
+
+  <div class="relative max-w-6xl mx-auto px-4 lg:px-6">
+    <!-- المحتوى -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-center sm:text-start">
+      <!-- Logo / Brand -->
+      <div class="footer-brand-wrap flex flex-col items-center sm:items-start" data-reveal="left">
+        <div class="h-20 w-20 rounded-full bg-black grid place-items-center mb-3">
+          <img src="img/logo as a mask.png" alt="Siyahatna logo"
+               data-i18n-attr="alt:footer_logo_alt" class="h-20 w-20">
+        </div>
+        <span class="footer-brand text-3xl font-extrabold tracking-widest text-white hover:drop-shadow-[0_0_12px_rgba(250,204,21,0.45)]" data-i18n="brand_aria">
+          Siyahatna
+        </span>
+      </div>
+
+      <!-- Pages -->
+      <div data-reveal="right">
+        <h4 class="mb-4 text-base font-bold">
+          <a href="#" class="ink-underline hover:text-yellow-400" data-i18n="footer_categories">All Categories</a>
+        </h4>
+        <ul class="space-y-2">
+          <li><a data-i18n="footer_restaurants" class="font-bold ink-underline hover:text-yellow-400" href="Allrestaurants.html">Restaurants</a></li>
+          <li><a data-i18n="footer_cafe" class="font-bold ink-underline hover:text-yellow-400" href="Allrestaurants.html">Cafe</a></li>
+          <li><a data-i18n="footer_supermarkets" class="font-bold ink-underline hover:text-yellow-400" href="supermarket1.html">Supermarket</a></li>
+          <li><a data-i18n="footer_hotels" class="font-bold ink-underline hover:text-yellow-400" href="hotel-1.html">Hotels</a></li>
+          <li><a data-i18n="footer_parks" class="font-bold ink-underline hover:text-yellow-400" href="parks1.html">Parks</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div data-reveal="left">
+        <h4 class="mb-4 text-base font-bold">
+          <a href="#" class="ink-underline hover:text-yellow-400" data-i18n="footer_contact">Contact</a>
+        </h4>
+        <ul class="space-y-2">
+          <li>
+            <a href="mailto:Support123@gmail.com" class="font-bold ink-underline hover:text-yellow-400" data-i18n="footer_email">
+              <bdi>Email: Support123@gmail.com</bdi>
+            </a>
+          </li>
+          <li>
+            <a href="tel:12345678" class="font-bold ink-underline hover:text-yellow-400" data-i18n="footer_phone1">
+              <bdi>Phone 1: 12345678</bdi>
+            </a>
+          </li>
+          <li>
+            <a href="tel:3455765433345" class="font-bold ink-underline hover:text-yellow-400" data-i18n="footer_phone2">
+              <bdi>Phone 2: 3455765433345</bdi>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Policies -->
+      <div data-reveal="right">
+        <h4 class="mb-4 text-base font-bold">
+          <a href="#" class="ink-underline hover:text-yellow-400" data-i18n="footer_policies">Policies</a>
+        </h4>
+        <ul class="space-y-2">
+          <li><a data-i18n="footer_guidelines" class="font-bold ink-underline hover:text-yellow-400" href="#">Community Guidelines</a></li>
+          <li><a data-i18n="footer_terms" class="font-bold ink-underline hover:text-yellow-400" href="#">Terms of Use</a></li>
+          <li><a data-i18n="footer_privacy" class="font-bold ink-underline hover:text-yellow-400" href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Download app -->
+    <!-- Download app -->
+<div class="mt-12 text-center" data-reveal="left">
+  <h4 class="mb-2 text-base font-bold text-center">
+    <a href="#" class="ink-underline hover:text-yellow-400 inline-block" data-i18n="footer_download">
+      Download Our App
+    </a>
+  </h4>
+
+  <p data-i18n="footer_download_desc" class="text-white/70 text-sm mb-4 font-bold">
+    Get the Latest Version of our Apps
+  </p>
+
+  <div class="flex justify-center gap-4">
+    <a href="#" class="ink-underline">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+           alt="Google Play" class="h-10" data-i18n-attr="alt:footer_google_alt">
+    </a>
+    <a href="#" class="ink-underline">
+      <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83"
+           alt="App Store" class="h-10" data-i18n-attr="alt:footer_apple_alt">
+    </a>
+  </div>
+</div>
+
+
+    <!-- Divider -->
+    <div class="mt-12 mb-3 border-t border-white/10" data-reveal="right"></div>
+
+    <!-- حقوق النشر -->
+ <div class="pt-4 w-full text-center sm:text-center text-sm text-white/60 font-bold" data-reveal="right" data-i18n="footer_rights">
+  © 2025 Siyahatna. All rights reserved.
+</div>
+
+
+  </div>
+</footer>
+
+
+
+
+
+ 
+
+
+   
+
+<script src="translation.js"></script>
+    <script src="restaurantmain.js"></script>
+   </body>
+</html>
