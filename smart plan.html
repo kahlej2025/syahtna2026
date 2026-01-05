@@ -1,0 +1,936 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./src/output.css" rel="stylesheet">
+   <link href="smartplan.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+ 
+<script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ar.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+</head>
+<body class="bg-gray-100">
+ 
+
+<!-- Navbar (Responsive) -->
+<nav class="  w-full z-50 bg-teal-700">
+  <div class="mx-auto max-w-8xl px-4">
+    <div class="flex items-center h-16">
+<!-- Left: Logo + My Account Icon -->
+<div class="flex items-center gap-4 flex-1">
+  <!-- Logo (صورة فقط بدون رابط) -->
+  <img src="img/logo as a mask.png" alt="Siyahatna logo"
+       class="w-10 h-10 rounded-full"
+       data-i18n-attr="alt:brand_alt">
+         <span class="text-white text-xl font-bold" data-i18n="brand_aria">Siyahatna</span>
+
+  <!-- My Account Icon -->
+  <a href="account.html" class="text-white p-2 rounded-full hover:bg-white/20 transition-colors">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M5.121 17.804A12.035 12.035 0 0112 15c2.636 0 5.088.85 7.121 2.804M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+    </svg>
+  </a>
+</div>
+      <!-- centered links -->
+     <ul class="hidden md:flex items-center justify-center gap-8 border-t border-b border-white/40 py-1 flex-1">
+  <li class="nav-item opacity-0 translate-y-2 transition-all duration-500 will-change-transform">
+    <a href="index.html" class="nav-link relative px-2 py-1 text-white font-medium transition-colors duration-300 hover:text-yellow-400
+                      after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-full after:bg-yellow-400
+                      after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
+      <span data-i18n="nav_home">Home</span>
+    </a>
+  </li>
+  <li class="nav-item opacity-0 translate-y-2 transition-all duration-500 will-change-transform">
+    <a href="plan.html" class="nav-link relative px-2 py-1 text-yellow-400 font-medium transition-colors duration-300 hover:text-yellow-400
+                      after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-full after:bg-yellow-400
+                      after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
+      <span data-i18n="nav_categories">Travel itinerary</span>
+    </a>
+  </li>
+  <li class="nav-item opacity-0 translate-y-2 transition-all duration-500 will-change-transform">
+    <a href="about.html" class="nav-link relative px-2 py-1 text-white font-medium transition-colors duration-300 hover:text-yellow-400
+                      after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-full after:bg-yellow-400
+                      after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
+      <span data-i18n="nav_about">About</span>
+    </a>
+  </li>
+  <li class="nav-item opacity-0 translate-y-2 transition-all duration-500 will-change-transform">
+    <a href="contactus.html" class="nav-link relative px-2 py-1 text-white font-medium transition-colors duration-300 hover:text-yellow-400
+                      after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-full after:bg-yellow-400
+                      after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
+      <span data-i18n="nav_deals">Contact us</span>
+    </a>
+  </li>
+</ul>
+
+
+     <!-- Right: Auth (md+) -->
+<div class="hidden md:flex justify-end items-center gap-3 flex-1">
+ <!-- Language Dropdown Desktop -->
+<div class="relative">
+  <button id="langBtnDesktop"
+          class="flex items-center gap-2 px-4 py-1.5 bg-white text-black rounded-lg font-medium hover:bg-yellow-400 transition"
+          aria-haspopup="true" aria-expanded="false">
+    <span data-i18n="lang_btn">Language</span>
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+    </svg>
+  </button>
+  <div id="langMenuDesktop" class="absolute right-0 mt-2 w-32 rounded-lg bg-white shadow-lg ring-1 ring-black/5 hidden z-50">
+    <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="en">English</a>
+    <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="ar">العربية</a>
+  </div>
+</div>
+
+
+  <a href="register.html"
+  class="inline-block px-4 py-1.5 bg-white text-black rounded-lg font-medium hover:bg-yellow-400 transition"
+  data-i18n="nav_register">
+  Register
+</a>
+  <a href="login.html"
+  class="px-4 py-1.5 border border-white text-white rounded-lg font-medium 
+         hover:bg-yellow-400 hover:text-black transition inline-block text-center"
+  data-i18n="nav_login">
+  Log in
+</a>
+
+</div>
+
+      <!-- Mobile: Hamburger -->
+      <button id="navToggle" class="md:hidden ml-auto inline-flex items-center justify-center p-2 rounded-lg border border-white/40 text-white"
+              aria-label="Open menu" aria-expanded="false">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+<div id="mobileMenu" class="md:hidden hidden">
+  <div class="bg-black/90 border-t border-white/10">
+    <div class="px-4 py-4 space-y-2">
+      <a href="index.html" class="block px-3 py-2 rounded-md text-white/90 hover:bg-white/10" data-i18n="nav_home">Home</a>
+      <a href="plan.html" class="block px-3 py-2 rounded-md text-yellow-400 hover:bg-white/10" data-i18n="nav_categories">Travel itinerary</a>
+      <a href="about.html" class="block px-3 py-2 rounded-md text-white/90 hover:bg-white/10" data-i18n="nav_about">About</a>
+      <a href="contactus.html" class="block px-3 py-2 rounded-md text-white/90 hover:bg-white/10" data-i18n="nav_deals">Contact us</a>
+
+      <!-- Language Dropdown Mobile -->
+      <div class="relative">
+        <button id="langBtnMobile"
+                class="w-full flex items-center justify-between px-4 py-2 bg-white text-black rounded-lg font-medium hover:bg-yellow-400 transition"
+                aria-haspopup="true" aria-expanded="false">
+          <span data-i18n="lang_btn">Language</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div id="langMenuMobile"
+             class="absolute left-0 right-0 mt-2 rounded-lg bg-white shadow-lg ring-1 ring-black/5 hidden">
+          <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="en">English</a>
+          <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="ar">العربية</a>
+        </div>
+      </div>
+
+      <div class="pt-3 flex items-center gap-2">
+       <a href="register.html"
+  class="flex-1 px-4 py-2 bg-white text-black rounded-lg font-medium hover:bg-yellow-400 hover:text-black transition inline-block text-center"
+  data-i18n="nav_register">
+  Register
+</a>
+       <a href="login.html"
+  class="flex-1 px-4 py-2 border border-white text-white rounded-lg font-medium 
+         hover:bg-yellow-400 hover:text-black transition inline-block text-center"
+  data-i18n="nav_login">
+  Log in
+</a>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+</nav>
+
+
+
+
+<!-- Innovative Travel Planner  -->
+<section id="innovPlanner" class="max-w-3xl md:max-w-3xl mx-auto px-4 lg:px-6 py-10"   >
+
+ <!-- Header  -->
+<div class="heroHeader relative mb-8 overflow-hidden rounded-2xl border border-teal-200/50 bg-gradient-to-r from-teal-50 via-white to-teal-50 p-6">
+
+  <!-- soft blobs -->
+  <div class="pointer-events-none absolute -top-12 -right-10 h-48 w-48 rounded-full bg-teal-200/50 blur-3xl"></div>
+  <div class="pointer-events-none absolute -bottom-12 -left-10 h-40 w-40 rounded-full bg-teal-200/40 blur-3xl"></div>
+
+  <!-- badge -->
+  <span
+    class="inline-flex items-center gap-2 rounded-full border border-teal-300/60 bg-white/70 px-3 py-1 text-xs font-semibold text-teal-700 shadow-sm"
+    data-i18n="badge"
+  >
+    ✈️ Trip Wizard
+  </span>
+
+  <!-- title + shimmer layer -->
+  <div class="relative mt-3">
+    <h2
+      class="titleGlow text-3xl md:text-4xl font-extrabold leading-tight gradientText"
+      data-i18n="title"
+    >
+     Smart trip planner: Balance your energy and budget
+    </h2>
+    <!-- shimmer sweep -->
+    <span class="shine"></span>
+  </div>
+
+  <p class="mt-2 text-gray-700 font-medium leading-relaxed" data-i18n="subtitle">
+    Pick dates, travel energy, and cities; get a balanced day-by-day plan
+    <span class="font-semibold text-teal-700" data-i18n="subtitleInline">(Morning / Afternoon / Evening)</span>
+    you can lock & regenerate.
+  </p>
+</div>
+
+
+
+
+
+  <!-- Wizard -->
+<div class="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+
+  <!-- Stepper -->
+  <div class="flex items-center gap-2 text-sm font-medium">
+    <div class="step-dot w-7 h-7 rounded-full grid place-items-center bg-teal-600 text-white">1</div>
+    <span data-i18n="stepBasics">Basics</span>
+    <div class="h-px flex-1 bg-gray-200 mx-2"></div>
+    <div class="step-dot w-7 h-7 rounded-full grid place-items-center bg-gray-200 text-gray-700">2</div>
+    <span data-i18n="stepCities">Cities</span>
+    <div class="h-px flex-1 bg-gray-200 mx-2"></div>
+    <div class="step-dot w-7 h-7 rounded-full grid place-items-center bg-gray-200 text-gray-700">3</div>
+    <span data-i18n="stepPrefs">Preferences</span>
+  </div>
+
+ 
+</div>
+<!-- Step 1: Basics -->
+<div data-step="1" class="step mt-10">
+  <!-- Wrapper (مستطيل أبيض بحدود وظل) -->
+  <div class="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm anim-fadeUp anim-delay-100">
+
+    <!-- Dates stacked -->
+    <div class="space-y-4">
+      <!-- Start -->
+      <div class="anim-fadeUp anim-delay-200">
+        <label class="block text-sm font-bold text-gray-700 mb-1" data-i18n="startDate">Start date</label>
+        <div class="relative">
+          <input
+            type="text" id="sDate" placeholder="Select start date"
+            class="peer w-full rounded-xl border border-gray-300 pl-4 pr-10 py-2.5 text-sm text-gray-900
+                   bg-white transition duration-200
+                   shadow-sm focus:shadow-md transition-shadow
+                   focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500"
+          >
+          <svg xmlns="http://www.w3.org/2000/svg"
+               class="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 peer-focus:text-teal-600 pointer-events-none"
+               fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- End -->
+      <div class="anim-fadeUp anim-delay-300">
+        <label class="block text-sm font-bold text-gray-700 mb-1" data-i18n="endDate">End date</label>
+        <div class="relative">
+          <input
+            type="text" id="eDate" placeholder="Select end date"
+            class="w-full rounded-xl border border-gray-300 pl-4 pr-10 py-2.5 text-sm text-gray-900
+                   bg-white transition duration-200
+                   shadow-sm focus:shadow-md transition-shadow
+                   focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500">
+          <svg xmlns="http://www.w3.org/2000/svg"
+               class="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none"
+               fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Energy -->
+    <div class="mt-8 anim-fadeUp anim-delay-300">
+      <label class="block text-base font-bold text-gray-700 mb-2" data-i18n="energyLabel">
+        Daily activity level
+      </label>
+
+      <input id="energy" type="range" min="1" max="3" step="1"
+             class="w-full range-clean accent-teal-600 h-2 rounded-lg cursor-pointer">
+
+      <div class="flex justify-between text-xs text-gray-500 mt-2">
+        <span data-i18n="lightPlan">Light Plan</span>
+        <span data-i18n="balancedPlan">Balanced Plan</span>
+        <span data-i18n="intensePlan">Intense Plan</span>
+      </div>
+    </div>
+
+    <!-- Travel Group -->
+    <div class="mt-8 anim-fadeUp anim-delay-400">
+      <label class="block text-sm font-bold text-gray-700 mb-3" data-i18n="partyLabel">
+        Who are you traveling with?
+      </label>
+
+      <div class="grid grid-cols-2 gap-4 text-sm">
+        <!-- Solo -->
+        <label class="group flex flex-col items-center justify-center gap-3 rounded-xl border-2 border-gray-200 
+               p-5 cursor-pointer transition hover:border-teal-400 hover:shadow-md
+               peer-checked:border-teal-600 peer-checked:bg-teal-50 shadow-sm transition-shadow">
+          <input type="radio" name="party" value="solo" class="peer hidden">
+          <div class="w-14 h-14 flex items-center justify-center rounded-full bg-teal-100 text-teal-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 14c3.314 0 6-2.686 6-6S15.314 2 12 2 6 4.686 6 8s2.686 6 6 6zm0 2c-4.418 0-8 2.239-8 5v1h16v-1c0-2.761-3.582-5-8-5z"/>
+            </svg>
+          </div>
+          <span class="font-medium text-gray-700 group-hover:text-teal-600 peer-checked:text-teal-700" data-i18n="solo">
+            Solo
+          </span>
+        </label>
+
+        <!-- Friends -->
+        <label class="group flex flex-col items-center justify-center gap-3 rounded-xl border-2 border-gray-200 
+               p-5 cursor-pointer transition hover:border-teal-400 hover:shadow-md
+               peer-checked:border-teal-600 peer-checked:bg-teal-50 shadow-sm transition-shadow">
+          <input type="radio" name="party" value="friends" class="peer hidden">
+          <div class="w-14 h-14 flex items-center justify-center rounded-full bg-teal-100 text-teal-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M17 21v-2a4 4 0 00-4-4H7a4 4 0 00-4 4v2m14 0v-2a4 4 0 014-4h0a4 4 0 014 4v2M12 11a4 4 0 100-8 4 4 0 000 8z"/>
+            </svg>
+          </div>
+          <span class="font-medium text-gray-700 group-hover:text-teal-600 peer-checked:text-teal-700" data-i18n="friends">
+            Friends
+          </span>
+        </label>
+
+        <!-- Family -->
+        <label class="group flex flex-col items-center justify-center gap-3 rounded-xl border-2 border-gray-200 
+               p-5 cursor-pointer transition hover:border-teal-400 hover:shadow-md
+               peer-checked:border-teal-600 peer-checked:bg-teal-50 shadow-sm transition-shadow">
+          <input type="radio" name="party" value="family" class="peer hidden">
+          <div class="w-14 h-14 flex items-center justify-center rounded-full bg-teal-100 text-teal-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M5.121 17.804A9 9 0 1112 21a9 9 0 01-6.879-3.196zM9 10a3 3 0 100-6 3 3 0 000 6zm6 0a3 3 0 100-6 3 3 0 000 6z"/>
+            </svg>
+          </div>
+          <span class="font-medium text-gray-700 group-hover:text-teal-600 peer-checked:text-teal-700" data-i18n="family">
+            Family
+          </span>
+        </label>
+
+        <!-- Couple -->
+        <label class="group flex flex-col items-center justify-center gap-3 rounded-xl border-2 border-gray-200 
+               p-5 cursor-pointer transition hover:border-teal-400 hover:shadow-md
+               peer-checked:border-teal-600 peer-checked:bg-teal-50 shadow-sm transition-shadow">
+          <input type="radio" name="party" value="couple" class="peer hidden">
+          <div class="w-14 h-14 flex items-center justify-center rounded-full bg-teal-100 text-teal-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"/>
+            </svg>
+          </div>
+          <span class="font-medium text-gray-700 group-hover:text-teal-600 peer-checked:text-teal-700" data-i18n="couple">
+            Couple
+          </span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Next -->
+    <div class="mt-6 flex justify-end anim-fadeUp anim-delay-400">
+      <button
+        class="next group relative inline-flex items-center gap-2 rounded-xl px-5 py-2.5
+               font-semibold text-white bg-gradient-to-r from-teal-600 to-emerald-600
+               border border-teal-700 shadow-sm
+               transition-all duration-300 ease-out
+               hover:-translate-y-0.5 hover:shadow-md hover:from-teal-700 hover:to-emerald-700
+               active:scale-95
+               focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-teal-600"
+        type="button"
+        data-i18n="next"
+        aria-label="Next"
+      >
+        <span>Next</span>
+        <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   <!-- Step 2: Cities -->
+<div data-step="2" class="step hidden mt-10">
+  <!-- Wrapper with border (زي Step 1) -->
+  <div class="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+
+     
+    <!-- Cities content -->
+    <div>
+      <div class="flex items-center justify-between mb-8">
+        <p class="text-sm font-bold text-gray-700" data-i18n="chooseCity">Choose city  </p>
+        <button id="addCity" 
+                class="rounded-full bg-teal-600 text-white text-sm font-semibold px-3 py-1.5 hover:bg-teal-700" 
+                type="button" data-i18n="addCity">+ Add city</button>
+      </div>
+
+      <div id="cityRows" class="space-y-2"></div>
+<!-- City row template with days counter -->
+<template id="cityTpl">
+  <div class="flex items-center gap-2">
+    <!-- City input -->
+    <input list="cityList" placeholder="e.g., Riyadh" data-i18n-placeholder="phCity"
+           class="flex-1 rounded-lg border border-gray-300 px-3 py-2 text-sm text-gray-700
+                  focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 cityName">
+
+   <!-- Days counter (no warnings) -->
+<div class="flex items-center border border-gray-300 rounded-lg overflow-hidden w-max">
+  <button 
+    class="decDay w-8 h-9 flex items-center justify-center text-gray-600 text-lg font-medium
+           hover:bg-teal-50 hover:text-teal-600 transition"
+    type="button">−</button>
+
+  <input
+    type="text" inputmode="numeric" pattern="[0-9]*"
+    value="1"
+    class="cityDays w-12 h-9 text-center text-sm text-gray-700 focus:outline-none"
+    aria-label="Days"
+  />
+
+  <button 
+    class="incDay w-8 h-9 flex items-center justify-center text-gray-600 text-lg font-medium
+           hover:bg-teal-50 hover:text-teal-600 transition"
+    type="button">+</button>
+</div>
+
+
+   <!-- Remove button -->
+<button 
+  class="rmCity w-8 h-8 flex items-center justify-center rounded-full 
+         text-gray-400 hover:text-red-600 hover:bg-red-50 
+         transition duration-200" 
+  type="button" 
+  aria-label="Remove city">
+  ✕
+</button>
+
+  </div>
+</template>
+
+
+
+
+      <datalist id="cityList">
+        <option value="Riyadh"></option>
+        <option value="Jeddah"></option>
+        <option value="AlUla"></option>
+        <option value="Abha"></option>
+        <option value="Taif"></option>
+        <option value="Dammam"></option>
+        <option value="Khobar"></option>
+        <option value="Yanbu"></option>
+        <option value="Jazan"></option>
+        <option value="Hail"></option>
+      </datalist>
+
+      <!-- Navigation buttons -->
+     <div class="mt-10 flex justify-between">
+  <!-- Back (Outline style) -->
+  <button
+    class="prev group inline-flex items-center gap-2 rounded-xl px-5 py-2.5
+           font-semibold text-teal-700 border border-teal-600 bg-white
+           transition-all duration-300 ease-out
+           hover:bg-teal-50 hover:-translate-y-0.5 hover:shadow-sm
+           active:scale-95
+           focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-teal-600"
+    type="button"
+    data-i18n="back"
+    aria-label="Back"
+  >
+    <!-- Arrow Left -->
+    <svg class="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M19 12H5m6 7l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span>Back</span>
+  </button>
+
+  <!-- Next (Filled style) -->
+  <button
+    class="next group inline-flex items-center gap-2 rounded-xl px-5 py-2.5
+           font-semibold text-white bg-teal-600
+           shadow-sm transition-all duration-300 ease-out
+           hover:bg-teal-700 hover:-translate-y-0.5 hover:shadow-md
+           active:scale-95
+           focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-teal-600"
+    type="button"
+    data-i18n="next"
+    aria-label="Next"
+  >
+    <span>Next</span>
+    <!-- Arrow Right -->
+    <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+</div>
+ 
+<!-- Step 3: Preferences -->
+<div data-step="3" class="step hidden mt-10">
+  <!-- Wrapper (زي الاستبات السابقة) -->
+  <div class="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+
+   <!-- Interests -->
+<div>
+  <label 
+  class="block text-base md:text-lg font-semibold text-gray-900 mb-4 border-b pb-1"
+  data-i18n="interestsLabel">
+  Interests (influence activity picks)
+</label>
+
+ <div id="interestWrap" class="flex flex-wrap gap-2">
+ 
+  <button type="button"
+    class="interest px-4 py-1.5 rounded-full border border-gray-300 text-sm text-gray-600 
+           hover:bg-teal-50 hover:text-teal-700 hover:border-teal-400
+           transition-all duration-300 ease-out scale-95 opacity-0 animate-fadeIn"
+    data-i18n="interest_culture">
+    Culture
+  </button>
+
+  <button type="button"
+    class="interest px-4 py-1.5 rounded-full border border-gray-300 text-sm text-gray-600 
+           hover:bg-teal-50 hover:text-teal-700 hover:border-teal-400
+           transition-all duration-300 ease-out scale-95 opacity-0 animate-fadeIn"
+    data-i18n="interest_food">
+    Food
+  </button>
+
+  <button type="button"
+    class="interest px-4 py-1.5 rounded-full border border-gray-300 text-sm text-gray-600 
+           hover:bg-teal-50 hover:text-teal-700 hover:border-teal-400
+           transition-all duration-300 ease-out scale-95 opacity-0 animate-fadeIn"
+    data-i18n="interest_coffee">
+    Coffee & tea
+  </button>
+
+  <button type="button"
+    class="interest px-4 py-1.5 rounded-full border border-gray-300 text-sm text-gray-600 
+           hover:bg-teal-50 hover:text-teal-700 hover:border-teal-400
+           transition-all duration-300 ease-out scale-95 opacity-0 animate-fadeIn"
+    data-i18n="interest_nature">
+    Nature
+  </button>
+
+  <button type="button"
+    class="interest px-4 py-1.5 rounded-full border border-gray-300 text-sm text-gray-600 
+           hover:bg-teal-50 hover:text-teal-700 hover:border-teal-400
+           transition-all duration-300 ease-out scale-95 opacity-0 animate-fadeIn"
+    data-i18n="interest_stays">
+    Elegant stays
+  </button>
+
+  <button type="button"
+    class="interest px-4 py-1.5 rounded-full border border-gray-300 text-sm text-gray-600 
+           hover:bg-teal-50 hover:text-teal-700 hover:border-teal-400
+           transition-all duration-300 ease-out scale-95 opacity-0 animate-fadeIn"
+    data-i18n="interest_adventure">
+    Adventure
+  </button>
+
+  <button type="button"
+    class="interest px-4 py-1.5 rounded-full border border-gray-300 text-sm text-gray-600 
+           hover:bg-teal-50 hover:text-teal-700 hover:border-teal-400
+           transition-all duration-300 ease-out scale-95 opacity-0 animate-fadeIn"
+    data-i18n="interest_shopping">
+    Shopping
+  </button>
+</div>
+
+</div>
+ 
+    <!-- Budget -->
+    <div class="grid sm:grid-cols-1 gap-4 mt-10">
+      <div>
+        <label class="block text-sm font-bold text-gray-700 mb-2" data-i18n="budgetLabel">
+          Budget (SAR)
+        </label>
+        <div class="flex items-center gap-2">
+          <input
+            type="number" id="budget" min="0" step="100"
+            placeholder="8000" data-i18n-placeholder="phBudget"
+            class="w-40 border border-gray-300 rounded-lg px-3 py-2
+                   focus:ring-2 focus:ring-emerald-600 focus:border-emerald-600"
+          >
+          <span class="text-xs text-gray-500" data-i18n="currencySAR">SAR</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="mt-10 flex justify-between">
+     <button
+  class="prev group relative inline-flex items-center gap-2 rounded-xl px-5 py-2.5
+         font-semibold text-teal-700 bg-white border border-teal-200 shadow-sm
+         transition-all duration-300 ease-out
+         hover:-translate-y-0.5 hover:shadow-md hover:bg-teal-50 hover:border-teal-300
+         active:scale-95
+         focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-teal-500"
+  type="button"
+  data-i18n="back"
+  aria-label="Back"
+>
+  <svg class="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1"
+       viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  <span>Back</span>
+</button>
+
+    <button id="generate"
+        type="button"
+        data-i18n="generateBtn"
+        class="relative inline-flex items-center justify-center
+               rounded-xl px-5 py-2.5 font-semibold text-white
+               bg-gradient-to-r from-amber-500 to-amber-600
+               shadow-sm border border-amber-600
+               transition-all duration-300 ease-out
+               hover:from-amber-600 hover:to-amber-700 hover:shadow-md hover:-translate-y-0.5
+               active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-amber-500
+               overflow-hidden animate-pulse-slow">
+  Generate itinerary
+  <!-- shine effect -->
+  <span class="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent
+               hover:animate-[shine_1s_ease-in-out_forwards]"></span>
+</button>
+
+
+ 
+    </div>
+
+  </div>
+</div>
+
+</div>
+
+<!-- Output -->
+<div id="outWrap" class="mt-10 hidden">
+  <div class="flex items-center gap-3 mb-3">
+    <h3 class="text-xl font-bold text-gray-900 flex-1" data-i18n="itineraryTitle">Your itinerary</h3>
+    <button id="resetAll"
+        type="button"
+        data-i18n="resetBtn"
+        class="relative inline-flex items-center justify-center rounded-lg 
+               px-4 py-1.5 text-sm font-semibold text-white 
+               bg-gradient-to-r from-red-500 to-red-600 
+               border border-red-600 shadow-sm
+               transition-all duration-300 ease-out
+               hover:from-red-600 hover:to-red-700 hover:shadow-md hover:-translate-y-0.5
+               active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-red-500
+               overflow-hidden">
+  Reset
+  <!-- shine effect -->
+  <span class="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent
+               hover:animate-[shine_1s_ease-in-out_forwards]"></span>
+</button>
+
+
+  </div>
+  <p id="durationTxt" class="text-sm text-gray-500 mb-10"></p>
+
+  <div id="daysContainer" class="space-y-4"></div>
+
+  <!-- Day card template (with Remove) -->
+<template id="dayCardTpl">
+  <article
+    class="day-card rounded-2xl border border-teal-100/70 bg-white/90 backdrop-blur-sm
+           p-5 md:p-6 shadow-sm hover:shadow-lg transition-all duration-300">
+    
+    <!-- Header -->
+    <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+      <div class="space-y-1">
+        <h4 class="text-lg md:text-xl font-extrabold text-gray-900 tracking-tight">
+          <span class="align-middle" data-i18n="dayLabel">Day</span>
+          <span class="dNum align-middle">1</span>
+          <span class="mx-2 text-gray-300">—</span>
+          <span class="dCity align-middle">Riyadh</span>
+        </h4>
+
+        <!-- Date pill -->
+        <div class="inline-flex items-center gap-2 rounded-full bg-teal-50 text-teal-700
+                    border border-teal-200 px-3 py-1 text-xs font-semibold mt-4">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="dDate">Sep 12</span>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="flex flex-wrap items-center gap-2">
+        <!-- Add day in same city -->
+        <button class="addSameCity inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs
+                       font-semibold border border-teal-200 text-teal-700 bg-teal-50
+                       hover:bg-teal-100 hover:border-teal-300 transition"
+                type="button" data-i18n="addDaySameCity">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 5v14m7-7H5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <span>Add day in this city</span>
+        </button>
+
+        <!-- Regenerate -->
+        <button class="regenDay inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs
+                       font-semibold border border-gray-200 text-gray-700 bg-white
+                       hover:bg-gray-50 hover:border-gray-300 transition"
+                type="button" data-i18n="regenerateDay">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 4v6h6M20 20v-6h-6M6.34 17.66A8 8 0 1017.66 6.34" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>Regenerate</span>
+        </button>
+
+        <!-- Remove -->
+        <button class="removeDay inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs
+                       font-semibold border border-red-200 text-red-600 bg-white
+                       hover:bg-red-50 hover:border-red-300 transition"
+                type="button" data-i18n="removeDay">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M6 18L18 6M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <span>Remove</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="my-4 h-px bg-gradient-to-r from-transparent via-teal-200 to-transparent"></div>
+
+    <!-- Slots -->
+    <div class="grid md:grid-cols-3 gap-4">
+      <!-- Morning -->
+      <div class="slot rounded-xl border border-emerald-100 bg-emerald-50/70 p-4 hover:shadow-sm transition">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="inline-grid place-items-center w-7 h-7 rounded-full bg-white border border-emerald-200">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 3v3m0 12v3m9-9h-3M6 12H3m14.95 5.95l-2.12-2.12M9.17 8.17L7.05 6.05m9.9 0l-2.12 2.12M9.17 15.83l-2.12 2.12"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <div class="text-xs font-semibold text-emerald-800" data-i18n="morning">Morning</div>
+        </div>
+        <ul class="text-sm leading-6 list-disc pl-5 morning text-gray-800"></ul>
+      </div>
+
+      <!-- Afternoon -->
+      <div class="slot rounded-xl border border-emerald-100 bg-emerald-50/70 p-4 hover:shadow-sm transition">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="inline-grid place-items-center w-7 h-7 rounded-full bg-white border border-emerald-200">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M3 12h18M12 3v18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <div class="text-xs font-semibold text-emerald-800" data-i18n="afternoon">Afternoon</div>
+        </div>
+        <ul class="text-sm leading-6 list-disc pl-5 afternoon text-gray-800"></ul>
+      </div>
+
+      <!-- Evening -->
+      <div class="slot rounded-xl border border-emerald-100 bg-emerald-50/70 p-4 hover:shadow-sm transition">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="inline-grid place-items-center w-7 h-7 rounded-full bg-white border border-emerald-200">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <div class="text-xs font-semibold text-emerald-800" data-i18n="evening">Evening</div>
+        </div>
+        <ul class="text-sm leading-6 list-disc pl-5 evening text-gray-800"></ul>
+      </div>
+    </div>
+  </article>
+</template>
+
+</div>
+
+</section>
+
+<a
+  href="https://wa.me/201234567890"
+  class="fixed bottom-5 right-4 w-12 h-12 rounded-full bg-green-500 text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform z-50"
+  target="_blank"
+  aria-label="Chat on WhatsApp"
+>
+  <i class="fab fa-whatsapp text-2xl"></i>
+</a>
+
+
+<footer class="relative overflow-hidden bg-teal-700 text-white px-6 py-16 min-h-[600px]">
+  <div class="pointer-events-none absolute inset-0">
+    <div class="absolute -top-28 -left-24 w-[34rem] h-[34rem] rounded-full bg-emerald-100/35 blur-3xl"></div>
+    <div class="absolute -bottom-24 -right-24 w-[30rem] h-[30rem] rounded-full bg-amber-100/40 blur-3xl"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(16,185,129,.07),transparent_60%)]"></div>
+  </div>
+
+  <div class="relative max-w-6xl mx-auto px-4 lg:px-6">
+    <!-- المحتوى -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-center sm:text-start">
+      <!-- Logo / Brand -->
+      <div class="footer-brand-wrap flex flex-col items-center sm:items-start" data-reveal="left">
+        <div class="h-20 w-20 rounded-full bg-black grid place-items-center mb-3">
+          <img src="img/logo as a mask.png" alt="Siyahatna logo"
+               data-i18n-attr="alt:footer_logo_alt" class="h-20 w-20">
+        </div>
+        <span class="footer-brand text-3xl font-extrabold tracking-widest text-white hover:drop-shadow-[0_0_12px_rgba(250,204,21,0.45)]" data-i18n="brand_aria">
+          Siyahatna
+        </span>
+      </div>
+
+      <!-- Pages -->
+      <div data-reveal="right">
+        <h4 class="mb-4 text-base font-bold">
+          <a href="#" class="ink-underline hover:text-yellow-400" data-i18n="footer_categories">All Categories</a>
+        </h4>
+        <ul class="space-y-2">
+          <li><a data-i18n="footer_restaurants" class="font-bold ink-underline hover:text-yellow-400" href="Allrestaurants.html">Restaurants</a></li>
+          <li><a data-i18n="footer_cafe" class="font-bold ink-underline hover:text-yellow-400" href="Allrestaurants.html">Cafe</a></li>
+          <li><a data-i18n="footer_supermarkets" class="font-bold ink-underline hover:text-yellow-400" href="supermarket1.html">Supermarket</a></li>
+          <li><a data-i18n="footer_hotels" class="font-bold ink-underline hover:text-yellow-400" href="hotel-1.html">Hotels</a></li>
+          <li><a data-i18n="footer_parks" class="font-bold ink-underline hover:text-yellow-400" href="parks1.html">Parks</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div data-reveal="left">
+        <h4 class="mb-4 text-base font-bold">
+          <a href="#" class="ink-underline hover:text-yellow-400" data-i18n="footer_contact">Contact</a>
+        </h4>
+        <ul class="space-y-2">
+          <li>
+            <a href="mailto:Support123@gmail.com" class="font-bold ink-underline hover:text-yellow-400" data-i18n="footer_email">
+              <bdi>Email: Support123@gmail.com</bdi>
+            </a>
+          </li>
+          <li>
+            <a href="tel:12345678" class="font-bold ink-underline hover:text-yellow-400" data-i18n="footer_phone1">
+              <bdi>Phone 1: 12345678</bdi>
+            </a>
+          </li>
+          <li>
+            <a href="tel:3455765433345" class="font-bold ink-underline hover:text-yellow-400" data-i18n="footer_phone2">
+              <bdi>Phone 2: 3455765433345</bdi>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Policies -->
+      <div data-reveal="right">
+        <h4 class="mb-4 text-base font-bold">
+          <a href="#" class="ink-underline hover:text-yellow-400" data-i18n="footer_policies">Policies</a>
+        </h4>
+        <ul class="space-y-2">
+          <li><a data-i18n="footer_guidelines" class="font-bold ink-underline hover:text-yellow-400" href="#">Community Guidelines</a></li>
+          <li><a data-i18n="footer_terms" class="font-bold ink-underline hover:text-yellow-400" href="#">Terms of Use</a></li>
+          <li><a data-i18n="footer_privacy" class="font-bold ink-underline hover:text-yellow-400" href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Download app -->
+    <!-- Download app -->
+<div class="mt-12 text-center" data-reveal="left">
+  <h4 class="mb-2 text-base font-bold text-center">
+    <a href="#" class="ink-underline hover:text-yellow-400 inline-block" data-i18n="footer_download">
+      Download Our App
+    </a>
+  </h4>
+
+  <p data-i18n="footer_download_desc" class="text-white/70 text-sm mb-4 font-bold">
+    Get the Latest Version of our Apps
+  </p>
+
+  <div class="flex justify-center gap-4">
+    <a href="#" class="ink-underline">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+           alt="Google Play" class="h-10" data-i18n-attr="alt:footer_google_alt">
+    </a>
+    <a href="#" class="ink-underline">
+      <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83"
+           alt="App Store" class="h-10" data-i18n-attr="alt:footer_apple_alt">
+    </a>
+  </div>
+</div>
+
+
+    <!-- Divider -->
+    <div class="mt-12 mb-3 border-t border-white/10" data-reveal="right"></div>
+
+    <!-- حقوق النشر -->
+ <div class="pt-4 w-full text-center sm:text-center text-sm text-white/60 font-bold" data-reveal="right" data-i18n="footer_rights">
+  © 2025 Siyahatna. All rights reserved.
+</div>
+
+
+  </div>
+</footer>
+
+
+
+
+
+<script src="smartplanmain.js"></script>
+<script src="translation.js"></script>
+
+
+
+
+
+
+
+
+
+

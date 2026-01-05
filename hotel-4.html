@@ -1,0 +1,792 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./src/output.css" rel="stylesheet">
+  <link href="hotel4.css" rel="stylesheet">
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+</head>
+<body class="bg-gray-100">
+ 
+<!-- Navbar (Responsive) -->
+<nav class="  w-full z-50 bg-teal-700">
+  <div class="mx-auto max-w-8xl px-4">
+    <div class="flex items-center h-16">
+<!-- Left: Logo + My Account Icon -->
+<div class="flex items-center gap-4 flex-1">
+  <!-- Logo   -->
+  <img src="img/logo as a mask.png" alt="Siyahatna logo"
+       class="w-10 h-10 rounded-full"
+       data-i18n-attr="alt:brand_alt">
+         <span class="text-white text-xl font-bold" data-i18n="brand_aria">Siyahatna</span>
+
+  <!-- My Account Icon -->
+  <a href="account.html" class="text-white p-2 rounded-full hover:bg-white/20 transition-colors">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M5.121 17.804A12.035 12.035 0 0112 15c2.636 0 5.088.85 7.121 2.804M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+    </svg>
+  </a>
+</div>
+      <!-- centered links -->
+     <ul class="hidden md:flex items-center justify-center gap-8 border-t border-b border-white/40 py-1 flex-1">
+  <li class="nav-item opacity-0 translate-y-2 transition-all duration-500 will-change-transform">
+    <a href="index.html" class="nav-link relative px-2 py-1 text-white font-medium transition-colors duration-300 hover:text-yellow-400
+                      after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-full after:bg-yellow-400
+                      after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
+      <span data-i18n="nav_home">Home</span>
+    </a>
+  </li>
+  <li class="nav-item opacity-0 translate-y-2 transition-all duration-500 will-change-transform">
+    <a href="plan.html" class="nav-link relative px-2 py-1 text-white font-medium transition-colors duration-300 hover:text-yellow-400
+                      after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-full after:bg-yellow-400
+                      after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
+      <span data-i18n="nav_categories">Travel itinerary</span>
+    </a>
+  </li>
+  <li class="nav-item opacity-0 translate-y-2 transition-all duration-500 will-change-transform">
+    <a href="about.html" class="nav-link relative px-2 py-1 text-white font-medium transition-colors duration-300 hover:text-yellow-400
+                      after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-full after:bg-yellow-400
+                      after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
+      <span data-i18n="nav_about">About</span>
+    </a>
+  </li>
+  <li class="nav-item opacity-0 translate-y-2 transition-all duration-500 will-change-transform">
+    <a href="contactus.html" class="nav-link relative px-2 py-1 text-white font-medium transition-colors duration-300 hover:text-yellow-400
+                      after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-full after:bg-yellow-400
+                      after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
+      <span data-i18n="nav_deals">Contact us</span>
+    </a>
+  </li>
+</ul>
+
+
+     <!-- Right: Auth (md+) -->
+<div class="hidden md:flex justify-end items-center gap-3 flex-1">
+ <!-- Language Dropdown Desktop -->
+<div class="relative">
+  <button id="langBtnDesktop"
+          class="flex items-center gap-2 px-4 py-1.5 bg-white text-black rounded-lg font-medium hover:bg-yellow-400 transition"
+          aria-haspopup="true" aria-expanded="false">
+    <span data-i18n="lang_btn">Language</span>
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+    </svg>
+  </button>
+  <div id="langMenuDesktop" class="absolute right-0 mt-2 w-32 rounded-lg bg-white shadow-lg ring-1 ring-black/5 hidden z-50">
+    <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="en">English</a>
+    <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="ar">العربية</a>
+  </div>
+</div>
+
+
+  <a href="register.html"
+  class="inline-block px-4 py-1.5 bg-white text-black rounded-lg font-medium hover:bg-yellow-400 transition"
+  data-i18n="nav_register">
+  Register
+</a>
+  <a href="login.html"
+  class="px-4 py-1.5 border border-white text-white rounded-lg font-medium 
+         hover:bg-yellow-400 hover:text-black transition inline-block text-center"
+  data-i18n="nav_login">
+  Log in
+</a>
+
+</div>
+
+      <!-- Mobile: Hamburger -->
+      <button id="navToggle" class="md:hidden ml-auto inline-flex items-center justify-center p-2 rounded-lg border border-white/40 text-white"
+              aria-label="Open menu" aria-expanded="false">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+<div id="mobileMenu" class="md:hidden hidden">
+  <div class="bg-black/90 border-t border-white/10">
+    <div class="px-4 py-4 space-y-2">
+      <a href="index.html" class="block px-3 py-2 rounded-md text-white/90 hover:bg-white/10" data-i18n="nav_home">Home</a>
+      <a href="plan.html" class="block px-3 py-2 rounded-md text-white/90 hover:bg-white/10" data-i18n="nav_categories">Travel itinerary</a>
+      <a href="about.html" class="block px-3 py-2 rounded-md text-white/90 hover:bg-white/10" data-i18n="nav_about">About</a>
+      <a href="contactus.html" class="block px-3 py-2 rounded-md text-white/90 hover:bg-white/10" data-i18n="nav_deals">Contact us</a>
+
+      <!-- Language Dropdown Mobile -->
+      <div class="relative">
+        <button id="langBtnMobile"
+                class="w-full flex items-center justify-between px-4 py-2 bg-white text-black rounded-lg font-medium hover:bg-yellow-400 transition"
+                aria-haspopup="true" aria-expanded="false">
+          <span data-i18n="lang_btn">Language</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div id="langMenuMobile"
+             class="absolute left-0 right-0 mt-2 rounded-lg bg-white shadow-lg ring-1 ring-black/5 hidden">
+          <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="en">English</a>
+          <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="ar">العربية</a>
+        </div>
+      </div>
+
+      <div class="pt-3 flex items-center gap-2">
+       <a href="register.html"
+  class="flex-1 px-4 py-2 bg-white text-black rounded-lg font-medium hover:bg-yellow-400 hover:text-black transition inline-block text-center"
+  data-i18n="nav_register">
+  Register
+</a>
+       <a href="login.html"
+  class="flex-1 px-4 py-2 border border-white text-white rounded-lg font-medium 
+         hover:bg-yellow-400 hover:text-black transition inline-block text-center"
+  data-i18n="nav_login">
+  Log in
+</a>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+</nav>
+
+
+<!-- ===== Logo Header (match figma size/shape) ===== -->
+<section id="logoHeader" class="max-w-8xl mx-auto px-6 mt-6 bg-white">
+  <div class="flex items-center justify-between swap-on-rtl">
+    
+    <!-- Hotel title -->
+    <h1 class="text-2xl md:text-3xl font-extrabold text-dir">
+      <span class="text-emerald-700" data-i18n="hotel_type">Hilton</span>
+      <span class="text-gray-900" data-i18n="hotel_name">Hotel</span>
+      
+    </h1>
+
+    
+
+  </div>
+
+  <!-- divider -->
+  <div class="mt-4 h-px bg-gray-200"></div>
+</section>
+
+
+
+
+
+<main class="container mx-auto p-6">
+  <!-- Grid Layout -->
+  <section class="grid grid-cols-1 lg:grid-cols-6 gap-6 w-full max-w-8xl mx-auto mt-4">
+    
+    <!-- Main Section -->
+    <div class="lg:col-span-4 bg-white p-6 rounded-xl shadow space-y-8 order-1">
+      
+    
+  <div class="flex items-center gap-3 rounded-2xl border border-gray-200 bg-white p-4 sm:p-5 shadow-sm">
+  <!-- صورة يمين العنوان -->
+  <img src="img/yellow calender.png"
+       class="w-10 h-10 object-contain"
+       alt="Icon"
+       data-i18n-attr="alt:icon_alt">
+
+  <div class="space-y-2">
+    <h3 class="text-lg md:text-xl font-semibold text-gray-900"
+        data-i18n="free_cancel_title">
+      Free cancellation until Tue, Aug 19
+    </h3>
+
+    <p class="text-gray-600 leading-relaxed"
+       data-i18n="free_cancel_desc">
+      You can change or cancel this stay for a full refund if your plans change.
+      Because flexibility matters.
+    </p>
+  </div>
+</div>
+
+     <!-- ===== Step 1: Your Details ===== -->
+<section id="step1" class="rounded-xl border border-gray-200 bg-white opacity-0 will-change-transform">
+ 
+<div class="flex items-center gap-3 px-5 py-3 border-b">
+ 
+  <img src="img/user.png"
+       class="w-6 h-6 object-contain shrink-0"
+       alt="Details Icon"
+       data-i18n-attr="alt:details_icon_alt">
+
+   
+  <h3 class="text-lg text-gray-900" data-i18n="step1_title">
+    Step 1: Your Details
+  </h3>
+</div>
+
+<!-- الحقول -->
+<div class="p-5 md:p-6 space-y-5">
+  <div class="grid sm:grid-cols-2 gap-4">
+    <!-- First Name -->
+<div>
+  <label for="firstName" 
+         class="block text-sm font-semibold text-gray-700 mb-1" 
+         data-i18n="first_name">
+    First Name
+  </label>
+  <input id="firstName" type="text"
+         class="w-full h-11 px-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+         placeholder="e.g., Sarah"
+         data-i18n-attr="placeholder:placeholder_first_name">
+</div>
+
+    <!-- Last Name -->
+    <div>
+      <label for="lastName" class="block text-sm font-semibold text-gray-700 mb-1" data-i18n="last_name">
+        Last Name
+      </label>
+      <input id="lastName" type="text"
+             class="w-full h-11 px-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+             placeholder="e.g., Mohamed"
+             data-i18n-attr="placeholder:placeholder_last_name">
+    </div>
+  </div>
+
+  <!-- Mobile Number -->
+  <div>
+    <label for="mobile" class="block text-sm font-semibold text-gray-700 mb-1" data-i18n="mobile_number">
+      Mobile Number
+    </label>
+    <div class="relative">
+      <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" aria-hidden="true">
+        <!-- phone icon -->
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24 11.36 11.36 0 0 0 3.56.57 1 1 0 0 1 1 1v3.54a1 1 0 0 1-1 1A18 18 0 0 1 3 6a1 1 0 0 1 1-1h3.54a1 1 0 0 1 1 1 11.36 11.36 0 0 0 .57 3.56 1 1 0 0 1-.24 1.02l-2.25 2.21Z"/>
+        </svg>
+      </span>
+      <input id="mobile" type="tel"
+             class="w-full h-11 pl-9 pr-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+             placeholder="+966 5x xxx xxxx"
+             data-i18n-attr="placeholder:placeholder_mobile">
+    </div>
+    <p class="mt-1 text-xs text-gray-500" data-i18n="contact_hint">
+      We’ll use this number to contact you about your reservation.
+    </p>
+  </div>
+</div>
+
+</section>
+
+<!-- ===== Step 2: Property Details ===== -->
+<section id="step2" class="rounded-xl border border-gray-200 bg-white opacity-0 will-change-transform">
+  <!-- Header -->
+  <div class="flex items-center gap-3 px-5 py-3 border-b">
+    <img src="img/properity details.png"
+         class="w-7 h-7 object-contain"
+         alt="Step 2"
+         data-i18n-attr="alt:step2_icon_alt">
+    <!-- عنوان موحّد بمفتاح واحد -->
+    <h3 class="text-lg text-gray-900" data-i18n="step2_title">
+      Step 2: Property Details
+    </h3>
+  </div>
+
+  <!-- Body -->
+  <div class="p-5 md:p-6 space-y-6">
+
+    <!-- Property Highlights -->
+    <div class="space-y-2">
+      <div class="flex items-center gap-2">
+        <h4 class="text-sm font-bold text-gray-900" data-i18n="property_highlights">
+          Property Highlights
+        </h4>
+      </div>
+
+      <ul class="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-gray-700">
+        <!-- Free Parking -->
+        <li class="flex items-center gap-2">
+          <img src="img/parking.png" class="w-5 h-5 object-contain"
+               alt="Parking" data-i18n-attr="alt:amenity_parking_alt">
+          <span data-i18n="amenity_parking">Free Parking</span>
+        </li>
+
+        <!-- Gym -->
+        <li class="flex items-center gap-2">
+          <img src="img/gym.png" class="w-5 h-5 object-contain"
+               alt="Gym" data-i18n-attr="alt:amenity_gym_alt">
+          <span data-i18n="amenity_gym">Gym</span>
+        </li>
+
+        <!-- Wi-Fi -->
+        <li class="flex items-center gap-2">
+          <img src="img/wifi.png" class="w-5 h-5 object-contain"
+               alt="Wi-Fi" data-i18n-attr="alt:amenity_wifi_alt">
+          <span data-i18n="amenity_wifi">Wi-Fi</span>
+        </li>
+
+        <!-- Pool -->
+        <li class="flex items-center gap-2">
+          <img src="img/swimming.png" class="w-5 h-5 object-contain"
+               alt="Pool" data-i18n-attr="alt:amenity_pool_alt">
+          <span data-i18n="amenity_pool">Pool</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Included in your room -->
+    <div class="rounded-lg border border-gray-200 p-3 text-sm text-gray-700">
+      <div class="flex flex-wrap items-center gap-2">
+        <svg class="w-4 h-4 text-emerald-600" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/>
+        </svg>
+        <span data-i18n="included_room">Included in your room:</span>
+
+        <!-- King Bed badge -->
+        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700">
+          <img src="img/sleeping 1.png" class="w-4 h-4 object-contain"
+               alt="King Bed" data-i18n-attr="alt:amenity_king_bed_alt">
+          <span data-i18n="amenity_king_bed">King Bed</span>
+        </span>
+
+        <!-- No Smoking badge -->
+        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700">
+          <img src="img/no-smoking 1.png" class="w-4 h-4 object-contain"
+               alt="No Smoking" data-i18n-attr="alt:amenity_no_smoking_alt">
+          <span data-i18n="amenity_no_smoking">No Smoking</span>
+        </span>
+      </div>
+    </div>
+
+    <!-- Special Requests -->
+    <div class="space-y-2">
+      <div class="flex items-center gap-2">
+        <img src="img/right (2).png" class="w-5 h-5 object-contain"
+             alt="Requests" data-i18n-attr="alt:requests_icon_alt">
+        <span class="text-sm font-semibold text-teal-700" data-i18n="special_requests">
+          Any special requests?
+        </span>
+      </div>
+
+      <p class="text-xs text-gray-500 leading-relaxed pl-7" data-i18n="requests_desc">
+        Please include details of your special request and we’ll forward it to the property. Please note, your request is 
+        not guaranteed and if you don’t hear back from the property, you may want to contact them directly to confirm.
+      </p>
+<textarea
+  class="w-full h-28 resize-y rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
+  placeholder="Write your special requests here (optional)..."
+  data-i18n-attr="placeholder:requests_placeholder"></textarea>
+
+
+  </div>
+</section>
+
+
+<!-- ===== Step 3: The Final Step: Booking ===== -->
+<section id="step3" class="rounded-xl border border-gray-200 bg-white opacity-0 will-change-transform">
+  <!-- Header -->
+  <div class="flex items-center gap-3 px-5 py-3 border-b">
+    <img src="img/booking (1) 1.png"
+         class="w-6 h-6 object-contain"
+         alt="Final Step"
+         data-i18n-attr="alt:step3_icon_alt">
+    
+    <h3 class="text-lg text-gray-900" data-i18n="step3_title">
+      The Final Step: Booking
+    </h3>
+  </div>
+
+  <!-- Body -->
+  <div class="p-5 md:p-6 space-y-6">
+
+  <!-- Terms of Booking -->
+<div class="space-y-1">
+  <h4 class="text-sm font-semibold text-gray-900" data-i18n="terms_booking">
+    Terms of Booking
+  </h4>
+
+  <p class="text-xs text-gray-600 leading-relaxed" data-i18n="terms_desc">
+    By clicking “Book”, you agree you have read and accept our
+  </p>
+
+<!-- Links -->
+<div class="flex flex-col items-start gap-1 text-xs mt-8">
+  <a href="#" 
+     class="text-teal-700 underline hover:text-teal-800" 
+     data-i18n="sidebar_terms">
+    Terms and Conditions
+  </a>
+  <a href="#" 
+     class="text-teal-700 underline hover:text-teal-800" 
+     data-i18n="sidebar_privacy">
+    Privacy Policy
+  </a>
+</div>
+
+
+</div>
+
+    <!-- Check-in / Check-out -->
+    <div class="grid gap-3 text-sm">
+      <!-- Check-in -->
+<div class="flex flex-wrap items-start justify-between gap-2 rounded-md border border-gray-200 px-3 py-2">
+  <div class="flex items-center gap-2">
+    <svg class="w-4 h-4 text-emerald-600" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M7 2h2v2h6V2h2v2h3v18H4V4h3V2ZM6 8h12V6H6v2Z"></path>
+    </svg>
+    <span class="font-semibold text-gray-900" data-i18n="check_in">Check-in</span>
+  </div>
+  <div class="text-gray-700" data-i18n="check_in_value">Sun, August 24, 2025 (12:00 PM)</div>
+</div>
+
+      <!-- Check-out -->
+      <div class="flex flex-wrap items-start justify-between gap-2 rounded-md border border-gray-200 px-3 py-2">
+        <div class="flex items-center gap-2">
+          <svg class="w-4 h-4 text-emerald-600" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M7 2h2v2h6V2h2v2h3v18H4V4h3V2ZM6 8h12V6H6v2Z"></path>
+          </svg>
+          <span class="font-semibold text-gray-900" data-i18n="check_out">Check-out</span>
+        </div>
+        <div class="text-right">
+          <div class="text-gray-700" data-i18n="check_out_value">Sun, August 25, 2025 (12:00 PM)</div>
+          <div class="text-xs text-gray-500" data-i18n="nights_rooms">3 nights, 1 room</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer: badges left, Book button right -->
+    <div class="flex items-center justify-between">
+      <!-- badges/info -->
+      <div class="flex items-center gap-2 text-xs sm:text-sm text-gray-600">
+        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-gray-100">
+          <!-- moon/night icon -->
+          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79Z"/>
+          </svg>
+          <span data-i18n="badge_nights"><span class="font-semibold">3</span> nights</span>
+        </span>
+        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-gray-100">
+          <!-- bed/room icon -->
+          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M2 7h12a4 4 0 0 1 4 4v3h2v3h-2v-2H4v2H2v-9a2 2 0 0 1 2-2Zm2 5h10a2 2 0 0 0-2-2H4v2Z"/>
+          </svg>
+          <span data-i18n="badge_rooms"><span class="font-semibold">1</span> room</span>
+        </span>
+      </div>
+
+      <!-- Book link -->
+<a href="payment.html"
+   class="px-6 py-2.5 inline-flex items-center justify-center rounded-md bg-amber-500 hover:bg-amber-600 text-white font-semibold transition focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2"
+   data-i18n="book_btn"
+   data-i18n-attr="aria-label:book_btn"
+   aria-label="Book">
+  Book
+</a>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+    </div>
+
+    <!-- Sidebar -->
+<aside id="sidebar" class="lg:col-span-2 bg-white p-6 rounded-xl shadow order-2 opacity-0 will-change-transform">
+  <!-- Sidebar image (90% width) -->
+  <div class="w-[90%] mx-auto rounded-xl overflow-hidden">
+    <img src="img/hoteldetails1.png"
+         alt="Sidebar image"
+         class="w-full h-48 object-cover">
+  </div>
+
+  <!-- Choice message -->
+  <div class="w-[90%] mx-auto flex items-start gap-2 text-xs text-gray-600 mt-10">
+    <img src="img/check-mark2.png" alt="Checked" class="w-4 h-4 object-contain mt-0.5">
+    <span data-i18n="sidebar_choice">
+      Your choice is perfect! Reserve it now before it’s gone.
+    </span>
+  </div>
+
+  <hr class="border-gray-200 mb-4 mt-4">
+
+  <!-- ===== Price rows ===== -->
+  <div class="w-[90%] mx-auto mt-10 space-y-2 text-sm">
+
+    <!-- 2 nights -->
+    <div class="flex items-center justify-between py-2 border-b">
+      <div class="inline-flex items-center gap-1 text-gray-900">
+  <img src="img/right (2).png" alt="More details" class="w-3.5 h-3.5 object-contain">
+  <span data-i18n="sidebar_nights">2 nights</span>
+</div>
+
+      <div class="flex items-center gap-1 text-gray-900">
+        <span class="font-medium">300</span>
+        <img src="img/currancy logo.png" alt="SAR" class="w-3.5 h-3.5 object-contain">
+      </div>
+    </div>
+
+    <!-- Taxes and fees -->
+    <div class="flex items-center justify-between py-2 border-b">
+      <span class="text-gray-700" data-i18n="sidebar_taxes">Taxes and fees</span>
+      <div class="flex items-center gap-1 text-gray-900">
+        <span>40</span>
+        <img src="img/currancy logo.png" alt="SAR" class="w-3.5 h-3.5 object-contain">
+      </div>
+    </div>
+
+    <!-- Total price -->
+    <div class="flex items-center justify-between py-2">
+      <span class="font-bold text-red-700" data-i18n="sidebar_total">Total price</span>
+      <div class="flex items-center gap-1">
+        <span class="font-bold text-red-700">340</span>
+        <img src="img/currancy logo red.png" alt="SAR" class="w-4 h-4 object-contain">
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ===== Price increase + Cancellation policy ===== -->
+  <div class="w-[90%] mx-auto mt-10 space-y-3 text-sm">
+
+    <!-- Price increase notice -->
+    <div class="flex items-start gap-2">
+      <img src="img/increase.png" alt="Increase" class="w-4 h-4 object-contain mt-0.5">
+      <p class="text-gray-700" data-i18n="sidebar_increase">
+        This price may increase if you book later.
+      </p>
+    </div>
+
+    <hr class="border-gray-200">
+
+    <!-- Cancellation policy -->
+    <div class="space-y-2 mt-10">
+      <h4 class="text-sm font-semibold text-gray-900" data-i18n="sidebar_cancel_title">
+        Cancellation policy
+      </h4>
+
+      <div class="flex items-start gap-2 text-[11px] leading-5 text-gray-600">
+        <img src="img/information.png" alt="Info" class="w-4 h-4 object-contain mt-0.5">
+        <p data-i18n="sidebar_cancel_desc">
+          If you change or cancel this booking after 11:59, 19/08/2025 property’s local time (Gulf Standard Time),
+          you won’t be refunded any of the payment. We’re unable to refund any payment for no-shows or early check out.
+        </p>
+      </div>
+
+      <!-- Links -->
+<div class="flex flex-col items-start gap-1 text-xs mt-8">
+  <a href="#" class="text-teal-700 underline hover:underline" data-i18n="sidebar_terms">
+    Terms and Conditions
+  </a>
+  <a href="#" class="text-teal-700 underline hover:underline" data-i18n="sidebar_privacy">
+    Privacy Policy
+  </a>
+</div>
+
+    </div>
+  </div>
+</aside>
+
+  </section>
+</main>
+
+<a
+  href="https://wa.me/201234567890"
+  class="fixed bottom-5 right-4 w-12 h-12 rounded-full bg-green-500 text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform z-50"
+  target="_blank"
+  aria-label="Chat on WhatsApp"
+>
+  <i class="fab fa-whatsapp text-2xl"></i>
+</a>
+
+
+<footer class="relative overflow-hidden bg-teal-700 text-white px-6 py-16 min-h-[600px]">
+  <div class="pointer-events-none absolute inset-0">
+    <div class="absolute -top-28 -left-24 w-[34rem] h-[34rem] rounded-full bg-emerald-100/35 blur-3xl"></div>
+    <div class="absolute -bottom-24 -right-24 w-[30rem] h-[30rem] rounded-full bg-amber-100/40 blur-3xl"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(16,185,129,.07),transparent_60%)]"></div>
+  </div>
+
+  <div class="relative max-w-6xl mx-auto px-4 lg:px-6">
+    <!-- المحتوى -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-center sm:text-start">
+      <!-- Logo / Brand -->
+      <div class="footer-brand-wrap flex flex-col items-center sm:items-start" data-reveal="left">
+        <div class="h-20 w-20 rounded-full bg-black grid place-items-center mb-3">
+          <img src="img/logo as a mask.png" alt="Siyahatna logo"
+               data-i18n-attr="alt:footer_logo_alt" class="h-20 w-20">
+        </div>
+        <span class="footer-brand text-3xl font-extrabold tracking-widest text-white hover:drop-shadow-[0_0_12px_rgba(250,204,21,0.45)]" data-i18n="brand_aria">
+          Siyahatna
+        </span>
+      </div>
+
+      <!-- Pages -->
+      <div data-reveal="right">
+        <h4 class="mb-4 text-base font-bold">
+          <a href="#" class="ink-underline hover:text-yellow-400" data-i18n="footer_categories">All Categories</a>
+        </h4>
+        <ul class="space-y-2">
+          <li><a data-i18n="footer_restaurants" class="font-bold ink-underline hover:text-yellow-400" href="Allrestaurants.html">Restaurants</a></li>
+          <li><a data-i18n="footer_cafe" class="font-bold ink-underline hover:text-yellow-400" href="Allrestaurants.html">Cafe</a></li>
+          <li><a data-i18n="footer_supermarkets" class="font-bold ink-underline hover:text-yellow-400" href="supermarket1.html">Supermarket</a></li>
+          <li><a data-i18n="footer_hotels" class="font-bold ink-underline hover:text-yellow-400" href="hotel-1.html">Hotels</a></li>
+          <li><a data-i18n="footer_parks" class="font-bold ink-underline hover:text-yellow-400" href="parks1.html">Parks</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div data-reveal="left">
+        <h4 class="mb-4 text-base font-bold">
+          <a href="#" class="ink-underline hover:text-yellow-400" data-i18n="footer_contact">Contact</a>
+        </h4>
+        <ul class="space-y-2">
+          <li>
+            <a href="mailto:Support123@gmail.com" class="font-bold ink-underline hover:text-yellow-400" data-i18n="footer_email">
+              <bdi>Email: Support123@gmail.com</bdi>
+            </a>
+          </li>
+          <li>
+            <a href="tel:12345678" class="font-bold ink-underline hover:text-yellow-400" data-i18n="footer_phone1">
+              <bdi>Phone 1: 12345678</bdi>
+            </a>
+          </li>
+          <li>
+            <a href="tel:3455765433345" class="font-bold ink-underline hover:text-yellow-400" data-i18n="footer_phone2">
+              <bdi>Phone 2: 3455765433345</bdi>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Policies -->
+      <div data-reveal="right">
+        <h4 class="mb-4 text-base font-bold">
+          <a href="#" class="ink-underline hover:text-yellow-400" data-i18n="footer_policies">Policies</a>
+        </h4>
+        <ul class="space-y-2">
+          <li><a data-i18n="footer_guidelines" class="font-bold ink-underline hover:text-yellow-400" href="#">Community Guidelines</a></li>
+          <li><a data-i18n="footer_terms" class="font-bold ink-underline hover:text-yellow-400" href="#">Terms of Use</a></li>
+          <li><a data-i18n="footer_privacy" class="font-bold ink-underline hover:text-yellow-400" href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Download app -->
+    <!-- Download app -->
+<div class="mt-12 text-center" data-reveal="left">
+  <h4 class="mb-2 text-base font-bold text-center">
+    <a href="#" class="ink-underline hover:text-yellow-400 inline-block" data-i18n="footer_download">
+      Download Our App
+    </a>
+  </h4>
+
+  <p data-i18n="footer_download_desc" class="text-white/70 text-sm mb-4 font-bold">
+    Get the Latest Version of our Apps
+  </p>
+
+  <div class="flex justify-center gap-4">
+    <a href="#" class="ink-underline">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+           alt="Google Play" class="h-10" data-i18n-attr="alt:footer_google_alt">
+    </a>
+    <a href="#" class="ink-underline">
+      <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83"
+           alt="App Store" class="h-10" data-i18n-attr="alt:footer_apple_alt">
+    </a>
+  </div>
+</div>
+
+
+    <!-- Divider -->
+    <div class="mt-12 mb-3 border-t border-white/10" data-reveal="right"></div>
+
+    <!-- حقوق النشر -->
+ <div class="pt-4 w-full text-center sm:text-center text-sm text-white/60 font-bold" data-reveal="right" data-i18n="footer_rights">
+  © 2025 Siyahatna. All rights reserved.
+</div>
+
+
+  </div>
+
+<a
+  href="https://wa.me/201234567890"
+  class="fixed bottom-5 right-4 w-12 h-12 rounded-full bg-green-500 text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform z-50"
+  target="_blank"
+  aria-label="Chat on WhatsApp"
+>
+  <i class="fab fa-whatsapp text-2xl"></i>
+</a>
+
+
+  
+</footer>
+
+<!-- === Animations & Hover underline === -->
+<style>
+  .ink-underline {
+    position: relative;
+    display: inline-block;
+  }
+  .ink-underline::after {
+    content: "";
+    position: absolute;
+    left: 50%; bottom: -3px;
+    width: 0; height: 2px;
+    border-radius: 9999px;
+    background: linear-gradient(90deg,#facc15,#fde047,#facc15);
+    transform: translateX(-50%);
+    transition: width .42s cubic-bezier(.22,1,.36,1), height .42s cubic-bezier(.22,1,.36,1);
+  }
+  .ink-underline:hover::after,
+  .ink-underline:focus-visible::after {
+    width: 100%; height: 3px;
+  }
+
+  [data-reveal]{opacity:0; will-change:transform,opacity;}
+  @keyframes revealLeft {
+    from {opacity:0; transform:translateX(-40px);}
+    to   {opacity:1; transform:translateX(0);}
+  }
+  @keyframes revealRight {
+    from {opacity:0; transform:translateX(40px);}
+    to   {opacity:1; transform:translateX(0);}
+  }
+
+  .is-inview[data-reveal="left"]  {animation:revealLeft .7s cubic-bezier(.22,1,.36,1) both}
+  .is-inview[data-reveal="right"] {animation:revealRight .7s cubic-bezier(.22,1,.36,1) both}
+
+  .is-inview{animation-delay:var(--rv-delay,0s)}
+
+  @media (prefers-reduced-motion: reduce){
+    .ink-underline::after{transition:none}
+    [data-reveal]{opacity:1 !important; transform:none !important; animation:none !important}
+  }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+<script src="translation.js"></script>
+<script src="hotel4main.js"></script>
+
+
+
+    
+ </body>

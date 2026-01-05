@@ -1,0 +1,640 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./src/output.css" rel="stylesheet">
+<link href="hotel1.css" rel="stylesheet">
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+  
+</head>
+<body>
+ 
+ 
+<!-- Navbar (Responsive) -->
+<nav class="  w-full z-50 bg-teal-700">
+  <div class="mx-auto max-w-8xl px-4">
+    <div class="flex items-center h-16">
+<!-- Left: Logo + My Account Icon -->
+<div class="flex items-center gap-4 flex-1">
+  <!-- Logo (صورة فقط بدون رابط) -->
+  <img src="img/logo as a mask.png" alt="Siyahatna logo"
+       class="w-10 h-10 rounded-full"
+       data-i18n-attr="alt:brand_alt">
+         <span class="text-white text-xl font-bold" data-i18n="brand_aria">Siyahatna</span>
+
+  <!-- My Account Icon -->
+  <a href="account.html" class="text-white p-2 rounded-full hover:bg-white/20 transition-colors">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M5.121 17.804A12.035 12.035 0 0112 15c2.636 0 5.088.85 7.121 2.804M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+    </svg>
+  </a>
+</div>
+      <!-- centered links -->
+     <ul class="hidden md:flex items-center justify-center gap-8 border-t border-b border-white/40 py-1 flex-1">
+  <li class="nav-item opacity-0 translate-y-2 transition-all duration-500 will-change-transform">
+    <a href="index.html" class="nav-link relative px-2 py-1 text-white font-medium transition-colors duration-300 hover:text-yellow-400
+                      after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-full after:bg-yellow-400
+                      after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
+      <span data-i18n="nav_home">Home</span>
+    </a>
+  </li>
+  <li class="nav-item opacity-0 translate-y-2 transition-all duration-500 will-change-transform">
+    <a href="plan.html" class="nav-link relative px-2 py-1 text-white font-medium transition-colors duration-300 hover:text-yellow-400
+                      after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-full after:bg-yellow-400
+                      after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
+      <span data-i18n="nav_categories">Travel itinerary</span>
+    </a>
+  </li>
+  <li class="nav-item opacity-0 translate-y-2 transition-all duration-500 will-change-transform">
+    <a href="about.html" class="nav-link relative px-2 py-1 text-white font-medium transition-colors duration-300 hover:text-yellow-400
+                      after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-full after:bg-yellow-400
+                      after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
+      <span data-i18n="nav_about">About</span>
+    </a>
+  </li>
+  <li class="nav-item opacity-0 translate-y-2 transition-all duration-500 will-change-transform">
+    <a href="contactus.html" class="nav-link relative px-2 py-1 text-white font-medium transition-colors duration-300 hover:text-yellow-400
+                      after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-full after:bg-yellow-400
+                      after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
+      <span data-i18n="nav_deals">Contact us</span>
+    </a>
+  </li>
+</ul>
+
+
+     <!-- Right: Auth (md+) -->
+<div class="hidden md:flex justify-end items-center gap-3 flex-1">
+ <!-- Language Dropdown Desktop -->
+<div class="relative">
+  <button id="langBtnDesktop"
+          class="flex items-center gap-2 px-4 py-1.5 bg-white text-black rounded-lg font-medium hover:bg-yellow-400 transition"
+          aria-haspopup="true" aria-expanded="false">
+    <span data-i18n="lang_btn">Language</span>
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+    </svg>
+  </button>
+  <div id="langMenuDesktop" class="absolute right-0 mt-2 w-32 rounded-lg bg-white shadow-lg ring-1 ring-black/5 hidden z-50">
+    <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="en">English</a>
+    <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="ar">العربية</a>
+  </div>
+</div>
+
+
+  <a href="register.html"
+  class="inline-block px-4 py-1.5 bg-white text-black rounded-lg font-medium hover:bg-yellow-400 transition"
+  data-i18n="nav_register">
+  Register
+</a>
+  <a href="login.html"
+  class="px-4 py-1.5 border border-white text-white rounded-lg font-medium 
+         hover:bg-yellow-400 hover:text-black transition inline-block text-center"
+  data-i18n="nav_login">
+  Log in
+</a>
+
+</div>
+
+      <!-- Mobile: Hamburger -->
+      <button id="navToggle" class="md:hidden ml-auto inline-flex items-center justify-center p-2 rounded-lg border border-white/40 text-white"
+              aria-label="Open menu" aria-expanded="false">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+<div id="mobileMenu" class="md:hidden hidden">
+  <div class="bg-black/90 border-t border-white/10">
+    <div class="px-4 py-4 space-y-2">
+      <a href="index.html" class="block px-3 py-2 rounded-md text-white/90 hover:bg-white/10" data-i18n="nav_home">Home</a>
+      <a href="plan.html" class="block px-3 py-2 rounded-md text-white/90 hover:bg-white/10" data-i18n="nav_categories">Travel itinerary</a>
+      <a href="about.html" class="block px-3 py-2 rounded-md text-white/90 hover:bg-white/10" data-i18n="nav_about">About</a>
+      <a href="contactus.html" class="block px-3 py-2 rounded-md text-white/90 hover:bg-white/10" data-i18n="nav_deals">Contact us</a>
+
+      <!-- Language Dropdown Mobile -->
+      <div class="relative">
+        <button id="langBtnMobile"
+                class="w-full flex items-center justify-between px-4 py-2 bg-white text-black rounded-lg font-medium hover:bg-yellow-400 transition"
+                aria-haspopup="true" aria-expanded="false">
+          <span data-i18n="lang_btn">Language</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div id="langMenuMobile"
+             class="absolute left-0 right-0 mt-2 rounded-lg bg-white shadow-lg ring-1 ring-black/5 hidden">
+          <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="en">English</a>
+          <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="ar">العربية</a>
+        </div>
+      </div>
+
+      <div class="pt-3 flex items-center gap-2">
+       <a href="register.html"
+  class="flex-1 px-4 py-2 bg-white text-black rounded-lg font-medium hover:bg-yellow-400 hover:text-black transition inline-block text-center"
+  data-i18n="nav_register">
+  Register
+</a>
+       <a href="login.html"
+  class="flex-1 px-4 py-2 border border-white text-white rounded-lg font-medium 
+         hover:bg-yellow-400 hover:text-black transition inline-block text-center"
+  data-i18n="nav_login">
+  Log in
+</a>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+</nav>
+
+
+<!-- Hotel Hero Section -->
+<!-- Hero Section -->
+<section class="relative h-[90vh] w-full overflow-hidden -mt-px">
+
+  <div
+    class="relative overflow-hidden   shadow cursor-pointer"
+    id="hotelHero"
+    data-hotel-slider
+    data-interval="3000"
+  >
+    <!-- Slides (Images) -->
+    <img
+      src="img/herosection2.png"
+      class="hotel-hero-img w-full h-72 md:h-[420px] object-fit  "
+      alt="Hotel Hero Image 1"
+      data-hotel-slide
+    />
+
+    <img
+      src="img/hotel cover.png"
+      class="hotel-hero-img w-full h-72 md:h-[420px] object-fit  "
+      alt="Hotel Hero Image 2"
+      data-hotel-slide
+    />
+
+     
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-black/50   overlay-fade parallax pointer-events-none"></div>
+
+    <!-- Overlay Content (العنوان) -->
+    <div class="absolute inset-0 rounded-2xl flex flex-col items-center justify-center gap-6 px-4">
+      <h1
+        class="text-white text-2xl md:text-3xl font-bold text-center mb-6 anim-in anim-delay-1"
+        data-i18n="hero_hotels_title"
+      >
+        Search across 50,000+ hotels around Saudi Arabia
+      </h1>
+    </div>
+  </div>
+</section>
+<script>
+// hotel-hero-slider.js
+(function () {
+  "use strict";
+
+  document.addEventListener("DOMContentLoaded", function () {
+    var sliders = document.querySelectorAll("[data-hotel-slider]");
+    if (!sliders.length) return;
+
+    sliders.forEach(function (slider) {
+      var slides = Array.prototype.slice.call(
+        slider.querySelectorAll("[data-hotel-slide]")
+      );
+      if (!slides.length) return;
+
+      // أول سلايد يبقى ظاهر
+      slides.forEach(function (slide, index) {
+        if (index === 0) {
+          slide.classList.add("is-active");
+        } else {
+          slide.classList.remove("is-active");
+        }
+      });
+
+      var currentIndex = 0;
+      var intervalAttr = slider.getAttribute("data-interval");
+      var intervalMs = parseInt(intervalAttr, 10);
+      if (isNaN(intervalMs) || intervalMs <= 0) {
+        intervalMs = 3000; // 3 ثواني افتراضي
+      }
+
+      var timerId = null;
+
+      function goTo(index) {
+        if (!slides.length) return;
+        currentIndex = (index + slides.length) % slides.length;
+
+        slides.forEach(function (slide, i) {
+          if (i === currentIndex) {
+            slide.classList.add("is-active");
+          } else {
+            slide.classList.remove("is-active");
+          }
+        });
+      }
+
+      function next() {
+        goTo(currentIndex + 1);
+      }
+
+      function startAuto() {
+        stopAuto();
+        timerId = window.setInterval(next, intervalMs);
+      }
+
+      function stopAuto() {
+        if (timerId !== null) {
+          window.clearInterval(timerId);
+          timerId = null;
+        }
+      }
+
+      // نوقف السلايدر لما الماوس يقف عليه
+      slider.addEventListener("mouseenter", stopAuto);
+      slider.addEventListener("mouseleave", startAuto);
+
+      startAuto();
+    });
+  });
+})();
+</script>
+
+<!-- Search Bar Section -->
+<section class="w-11/12 mx-auto mt-6">
+  <div class="bg-amber-400 backdrop-blur-md shadow-xl rounded-xl p-4 flex flex-col md:flex-row items-center gap-3 w-full max-w-5xl mx-auto search-drop opacity-0">
+
+    <!-- City -->
+    <div class="relative w-full md:w-1/4 anim-in anim-delay-2">
+      <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">
+        <!-- Location Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c1.657 0 3-1.343 3-3S13.657 5 12 5s-3 1.343-3 3 1.343 3 3 3z" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.5 10.5c0 7.5-7.5 11.25-7.5 11.25S4.5 18 4.5 10.5a7.5 7.5 0 1115 0z" />
+        </svg>
+      </span>
+      <input
+        type="text"
+        class="w-full border bg-amber-50 border-gray-300 rounded-lg pl-10 pr-4 py-2 focus:ring-2 focus:ring-emerald-600 outline-none text-gray-700"
+        data-i18n-placeholder="search_city"
+        placeholder="Search city">
+    </div>
+
+    <!-- Check in -->
+    <input
+      type="text"
+      class="w-full md:w-1/5 border  bg-amber-50 border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-emerald-600 outline-none text-gray-700 anim-in anim-delay-2"
+      data-i18n-placeholder="check_in"
+      placeholder="Check in"
+      onfocus="this.type='date'"
+      onblur="if(!this.value) this.type='text'">
+
+    <!-- Check out -->
+    <input
+      type="text"
+      class="w-full md:w-1/5 border  bg-amber-50 border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-emerald-600 outline-none text-gray-700 anim-in anim-delay-2"
+      data-i18n-placeholder="check_out"
+      placeholder="Check out"
+      onfocus="this.type='date'"
+      onblur="if(!this.value) this.type='text'">
+
+    <!-- Rooms -->
+    <select class="w-full md:w-1/5 border  bg-amber-50 border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-emerald-600 outline-none text-gray-700 anim-in anim-delay-2">
+      <option data-i18n="rooms_1">Adults 1 Room</option>
+      <option data-i18n="rooms_2">Adults 2 Rooms</option>
+      <option data-i18n="rooms_3">Family Suite</option>
+    </select>
+
+    <!-- Search Button -->
+    <button class="w-full md:w-auto flex items-center justify-center gap-2 bg-teal-700 text-white font-semibold px-6 py-2 rounded-lg hover:bg-emerald-800 transition whitespace-nowrap btn-glow anim-in anim-delay-3">
+      <!-- Search Icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1110.5 3a7.5 7.5 0 016.15 13.65z" />
+      </svg>
+      <span data-i18n="search_btn">Search Hotels</span>
+    </button>
+
+  </div>
+</section>
+
+
+
+
+<!-- ===== Features Section ===== -->
+<section class="py-12 bg-gray-50">
+  <div class="max-w-6xl mx-auto px-4">
+
+    <!-- Section Title -->
+    <div class="text-center mb-10">
+      <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4" data-i18n="features_title">
+        How to Book Hotels on Siyahatna?
+      </h2>
+      <p class="text-gray-600 mt-2 max-w-2xl mx-auto mb-6" data-i18n="features_subtitle">
+        Follow these simple steps to find and book your perfect stay.
+      </p>
+    </div>
+
+    <!-- Grid -->
+    <div class="features-grid grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+
+      <!-- Feature 1 -->
+      <div class="feature-card flex flex-col items-start text-left p-6 rounded-2xl bg-white shadow-lg">
+        <!-- Title + Icon -->
+        <div class="flex items-center gap-3 mb-2">
+          <img src="./img/search-icon.png" data-i18n-attr="alt:features_icon_search" alt="Search Icon" class="w-6 h-6 object-contain">
+          <h3 class="font-semibold text-lg text-gray-800 bg-gray-100 px-3 py-1 rounded-md inline-block shadow-sm" data-i18n="features_step1_title">
+            Find a hotel
+          </h3>
+        </div>
+        <p class="text-gray-600 text-sm leading-relaxed" data-i18n="features_step1_desc">
+          Search for a hotel room that matches your preferences, using filters for price, customer reviews, popularity, and star rating.
+        </p>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="feature-card flex flex-col items-start text-left p-6 rounded-2xl bg-white shadow-lg">
+        <div class="flex items-center gap-3 mb-2">
+          <img src="./img/benchmarking 1.png" data-i18n-attr="alt:features_icon_compare" alt="Compare Icon" class="w-6 h-6 object-contain">
+          <h3 class="font-semibold text-lg text-gray-800 bg-gray-100 px-3 py-1 rounded-md inline-block shadow-sm" data-i18n="features_step2_title">
+            Compare prices
+          </h3>
+        </div>
+        <p class="text-gray-600 text-sm leading-relaxed" data-i18n="features_step2_desc">
+          Find the best deal by comparing the selected hotel room’s prices across multiple choices in one spot.
+        </p>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="feature-card flex flex-col items-start text-left p-6 rounded-2xl bg-white shadow-lg">
+        <div class="flex items-center gap-3 mb-2">
+          <img src="./img/check-mark (1).png" data-i18n-attr="alt:features_icon_book" alt="Book Icon" class="w-6 h-6 object-contain">
+          <h3 class="font-semibold text-lg text-gray-800 bg-gray-100 px-3 py-1 rounded-md inline-block shadow-sm" data-i18n="features_step3_title">
+            Book your price
+          </h3>
+        </div>
+        <p class="text-gray-600 text-sm leading-relaxed" data-i18n="features_step3_desc">
+          Reserve your preferred hotel room at the best price online — fast and easy!
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== Top Destinations (Cards as Links) ===== -->
+<section class="py-12 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-center text-xl md:text-2xl font-extrabold text-gray-800 mb-8" data-i18n="hotels_top_destinations">
+      Hotels at Top Destinations
+    </h2>
+
+    <!-- Grid -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-5">
+
+      <!-- Card -->
+      <a href="hotel-2.html" class="block">
+        <div class="relative rounded-xl overflow-hidden shadow bg-white">
+          <img src="img/herosection2.png" data-i18n-attr="alt:city_jeddah" alt="Jeddah" class="w-full h-28 sm:h-32 object-fit:contain">
+          <span class="absolute inset-0 grid place-items-center">
+            <span class="city-badge" data-i18n="city_jeddah">Jeddah</span>
+          </span>
+        </div>
+      </a>
+
+      <!-- Card -->
+      <a href="hotel-2.html" class="block">
+        <div class="relative rounded-xl overflow-hidden shadow bg-white">
+          <img src="img/Riyadh.png" data-i18n-attr="alt:city_riyadh" alt="Riyadh" class="w-full h-28 sm:h-32 object-fit:contain">
+          <span class="absolute inset-0 grid place-items-center">
+            <span class="city-badge" data-i18n="city_riyadh">Riyadh</span>
+          </span>
+        </div>
+      </a>
+
+      <!-- Card -->
+      <a href="hotel-2.html" class="block">
+        <div class="relative rounded-xl overflow-hidden shadow bg-white">
+          <img src="img/herosection3.png" data-i18n-attr="alt:city_makkah" alt="Makkah" class="w-full h-28 sm:h-32 object-fit:contain">
+          <span class="absolute inset-0 grid place-items-center">
+            <span class="city-badge" data-i18n="city_makkah">Makkah</span>
+          </span>
+        </div>
+      </a>
+
+      <!-- Card -->
+      <a href="hotel-2.html" class="block">
+        <div class="relative rounded-xl overflow-hidden shadow bg-white">
+          <img src="img/Taif.png" data-i18n-attr="alt:city_taif" alt="Taif" class="w-full h-28 sm:h-32 object-fit:contain">
+          <span class="absolute inset-0 grid place-items-center">
+            <span class="city-badge" data-i18n="city_taif">Taif</span>
+          </span>
+        </div>
+      </a>
+
+      <!-- Card -->
+      <a href="hotel-2.html" class="block">
+        <div class="relative rounded-xl overflow-hidden shadow bg-white">
+          <img src="img/Dammam.png" data-i18n-attr="alt:city_dammam" alt="Dammam" class="w-full h-28 sm:h-32 object-fit:contain">
+          <span class="absolute inset-0 grid place-items-center">
+            <span class="city-badge" data-i18n="city_dammam">Dammam</span>
+          </span>
+        </div>
+      </a>
+
+      <!-- Card -->
+      <a href="hotel-2.html" class="block">
+        <div class="relative rounded-xl overflow-hidden shadow bg-white">
+          <img src="img/jazan.jpg" data-i18n-attr="alt:city_jazan" alt="Jazan" class="w-full h-28 sm:h-32 object-fit:contain">
+          <span class="absolute inset-0 grid place-items-center">
+            <span class="city-badge" data-i18n="city_jazan">Jazan</span>
+          </span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ===== Other Destinations Section ===== -->
+<section class="py-12 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-10">
+      
+      <!-- Column 1 -->
+      <div>
+        <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-4" data-i18n="hotels_other_destinations">
+          Hotels at Other Popular Destinations
+        </h3>
+        <ul class="space-y-3 text-teal-700 font-medium">
+          <li><a href="hotel-2.html" class="hover:underline" data-i18n="city_khobar">Khobar</a></li>
+          <li><a href="hotel-2.html" class="hover:underline" data-i18n="city_dahran">Dahran</a></li>
+          <li><a href="hotel-2.html" class="hover:underline" data-i18n="city_abha">Abha</a></li>
+          <li><a href="hotel-2.html" class="hover:underline" data-i18n="city_tabuk">Tabuk</a></li>
+          <li><a href="hotel-2.html" class="hover:underline" data-i18n="city_jizan">Jizan</a></li>
+          <li><a href="hotel-2.html" class="hover:underline" data-i18n="city_hail">Hail</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 2 -->
+      <div>
+        <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-4" data-i18n="hotels_top_attractions">
+          Hotels Near Top Attractions
+        </h3>
+        <ul class="space-y-3 text-teal-700 font-medium">
+          <li><a href="hotel-2.html" class="hover:underline" data-i18n="attr_haram">Al Masjid Al Haram</a></li>
+          <li><a href="hotel-2.html" class="hover:underline" data-i18n="attr_fountain">King Fahd Fountain</a></li>
+          <li><a href="hotel-2.html" class="hover:underline" data-i18n="attr_edge">Edge of the World</a></li>
+          <li><a href="hotel-2.html" class="hover:underline" data-i18n="attr_diriyah">Diriyah</a></li>
+          <li><a href="hotel-2.html" class="hover:underline" data-i18n="attr_corniche">Jeddah Corniche</a></li>
+          <li><a href="hotel-2.html" class="hover:underline" data-i18n="attr_elephant">Elephant Rock</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<a
+  href="https://wa.me/201234567890"
+  class="fixed bottom-5 right-4 w-12 h-12 rounded-full bg-green-500 text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform z-50"
+  target="_blank"
+  aria-label="Chat on WhatsApp"
+>
+  <i class="fab fa-whatsapp text-2xl"></i>
+</a>
+
+
+<footer class="relative overflow-hidden bg-teal-700 text-white px-6 py-16 min-h-[600px]">
+  <div class="pointer-events-none absolute inset-0">
+    <div class="absolute -top-28 -left-24 w-[34rem] h-[34rem] rounded-full bg-emerald-100/35 blur-3xl"></div>
+    <div class="absolute -bottom-24 -right-24 w-[30rem] h-[30rem] rounded-full bg-amber-100/40 blur-3xl"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(16,185,129,.07),transparent_60%)]"></div>
+  </div>
+
+  <div class="relative max-w-6xl mx-auto px-4 lg:px-6">
+    <!-- المحتوى -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-center sm:text-start">
+      <!-- Logo / Brand -->
+      <div class="footer-brand-wrap flex flex-col items-center sm:items-start" data-reveal="left">
+        <div class="h-20 w-20 rounded-full bg-black grid place-items-center mb-3">
+          <img src="img/logo as a mask.png" alt="Siyahatna logo"
+               data-i18n-attr="alt:footer_logo_alt" class="h-20 w-20">
+        </div>
+        <span class="footer-brand text-3xl font-extrabold tracking-widest text-white hover:drop-shadow-[0_0_12px_rgba(250,204,21,0.45)]" data-i18n="brand_aria">
+          Siyahatna
+        </span>
+      </div>
+
+      <!-- Pages -->
+      <div data-reveal="right">
+        <h4 class="mb-4 text-base font-bold">
+          <a href="#" class="ink-underline hover:text-yellow-400" data-i18n="footer_categories">All Categories</a>
+        </h4>
+        <ul class="space-y-2">
+          <li><a data-i18n="footer_restaurants" class="font-bold ink-underline hover:text-yellow-400" href="Allrestaurants.html">Restaurants</a></li>
+          <li><a data-i18n="footer_cafe" class="font-bold ink-underline hover:text-yellow-400" href="Allrestaurants.html">Cafe</a></li>
+          <li><a data-i18n="footer_supermarkets" class="font-bold ink-underline hover:text-yellow-400" href="supermarket1.html">Supermarket</a></li>
+          <li><a data-i18n="footer_hotels" class="font-bold ink-underline hover:text-yellow-400" href="hotel-1.html">Hotels</a></li>
+          <li><a data-i18n="footer_parks" class="font-bold ink-underline hover:text-yellow-400" href="parks1.html">Parks</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div data-reveal="left">
+        <h4 class="mb-4 text-base font-bold">
+          <a href="#" class="ink-underline hover:text-yellow-400" data-i18n="footer_contact">Contact</a>
+        </h4>
+        <ul class="space-y-2">
+          <li>
+            <a href="mailto:Support123@gmail.com" class="font-bold ink-underline hover:text-yellow-400" data-i18n="footer_email">
+              <bdi>Email: Support123@gmail.com</bdi>
+            </a>
+          </li>
+          <li>
+            <a href="tel:12345678" class="font-bold ink-underline hover:text-yellow-400" data-i18n="footer_phone1">
+              <bdi>Phone 1: 12345678</bdi>
+            </a>
+          </li>
+          <li>
+            <a href="tel:3455765433345" class="font-bold ink-underline hover:text-yellow-400" data-i18n="footer_phone2">
+              <bdi>Phone 2: 3455765433345</bdi>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Policies -->
+      <div data-reveal="right">
+        <h4 class="mb-4 text-base font-bold">
+          <a href="#" class="ink-underline hover:text-yellow-400" data-i18n="footer_policies">Policies</a>
+        </h4>
+        <ul class="space-y-2">
+          <li><a data-i18n="footer_guidelines" class="font-bold ink-underline hover:text-yellow-400" href="#">Community Guidelines</a></li>
+          <li><a data-i18n="footer_terms" class="font-bold ink-underline hover:text-yellow-400" href="#">Terms of Use</a></li>
+          <li><a data-i18n="footer_privacy" class="font-bold ink-underline hover:text-yellow-400" href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Download app -->
+    <!-- Download app -->
+<div class="mt-12 text-center" data-reveal="left">
+  <h4 class="mb-2 text-base font-bold text-center">
+    <a href="#" class="ink-underline hover:text-yellow-400 inline-block" data-i18n="footer_download">
+      Download Our App
+    </a>
+  </h4>
+
+  <p data-i18n="footer_download_desc" class="text-white/70 text-sm mb-4 font-bold">
+    Get the Latest Version of our Apps
+  </p>
+
+  <div class="flex justify-center gap-4">
+    <a href="#" class="ink-underline">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+           alt="Google Play" class="h-10" data-i18n-attr="alt:footer_google_alt">
+    </a>
+    <a href="#" class="ink-underline">
+      <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83"
+           alt="App Store" class="h-10" data-i18n-attr="alt:footer_apple_alt">
+    </a>
+  </div>
+</div>
+
+
+    <!-- Divider -->
+    <div class="mt-12 mb-3 border-t border-white/10" data-reveal="right"></div>
+
+    <!-- حقوق النشر -->
+ <div class="pt-4 w-full text-center sm:text-center text-sm text-white/60 font-bold" data-reveal="right" data-i18n="footer_rights">
+  © 2025 Siyahatna. All rights reserved.
+</div>
+
+
+  </div>
+</footer>
+
+
+
+
+  
+ 
+ 
+<script src="translation.js" ></script>
+<script src="hotel1main.js"></script>
+    
+</body>
+</html>

@@ -1,14 +1,32 @@
 <!doctype html>
 <html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="./src/output.css" rel="stylesheet" />
-  <link href="smartplan.css" rel="stylesheet" />
-</head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./src/output.css" rel="stylesheet">
+   <link href="about.css" rel="stylesheet">
 
-<body class="bg-gray-100">
-<!-- Navbar (Responsive) -->
+     <style>
+  /* محاذاة ديناميكية حسب اتجاه الصفحة */
+  [dir="rtl"] .i18n-align { text-align: right; }
+  [dir="ltr"] .i18n-align { text-align: left; }
+</style>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+</head>
+<body class="relative min-h-screen overflow-x-hidden">
+
+  <!-- ===== Full Background Image ===== -->
+  <div class="fixed inset-0 -z-10">
+    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80"
+         alt="Travel Background"
+         class="w-full h-full object-cover animate-pulse">
+    <div class="absolute inset-0 bg-white/70 backdrop-blur-sm"></div>
+  </div>
+
+  <!-- Navbar (Responsive) -->
 <nav class="  w-full z-50 bg-teal-700">
   <div class="mx-auto max-w-8xl px-4">
     <div class="flex items-center h-16">
@@ -45,7 +63,7 @@
     </a>
   </li>
   <li class="nav-item opacity-0 translate-y-2 transition-all duration-500 will-change-transform">
-    <a href="about.html" class="nav-link relative px-2 py-1 text-white font-medium transition-colors duration-300 hover:text-yellow-400
+    <a href="about.html" class="nav-link relative px-2 py-1 text-yellow-400 font-medium transition-colors duration-300 hover:text-yellow-400
                       after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-full after:bg-yellow-400
                       after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
       <span data-i18n="nav_about">About</span>
@@ -112,7 +130,7 @@
     <div class="px-4 py-4 space-y-2">
       <a href="index.html" class="block px-3 py-2 rounded-md text-white/90 hover:bg-white/10" data-i18n="nav_home">Home</a>
       <a href="plan.html" class="block px-3 py-2 rounded-md text-white/90 hover:bg-white/10" data-i18n="nav_categories">Travel itinerary</a>
-      <a href="about.html" class="block px-3 py-2 rounded-md text-white/90 hover:bg-white/10" data-i18n="nav_about">About</a>
+      <a href="about.html" class="block px-3 py-2 rounded-md text-yellow-400 hover:bg-white/10" data-i18n="nav_about">About</a>
       <a href="contactus.html" class="block px-3 py-2 rounded-md text-white/90 hover:bg-white/10" data-i18n="nav_deals">Contact us</a>
 
       <!-- Language Dropdown Mobile -->
@@ -152,276 +170,69 @@
 
 </nav>
 
-  
- <main class="max-w-6xl mx-auto px-4 lg:px-6 py-8">
-  <!-- Header -->
-  <section
-    class="relative overflow-hidden rounded-2xl border border-teal-200/60 bg-gradient-to-r from-teal-50 via-white to-teal-50 p-6"
-  >
-    <div
-      class="pointer-events-none absolute -top-12 -right-10 h-52 w-52 rounded-full bg-teal-200/40 blur-3xl"
-    ></div>
-    <div
-      class="pointer-events-none absolute -bottom-12 -left-10 h-44 w-44 rounded-full bg-teal-200/30 blur-3xl"
-    ></div>
 
-    <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-      <div>
-        <span
-          class="inline-flex items-center gap-2 rounded-full border border-teal-300/60 bg-white/70 px-3 py-1 text-xs font-semibold text-teal-700 shadow-sm"
-        >
-          ✅ Itinerary Summary
-        </span>
+<!-- ===== About Us Section (i18n-ready) ===== -->
+<section id="about" class="relative py-24 px-6 flex items-center justify-center">
+  <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-10 bg-white/60 backdrop-blur-md p-10 rounded-3xl shadow-xl">
 
-        <h1 class="mt-3 text-2xl md:text-3xl font-extrabold text-gray-900">
-          Your Trip Plan (Day by Day)
-        </h1>
+    <!-- Text Content -->
+    <div class="i18n-align">
+      <h2
+        class="text-4xl md:text-6xl font-extrabold text-teal-700 mb-4 animate-fade-in"
+        data-i18n="about.heading"
+        id="about-heading">
+      </h2>
 
-        <p class="mt-1 text-gray-600 font-medium">
-          Review all selected activities and details before confirming.
-        </p>
-      </div>
+      <h3
+        class="text-2xl md:text-3xl font-semibold text-yellow-500 mb-3 animate-slide-up"
+        data-i18n="about.subheading">
+      </h3>
 
-      <!-- Actions (UI only) -->
-      <div class="flex flex-wrap gap-2">
-        <button
-          class="rounded-xl px-4 py-2 text-sm font-semibold text-white bg-teal-600 hover:bg-teal-700 shadow-sm transition"
-        >
-          Export PDF
-        </button>
-        <button
-          class="rounded-xl px-4 py-2 text-sm font-semibold text-teal-700 bg-white border border-teal-200 hover:bg-teal-50 shadow-sm transition"
-        >
-          Share Link
-        </button>
-        <button
-          class="rounded-xl px-4 py-2 text-sm font-semibold text-white bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 shadow-sm transition"
-        >
-          Confirm Plan
-        </button>
+      <h4
+        class="text-xl md:text-2xl font-medium text-gray-700 mb-8 animate-slide-up delay-100"
+        data-i18n="about.tagline">
+      </h4>
+
+      <p
+        class="text-lg md:text-xl text-gray-700 leading-relaxed mb-10 animate-slide-up delay-200"
+        data-i18n="about.body">
+      </p>
+
+      <div class="flex justify-start">
+        <a href="index.html"
+           class="px-6 py-3 bg-teal-600 text-white font-semibold rounded-full shadow-lg hover:bg-teal-700 hover:scale-105 transition transform duration-300"
+           data-i18n="about.cta">
+        </a>
       </div>
     </div>
-  </section>
 
-  <!-- Meta Cards -->
-  <section class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-    <div class="rounded-2xl bg-white border border-gray-200 p-4 shadow-sm">
-      <div class="text-xs font-bold text-gray-500">Trip Dates</div>
-      <div class="mt-1 text-gray-900 font-extrabold">05 Jan 2026 → 10 Jan 2026</div>
+    <!-- Graphic Image -->
+    <div class="flex justify-center md:justify-end">
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/201/201623.png"
+        class="w-72 md:w-96 animate-float drop-shadow-xl"
+        alt=""
+        data-i18n-attr="alt:about.imageAlt">
     </div>
+  </div>
 
-    <div class="rounded-2xl bg-white border border-gray-200 p-4 shadow-sm">
-      <div class="text-xs font-bold text-gray-500">Cities</div>
-      <div class="mt-1 text-gray-900 font-extrabold">Riyadh • AlUla</div>
-    </div>
+   
+</section>
 
-    <div class="rounded-2xl bg-white border border-gray-200 p-4 shadow-sm">
-      <div class="text-xs font-bold text-gray-500">Activity Level</div>
-      <div class="mt-1 text-gray-900 font-extrabold">Balanced</div>
-    </div>
+ 
 
-    <div class="rounded-2xl bg-white border border-gray-200 p-4 shadow-sm">
-      <div class="text-xs font-bold text-gray-500">Budget</div>
-      <div class="mt-1 text-gray-900 font-extrabold">8,000 SAR</div>
-    </div>
-  </section>
+<a
+  href="https://wa.me/201234567890"
+  class="fixed bottom-5 right-4 w-12 h-12 rounded-full bg-green-500 text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform z-50"
+  target="_blank"
+  aria-label="Chat on WhatsApp"
+>
+  <i class="fab fa-whatsapp text-2xl"></i>
+</a>
 
-  <!-- Days -->
-  <section class="mt-8">
-    <div class="flex items-center justify-between mb-3">
-      <h2 class="text-xl font-extrabold text-gray-900">Days</h2>
-      <div class="text-sm text-gray-500">2 days</div>
-    </div>
 
-    <div class="space-y-4">
-      <!-- Day Card -->
-      <article
-        class="rounded-2xl border border-teal-100/70 bg-white/90 p-5 md:p-6 shadow-sm hover:shadow-lg transition-all duration-300"
-      >
-        <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-          <div>
-            <h3 class="text-lg md:text-xl font-extrabold text-gray-900 tracking-tight">
-              Day 1 <span class="mx-2 text-gray-300">—</span> Riyadh
-            </h3>
-            <div
-              class="mt-2 inline-flex items-center gap-2 rounded-full bg-teal-50 text-teal-700 border border-teal-200 px-3 py-1 text-xs font-semibold"
-            >
-              05 Jan 2026
-            </div>
-          </div>
 
-          <!-- UI buttons فقط -->
-          <div class="flex flex-wrap items-center gap-2">
-            <button
-              class="rounded-xl px-3 py-2 text-xs font-semibold text-teal-700 bg-white border border-teal-200 hover:bg-teal-50 transition"
-            >
-              Edit
-            </button>
-            <button
-              class="rounded-xl px-3 py-2 text-xs font-semibold text-gray-700 bg-white border border-gray-200 hover:bg-gray-50 transition"
-            >
-              Regenerate Day
-            </button>
-          </div>
-        </div>
 
-        <div class="my-4 h-px bg-gradient-to-r from-transparent via-teal-200 to-transparent"></div>
-
-        <div class="grid md:grid-cols-3 gap-4">
-          <!-- Morning -->
-          <div class="rounded-xl border border-teal-100 bg-teal-50/60 p-4">
-            <div class="text-xs font-extrabold text-teal-800 mb-2">Morning</div>
-
-            <ul class="text-sm text-gray-800 leading-6 list-disc pl-5">
-              <li>Breakfast spot</li>
-              <li>Museum visit</li>
-            </ul>
-
-            <button
-              class="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-xl px-3 py-2 text-xs font-semibold text-white bg-teal-600 hover:bg-teal-700 shadow-sm transition"
-            >
-              ➕ Add to Card
-            </button>
-          </div>
-
-          <!-- Afternoon -->
-          <div class="rounded-xl border border-teal-100 bg-teal-50/60 p-4">
-            <div class="text-xs font-extrabold text-teal-800 mb-2">Afternoon</div>
-
-            <ul class="text-sm text-gray-800 leading-6 list-disc pl-5">
-              <li>City walk</li>
-              <li>Local market</li>
-            </ul>
-
-            <button
-              class="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-xl px-3 py-2 text-xs font-semibold text-white bg-teal-600 hover:bg-teal-700 shadow-sm transition"
-            >
-              ➕ Add to Card
-            </button>
-          </div>
-
-          <!-- Evening -->
-          <div class="rounded-xl border border-teal-100 bg-teal-50/60 p-4">
-            <div class="text-xs font-extrabold text-teal-800 mb-2">Evening</div>
-
-            <ul class="text-sm text-gray-800 leading-6 list-disc pl-5">
-              <li>Dinner reservation</li>
-              <li>Coffee lounge</li>
-            </ul>
-
-            <button
-              class="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-xl px-3 py-2 text-xs font-semibold text-white bg-teal-600 hover:bg-teal-700 shadow-sm transition"
-            >
-              ➕ Add to Card
-            </button>
-          </div>
-        </div>
-
-        <div class="mt-4 grid sm:grid-cols-2 gap-3">
-          <div class="rounded-xl border border-gray-200 bg-white p-3">
-            <div class="text-xs font-bold text-gray-500">Notes</div>
-            <div class="mt-1 text-sm text-gray-800">Keep it light due to arrival.</div>
-          </div>
-          <div class="rounded-xl border border-gray-200 bg-white p-3">
-            <div class="text-xs font-bold text-gray-500">Estimated Cost</div>
-            <div class="mt-1 text-sm font-extrabold text-gray-900">1,200 SAR</div>
-          </div>
-        </div>
-      </article>
-
-      <!-- Day Card -->
-      <article
-        class="rounded-2xl border border-teal-100/70 bg-white/90 p-5 md:p-6 shadow-sm hover:shadow-lg transition-all duration-300"
-      >
-        <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-          <div>
-            <h3 class="text-lg md:text-xl font-extrabold text-gray-900 tracking-tight">
-              Day 2 <span class="mx-2 text-gray-300">—</span> Riyadh
-            </h3>
-            <div
-              class="mt-2 inline-flex items-center gap-2 rounded-full bg-teal-50 text-teal-700 border border-teal-200 px-3 py-1 text-xs font-semibold"
-            >
-              06 Jan 2026
-            </div>
-          </div>
-
-          <div class="flex flex-wrap items-center gap-2">
-            <button
-              class="rounded-xl px-3 py-2 text-xs font-semibold text-teal-700 bg-white border border-teal-200 hover:bg-teal-50 transition"
-            >
-              Edit
-            </button>
-            <button
-              class="rounded-xl px-3 py-2 text-xs font-semibold text-gray-700 bg-white border border-gray-200 hover:bg-gray-50 transition"
-            >
-              Regenerate Day
-            </button>
-          </div>
-        </div>
-
-        <div class="my-4 h-px bg-gradient-to-r from-transparent via-teal-200 to-transparent"></div>
-
-        <div class="grid md:grid-cols-3 gap-4">
-          <!-- Morning -->
-          <div class="rounded-xl border border-teal-100 bg-teal-50/60 p-4">
-            <div class="text-xs font-extrabold text-teal-800 mb-2">Morning</div>
-
-            <ul class="text-sm text-gray-800 leading-6 list-disc pl-5">
-              <li>Old town tour</li>
-            </ul>
-
-            <button
-              class="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-xl px-3 py-2 text-xs font-semibold text-white bg-teal-600 hover:bg-teal-700 shadow-sm transition"
-            >
-              ➕ Add to Card
-            </button>
-          </div>
-
-          <!-- Afternoon -->
-          <div class="rounded-xl border border-teal-100 bg-teal-50/60 p-4">
-            <div class="text-xs font-extrabold text-teal-800 mb-2">Afternoon</div>
-
-            <ul class="text-sm text-gray-800 leading-6 list-disc pl-5">
-              <li>Mall + shopping</li>
-            </ul>
-
-            <button
-              class="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-xl px-3 py-2 text-xs font-semibold text-white bg-teal-600 hover:bg-teal-700 shadow-sm transition"
-            >
-              ➕ Add to Card
-            </button>
-          </div>
-
-          <!-- Evening -->
-          <div class="rounded-xl border border-teal-100 bg-teal-50/60 p-4">
-            <div class="text-xs font-extrabold text-teal-800 mb-2">Evening</div>
-
-            <ul class="text-sm text-gray-800 leading-6 list-disc pl-5">
-              <li>Skyline view</li>
-            </ul>
-
-            <button
-              class="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-xl px-3 py-2 text-xs font-semibold text-white bg-teal-600 hover:bg-teal-700 shadow-sm transition"
-            >
-              ➕ Add to Card
-            </button>
-          </div>
-        </div>
-
-        <div class="mt-4 grid sm:grid-cols-2 gap-3">
-          <div class="rounded-xl border border-gray-200 bg-white p-3">
-            <div class="text-xs font-bold text-gray-500">Notes</div>
-            <div class="mt-1 text-sm text-gray-800">Book tickets early.</div>
-          </div>
-          <div class="rounded-xl border border-gray-200 bg-white p-3">
-            <div class="text-xs font-bold text-gray-500">Estimated Cost</div>
-            <div class="mt-1 text-sm font-extrabold text-gray-900">900 SAR</div>
-          </div>
-        </div>
-      </article>
-    </div>
-  </section>
-</main>
 
 <footer class="relative overflow-hidden bg-teal-700 text-white px-6 py-16 min-h-[600px]">
   <div class="pointer-events-none absolute inset-0">
@@ -532,7 +343,17 @@
 
   </div>
 </footer>
-<SCript src="translation.js"></SCript>
+
+
+
+
+
+<script src="translation.js"></script>
+<script src="aboutmain.js"></script>
+
+
+
+
 
 </body>
 </html>

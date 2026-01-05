@@ -1,0 +1,197 @@
+ 
+/* === Animation on card ready to travel === */
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(40px) scale(0.95); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.animate-card-in {
+  animation: cardIn .8s cubic-bezier(.22,1,.36,1) both;
+}
+
+/* === Hover effect on the card === */
+.cta-card {
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+.cta-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 24px rgba(0,0,0,.15);
+}
+
+/* === Button subtle pulse === */
+@keyframes btnPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+.animate-btn-pulse {
+  animation: btnPulse 2s ease-in-out infinite;
+}
+
+
+
+  /* === Hover effect on the card === */
+.cta-card {
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+.cta-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 24px rgba(0,0,0,.15);
+}
+
+
+  /* Ripple Effect */
+  .ripple {
+    position: relative;
+    overflow: hidden;
+  }
+  .ripple span.r {
+    position: absolute;
+    border-radius: 9999px;
+    transform: scale(0);
+    opacity: 0.4;
+    background: white;
+    animation: rip .6s ease-out forwards;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+  }
+  @keyframes rip {
+    to {
+      transform: scale(12);
+      opacity: 0;
+    }
+  }
+
+
+
+
+
+
+
+ 
+  @layer utilities {
+    /* ===== cards===== */
+    .reveal { opacity:0; transform: translateY(14px) scale(.98); }
+    .reveal.in-view { opacity:1; transform: translateY(0) scale(1); transition: opacity .6s ease, transform .6s cubic-bezier(.2,.8,.2,1); }
+    .reveal { transition-delay: var(--d, 0ms); }
+
+    /* ===== Card base hover ===== */
+    .card-base { transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s, border-color .35s; will-change: transform; }
+    .card-hover:hover { transform: translateY(-6px); box-shadow: 0 16px 40px -16px rgba(16,24,40,.20); border-color: rgb(16 185 129 / .25); }
+
+    /* ===== Image zoom-in on hover ===== */
+    .img-zoom { transition: transform .6s cubic-bezier(.2,.8,.2,1); }
+    .group:hover .img-zoom { transform: scale(1.06); }
+
+    /* ===== Button micro-press ===== */
+    .btn { transition: transform .15s ease, background-color .2s ease; }
+    .btn:active { transform: translateY(1px) scale(.99); }
+
+    /* ===== Tag micro-bounce on hover ===== */
+    .chip { transition: transform .2s ease, box-shadow .2s ease; }
+    .chip:hover { transform: translateY(-2px); box-shadow: 0 6px 16px -8px rgba(16,185,129,.35); }
+
+    /* ===== Subtle gradient border on hover (using outline inset) ===== */
+    .grad-outline { position: relative; }
+    .grad-outline::after{
+      content:""; position:absolute; inset:-1px; border-radius: 1rem;
+      background: linear-gradient(120deg, rgba(16,185,129,.35), rgba(20,184,166,.25), transparent 60%);
+      opacity:0; transition: opacity .35s; pointer-events:none;
+    }
+    .grad-outline:hover::after{ opacity:1; }
+
+    /* ===== Reduce motion ===== */
+    @media (prefers-reduced-motion: reduce){
+      .reveal, .img-zoom, .card-base, .chip { transition: none !important; transform: none !important; }
+    }
+  }
+
+
+
+
+
+ 
+  /* next pre btn*/
+  @keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+   @keyframes buttonPop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.06); }
+    100% { transform: scale(1); }
+  }
+   @media (prefers-reduced-motion: no-preference) {
+    .animate-fade-slide-up { animation: fadeSlideUp .45s ease-out both; }
+    .animate-pop-once { animation: buttonPop .22s ease-out 1; }
+  }
+ 
+
+
+
+ /* footer */
+   .ink-underline {
+    position: relative;
+    display: inline-block;
+  }
+  .ink-underline::after {
+    content: "";
+    position: absolute;
+    left: 50%; bottom: -3px;
+    width: 0; height: 2px;
+    border-radius: 9999px;
+    background: linear-gradient(90deg,#facc15,#fde047,#facc15);
+    transform: translateX(-50%);
+    transition: width .42s cubic-bezier(.22,1,.36,1), height .42s cubic-bezier(.22,1,.36,1);
+  }
+  .ink-underline:hover::after,
+  .ink-underline:focus-visible::after {
+    width: 100%; height: 3px;
+  }
+
+  [data-reveal]{opacity:0; will-change:transform,opacity;}
+  @keyframes revealLeft {
+    from {opacity:0; transform:translateX(-40px);}
+    to   {opacity:1; transform:translateX(0);}
+  }
+  @keyframes revealRight {
+    from {opacity:0; transform:translateX(40px);}
+    to   {opacity:1; transform:translateX(0);}
+  }
+
+  .is-inview[data-reveal="left"]  {animation:revealLeft .7s cubic-bezier(.22,1,.36,1) both}
+  .is-inview[data-reveal="right"] {animation:revealRight .7s cubic-bezier(.22,1,.36,1) both}
+
+  .is-inview{animation-delay:var(--rv-delay,0s)}
+
+  @media (prefers-reduced-motion: reduce){
+    .ink-underline::after{transition:none}
+    [data-reveal]{opacity:1 !important; transform:none !important; animation:none !important}
+  }
+ 
+  .footer-link {
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+  .footer-link:hover {
+    color: #facc15;
+    text-decoration: underline;
+  }
+ 
+ 
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+ 

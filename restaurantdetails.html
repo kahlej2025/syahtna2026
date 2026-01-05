@@ -1,0 +1,1298 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./src/output.css" rel="stylesheet">
+  <link href="restaurantdetails.css" rel="stylesheet">
+   <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+
+</head>
+<body class="bg-gray-200">
+ 
+    <!-- Navbar (Responsive) -->
+<nav class="  w-full z-50 bg-teal-700">
+  <div class="mx-auto max-w-8xl px-4">
+    <div class="flex items-center h-16">
+<!-- Left: Logo + My Account Icon -->
+<div class="flex items-center gap-4 flex-1">
+   
+  <img src="img/logo as a mask.png" alt="Siyahatna logo"
+       class="w-10 h-10 rounded-full"
+       data-i18n-attr="alt:brand_alt">
+         <span class="text-white text-xl font-bold" data-i18n="brand_aria">Siyahatna</span>
+
+  <!-- My Account Icon -->
+  <a href="account.html" class="text-white p-2 rounded-full hover:bg-white/20 transition-colors">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M5.121 17.804A12.035 12.035 0 0112 15c2.636 0 5.088.85 7.121 2.804M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+    </svg>
+  </a>
+</div>
+      <!-- centered links -->
+     <ul class="hidden md:flex items-center justify-center gap-8 border-t border-b border-white/40 py-1 flex-1">
+  <li class="nav-item opacity-0 translate-y-2 transition-all duration-500 will-change-transform">
+    <a href="index.html" class="nav-link relative px-2 py-1 text-white font-medium transition-colors duration-300 hover:text-yellow-400
+                      after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-full after:bg-yellow-400
+                      after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
+      <span data-i18n="nav_home">Home</span>
+    </a>
+  </li>
+  <li class="nav-item opacity-0 translate-y-2 transition-all duration-500 will-change-transform">
+    <a href="plan.html" class="nav-link relative px-2 py-1 text-white font-medium transition-colors duration-300 hover:text-yellow-400
+                      after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-full after:bg-yellow-400
+                      after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
+      <span data-i18n="nav_categories">Travel itinerary</span>
+    </a>
+  </li>
+  <li class="nav-item opacity-0 translate-y-2 transition-all duration-500 will-change-transform">
+    <a href="about.html" class="nav-link relative px-2 py-1 text-white font-medium transition-colors duration-300 hover:text-yellow-400
+                      after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-full after:bg-yellow-400
+                      after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
+      <span data-i18n="nav_about">About</span>
+    </a>
+  </li>
+  <li class="nav-item opacity-0 translate-y-2 transition-all duration-500 will-change-transform">
+    <a href="contactus.html" class="nav-link relative px-2 py-1 text-white font-medium transition-colors duration-300 hover:text-yellow-400
+                      after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-full after:bg-yellow-400
+                      after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
+      <span data-i18n="nav_deals">Contact us</span>
+    </a>
+  </li>
+</ul>
+
+
+     <!-- Right: Auth (md+) -->
+<div class="hidden md:flex justify-end items-center gap-3 flex-1">
+ <!-- Language Dropdown Desktop -->
+<div class="relative">
+  <button id="langBtnDesktop"
+          class="flex items-center gap-2 px-4 py-1.5 bg-white text-black rounded-lg font-medium hover:bg-yellow-400 transition"
+          aria-haspopup="true" aria-expanded="false">
+    <span data-i18n="lang_btn">Language</span>
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+    </svg>
+  </button>
+  <div id="langMenuDesktop" class="absolute right-0 mt-2 w-32 rounded-lg bg-white shadow-lg ring-1 ring-black/5 hidden z-50">
+    <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="en">English</a>
+    <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="ar">العربية</a>
+  </div>
+</div>
+
+
+  <a href="register.html"
+  class="inline-block px-4 py-1.5 bg-white text-black rounded-lg font-medium hover:bg-yellow-400 transition"
+  data-i18n="nav_register">
+  Register
+</a>
+  <a href="login.html"
+  class="px-4 py-1.5 border border-white text-white rounded-lg font-medium 
+         hover:bg-yellow-400 hover:text-black transition inline-block text-center"
+  data-i18n="nav_login">
+  Log in
+</a>
+
+</div>
+
+      <!-- Mobile: Hamburger -->
+      <button id="navToggle" class="md:hidden ml-auto inline-flex items-center justify-center p-2 rounded-lg border border-white/40 text-white"
+              aria-label="Open menu" aria-expanded="false">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+<div id="mobileMenu" class="md:hidden hidden">
+  <div class="bg-black/90 border-t border-white/10">
+    <div class="px-4 py-4 space-y-2">
+      <a href="index.html" class="block px-3 py-2 rounded-md text-white/90 hover:bg-white/10" data-i18n="nav_home">Home</a>
+      <a href="plan.html" class="block px-3 py-2 rounded-md text-white/90 hover:bg-white/10" data-i18n="nav_categories">Travel itinerary</a>
+      <a href="about.html" class="block px-3 py-2 rounded-md text-white/90 hover:bg-white/10" data-i18n="nav_about">About</a>
+      <a href="contactus.html" class="block px-3 py-2 rounded-md text-white/90 hover:bg-white/10" data-i18n="nav_deals">Contact us</a>
+
+      <!-- Language Dropdown Mobile -->
+      <div class="relative">
+        <button id="langBtnMobile"
+                class="w-full flex items-center justify-between px-4 py-2 bg-white text-black rounded-lg font-medium hover:bg-yellow-400 transition"
+                aria-haspopup="true" aria-expanded="false">
+          <span data-i18n="lang_btn">Language</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div id="langMenuMobile"
+             class="absolute left-0 right-0 mt-2 rounded-lg bg-white shadow-lg ring-1 ring-black/5 hidden">
+          <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="en">English</a>
+          <a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="ar">العربية</a>
+        </div>
+      </div>
+
+      <div class="pt-3 flex items-center gap-2">
+       <a href="register.html"
+  class="flex-1 px-4 py-2 bg-white text-black rounded-lg font-medium hover:bg-yellow-400 hover:text-black transition inline-block text-center"
+  data-i18n="nav_register">
+  Register
+</a>
+       <a href="login.html"
+  class="flex-1 px-4 py-2 border border-white text-white rounded-lg font-medium 
+         hover:bg-yellow-400 hover:text-black transition inline-block text-center"
+  data-i18n="nav_login">
+  Log in
+</a>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+</nav>
+
+<!-- Title + Actions -->
+<div class="px-4 sm:px-6 py-4 flex justify-center">
+  <div class="w-full md:w-4/5 flex flex-col md:flex-row items-center md:justify-between gap-3 md:gap-4">
+    
+    <!-- العنوان -->
+    <h1 class="text-lg sm:text-xl md:text-2xl font-extrabold text-gray-900 text-center md:text-left">
+      <span data-i18n="place_name">Espanda</span>
+      <span class="text-emerald-700" data-i18n="place_type">Café Restaurant</span>
+    </h1>
+
+    <!-- الأزرار -->
+<div class="flex items-center gap-3 flex-wrap">
+ 
+  <a href="#" 
+     class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gray-300 bg-white text-sm text-gray-700 font-medium hover:bg-gray-100 hover:shadow-md transition duration-300"
+     data-i18n-attr="aria-label:action_share_aria">
+    <img src="img/share.png" class="w-5 h-5" data-i18n-attr="alt:icon_share_alt" alt="Share icon">
+    <span data-i18n="action_share">Share</span>
+  </a>
+
+  <!-- زرار كارت -->
+  <a href="restaurantcart.html"
+     class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gray-300 bg-white text-sm text-gray-700 font-medium hover:bg-gray-100 hover:shadow-md transition duration-300"
+     data-i18n-attr="aria-label:action_cart_aria">
+    <img src="img/blackcart.png" alt="Cart" class="w-5 h-5" data-i18n-attr="alt:cart_alt">
+    <span data-i18n="cart">Cart</span>
+  </a>
+</div>
+
+  </div>
+</div>
+
+
+
+<!-- Main Slider + Button -->
+<div class="w-4/5 mx-auto">
+  <div id="mainSlider" class="relative overflow-hidden rounded-lg shadow cursor-pointer">
+    <!-- Slides container -->
+    <div class="relative h-80 md:h-[480px]">
+
+    
+      <div
+        class="absolute inset-x-0 bottom-0 z-10 flex justify-start p-4 md:p-6 pointer-events-none"
+      >
+        <div
+          class="flex items-center gap-4 max-w-xl rounded-2xl bg-black/80 backdrop-blur px-4 py-3 text-white text-xs sm:text-sm shadow-lg pointer-events-auto"
+        >
+          <!-- Logo -->
+          <div
+            class="h-12 w-12 sm:h-14 sm:w-14 rounded-xl bg-white flex items-center justify-center shadow-md overflow-hidden"
+          >
+            <img
+              src="img/restaurant logo.png"
+              alt="Restaurant logo"
+              class="h-full w-full object-contain"
+            />
+          </div>
+
+          <!-- Text: Name + Hours -->
+          <div class="space-y-1">
+            <p class="text-[11px] sm:text-xs uppercase tracking-[0.18em] text-white/70">
+              Restaurant
+            </p>
+            <p class="text-sm sm:text-base font-semibold">
+              Restaurant Name
+            </p>
+            <p class="text-[11px] sm:text-xs text-white/85">
+              Daily: 10:00 – 23:00 · Weekend: 12:00 – 01:00
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- /Overlay -->
+
+      <!-- slide 1 -->
+      <div
+        class="slide absolute inset-0 opacity-0 pointer-events-none transition-opacity duration-700 ease-in-out"
+        data-slide
+      >
+        <img
+          src="img/restaurantdetails.png"
+          class="w-full h-full object-fit:cover"
+          alt="Restaurant interior"
+        />
+      </div>
+
+      <!-- slide 2 -->
+      <div
+        class="slide absolute inset-0 opacity-0 pointer-events-none transition-opacity duration-700 ease-in-out"
+        data-slide
+      >
+        <img
+          src="img/hero restaurants.png"
+          class="w-full h-full object-fit:cover bg-white"
+          alt="Restaurant logo"
+        />
+      </div>
+
+      <!-- slide 3 -->
+      <div
+        class="slide absolute inset-0 opacity-0 pointer-events-none transition-opacity duration-700 ease-in-out"
+        data-slide
+      >
+        <img
+          src="img/restaurant cover.jpeg"
+          class="w-full h-full object-fit:cover"
+          alt="Restaurant cover"
+        />
+      </div>
+
+      <!-- تقدرِي تخلي الباك إند يكرر بلوك الـ div.slide ده لأي عدد صور -->
+    </div>
+
+    <!-- Indicators -->
+    <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+      <span class="dot w-2.5 h-2.5 rounded-full bg-white/60"></span>
+      <span class="dot w-2.5 h-2.5 rounded-full bg-white/30"></span>
+      <span class="dot w-2.5 h-2.5 rounded-full bg-white/30"></span>
+    </div>
+  </div>
+</div>
+
+  
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // ===== Slider logic =====
+    const slider = document.getElementById("mainSlider");
+    const slides = slider.querySelectorAll("[data-slide]");
+    const dots = slider.querySelectorAll(".dot");
+    const intervalMs = 3000;
+
+    let currentIndex = 0;
+    let timer = null;
+
+    function showSlide(index) {
+      if (!slides.length) return;
+
+      // تأمين: لو الاندكس خرج برا
+      if (index < 0) index = slides.length - 1;
+      if (index >= slides.length) index = 0;
+      currentIndex = index;
+
+      slides.forEach((slide, i) => {
+        if (i === currentIndex) {
+          slide.classList.remove("opacity-0", "pointer-events-none");
+          slide.classList.add("opacity-100");
+        } else {
+          slide.classList.add("opacity-0", "pointer-events-none");
+          slide.classList.remove("opacity-100");
+        }
+      });
+
+      // تحديث النقاط لو موجودة
+      if (dots.length) {
+        dots.forEach((dot, i) => {
+          if (i === currentIndex) {
+            dot.classList.remove("bg-white/30");
+            dot.classList.add("bg-white/90");
+          } else {
+            dot.classList.remove("bg-white/90");
+            dot.classList.add("bg-white/30");
+          }
+        });
+      }
+    }
+
+    function startAutoSlide() {
+      stopAutoSlide(); // للتأمين
+      timer = setInterval(function () {
+        showSlide(currentIndex + 1);
+      }, intervalMs);
+    }
+
+    function stopAutoSlide() {
+      if (timer) {
+        clearInterval(timer);
+        timer = null;
+      }
+    }
+
+    // أول مرة
+    showSlide(0);
+    startAutoSlide();
+
+    // إيقاف عند الهوفر (اوبشونال بس لطيف)
+    slider.addEventListener("mouseenter", stopAutoSlide);
+    slider.addEventListener("mouseleave", startAutoSlide);
+
+    // لو حابة تخلي الكلاك على النقطة يغير السلايد:
+    dots.forEach((dot, i) => {
+      dot.addEventListener("click", function () {
+        showSlide(i);
+      });
+    });
+
+    // ===== Modal logic (see all photos) =====
+    const galleryModal = document.getElementById("galleryModal");
+    const seeAllBtn = document.getElementById("seeAllPhotos");
+    const closeModalBtn = document.getElementById("closeModal");
+
+    function openModal() {
+      galleryModal.classList.remove("hidden");
+      galleryModal.classList.add("flex");
+      document.body.classList.add("overflow-hidden");
+    }
+
+    function closeModal() {
+      galleryModal.classList.add("hidden");
+      galleryModal.classList.remove("flex");
+      document.body.classList.remove("overflow-hidden");
+    }
+
+    // فتح المودال من الزرار أو من السلايدر نفسه
+    seeAllBtn.addEventListener("click", openModal);
+    slider.addEventListener("click", openModal);
+
+    closeModalBtn.addEventListener("click", closeModal);
+
+    galleryModal.addEventListener("click", function (e) {
+      if (e.target === galleryModal) {
+        closeModal();
+      }
+    });
+
+    // Esc يغلق المودال
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && !galleryModal.classList.contains("hidden")) {
+        closeModal();
+      }
+    });
+  });
+</script>
+
+
+
+<main class="container mx-auto p-6">
+  <!-- Grid Layout -->
+  <section class="grid grid-cols-1 lg:grid-cols-6 gap-6 w-full max-w-8xl mx-auto mt-8">
+    
+    <!-- Main Section -->
+    <div class="lg:col-span-4 bg-white p-6 rounded-xl shadow space-y-8 order-1">
+      
+  <!-- Tabs + Fav -->
+  <div class="relative flex items-center justify-between border-b border-gray-200">
+     <nav aria-label="Tabs">
+      <ul class="flex gap-6 text-sm font-medium text-gray-600">
+        <li><a href="#overview" class="pb-3 border-b-2 border-emerald-600 text-emerald-700" data-i18n="tab_overview">Overview</a></li>
+        <li><a href="#gallery"  class="pb-3 hover:text-gray-900" data-i18n="tab_gallery">Gallery</a></li>
+        <li><a href="#menu"     class="pb-3 hover:text-gray-900" data-i18n="tab_menu">Menu</a></li>
+        <li><a href="#offers"   class="pb-3 hover:text-gray-900" data-i18n="tab_offers">Offers</a></li>
+      </ul>
+    </nav>
+
+    <button
+      class="p-2 rounded-full hover:bg-gray-100 text-gray-400 hover:text-rose-500"
+      data-i18n-attr="aria-label:fav_add"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+              d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.095-4.312 2.677-.715-1.582-2.377-2.677-4.313-2.677C5.1 3.75 3 5.765 3 8.25c0 7.125 9 12 9 12s9-4.875 9-12z"/>
+      </svg>
+    </button>
+  </div>
+
+
+  <!-- Content + Sidebar -->
+  <div class="mt-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
+    <!-- Main -->
+    <div class="lg:col-span-8 bg-white rounded-xl shadow p-6 space-y-6" id="overview">
+      <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900" data-i18n="about_titlee">About the restaurant</h2>
+     
+       <p class="text-gray-600" data-i18n="about_intro">From tasty snacks to a la carte...</p>
+
+
+      <!-- Pills -->
+      <div class="flex flex-wrap gap-3">
+        <span class="inline-flex items-center rounded-full border border-gray-200 px-4 py-2 text-sm text-gray-700" data-i18n="pill_brunch">Great for brunch</span>
+        <span class="inline-flex items-center rounded-full border border-gray-200 px-4 py-2 text-sm text-gray-700" data-i18n="pill_charming">Charming</span>
+        <span class="inline-flex items-center rounded-full border border-gray-200 px-4 py-2 text-sm text-gray-700" data-i18n="pill_romantic">Romantic</span>
+        <span class="inline-flex items-center rounded-full border border-gray-200 px-4 py-2 text-sm text-gray-700" data-i18n="pill_tables">Number of tables: 25</span>
+      </div>
+
+      <!-- Any extra content blocks -->
+      <div class="space-y-3">
+       <h3 class="text-lg font-semibold text-gray-900" data-i18n="highlights_title">Highlights</h3>
+        <ul class="list-disc pl-6 text-gray-700 space-y-1">
+          <li data-i18n="high_1">Cozy ambience with indoor & outdoor seating</li>
+          <li data-i18n="high_2">Fresh bakery corner and specialty coffee</li>
+          <li data-i18n="high_3">Family-friendly area and quick bites menu</li>
+        </ul>
+        </ul>
+      </div>
+    </div>
+
+     
+  </div>
+
+<!-- ===== Food Gallery Section ===== -->
+<section id="food-gallery" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+  <div class="flex items-end justify-between mb-6">
+    <div>
+     <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight" data-i18n="gallery_titleee">Food Gallery</h2>
+      <p class="mt-2 text-sm text-gray-600" data-i18n="gallery_subtitleee">Click a dish to view details</p>
+    </div>
+  </div>
+
+  <!-- Grid -->
+  <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4" id="foodGrid">
+    <!-- Card 1 -->
+    <button class="group relative overflow-hidden rounded-xl bg-white shadow hover:shadow-md transition focus:outline-none focus:ring-2 focus:ring-teal-500"
+            data-full="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?q=80&w=1600&auto=format&fit=crop"
+            data-alt="Pasta Arrabiata"
+            data-title="Pasta Arrabiata"
+            aria-label="Open Pasta Arrabiata">
+      <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?q=80&w=600&auto=format&fit=crop"
+           alt="Pasta Arrabiata"
+           class="w-full h-40 sm:h-44 md:h-48 object-fit:cover transition-transform duration-300 group-hover:scale-105"
+           loading="lazy" />
+      <span class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition"></span>
+     <span class="absolute bottom-2 left-2 text-white text-xs font-semibold bg-black/60 px-2 py-1 rounded" data-i18n="tag_pasta">Pasta</span>
+    </button>
+
+    <!-- Card 2 -->
+    <button class="group relative overflow-hidden rounded-xl bg-white shadow hover:shadow-md transition focus:outline-none focus:ring-2 focus:ring-teal-500"
+            data-full="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1600&auto=format&fit=crop"
+            data-alt="Healthy Salad"
+            data-title="Crunchy Garden Salad"
+            aria-label="Open Crunchy Garden Salad">
+      <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=600&auto=format&fit=crop"
+           alt="Healthy Salad"
+           class="w-full h-40 sm:h-44 md:h-48 object-fit:cover transition-transform duration-300 group-hover:scale-105"
+           loading="lazy" />
+       <span class="absolute bottom-2 left-2 text-white text-xs font-semibold bg-black/60 px-2 py-1 rounded" data-i18n="tag_salad">Salad</span>
+    </button>
+
+    <!-- Card 3 -->
+    <button class="group relative overflow-hidden rounded-xl bg-white shadow hover:shadow-md transition focus:outline-none focus:ring-2 focus:ring-teal-500"
+            data-full="https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=1600&auto=format&fit=crop"
+            data-alt="Cheese Burger"
+            data-title="Smash Cheese Burger"
+            aria-label="Open Smash Cheese Burger">
+      <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=600&auto=format&fit=crop"
+           alt="Cheese Burger"
+           class="w-full h-40 sm:h-44 md:h-48 object-fit:cover transition-transform duration-300 group-hover:scale-105"
+           loading="lazy" />
+      <span class="absolute bottom-2 left-2 text-white text-xs font-semibold bg-black/60 px-2 py-1 rounded" data-i18n="tag_burger">Burger</span>
+    </button>
+
+    <!-- Card 4 -->
+    <button class="group relative overflow-hidden rounded-xl bg-white shadow hover:shadow-md transition focus:outline-none focus:ring-2 focus:ring-teal-500"
+            data-full="https://images.unsplash.com/photo-1514516870926-2059898ea9c3?q=80&w=1600&auto=format&fit=crop"
+            data-alt="Sushi Platter"
+            data-title="Signature Sushi Platter"
+            aria-label="Open Signature Sushi Platter">
+      <img src="img/gallery2.png"
+           alt="Sushi Platter"
+           class="w-full h-40 sm:h-44 md:h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+           loading="lazy" />
+      <span class="absolute bottom-2 left-2 text-white text-xs font-semibold bg-black/60 px-2 py-1 rounded"  data-i18n="tag_sushi">Sushi</span>
+    </button>
+  </div>
+</section>
+
+<!-- ===== Lightbox Modal (Only Image + Dish Name) ===== -->
+<div id="lightbox"
+     class="fixed inset-0 z-[100] hidden bg-black/80 p-4 md:p-6 overflow-y-auto"
+     aria-hidden="true" role="dialog" aria-modal="true">
+
+  <!-- Close -->
+  <button id="lbClose"
+    class="fixed top-4 right-4 md:top-6 md:right-6 w-10 h-10 grid place-items-center rounded-full bg-white/95 hover:bg-white shadow focus:outline-none focus:ring-2 focus:ring-white"
+    aria-label="Close (Esc)">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
+         viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+    </svg>
+  </button>
+
+  <!-- Prev / Next -->
+  <button id="lbPrev"
+    class="fixed left-3 md:left-6 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 grid place-items-center rounded-full bg-white/90 hover:bg-white shadow focus:outline-none focus:ring-2 focus:ring-white"
+    aria-label="Previous (←)">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
+         viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+    </svg>
+  </button>
+
+  <button id="lbNext"
+    class="fixed right-3 md:right-6 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 grid place-items-center rounded-full bg-white/90 hover:bg-white shadow focus:outline-none focus:ring-2 focus:ring-white"
+    aria-label="Next (→)">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
+         viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+    </svg>
+  </button>
+
+  <!-- Image + Caption Only -->
+  <article class="relative mx-auto w-full max-w-4xl rounded-2xl overflow-hidden shadow-2xl">
+    <figure class="relative bg-gray-50">
+      <img id="lbImg" alt=""
+           class="block w-full h-auto max-h-[80vh] object-contain mx-auto"
+           decoding="async" />
+      <!-- Caption (Dish Name Only) -->
+      <figcaption id="lbCaption"
+        class="absolute inset-x-0 bottom-0 m-4 rounded-xl px-4 py-2 text-white text-base md:text-lg font-semibold
+               bg-black/60 backdrop-blur z-10 pointer-events-none">
+        Dish Title
+      </figcaption>
+    </figure>
+  </article>
+</div>
+
+
+  </div>
+
+<!-- Sidebar -->
+    <aside class="lg:col-span-2 bg-white p-6 rounded-xl shadow order-2">
+      <h3 class="text-lg font-semibold mb-4" data-i18n="sidebar_title">Select how to dine</h3>
+      <hr class="border-gray-200 mb-4">
+      <ul class="space-y-3">
+        <li><a href="#" class="text-gray-700 hover:text-emerald-600" data-i18n="sidebar_dinein">Dine-in</a></li>
+        <li><a href="#" class="text-gray-700 hover:text-emerald-600" data-i18n="sidebar_takeaway">Takeaway</a></li>
+        <li><a href="#" class="text-gray-700 hover:text-emerald-600" data-i18n="sidebar_delivery">Delivery</a></li>
+        <li><a href="#" class="text-gray-700 hover:text-emerald-600" data-i18n="sidebar_pickup">Car pick-up</a></li>
+      </ul>
+      <hr class="border-gray-200 mb-4 mt-4">
+
+      <!-- Reservation + Map -->
+      <section class="mt-10">
+        <div class="bg-white rounded-2xl shadow border border-gray-200 overflow-hidden">
+          <!-- Header -->
+          <div class="px-5 sm:px-6 py-4 border-b bg-teal-400">
+            <h3 class="text-lg font-semibold text-center text-white" data-i18n="reserve_title">Make Reservation</h3>
+          </div>
+
+          <!-- Body -->
+          <div class="p-5 sm:p-6 space-y-5">
+            <!-- Number of People -->
+            <div>
+              <label for="res-people" class="block text-sm font-medium text-gray-700 mb-2" data-i18n="reserve_people">Number of People</label>
+              <div class="relative">
+                <span class="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none">
+                  <!-- user icon -->
+                  <svg class="w-4 h-4 text-gray-400" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-4.42 0-8 2.24-8 5v1h16v-1c0-2.76-3.58-5-8-5Z"/>
+                  </svg>
+                </span>
+                <select id="res-people"
+                        class="w-full h-11 pl-9 pr-10 rounded-lg border border-gray-300 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                  <option data-i18n="opt_2_people">2 People</option>
+                  <option data-i18n="opt_1_person">1 Person</option>
+                  <option data-i18n="opt_3_people">3 People</option>
+                  <option data-i18n="opt_4_people">4 People</option>
+                  <option data-i18n="opt_5_people">5 People</option>
+                  <option data-i18n="opt_6_people">6 People</option>
+                  <option data-i18n="opt_7_people">7 People</option>
+                  <option data-i18n="opt_8_people">8 People</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Date + Time -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <!-- Date -->
+              <div>
+                <label for="res-date" class="block text-sm font-medium text-gray-700 mb-2" data-i18n="reserve_date">Date</label>
+                <div class="relative">
+                  <span class="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none">
+                    <!-- calendar icon -->
+                    <svg class="w-4 h-4 text-gray-400" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M7 2h2v2h6V2h2v2h3v18H4V4h3V2ZM6 8h12V6H6v2Zm12 2H6v10h12V10Z"/>
+                    </svg>
+                  </span>
+                  <input id="res-date" type="date"
+                         class="w-full h-11 pl-9 pr-3 rounded-lg border border-gray-300 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                </div>
+              </div>
+
+              <!-- Time -->
+              <div>
+                <label for="res-time" class="block text-sm font-medium text-gray-700 mb-2" data-i18n="reserve_time">Time</label>
+                <div class="relative">
+                  <span class="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none">
+                    <!-- clock icon -->
+                    <svg class="w-4 h-4 text-gray-400" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2Zm1 11h5v-2h-4V6h-2v7Z"/>
+                    </svg>
+                  </span>
+                  <input id="res-time" type="time" value="19:00"
+                         class="w-full h-11 pl-9 pr-3 rounded-lg border border-gray-300 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                </div>
+              </div>
+            </div>
+
+            <!-- Time Slots -->
+            <div class="flex flex-wrap gap-3">
+              <button class="slot-btn px-3 py-2 text-sm rounded-md bg-red-600 text-white hover:bg-red-700">5:30 PM</button>
+              <button class="slot-btn px-3 py-2 text-sm rounded-md bg-red-600 text-white hover:bg-red-700">6:30 PM</button>
+              <button class="slot-btn px-3 py-2 text-sm rounded-md bg-red-600 text-white hover:bg-red-700">7:00 PM</button>
+              <button class="slot-btn px-3 py-2 text-sm rounded-md bg-red-600 text-white hover:bg-red-700">7:30 PM</button>
+            </div>
+
+            <!-- Info -->
+            <p class="text-xs text-gray-500" data-i18n="reserve_booked">Booked <span class="font-medium">4</span> times today</p>
+
+            <!-- Map -->
+            <div class="rounded-xl border border-gray-200 overflow-hidden">
+              <iframe
+                class="w-full h-56"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps?q=King%20Fahd%20Road%2C%20Saudi%20Arabia&output=embed">
+              </iframe>
+              <div class="px-4 sm:px-5 py-3 flex items-center gap-2 border-t bg-white">
+                <svg class="w-4 h-4 text-emerald-600" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 14.5 9 2.5 2.5 0 0 1 12 11.5Z"/>
+                </svg>
+                <a href="https://maps.google.com/?q=King+Fahd+Road,+Saudi+Arabia" target="_blank" class="text-sm text-teal-700 hover:underline" data-i18n="address">King Fahd Road, Saudi Arabia</a>
+                <button class="ml-auto px-4 py-2 text-sm font-medium rounded-md bg-teal-700 text-white hover:bg-emerald-700" data-i18n="book_now">Book Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </aside>
+ </section>
+</main>
+
+<!-- ===== Our Special Menu Section (Cards are Links) ===== -->
+<section id="menu" class="relative py-16 bg-gray-50 mt-4 px-4 sm:px-6 lg:px-8">
+  <div class="absolute inset-0 pointer-events-none"></div>
+
+  <div class="relative max-w-7xl mx-auto z-10">
+    <!-- Title -->
+    <div class="text-center mb-6 md:mb-12">
+      <h2 class="title-glow text-2xl md:text-3xl font-extrabold" data-i18n="menu_section_title">
+        Our Special Menu
+      </h2>
+      <p class="subtitle-fade text-gray-600 mt-2 menu_section_subtitle" data-i18n="menu_section_subtitle">
+        Our best dishes with special prices
+      </p>
+    </div>
+
+    <!-- ===== Category Nav ===== -->
+    <div class="sticky top-0 z-20 bg-gray-50/80 backdrop-blur pb-4 -mt-2">
+      <div id="menu-cats" class="flex gap-2 overflow-x-auto no-scrollbar py-2">
+        <button class="cat-btn active" data-filter="all"  data-i18n="cat_all" >All</button>
+        <button class="cat-btn" data-filter="beef" data-i18n="cat_beef" >Beef</button>
+        <button class="cat-btn" data-filter="chicken"data-i18n="cat_chicken" >Chicken</button>
+        <button class="cat-btn" data-filter="pasta"data-i18n="cat_pasta" >Pasta</button>
+        <button class="cat-btn" data-filter="desserts"data-i18n="cat_desserts" >Desserts</button>
+        <button class="cat-btn" data-filter="drinks" data-i18n="cat_drinks" >Drinks</button>
+      </div>
+    </div>
+
+    <!-- ===== Menu Grid ===== -->
+    <div class="grid md:grid-cols-2 gap-8">
+
+      <a href="dishdetails.html" class="block group relative z-10" data-cat="beef">
+        <div class="glow-card flex items-center gap-4 bg-white p-5 rounded-xl shadow transition">
+          <div class="w-20 h-20 rounded-full bg-gray-100 flex items-center justify-center shrink-0 overflow-hidden">
+            <img src="img/menu4.png" class="w-full h-full object-fit-contain rounded-full" alt="Campo Steak">
+          </div>
+          <div class="flex-1">
+            <h3 class="font-semibold text-gray-800" data-i18n="menu_dish1">Campo Steak</h3>
+
+            <div class="mt-1 flex items-center gap-3" dir="ltr">
+              <span class="flex items-center gap-1">
+                <span class="text-lg font-bold text-red-600" data-i18n="menu_dish1_price_value">7.90</span>
+                <img src="img/currancy logo red.png" class="h-4 w-4 inline-block" alt="Currency">
+              </span>
+              <span class="flex items-center gap-1 line-through text-sm text-gray-400">
+                <span data-i18n="menu_dish1_old_value">12.90</span>
+                <img src="img/currancy logo.png" class="h-4 w-4 inline-block" alt="Currency">
+              </span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="dishdetails.html" class="block group relative z-10" data-cat="pasta">
+        <div class="glow-card flex items-center gap-4 bg-white p-5 rounded-xl shadow transition">
+          <!-- Dish Image -->
+          <div class="w-20 h-20 rounded-full bg-gray-100 flex items-center justify-center shrink-0 overflow-hidden">
+            <img src="img/menu5.png" class="w-full h-full object-fit-contain rounded-full" alt="Italian Pasta">
+          </div>
+          <!-- Texts -->
+          <div class="flex-1">
+            <h3 class="font-semibold text-gray-800" data-i18n="menu_dish1">Italian Pasta</h3>
+            <div class="mt-1 flex items-center gap-3" dir="ltr">
+              <span class="flex items-center gap-1">
+                <span class="text-lg font-bold text-red-600">8.50</span>
+                <img src="img/currancy logo red.png" class="h-4 w-4 inline-block" alt="Currency">
+              </span>
+              <span class="flex items-center gap-1 line-through text-sm text-gray-400">
+                <span>13.00</span>
+                <img src="img/currancy logo.png" class="h-4 w-4 inline-block" alt="Currency">
+              </span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="dishdetails.html" class="block group relative z-10" data-cat="drinks">
+        <div class="glow-card flex items-center gap-4 bg-white p-5 rounded-xl shadow transition">
+          <!-- Drink Image -->
+          <div class="w-20 h-20 rounded-full bg-gray-100 flex items-center justify-center shrink-0 overflow-hidden">
+            <img src="img/Yellow Bold Orange Juice Sale A4 Document.png" class="w-full h-full object-fit-contain rounded-full" alt="Fresh Juice">
+          </div>
+          <!-- Texts -->
+          <div class="flex-1">
+            <h3 class="font-semibold text-gray-800"data-i18n="menu_dish1">Fresh Orange Juice</h3>
+            <div class="mt-1 flex items-center gap-3" dir="ltr">
+              <span class="flex items-center gap-1">
+                <span class="text-lg font-bold text-red-600">3.50</span>
+                <img src="img/currancy logo red.png" class="h-4 w-4 inline-block" alt="Currency">
+              </span>
+              <span class="flex items-center gap-1 line-through text-sm text-gray-400">
+                <span>5.00</span>
+                <img src="img/currancy logo.png" class="h-4 w-4 inline-block" alt="Currency">
+              </span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="dishdetails.html" class="block group relative z-10" data-cat="desserts">
+        <div class="glow-card flex items-center gap-4 bg-white p-5 rounded-xl shadow transition">
+          <!-- Dish Image -->
+          <div class="w-20 h-20 rounded-full bg-gray-100 flex items-center justify-center shrink-0 overflow-hidden">
+            <img src="img/menu3.png" class="w-full h-full object-fit-contain rounded-full" alt="Chocolate Cake">
+          </div>
+          <!-- Texts -->
+          <div class="flex-1">
+            <h3 class="font-semibold text-gray-800"data-i18n="menu_dish1" >Chocolate Cake</h3>
+            <div class="mt-1 flex items-center gap-3" dir="ltr">
+              <span class="flex items-center gap-1">
+                <span class="text-lg font-bold text-red-600">5.90</span>
+                <img src="img/currancy logo red.png" class="h-4 w-4 inline-block" alt="Currency">
+              </span>
+              <span class="flex items-center gap-1 line-through text-sm text-gray-400">
+                <span>9.00</span>
+                <img src="img/currancy logo.png" class="h-4 w-4 inline-block" alt="Currency">
+              </span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="dishdetails.html" class="block group relative z-10" data-cat="chicken">
+        <div class="glow-card flex items-center gap-4 bg-white p-5 rounded-xl shadow transition">
+          <div class="w-20 h-20 rounded-full bg-gray-100 flex items-center justify-center shrink-0 overflow-hidden">
+            <img src="img/menu2.png" class="w-full h-full object-fit-contain rounded-full" alt="Chicken Dish">
+          </div>
+          <div class="flex-1">
+            <h3 class="font-semibold text-gray-800"data-i18n="menu_dish1" >Grilled Chicken</h3>
+            <div class="mt-1 flex items-center gap-3" dir="ltr">
+              <span class="flex items-center gap-1">
+                <span class="text-lg font-bold text-red-600">7.90</span>
+                <img src="img/currancy logo red.png" class="h-4 w-4 inline-block" alt="Currency">
+              </span>
+              <span class="flex items-center gap-1 line-through text-sm text-gray-400">
+                <span>12.90</span>
+                <img src="img/currancy logo.png" class="h-4 w-4 inline-block" alt="Currency">
+              </span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="dishdetails.html" class="block group relative z-10" data-cat="beef">
+        <div class="glow-card flex items-center gap-4 bg-white p-5 rounded-xl shadow transition">
+          <div class="w-20 h-20 rounded-full bg-gray-100 flex items-center justify-center shrink-0 overflow-hidden">
+            <img src="img/menu4.png" class="w-full h-full object-fit-contain rounded-full" alt="Campo Steak">
+          </div>
+          <div class="flex-1">
+            <h3 class="font-semibold text-gray-800" data-i18n="menu_dish1">Campo Steak</h3>
+            <div class="mt-1 flex items-center gap-3" dir="ltr">
+              <span class="flex items-center gap-1">
+                <span class="text-lg font-bold text-red-600">7.90</span>
+                <img src="img/currancy logo red.png" class="h-4 w-4 inline-block" alt="Currency">
+              </span>
+              <span class="flex items-center gap-1 line-through text-sm text-gray-400">
+                <span>12.90</span>
+                <img src="img/currancy logo.png" class="h-4 w-4 inline-block" alt="Currency">
+              </span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="dishdetails.html" class="block group relative z-10" data-cat="pasta">
+        <div class="glow-card flex items-center gap-4 bg-white p-5 rounded-xl shadow transition">
+          <!-- Dish Image -->
+          <div class="w-20 h-20 rounded-full bg-gray-100 flex items-center justify-center shrink-0 overflow-hidden">
+            <img src="img/menu5.png" class="w-full h-full object-fit-contain rounded-full" alt="Italian Pasta">
+          </div>
+          <!-- Texts -->
+          <div class="flex-1">
+            <h3 class="font-semibold text-gray-800" data-i18n="menu_dish1">Italian Pasta</h3>
+            <div class="mt-1 flex items-center gap-3" dir="ltr">
+              <span class="flex items-center gap-1">
+                <span class="text-lg font-bold text-red-600">8.50</span>
+                <img src="img/currancy logo red.png" class="h-4 w-4 inline-block" alt="Currency">
+              </span>
+              <span class="flex items-center gap-1 line-through text-sm text-gray-400">
+                <span>13.00</span>
+                <img src="img/currancy logo.png" class="h-4 w-4 inline-block" alt="Currency">
+              </span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="dishdetails.html" class="block group relative z-10" data-cat="drinks">
+        <div class="glow-card flex items-center gap-4 bg-white p-5 rounded-xl shadow transition">
+          <!-- Drink Image -->
+          <div class="w-20 h-20 rounded-full bg-gray-100 flex items-center justify-center shrink-0 overflow-hidden">
+            <img src="img/Yellow Bold Orange Juice Sale A4 Document.png" class="w-full h-full object-fit-contain rounded-full" alt="Fresh Juice">
+          </div>
+          <!-- Texts -->
+          <div class="flex-1">
+            <h3 class="font-semibold text-gray-800"data-i18n="menu_dish1" >Fresh Orange Juice</h3>
+            <div class="mt-1 flex items-center gap-3" dir="ltr">
+              <span class="flex items-center gap-1">
+                <span class="text-lg font-bold text-red-600">3.50</span>
+                <img src="img/currancy logo red.png" class="h-4 w-4 inline-block" alt="Currency">
+              </span>
+              <span class="flex items-center gap-1 line-through text-sm text-gray-400">
+                <span>5.00</span>
+                <img src="img/currancy logo.png" class="h-4 w-4 inline-block" alt="Currency">
+              </span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="dishdetails.html" class="block group relative z-10" data-cat="desserts">
+        <div class="glow-card flex items-center gap-4 bg-white p-5 rounded-xl shadow transition">
+          <!-- Dish Image -->
+          <div class="w-20 h-20 rounded-full bg-gray-100 flex items-center justify-center shrink-0 overflow-hidden">
+            <img src="img/menu3.png" class="w-full h-full object-fit-contain rounded-full" alt="Chocolate Cake">
+          </div>
+          <!-- Texts -->
+          <div class="flex-1">
+            <h3 class="font-semibold text-gray-800" data-i18n="menu_dish1">Chocolate Cake</h3>
+            <div class="mt-1 flex items-center gap-3" dir="ltr">
+              <span class="flex items-center gap-1">
+                <span class="text-lg font-bold text-red-600">5.90</span>
+                <img src="img/currancy logo red.png" class="h-4 w-4 inline-block" alt="Currency">
+              </span>
+              <span class="flex items-center gap-1 line-through text-sm text-gray-400">
+                <span>9.00</span>
+                <img src="img/currancy logo.png" class="h-4 w-4 inline-block" alt="Currency">
+              </span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="dishdetails.html" class="block group relative z-10" data-cat="chicken">
+        <div class="glow-card flex items-center gap-4 bg-white p-5 rounded-xl shadow transition">
+          <div class="w-20 h-20 rounded-full bg-gray-100 flex items-center justify-center shrink-0 overflow-hidden">
+            <img src="img/menu2.png" class="w-full h-full object-fit-contain rounded-full" alt="Chicken Dish">
+          </div>
+          <div class="flex-1">
+            <h3 class="font-semibold text-gray-800" data-i18n="menu_dish1">Grilled Chicken</h3>
+            <div class="mt-1 flex items-center gap-3" dir="ltr">
+              <span class="flex items-center gap-1">
+                <span class="text-lg font-bold text-red-600">7.90</span>
+                <img src="img/currancy logo red.png" class="h-4 w-4 inline-block" alt="Currency">
+              </span>
+              <span class="flex items-center gap-1 line-through text-sm text-gray-400">
+                <span>12.90</span>
+                <img src="img/currancy logo.png" class="h-4 w-4 inline-block" alt="Currency">
+              </span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== Our Special Offers (Slider with Links + Spin Animation) ===== -->
+<section id="offers"
+  class="relative max-w-8xl mx-auto px-6 py-12"
+  style="background-image:url('./img/background.png')">
+
+  <div class="relative max-w-8xl mx-auto px-6">
+    <!-- Title -->
+    <div class="text-center text-white mb-12">
+      <h2 class="text-2xl md:text-3xl font-extrabold" data-i18n="offers_title">Our Special Offers</h2>
+      <p class="mt-2 text-white/80 text-sm md:text-base" data-i18n="offers_subtitle">Don’t miss our limited-time deals</p>
+    </div>
+ 
+    <!-- Slider Wrapper -->
+    <div class="relative">
+      <div id="offerTrack" class="flex gap-10 overflow-x-auto scroll-smooth no-scrollbar pb-6 justify-center">
+
+        <!-- Offer Item -->
+        <a href="dishdetails.html"
+           class="min-w-[260px] flex-shrink-0 text-center text-white block focus:outline-none transition-transform hover:scale-105">
+          <div class="w-28 h-28 mx-auto rounded-full bg-white/10 ring-4 ring-white/20 overflow-hidden shadow-lg mb-4 flex items-center justify-center">
+            <img src="./img/offer1.png" class="w-full h-full object-fit:contain rounded-full spin-slow" alt="Quattro Pasta">
+          </div>
+          <h3 class="font-semibold text-lg" data-i18n="offer1_title">Quattro Pasta</h3>
+          <p class="mt-2 text-white/70 text-sm" data-i18n="offer1_desc">Lorem ipsum dolor sit amet.</p>
+          <div class="mt-3 flex items-center justify-center gap-2" dir="ltr">
+            <span class="line-through text-gray-300 text-sm flex items-center gap-1">
+              <span data-i18n="offer1_oldprice">25.00</span>
+              <img src="img/white currancy logo.png" class="w-4 h-4" alt="SAR">
+            </span>
+            <span class="text-yellow-400 font-bold flex items-center gap-1">
+              <span data-i18n="offer1_newprice">18.00</span>
+              <img src="img/yellow currancy logo.png" class="w-4 h-4" alt="SAR">
+            </span>
+          </div>
+        </a>
+
+        <!-- Offer Item -->
+        <a href="dishdetails.html"
+           class="min-w-[260px] flex-shrink-0 text-center text-white block focus:outline-none transition-transform hover:scale-105">
+          <div class="w-28 h-28 mx-auto rounded-full bg-white/10 ring-4 ring-white/20 overflow-hidden shadow-lg mb-4 flex items-center justify-center">
+            <img src="./img/offer2.png" class="w-full h-full object-fit:contain rounded-full spin-slow" alt="Vegetables Pasta">
+          </div>
+          <h3 class="font-semibold text-lg" data-i18n="offer2_title">Vegetables Pasta</h3>
+          <p class="mt-2 text-white/70 text-sm" data-i18n="offer2_desc">Fresh veggies with creamy sauce.</p>
+          <div class="mt-3 flex items-center justify-center gap-2" dir="ltr">
+            <span class="line-through text-gray-300 text-sm flex items-center gap-1">
+              <span data-i18n="offer2_oldprice">22.00</span>
+              <img src="img/white currancy logo.png" class="w-4 h-4" alt="SAR">
+            </span>
+            <span class="text-yellow-400 font-bold flex items-center gap-1">
+              <span data-i18n="offer2_newprice">15.00</span>
+              <img src="img/yellow currancy logo.png" class="w-4 h-4" alt="SAR">
+            </span>
+          </div>
+        </a>
+
+        <!-- Offer Item -->
+        <a href="dishdetails.html"
+           class="min-w-[260px] flex-shrink-0 text-center text-white block focus:outline-none transition-transform hover:scale-105">
+          <div class="w-28 h-28 mx-auto rounded-full bg-white/10 ring-4 ring-white/20 overflow-hidden shadow-lg mb-4 flex items-center justify-center">
+            <img src="./img/offer3.png" class="w-full h-full object-fit:contain rounded-full spin-slow" alt="Gluten-Free Pasta">
+          </div>
+          <h3 class="font-semibold text-lg" data-i18n="offer3_title">Gluten-Free Pasta</h3>
+          <p class="mt-2 text-white/70 text-sm" data-i18n="offer3_desc">Light & tasty — gluten-free.</p>
+          <div class="mt-3 flex items-center justify-center gap-2" dir="ltr">
+            <span class="line-through text-gray-300 text-sm flex items-center gap-1">
+              <span data-i18n="offer3_oldprice">24.00</span>
+              <img src="img/white currancy logo.png" class="w-4 h-4" alt="SAR">
+            </span>
+            <span class="text-yellow-400 font-bold flex items-center gap-1">
+              <span data-i18n="offer3_newprice">16.00</span>
+              <img src="img/yellow currancy logo.png" class="w-4 h-4" alt="SAR">
+            </span>
+          </div>
+        </a>
+
+        <!-- Offer Item -->
+        <a href="dishdetails.html"
+           class="min-w-[260px] flex-shrink-0 text-center text-white block focus:outline-none transition-transform hover:scale-105">
+          <div class="w-28 h-28 mx-auto rounded-full bg-white/10 ring-4 ring-white/20 overflow-hidden shadow-lg mb-4 flex items-center justify-center">
+            <img src="./img/offer1.png" class="w-full h-full object-fit:contain rounded-full spin-slow" alt="Quattro Pasta">
+          </div>
+          <h3 class="font-semibold text-lg" data-i18n="offer4_title">Quattro Pasta</h3>
+          <p class="mt-2 text-white/70 text-sm" data-i18n="offer4_desc">Lorem ipsum dolor sit amet.</p>
+          <div class="mt-3 flex items-center justify-center gap-2" dir="ltr">
+            <span class="line-through text-gray-300 text-sm flex items-center gap-1">
+              <span data-i18n="offer4_oldprice">25.00</span>
+              <img src="img/white currancy logo.png" class="w-4 h-4" alt="SAR">
+            </span>
+            <span class="text-yellow-400 font-bold flex items-center gap-1">
+              <span data-i18n="offer4_newprice">18.00</span>
+              <img src="img/yellow currancy logo.png" class="w-4 h-4" alt="SAR">
+            </span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </div>
+  <div class="mb-6 flex justify-end">
+  <a href="restaurant offer.html"
+     class="inline-flex items-center gap-2 text-white/90 hover:text-yellow-300 underline underline-offset-4 decoration-white/40 hover:decoration-yellow-300 transition"
+     data-i18n="deals_view_all">
+    View All
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+    </svg>
+  </a>
+</div>
+</section>
+
+
+
+
+
+
+<!-- ===== Categories Section (with Background Image & Links) ===== -->
+<section 
+  class="relative py-16 bg-center bg-cover" 
+  style="background-image:url('./img/daytimebackground.png')">
+
+  <div class="relative max-w-7xl mx-auto px-6">
+    
+    <!-- Grid Layout -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 text-center text-white">
+      
+      <!-- Item -->
+      <a href="dishdetails.html" class="flex flex-col items-center hover:scale-105 transition-transform duration-300">
+        <img src="./img/breakfasticon.png" alt="Breakfast" class="w-14 h-14 sm:w-16 sm:h-16 mb-3">
+        <h4 class="font-semibold text-sm sm:text-base" data-i18n="cat_breakfast">Breakfast</h4>
+        <p class="text-xs sm:text-sm" data-i18n="cat_breakfast_time">8:00 AM to 10:00 AM</p>
+      </a>
+
+      <!-- Item -->
+      <a href="dishdetails.html" class="flex flex-col items-center hover:scale-105 transition-transform duration-300">
+        <img src="./img/lunchicon.png" alt="Lunch" class="w-14 h-14 sm:w-16 sm:h-16 mb-3">
+        <h4 class="font-semibold text-sm sm:text-base" data-i18n="cat_lunch">Lunch</h4>
+        <p class="text-xs sm:text-sm" data-i18n="cat_lunch_time">12:00 PM to 3:00 PM</p>
+      </a>
+
+      <!-- Item -->
+      <a href="dishdetails.html" class="flex flex-col items-center hover:scale-105 transition-transform duration-300">
+        <img src="./img/dinnericon.png" alt="Dinner" class="w-14 h-14 sm:w-16 sm:h-16 mb-3">
+        <h4 class="font-semibold text-sm sm:text-base" data-i18n="cat_dinner">Dinner</h4>
+        <p class="text-xs sm:text-sm" data-i18n="cat_dinner_time">6:00 PM to 11:00 PM</p>
+      </a>
+
+      <!-- Item -->
+      <a href="dishdetails.html" class="flex flex-col items-center hover:scale-105 transition-transform duration-300">
+        <img src="./img/drinksicon.png" alt="Drinks" class="w-14 h-14 sm:w-16 sm:h-16 mb-3">
+        <h4 class="font-semibold text-sm sm:text-base" data-i18n="cat_drinks">Drinks</h4>
+        <p class="text-xs sm:text-sm" data-i18n="cat_drinks_time">All Day</p>
+      </a>
+
+      <!-- Item -->
+      <a href="dishdetails.html" class="flex flex-col items-center hover:scale-105 transition-transform duration-300">
+        <img src="./img/desserticon.png" alt="Dessert" class="w-14 h-14 sm:w-16 sm:h-16 mb-3">
+        <h4 class="font-semibold text-sm sm:text-base" data-i18n="cat_dessert">Dessert</h4>
+        <p class="text-xs sm:text-sm" data-i18n="cat_dessert_time">All Day</p>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+ 
+
+<!-- ===== Contact Info Section (Fixed RTL/LTR) ===== -->
+<section class="bg-gray-100 py-12 sm:py-16" dir="auto">
+   
+  <div class="max-w-6xl mx-auto px-6 
+              grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 
+              text-gray-800 text-center sm:text-start 
+              [align-content:start] place-items-center sm:place-items-start">
+
+    <!-- Address -->
+<div class="flex-1 max-w-xs mx-auto sm:mx-0">
+  <h3 class="text-lg sm:text-xl font-bold mb-4 sm:mb-6" data-i18n="contact_address_title">العنوان</h3>
+
+  <div class="flex items-center gap-3 mb-3 sm:mb-4 [dir='rtl']:flex-row-reverse">
+    <img src="./img/location-pin.png" alt="Location" class="w-5 h-5 sm:w-6 sm:h-6">
+    <p class="text-sm sm:text-base" data-i18n="contact_address_text">شارع الملك فهد، جدة</p>
+  </div>
+
+  <div class="flex items-center gap-3 mb-3 sm:mb-4 [dir='rtl']:flex-row-reverse">
+    <img src="./img/phone-call.png" alt="Phone" class="w-5 h-5 sm:w-6 sm:h-6">
+    <p class="text-sm sm:text-base" data-i18n="contact_phone">+9661234567</p>
+  </div>
+
+  <div class="flex items-center gap-3 [dir='rtl']:flex-row-reverse">
+    <img src="./img/email (1).png" alt="Email" class="w-5 h-5 sm:w-6 sm:h-6">
+    <p class="text-sm sm:text-base" data-i18n="contact_email">Support@gmail.com</p>
+  </div>
+</div>
+
+
+    <!-- Working Hours -->
+    <div class="flex-1 max-w-xs mx-auto sm:mx-0">
+      <h3 class="text-lg sm:text-xl font-bold mb-4 sm:mb-6" data-i18n="contact_hours_title">ساعات العمل</h3>
+      <p class="mb-1 sm:mb-2 text-sm sm:text-base" data-i18n="contact_hours_weekdays">8:00 صباحًا إلى 1:00 صباحًا في أيام الأسبوع</p>
+      <p class="text-sm sm:text-base" data-i18n="contact_hours_weekends">11:00 مساءً إلى 1:00 صباحًا في عطلة نهاية الأسبوع</p>
+    </div>
+
+    <!-- Follow Us -->
+    <div class="flex-1 max-w-xs mx-auto sm:mx-0">
+      <h3 class="text-lg sm:text-xl font-bold mb-4 sm:mb-6" data-i18n="contact_follow_title">تابعنا</h3>
+      <div class="social-rail">
+        <a href="#" aria-label="Facebook">
+          <img src="./img/faceb0ook.png" alt="Facebook" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full hover:opacity-80">
+        </a>
+        <a href="#" aria-label="Instagram">
+          <img src="./img/instgram.png" alt="Instagram" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full hover:opacity-80">
+        </a>
+        <a href="#" aria-label="Twitter">
+          <img src="./img/twitter.png" alt="Twitter" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full hover:opacity-80">
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+<a
+  href="https://wa.me/201234567890"
+  class="fixed bottom-5 right-4 w-12 h-12 rounded-full bg-green-500 text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform z-50"
+  target="_blank"
+  aria-label="Chat on WhatsApp"
+>
+  <i class="fab fa-whatsapp text-2xl"></i>
+</a>
+
+
+
+<footer class="relative overflow-hidden bg-teal-700 text-white px-6 py-16 min-h-[600px]">
+  <div class="pointer-events-none absolute inset-0">
+    <div class="absolute -top-28 -left-24 w-[34rem] h-[34rem] rounded-full bg-emerald-100/35 blur-3xl"></div>
+    <div class="absolute -bottom-24 -right-24 w-[30rem] h-[30rem] rounded-full bg-amber-100/40 blur-3xl"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(16,185,129,.07),transparent_60%)]"></div>
+  </div>
+
+  <div class="relative max-w-6xl mx-auto px-4 lg:px-6">
+    <!-- المحتوى -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-center sm:text-start">
+      <!-- Logo / Brand -->
+      <div class="footer-brand-wrap flex flex-col items-center sm:items-start" data-reveal="left">
+        <div class="h-20 w-20 rounded-full bg-black grid place-items-center mb-3">
+          <img src="img/logo as a mask.png" alt="Siyahatna logo"
+               data-i18n-attr="alt:footer_logo_alt" class="h-20 w-20">
+        </div>
+        <span class="footer-brand text-3xl font-extrabold tracking-widest text-white hover:drop-shadow-[0_0_12px_rgba(250,204,21,0.45)]" data-i18n="brand_aria">
+          Siyahatna
+        </span>
+      </div>
+
+      <!-- Pages -->
+      <div data-reveal="right">
+        <h4 class="mb-4 text-base font-bold">
+          <a href="#" class="ink-underline hover:text-yellow-400" data-i18n="footer_categories">All Categories</a>
+        </h4>
+        <ul class="space-y-2">
+          <li><a data-i18n="footer_restaurants" class="font-bold ink-underline hover:text-yellow-400" href="Allrestaurants.html">Restaurants</a></li>
+          <li><a data-i18n="footer_cafe" class="font-bold ink-underline hover:text-yellow-400" href="Allrestaurants.html">Cafe</a></li>
+          <li><a data-i18n="footer_supermarkets" class="font-bold ink-underline hover:text-yellow-400" href="supermarket1.html">Supermarket</a></li>
+          <li><a data-i18n="footer_hotels" class="font-bold ink-underline hover:text-yellow-400" href="hotel-1.html">Hotels</a></li>
+          <li><a data-i18n="footer_parks" class="font-bold ink-underline hover:text-yellow-400" href="parks1.html">Parks</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div data-reveal="left">
+        <h4 class="mb-4 text-base font-bold">
+          <a href="#" class="ink-underline hover:text-yellow-400" data-i18n="footer_contact">Contact</a>
+        </h4>
+        <ul class="space-y-2">
+          <li>
+            <a href="mailto:Support123@gmail.com" class="font-bold ink-underline hover:text-yellow-400" data-i18n="footer_email">
+              <bdi>Email: Support123@gmail.com</bdi>
+            </a>
+          </li>
+          <li>
+            <a href="tel:12345678" class="font-bold ink-underline hover:text-yellow-400" data-i18n="footer_phone1">
+              <bdi>Phone 1: 12345678</bdi>
+            </a>
+          </li>
+          <li>
+            <a href="tel:3455765433345" class="font-bold ink-underline hover:text-yellow-400" data-i18n="footer_phone2">
+              <bdi>Phone 2: 3455765433345</bdi>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Policies -->
+      <div data-reveal="right">
+        <h4 class="mb-4 text-base font-bold">
+          <a href="#" class="ink-underline hover:text-yellow-400" data-i18n="footer_policies">Policies</a>
+        </h4>
+        <ul class="space-y-2">
+          <li><a data-i18n="footer_guidelines" class="font-bold ink-underline hover:text-yellow-400" href="#">Community Guidelines</a></li>
+          <li><a data-i18n="footer_terms" class="font-bold ink-underline hover:text-yellow-400" href="#">Terms of Use</a></li>
+          <li><a data-i18n="footer_privacy" class="font-bold ink-underline hover:text-yellow-400" href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Download app -->
+    <!-- Download app -->
+<div class="mt-12 text-center" data-reveal="left">
+  <h4 class="mb-2 text-base font-bold text-center">
+    <a href="#" class="ink-underline hover:text-yellow-400 inline-block" data-i18n="footer_download">
+      Download Our App
+    </a>
+  </h4>
+
+  <p data-i18n="footer_download_desc" class="text-white/70 text-sm mb-4 font-bold">
+    Get the Latest Version of our Apps
+  </p>
+
+  <div class="flex justify-center gap-4">
+    <a href="#" class="ink-underline">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+           alt="Google Play" class="h-10" data-i18n-attr="alt:footer_google_alt">
+    </a>
+    <a href="#" class="ink-underline">
+      <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83"
+           alt="App Store" class="h-10" data-i18n-attr="alt:footer_apple_alt">
+    </a>
+  </div>
+</div>
+
+
+    <!-- Divider -->
+    <div class="mt-12 mb-3 border-t border-white/10" data-reveal="right"></div>
+
+    <!-- حقوق النشر -->
+ <div class="pt-4 w-full text-center sm:text-center text-sm text-white/60 font-bold" data-reveal="right" data-i18n="footer_rights">
+  © 2025 Siyahatna. All rights reserved.
+</div>
+
+
+  </div>
+</footer>
+ 
+
+
+<script src="translation.js"></script>
+<script src="restaurantdemain.js"></script>
+<script src="restaurantdetailsmain.js"></script>
+    
+ </body>
+  </html>

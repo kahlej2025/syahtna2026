@@ -1,0 +1,170 @@
+ 
+    /* ===== Qty Controls (موحّدة ومناسبة للموبايل) ===== */
+    .cart-item .qty-wrap{--btn:44px;display:inline-flex;align-items:center;gap:.5rem}
+    .cart-item .qty-btn{
+      width:var(--btn);height:var(--btn);display:inline-flex;align-items:center;justify-content:center;
+      border-radius:9999px;border:1px solid #E5E7EB;background:#fff;color:#111827;
+      transition:transform .15s,box-shadow .15s,border-color .2s,background .2s;
+      box-shadow:0 6px 16px rgba(0,0,0,.04);line-height:0;-webkit-tap-highlight-color:transparent
+    }
+    .cart-item .qty-btn:active{transform:scale(.96)}
+    .cart-item .qty-box{
+      width:3.25rem;height:var(--btn);border-radius:10px;border:1px solid #E5E7EB;
+      background:#F9FAFB;color:#111827;font-weight:700;text-align:center
+    }
+    .cart-item .qty-box::-webkit-outer-spin-button,.cart-item .qty-box::-webkit-inner-spin-button{ -webkit-appearance:none;margin:0 }
+    .cart-item .qty-box[type=number]{ -moz-appearance:textfield }
+
+    /* Slot picker buttons */
+    .slot-time-btn { border:1px solid #E5E7EB; border-radius:10px; padding:.6rem .75rem; font-weight:600; }
+    .slot-time-btn.active { border-color:#10B981; background:#ECFDF5; color:#065F46; }
+
+    
+    @keyframes fadeUp { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:none} }
+    .anim-fadeUp{animation:fadeUp .5s ease-out both}
+    @media (prefers-reduced-motion:reduce){ *{animation-duration:.001s !important; transition:none !important} }
+
+    /* Safe area padding للـ notch */
+    .safe-px{padding-left:max(1rem,env(safe-area-inset-left));padding-right:max(1rem,env(safe-area-inset-right))}
+ 
+
+
+
+
+
+
+ 
+ 
+  /* reveal on scroll with stagger (uses --d) */
+  .reveal { opacity: 0; transform: translateY(14px); transition: opacity .55s ease, transform .55s ease; transition-delay: var(--d, 0ms); }
+  .reveal.is-visible { opacity: 1; transform: none; }
+
+  /* float image on hover */
+  @keyframes floatUpDown { 0%,100%{ transform: translateY(4px);} 50%{ transform: translateY(-4px);} }
+  .group:hover .img-float { animation: floatUpDown 2.2s ease-in-out infinite; }
+
+  /* cart bounce on hover */
+  @keyframes bounceSoft { 0%,100%{ transform: translateY(0);} 50%{ transform: translateY(-12%);} }
+  .group:hover .cart-icon { animation: bounceSoft .6s ease-in-out; }
+
+  /* badge wiggle */
+  @keyframes wiggle { 0%,100%{ transform: rotate(0deg);} 25%{ transform: rotate(-3deg);} 75%{ transform: rotate(3deg);} }
+  .group:hover .badge-wiggle { animation: wiggle .4s ease-in-out; }
+
+  /* price gentle pulse */
+  @keyframes pulseSoft { 0%,100%{ transform: scale(1);} 50%{ transform: scale(1.06);} }
+  .group:hover .price-pulse { animation: pulseSoft .8s ease-in-out; }
+ 
+
+ 
+ 
+ 
+ 
+  /* reveal: scale + blur fade */
+  .fx-reveal { opacity: 0; transform: scale(.98); filter: blur(6px); transition: opacity .6s ease, transform .6s ease, filter .6s ease; }
+  .fx-reveal.fx-in { opacity: 1; transform: none; filter: blur(0); }
+
+  /* shine sweep */
+  .fx-shine {
+    position: absolute; inset: 0;
+    background: linear-gradient(120deg, transparent 20%, rgba(255,255,255,.35) 40%, transparent 60%);
+    transform: translateX(-120%) rotate(2deg);
+    transition: transform .7s ease;
+    border-radius: inherit;
+  }
+  .fx-card:hover .fx-shine { transform: translateX(120%) rotate(2deg); }
+
+  /* badge slide-in */
+  .fx-badge { transform: translateY(-6px); opacity: 0; transition: .45s ease; }
+  .fx-card:hover .fx-badge { transform: translateY(0); opacity: 1; }
+
+  /* price subtle lift */
+  .fx-price { transition: transform .35s ease; }
+  .fx-card:hover .fx-price { transform: translateY(-2px) scale(1.03); }
+
+  /* cart pop + tiny spin */
+  .fx-cart { transition: transform .35s ease; transform-origin: center; }
+  .fx-card:hover .fx-cart { transform: scale(1.1) rotate(-8deg); }
+
+  /* parallax image tilt */
+  .fx-frame { perspective: 800px; }
+  .fx-img { transition: transform .12s linear; }
+
+  /* reduce motion */
+  @media (prefers-reduced-motion: reduce) {
+    .fx-reveal, .fx-card:hover .fx-shine, .fx-card:hover .fx-badge, .fx-card:hover .fx-price, .fx-card:hover .fx-cart, .fx-img { transition: none !important; }
+  }
+ 
+
+
+ 
+  /*-- Modal stays as-is but ensure inner buttons are full-width on xs  */
+  /* make qty buttons text bigger on small for easier tap */
+  .qty-btn { font-size: 18px; line-height: 1; }
+  @media (max-width: 420px){
+    .qty-btn { width: 44px; height: 44px; border-radius: 10px; }
+    /* reduce card spacing on tiny screens */
+    .cart-item { padding: 0.6rem; }
+  }
+ 
+
+
+ 
+
+
+
+
+
+
+
+
+
+ 
+ /*footer*/
+  .ink-underline {
+    position: relative;
+    display: inline-block;
+  }
+  .ink-underline::after {
+    content: "";
+    position: absolute;
+    left: 50%; bottom: -3px;
+    width: 0; height: 2px;
+    border-radius: 9999px;
+    background: linear-gradient(90deg,#facc15,#fde047,#facc15);
+    transform: translateX(-50%);
+    transition: width .42s cubic-bezier(.22,1,.36,1), height .42s cubic-bezier(.22,1,.36,1);
+  }
+  .ink-underline:hover::after,
+  .ink-underline:focus-visible::after {
+    width: 100%; height: 3px;
+  }
+
+  [data-reveal]{opacity:0; will-change:transform,opacity;}
+  @keyframes revealLeft {
+    from {opacity:0; transform:translateX(-40px);}
+    to   {opacity:1; transform:translateX(0);}
+  }
+  @keyframes revealRight {
+    from {opacity:0; transform:translateX(40px);}
+    to   {opacity:1; transform:translateX(0);}
+  }
+
+  .is-inview[data-reveal="left"]  {animation:revealLeft .7s cubic-bezier(.22,1,.36,1) both}
+  .is-inview[data-reveal="right"] {animation:revealRight .7s cubic-bezier(.22,1,.36,1) both}
+
+  .is-inview{animation-delay:var(--rv-delay,0s)}
+
+  @media (prefers-reduced-motion: reduce){
+    .ink-underline::after{transition:none}
+    [data-reveal]{opacity:1 !important; transform:none !important; animation:none !important}
+  }
+ 
+
+ 
+
+
+
+
+
+

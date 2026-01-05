@@ -1,0 +1,204 @@
+ 
+ 
+  /* flip cards */
+  .flip-card {
+    -webkit-perspective: 1200px;
+            perspective: 1200px;
+  }
+  .flip-inner {
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+    will-change: transform;
+    transition: -webkit-transform 700ms;
+    transition: transform 700ms;
+    transition: transform 700ms, -webkit-transform 700ms;
+  }
+  .flip-front,
+  .flip-back {
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+  }
+  .flip-back {
+    -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+  }
+  /* هوفر للديسكتوب */
+  @media (hover: hover) and (pointer: fine) {
+    .flip-card:hover .flip-inner {
+      -webkit-transform: rotateY(180deg);
+              transform: rotateY(180deg);
+    }
+  }
+  /* تقليب بالكليك/اللمس للموبايل + الديسكتوب */
+  .flip-card[data-flipped="1"] .flip-inner {
+    -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+  }
+
+
+
+
+
+ 
+ /* how syahntna helps*/
+  #features {
+    overflow-x: hidden; 
+  }
+
+  /* حالة البداية (قبل ما تبان العناصر) */
+  .feature-card {
+    transform: translateY(24px) scale(0.98);
+    opacity: 0;
+    transition:
+      transform 600ms cubic-bezier(.2,.8,.2,1),
+      opacity 600ms ease;
+    will-change: transform, opacity;
+  }
+  .feature-card.is-visible {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+
+  /* حركة “طفو” خفيفة للأيكون */
+  .icon-box {
+    animation: floatY 4.5s ease-in-out infinite;
+    will-change: transform;
+  }
+  /* فرق بسيط بين الكروت عشان الحركة تبان stagger */
+  .feature-card:nth-child(1) .icon-box { animation-delay: .0s; }
+  .feature-card:nth-child(2) .icon-box { animation-delay: .15s; }
+  .feature-card:nth-child(3) .icon-box { animation-delay: .3s; }
+  .feature-card:nth-child(4) .icon-box { animation-delay: .45s; }
+
+  @keyframes floatY {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-6px); }
+  }
+
+   .btn-epic {
+    transition: transform 250ms ease;
+  }
+  .btn-epic:hover,
+  .btn-epic:focus-visible {
+    transform: translateY(-2px);
+  }
+
+   @media (prefers-reduced-motion: reduce) {
+    .feature-card,
+    .btn-epic { transition: none !important; }
+    .icon-box { animation: none !important; }
+  }
+ 
+
+
+
+
+
+
+
+
+
+
+
+  /*Get the Siyahaty app Section*/
+@layer utilities {
+  /* دخول عند الظهور */
+  @keyframes fadeUp {
+    0% { opacity:0; transform: translateY(16px) scale(.98); }
+    100%{ opacity:1; transform: translateY(0) scale(1); }
+  }
+  .reveal { opacity:0; transform: translateY(16px); }
+  .reveal.in-view { animation: fadeUp .75s cubic-bezier(.22,.61,.36,1) forwards; }
+
+  /* طفو خفيف */
+  @keyframes floatY {
+    0%,100% { transform: translateY(0); }
+    50%     { transform: translateY(-10px); }
+  }
+  .animate-float-slow   { animation: floatY 6s ease-in-out infinite; }
+  .animate-float-slower { animation: floatY 8s ease-in-out infinite; }
+
+  /* كين برنز (زووم بطيء) */
+  @keyframes kenburns {
+    0%   { transform: scale(1); }
+    100% { transform: scale(1.06); }
+  }
+  .animate-kenburns { animation: kenburns 10s ease-in-out infinite alternate; }
+
+  /* تأخيرات بسيطة */
+  .animation-delay-1000 { animation-delay: 1s; }
+  .animation-delay-1500 { animation-delay: 1.5s; }
+
+  /* Tilt ثلاثي الأبعاد بالماوس */
+  .tilt-card { transform-style: preserve-3d; transition: transform .25s ease; }
+  .tilt-card img { transform: translateZ(24px); }
+}
+
+
+
+ /* Animations & Hover underline for footer */
+ 
+  .ink-underline {
+    position: relative;
+    display: inline-block;
+  }
+  .ink-underline::after {
+    content: "";
+    position: absolute;
+    left: 50%; bottom: -3px;
+    width: 0; height: 2px;
+    border-radius: 9999px;
+    background: linear-gradient(90deg,#facc15,#fde047,#facc15);
+    transform: translateX(-50%);
+    transition: width .42s cubic-bezier(.22,1,.36,1), height .42s cubic-bezier(.22,1,.36,1);
+  }
+  .ink-underline:hover::after,
+  .ink-underline:focus-visible::after {
+    width: 100%; height: 3px;
+  }
+
+  [data-reveal]{opacity:0; will-change:transform,opacity;}
+  @keyframes revealLeft {
+    from {opacity:0; transform:translateX(-40px);}
+    to   {opacity:1; transform:translateX(0);}
+  }
+  @keyframes revealRight {
+    from {opacity:0; transform:translateX(40px);}
+    to   {opacity:1; transform:translateX(0);}
+  }
+
+  .is-inview[data-reveal="left"]  {animation:revealLeft .7s cubic-bezier(.22,1,.36,1) both}
+  .is-inview[data-reveal="right"] {animation:revealRight .7s cubic-bezier(.22,1,.36,1) both}
+
+  .is-inview{animation-delay:var(--rv-delay,0s)}
+
+  @media (prefers-reduced-motion: reduce){
+    .ink-underline::after{transition:none}
+    [data-reveal]{opacity:1 !important; transform:none !important; animation:none !important}
+  }
+ 
+  .footer-link {
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+  .footer-link:hover {
+    color: #facc15; /* Tailwind yellow-400 */
+    text-decoration: underline;
+  }
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+ 
+
+

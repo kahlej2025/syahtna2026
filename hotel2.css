@@ -1,0 +1,170 @@
+ /*offers*/
+  @keyframes flowLeft { from{ transform: translateX(0); } to{ transform: translateX(-50%);} }
+  .offers-track{
+    display:flex;
+    width:max-content;
+    animation: flowLeft var(--speed,22s) linear infinite;
+  }
+  .offers-row{
+    display:flex; gap:1rem;
+    padding-inline:1rem;
+    white-space:nowrap;
+  }
+  .offer-pill{
+    display:inline-flex; align-items:center; gap:.6rem;
+    background: rgba(255,255,255,.12);
+    border: 1px solid rgba(255,255,255,.18);
+    padding:.5rem .85rem;
+    border-radius:999px;
+    font-weight:600; font-size:.95rem;
+    backdrop-filter: blur(2px);
+  }
+  .offer-badge{
+    background:#fff; color:#065f46;
+    padding:.2rem .5rem; font-weight:800; font-size:.78rem;
+    border-radius:999px;
+    box-shadow: 0 0 10px rgba(255,255,255,.25);
+  }
+ 
+
+
+
+
+
+
+ 
+  /* next pre btn*/
+  @keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes buttonPop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.06); }
+    100% { transform: scale(1); }
+  }
+ 
+  @media (prefers-reduced-motion: no-preference) {
+    .animate-fade-slide-up { animation: fadeSlideUp .45s ease-out both; }
+    .animate-pop-once { animation: buttonPop .22s ease-out 1; }
+  }
+ 
+
+
+
+ 
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.shimmer {
+  background: linear-gradient(90deg, #0f766e, #14b8a6, #0f766e);
+  background-size: 200% 100%;
+}
+.shimmer:hover {
+  animation: shimmer 1.5s infinite linear;
+}
+ 
+
+ 
+/* === Animation on card ready to travel === */
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(40px) scale(0.95); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.animate-card-in {
+  animation: cardIn .8s cubic-bezier(.22,1,.36,1) both;
+}
+
+/* === Hover effect on the card === */
+.cta-card {
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+.cta-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 24px rgba(0,0,0,.15);
+}
+
+/* === Button subtle pulse === */
+@keyframes btnPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+.animate-btn-pulse {
+  animation: btnPulse 2s ease-in-out infinite;
+}
+ 
+
+
+
+  
+ /*auto slider*/
+  .slider-track {
+    display: flex;
+    width: max-content;
+    
+    animation: marquee-ltr var(--duration, 28s) linear infinite;
+    will-change: transform;
+  }
+  .slider-row {
+    display: flex;
+    align-items: stretch;
+    gap: var(--gap, 1.5rem);
+    padding-inline: 1.5rem; 
+  }
+   
+  @keyframes marquee-ltr {
+    0%   { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+  }
+
+  
+  img { user-select: none; -webkit-user-drag: none; }
+
+
+
+  
+ /* footer */
+  .ink-underline {
+    position: relative;
+    display: inline-block;
+  }
+  .ink-underline::after {
+    content: "";
+    position: absolute;
+    left: 50%; bottom: -3px;
+    width: 0; height: 2px;
+    border-radius: 9999px;
+    background: linear-gradient(90deg,#facc15,#fde047,#facc15);
+    transform: translateX(-50%);
+    transition: width .42s cubic-bezier(.22,1,.36,1), height .42s cubic-bezier(.22,1,.36,1);
+  }
+  .ink-underline:hover::after,
+  .ink-underline:focus-visible::after {
+    width: 100%; height: 3px;
+  }
+
+  [data-reveal]{opacity:0; will-change:transform,opacity;}
+  @keyframes revealLeft {
+    from {opacity:0; transform:translateX(-40px);}
+    to   {opacity:1; transform:translateX(0);}
+  }
+  @keyframes revealRight {
+    from {opacity:0; transform:translateX(40px);}
+    to   {opacity:1; transform:translateX(0);}
+  }
+
+  .is-inview[data-reveal="left"]  {animation:revealLeft .7s cubic-bezier(.22,1,.36,1) both}
+  .is-inview[data-reveal="right"] {animation:revealRight .7s cubic-bezier(.22,1,.36,1) both}
+
+  .is-inview{animation-delay:var(--rv-delay,0s)}
+
+  @media (prefers-reduced-motion: reduce){
+    .ink-underline::after{transition:none}
+    [data-reveal]{opacity:1 !important; transform:none !important; animation:none !important}
+  }
+ 
+
+
+ 

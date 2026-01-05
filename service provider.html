@@ -1,13 +1,24 @@
 <!doctype html>
 <html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="./src/output.css" rel="stylesheet" />
-  <link href="smartplan.css" rel="stylesheet" />
-</head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./src/output.css" rel="stylesheet">
+     <link href="serviceprovider.css" rel="stylesheet">
 
-<body class="bg-gray-100">
+
+  <style>
+  [dir="rtl"] .cat-badge { left: auto; right: 1rem; }
+</style>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+</head>
+<body>
+
+
+
 <!-- Navbar (Responsive) -->
 <nav class="  w-full z-50 bg-teal-700">
   <div class="mx-auto max-w-8xl px-4">
@@ -152,277 +163,228 @@
 
 </nav>
 
-  
- <main class="max-w-6xl mx-auto px-4 lg:px-6 py-8">
-  <!-- Header -->
-  <section
-    class="relative overflow-hidden rounded-2xl border border-teal-200/60 bg-gradient-to-r from-teal-50 via-white to-teal-50 p-6"
-  >
-    <div
-      class="pointer-events-none absolute -top-12 -right-10 h-52 w-52 rounded-full bg-teal-200/40 blur-3xl"
-    ></div>
-    <div
-      class="pointer-events-none absolute -bottom-12 -left-10 h-44 w-44 rounded-full bg-teal-200/30 blur-3xl"
-    ></div>
+<!-- Pricing Section (LTR / TailwindCSS) — Responsive tuned, on-scroll animations, multi-accent colors, SAR) -->
+<section class="py-20 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="text-center mb-12" data-animate>
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900" data-i18n="pricing_title">Subscription Plans</h2>
+      <p class="text-gray-600 mt-3 max-w-2xl mx-auto" data-i18n="pricing_subtitle">
+        Choose the term that fits your needs — deeper discounts for longer commitments.
+      </p>
+    </div>
 
-    <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-      <div>
-        <span
-          class="inline-flex items-center gap-2 rounded-full border border-teal-300/60 bg-white/70 px-3 py-1 text-xs font-semibold text-teal-700 shadow-sm"
-        >
-          ✅ Itinerary Summary
+    <!-- Cards Grid -->
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+
+      <!-- Monthly -->
+      <article class="group relative bg-white rounded-3xl border border-teal-100 shadow-md hover:shadow-lg transition-transform duration-300 will-change-transform hover:-translate-y-1 hover:scale-[1.03] flex flex-col" data-animate>
+        <div class="p-6 sm:p-7 lg:p-8 flex-1">
+          <div class="flex items-center justify-between">
+            <h3 class="text-lg md:text-xl font-semibold text-gray-900" data-i18n="plan_monthly">Monthly</h3>
+            <span class="text-xs px-2.5 py-1 rounded-full bg-amber-100 text-amber-800 animate-[pulse_2.5s_ease-in-out_infinite]" data-i18n="plan_flexible">Flexible</span>
+          </div>
+          <div class="mt-5">
+  <div class="flex items-end gap-2">
+    <span class="text-3xl md:text-4xl font-bold text-gray-900 leading-none transform transition-transform duration-300 group-hover:scale-110">299</span>
+    <span class="inline-flex items-center gap-1 text-gray-500 mb-1">
+      <!-- صورة الريال السعودي -->
+      <img src="img/currancy logo.png" alt="Saudi Riyal" class="w-5 h-5 object-contain" />
+      <span class="text-sm md:text-base" data-i18n="plan_monthly_price">mo</span>
+    </span>
+  </div>
+  <p class="text-sm text-gray-500 mt-1" data-i18n="plan_cancel_anytime">Cancel or upgrade anytime</p>
+</div>
+
+          <ul class="mt-6 space-y-3 text-sm text-gray-700">
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-teal-500 flex-shrink-0" viewBox="0 0 24 24" fill="none"><path d="M20 7L9 18l-5-5" stroke="currentColor" stroke-width="2"/></svg>
+              <span data-i18n="feature_email_support">Basic email support</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-teal-500" viewBox="0 0 24 24" fill="none"><path d="M20 7L9 18l-5-5" stroke="currentColor" stroke-width="2"/></svg>
+              <span data-i18n="feature_monthly_reports">Monthly reports</span>
+            </li>
+            <li class="flex items-start gap-2 text-gray-400 line-through">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none"><path d="M20 7L9 18l-5-5" stroke="currentColor" stroke-width="2"/></svg>
+              <span data-i18n="feature_consultation">Dedicated consultation</span>
+            </li>
+          </ul>
+        </div>
+        <div class="px-6 sm:px-7 lg:px-8 pb-6">
+          <a
+  href="payment.html"
+  class="inline-flex w-full items-center justify-center py-3 rounded-xl bg-amber-500 text-white hover:bg-teal-700 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500"
+  data-i18n="btn_contact"
+  dir="auto"
+  aria-label="Subscribe now"
+>
+  Subscribe now
+</a>
+
+        </div>
+      </article>
+
+      <!-- Quarterly -->
+<article class="group relative bg-white rounded-3xl   shadow-md hover:shadow-lg transition-transform duration-300 will-change-transform hover:-translate-y-1 hover:scale-[1.03] flex flex-col" data-animate>
+  <div class="p-6 sm:p-7 lg:p-8 flex-1">
+    <div class="flex items-center justify-between">
+      <h3 class="text-lg md:text-xl font-semibold text-gray-900" data-i18n="plan_quarterly">Quarterly</h3>
+      <span class="text-xs px-2.5 py-1 rounded-full bg-amber-100 text-amber-800" data-i18n="plan_save_10">Save 10%</span>
+    </div>
+    <div class="mt-5">
+      <div class="flex items-end gap-2">
+        <span class="text-3xl md:text-4xl font-bold text-gray-900 leading-none group-hover:scale-110 transition-transform duration-300">849</span>
+        <span class="inline-flex items-center gap-1 text-gray-500 mb-1">
+          <img src="img/currancy logo.png" alt="Saudi Riyal" class="w-5 h-5 object-contain" />
+      <span class="text-sm md:text-base" data-i18n="plan_quarterly_price"> 3 mo</span>
         </span>
-
-        <h1 class="mt-3 text-2xl md:text-3xl font-extrabold text-gray-900">
-          Your Trip Plan (Day by Day)
-        </h1>
-
-        <p class="mt-1 text-gray-600 font-medium">
-          Review all selected activities and details before confirming.
-        </p>
       </div>
+      <p class="text-sm text-gray-500 mt-1" data-i18n="plan_equiv_283">Equivalent to 283 SAR/mo</p>
+    </div>
+    <ul class="mt-6 space-y-3 text-sm text-gray-700">
+      <li class="flex items-start gap-2">
+        <svg class="w-5 h-5 text-amber-500 flex-shrink-0" viewBox="0 0 24 24" fill="none"><path d="M20 7L9 18l-5-5" stroke="currentColor" stroke-width="2"/></svg>
+        <span data-i18n="feature_chat_support">Email & chat support</span>
+      </li>
+      <li class="flex items-start gap-2">
+        <svg class="w-5 h-5 text-amber-500" viewBox="0 0 24 24" fill="none"><path d="M20 7L9 18l-5-5" stroke="currentColor" stroke-width="2"/></svg>
+        <span data-i18n="feature_bimonthly_reports">Bi-monthly reports</span>
+      </li>
+      <li class="flex items-start gap-2 text-gray-400 line-through">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none"><path d="M20 7L9 18l-5-5" stroke="currentColor" stroke-width="2"/></svg>
+        <span data-i18n="feature_advisory_call">Advisory call</span>
+      </li>
+    </ul>
+  </div>
+  <div class="px-6 sm:px-7 lg:px-8 pb-6">
+    <a
+  href="payment.html"
+  class="inline-flex w-full items-center justify-center py-3 rounded-xl bg-amber-500 text-white hover:bg-teal-700 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500"
+  data-i18n="btn_contact"
+  dir="auto"
+  aria-label="Subscribe now"
+>
+  Subscribe now
+</a>
+  </div>
+</article>
 
-      <!-- Actions (UI only) -->
-      <div class="flex flex-wrap gap-2">
-        <button
-          class="rounded-xl px-4 py-2 text-sm font-semibold text-white bg-teal-600 hover:bg-teal-700 shadow-sm transition"
-        >
-          Export PDF
-        </button>
-        <button
-          class="rounded-xl px-4 py-2 text-sm font-semibold text-teal-700 bg-white border border-teal-200 hover:bg-teal-50 shadow-sm transition"
-        >
-          Share Link
-        </button>
-        <button
-          class="rounded-xl px-4 py-2 text-sm font-semibold text-white bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 shadow-sm transition"
-        >
-          Confirm Plan
-        </button>
+<!-- Semiannual -->
+<article class="group relative bg-white rounded-3xl   shadow-md hover:shadow-lg transition-transform duration-300 hover:-translate-y-1 hover:scale-[1.03] flex flex-col" data-animate>
+  <div class="absolute -top-3 left-1/2 -translate-x-1/2">
+    <span class="text-xs px-3 py-1 rounded-full bg-indigo-600 text-white shadow" data-i18n="badge_most_popular">Most Popular</span>
+  </div>
+  <div class="p-6 sm:p-7 lg:p-8 flex-1">
+    <div class="flex items-center justify-between">
+      <h3 class="text-lg md:text-xl font-semibold text-gray-900" data-i18n="plan_semiannual">Semiannual</h3>
+      <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-50 text-indigo-700" data-i18n="plan_save_15">Save 15%</span>
+    </div>
+    <div class="mt-5">
+      <div class="flex items-end gap-2">
+        <span class="text-3xl md:text-4xl font-bold text-gray-900 leading-none group-hover:scale-110 transition-transform duration-300">1,599</span>
+        <span class="inline-flex items-center gap-1 text-gray-500 mb-1">
+         <img src="img/currancy logo.png" alt="Saudi Riyal" class="w-5 h-5 object-contain" />
+      <span class="text-sm md:text-base" data-i18n=" plan_semiannual_price"> 6 mo</span>
+        </span>
       </div>
+      <p class="text-sm text-gray-500 mt-1" data-i18n="plan_equiv_266">Equivalent to 266 SAR/mo</p>
     </div>
-  </section>
+    <ul class="mt-6 space-y-3 text-sm text-gray-700">
+      <li class="flex items-start gap-2">
+        <svg class="w-5 h-5 text-indigo-600 flex-shrink-0" viewBox="0 0 24 24" fill="none"><path d="M20 7L9 18l-5-5" stroke="currentColor" stroke-width="2"/></svg>
+        <span data-i18n="feature_priority_chat">Priority chat support</span>
+      </li>
+      <li class="flex items-start gap-2">
+        <svg class="w-5 h-5 text-indigo-600" viewBox="0 0 24 24" fill="none"><path d="M20 7L9 18l-5-5" stroke="currentColor" stroke-width="2"/></svg>
+        <span data-i18n="feature_monthly_call">Monthly advisory call</span>
+      </li>
+      <li class="flex items-start gap-2">
+        <svg class="w-5 h-5 text-indigo-600" viewBox="0 0 24 24" fill="none"><path d="M20 7L9 18l-5-5" stroke="currentColor" stroke-width="2"/></svg>
+        <span data-i18n="feature_weekly_reports">Weekly reports</span>
+      </li>
+    </ul>
+  </div>
+  <div class="px-6 sm:px-7 lg:px-8 pb-6">
+    <a
+  href="payment.html"
+  class="inline-flex w-full items-center justify-center py-3 rounded-xl bg-amber-500 text-white hover:bg-teal-700 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500"
+  data-i18n="btn_contact"
+  dir="auto"
+  aria-label="Subscribe now"
+>
+  Subscribe now
+</a>
+  </div>
+</article>
 
-  <!-- Meta Cards -->
-  <section class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-    <div class="rounded-2xl bg-white border border-gray-200 p-4 shadow-sm">
-      <div class="text-xs font-bold text-gray-500">Trip Dates</div>
-      <div class="mt-1 text-gray-900 font-extrabold">05 Jan 2026 → 10 Jan 2026</div>
+<!-- Annual -->
+<article class="group relative bg-white rounded-3xl border border-emerald-100 shadow-md hover:shadow-lg transition-transform duration-300 hover:-translate-y-1 hover:scale-[1.03] flex flex-col lg:col-span-3 xl:col-span-3" data-animate>
+  <div class="p-6 sm:p-7 lg:p-8 flex-1">
+    <div class="flex items-center justify-between">
+      <h3 class="text-lg md:text-xl font-semibold text-gray-900" data-i18n="plan_annual">Annual</h3>
+      <span class="text-xs px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800" data-i18n="plan_save_25">Best Value · Save 25%</span>
     </div>
-
-    <div class="rounded-2xl bg-white border border-gray-200 p-4 shadow-sm">
-      <div class="text-xs font-bold text-gray-500">Cities</div>
-      <div class="mt-1 text-gray-900 font-extrabold">Riyadh • AlUla</div>
+    <div class="mt-5">
+      <div class="flex items-end gap-2">
+        <span class="text-3xl md:text-4xl font-bold text-gray-900 leading-none group-hover:scale-110 transition-transform duration-300">2,999</span>
+        <span class="inline-flex items-center gap-1 text-gray-500 mb-1">
+           <img src="img/currancy logo.png" alt="Saudi Riyal" class="w-5 h-5 object-contain" />
+      <span class="text-sm md:text-base" data-i18n="plan_annual_price"> 12 mo</span>
+        </span>
+      </div>
+      <p class="text-sm text-emerald-700 mt-1" data-i18n="plan_equiv_250">Equivalent to 250 SAR/mo</p>
     </div>
+    <ul class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6 text-sm text-gray-700">
+      <li class="flex items-start gap-2">
+        <svg class="w-5 h-5 text-rose-500 flex-shrink-0" viewBox="0 0 24 24" fill="none"><path d="M20 7L9 18l-5-5" stroke="currentColor" stroke-width="2"/></svg>
+        <span data-i18n="feature_account_manager">Dedicated account manager</span>
+      </li>
+      <li class="flex items-start gap-2">
+        <svg class="w-5 h-5 text-rose-500" viewBox="0 0 24 24" fill="none"><path d="M20 7L9 18l-5-5" stroke="currentColor" stroke-width="2"/></svg>
+        <span data-i18n="feature_24_7">24/7 support</span>
+      </li>
+      <li class="flex items-start gap-2">
+        <svg class="w-5 h-5 text-rose-500" viewBox="0 0 24 24" fill="none"><path d="M20 7L9 18l-5-5" stroke="currentColor" stroke-width="2"/></svg>
+        <span data-i18n="feature_two_consultations">Two free consultations</span>
+      </li>
+      <li class="flex items-start gap-2">
+        <svg class="w-5 h-5 text-rose-500" viewBox="0 0 24 24" fill="none"><path d="M20 7L9 18l-5-5" stroke="currentColor" stroke-width="2"/></svg>
+        <span data-i18n="feature_onboarding">Priority onboarding</span>
+      </li>
+    </ul>
+  </div>
+  <div class="px-6 sm:px-7 lg:px-8 pb-6">
+   <a
+  href="payment.html"
+  class="inline-flex w-full items-center justify-center py-3 rounded-xl bg-amber-500 text-white hover:bg-teal-700 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500"
+  data-i18n="btn_contact"
+  dir="auto"
+  aria-label="Subscribe now"
+>
+  Subscribe now
+</a>
+  </div>
+</article>
 
-    <div class="rounded-2xl bg-white border border-gray-200 p-4 shadow-sm">
-      <div class="text-xs font-bold text-gray-500">Activity Level</div>
-      <div class="mt-1 text-gray-900 font-extrabold">Balanced</div>
+
+      
     </div>
+  </div>
+</section>
+  </div>
+  
+</section>
 
-    <div class="rounded-2xl bg-white border border-gray-200 p-4 shadow-sm">
-      <div class="text-xs font-bold text-gray-500">Budget</div>
-      <div class="mt-1 text-gray-900 font-extrabold">8,000 SAR</div>
-    </div>
-  </section>
-
-  <!-- Days -->
-  <section class="mt-8">
-    <div class="flex items-center justify-between mb-3">
-      <h2 class="text-xl font-extrabold text-gray-900">Days</h2>
-      <div class="text-sm text-gray-500">2 days</div>
-    </div>
-
-    <div class="space-y-4">
-      <!-- Day Card -->
-      <article
-        class="rounded-2xl border border-teal-100/70 bg-white/90 p-5 md:p-6 shadow-sm hover:shadow-lg transition-all duration-300"
-      >
-        <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-          <div>
-            <h3 class="text-lg md:text-xl font-extrabold text-gray-900 tracking-tight">
-              Day 1 <span class="mx-2 text-gray-300">—</span> Riyadh
-            </h3>
-            <div
-              class="mt-2 inline-flex items-center gap-2 rounded-full bg-teal-50 text-teal-700 border border-teal-200 px-3 py-1 text-xs font-semibold"
-            >
-              05 Jan 2026
-            </div>
-          </div>
-
-          <!-- UI buttons فقط -->
-          <div class="flex flex-wrap items-center gap-2">
-            <button
-              class="rounded-xl px-3 py-2 text-xs font-semibold text-teal-700 bg-white border border-teal-200 hover:bg-teal-50 transition"
-            >
-              Edit
-            </button>
-            <button
-              class="rounded-xl px-3 py-2 text-xs font-semibold text-gray-700 bg-white border border-gray-200 hover:bg-gray-50 transition"
-            >
-              Regenerate Day
-            </button>
-          </div>
-        </div>
-
-        <div class="my-4 h-px bg-gradient-to-r from-transparent via-teal-200 to-transparent"></div>
-
-        <div class="grid md:grid-cols-3 gap-4">
-          <!-- Morning -->
-          <div class="rounded-xl border border-teal-100 bg-teal-50/60 p-4">
-            <div class="text-xs font-extrabold text-teal-800 mb-2">Morning</div>
-
-            <ul class="text-sm text-gray-800 leading-6 list-disc pl-5">
-              <li>Breakfast spot</li>
-              <li>Museum visit</li>
-            </ul>
-
-            <button
-              class="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-xl px-3 py-2 text-xs font-semibold text-white bg-teal-600 hover:bg-teal-700 shadow-sm transition"
-            >
-              ➕ Add to Card
-            </button>
-          </div>
-
-          <!-- Afternoon -->
-          <div class="rounded-xl border border-teal-100 bg-teal-50/60 p-4">
-            <div class="text-xs font-extrabold text-teal-800 mb-2">Afternoon</div>
-
-            <ul class="text-sm text-gray-800 leading-6 list-disc pl-5">
-              <li>City walk</li>
-              <li>Local market</li>
-            </ul>
-
-            <button
-              class="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-xl px-3 py-2 text-xs font-semibold text-white bg-teal-600 hover:bg-teal-700 shadow-sm transition"
-            >
-              ➕ Add to Card
-            </button>
-          </div>
-
-          <!-- Evening -->
-          <div class="rounded-xl border border-teal-100 bg-teal-50/60 p-4">
-            <div class="text-xs font-extrabold text-teal-800 mb-2">Evening</div>
-
-            <ul class="text-sm text-gray-800 leading-6 list-disc pl-5">
-              <li>Dinner reservation</li>
-              <li>Coffee lounge</li>
-            </ul>
-
-            <button
-              class="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-xl px-3 py-2 text-xs font-semibold text-white bg-teal-600 hover:bg-teal-700 shadow-sm transition"
-            >
-              ➕ Add to Card
-            </button>
-          </div>
-        </div>
-
-        <div class="mt-4 grid sm:grid-cols-2 gap-3">
-          <div class="rounded-xl border border-gray-200 bg-white p-3">
-            <div class="text-xs font-bold text-gray-500">Notes</div>
-            <div class="mt-1 text-sm text-gray-800">Keep it light due to arrival.</div>
-          </div>
-          <div class="rounded-xl border border-gray-200 bg-white p-3">
-            <div class="text-xs font-bold text-gray-500">Estimated Cost</div>
-            <div class="mt-1 text-sm font-extrabold text-gray-900">1,200 SAR</div>
-          </div>
-        </div>
-      </article>
-
-      <!-- Day Card -->
-      <article
-        class="rounded-2xl border border-teal-100/70 bg-white/90 p-5 md:p-6 shadow-sm hover:shadow-lg transition-all duration-300"
-      >
-        <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-          <div>
-            <h3 class="text-lg md:text-xl font-extrabold text-gray-900 tracking-tight">
-              Day 2 <span class="mx-2 text-gray-300">—</span> Riyadh
-            </h3>
-            <div
-              class="mt-2 inline-flex items-center gap-2 rounded-full bg-teal-50 text-teal-700 border border-teal-200 px-3 py-1 text-xs font-semibold"
-            >
-              06 Jan 2026
-            </div>
-          </div>
-
-          <div class="flex flex-wrap items-center gap-2">
-            <button
-              class="rounded-xl px-3 py-2 text-xs font-semibold text-teal-700 bg-white border border-teal-200 hover:bg-teal-50 transition"
-            >
-              Edit
-            </button>
-            <button
-              class="rounded-xl px-3 py-2 text-xs font-semibold text-gray-700 bg-white border border-gray-200 hover:bg-gray-50 transition"
-            >
-              Regenerate Day
-            </button>
-          </div>
-        </div>
-
-        <div class="my-4 h-px bg-gradient-to-r from-transparent via-teal-200 to-transparent"></div>
-
-        <div class="grid md:grid-cols-3 gap-4">
-          <!-- Morning -->
-          <div class="rounded-xl border border-teal-100 bg-teal-50/60 p-4">
-            <div class="text-xs font-extrabold text-teal-800 mb-2">Morning</div>
-
-            <ul class="text-sm text-gray-800 leading-6 list-disc pl-5">
-              <li>Old town tour</li>
-            </ul>
-
-            <button
-              class="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-xl px-3 py-2 text-xs font-semibold text-white bg-teal-600 hover:bg-teal-700 shadow-sm transition"
-            >
-              ➕ Add to Card
-            </button>
-          </div>
-
-          <!-- Afternoon -->
-          <div class="rounded-xl border border-teal-100 bg-teal-50/60 p-4">
-            <div class="text-xs font-extrabold text-teal-800 mb-2">Afternoon</div>
-
-            <ul class="text-sm text-gray-800 leading-6 list-disc pl-5">
-              <li>Mall + shopping</li>
-            </ul>
-
-            <button
-              class="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-xl px-3 py-2 text-xs font-semibold text-white bg-teal-600 hover:bg-teal-700 shadow-sm transition"
-            >
-              ➕ Add to Card
-            </button>
-          </div>
-
-          <!-- Evening -->
-          <div class="rounded-xl border border-teal-100 bg-teal-50/60 p-4">
-            <div class="text-xs font-extrabold text-teal-800 mb-2">Evening</div>
-
-            <ul class="text-sm text-gray-800 leading-6 list-disc pl-5">
-              <li>Skyline view</li>
-            </ul>
-
-            <button
-              class="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-xl px-3 py-2 text-xs font-semibold text-white bg-teal-600 hover:bg-teal-700 shadow-sm transition"
-            >
-              ➕ Add to Card
-            </button>
-          </div>
-        </div>
-
-        <div class="mt-4 grid sm:grid-cols-2 gap-3">
-          <div class="rounded-xl border border-gray-200 bg-white p-3">
-            <div class="text-xs font-bold text-gray-500">Notes</div>
-            <div class="mt-1 text-sm text-gray-800">Book tickets early.</div>
-          </div>
-          <div class="rounded-xl border border-gray-200 bg-white p-3">
-            <div class="text-xs font-bold text-gray-500">Estimated Cost</div>
-            <div class="mt-1 text-sm font-extrabold text-gray-900">900 SAR</div>
-          </div>
-        </div>
-      </article>
-    </div>
-  </section>
-</main>
-
+ <a
+  href="https://wa.me/201234567890"
+  class="fixed bottom-5 right-4 w-12 h-12 rounded-full bg-green-500 text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform z-50"
+  target="_blank"
+  aria-label="Chat on WhatsApp"
+>
+  <i class="fab fa-whatsapp text-2xl"></i>
+</a>
+ 
 <footer class="relative overflow-hidden bg-teal-700 text-white px-6 py-16 min-h-[600px]">
   <div class="pointer-events-none absolute inset-0">
     <div class="absolute -top-28 -left-24 w-[34rem] h-[34rem] rounded-full bg-emerald-100/35 blur-3xl"></div>
@@ -532,7 +494,14 @@
 
   </div>
 </footer>
-<SCript src="translation.js"></SCript>
 
+
+
+
+
+<script src="translation.js"></script>
+<script src="servicesprovidermain.js"></script>
+ 
+  
 </body>
 </html>

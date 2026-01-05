@@ -1,13 +1,27 @@
+
 <!doctype html>
 <html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="./src/output.css" rel="stylesheet" />
-  <link href="smartplan.css" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./src/output.css" rel="stylesheet">
+   <link href="plan.css" rel="stylesheet">
+    <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
 </head>
+<style>
+  [dir="rtl"] .cat-badge { left: auto; right: 1rem; }
+</style>
 
+ 
 <body class="bg-gray-100">
+  
+
+  
+ 
+
 <!-- Navbar (Responsive) -->
 <nav class="  w-full z-50 bg-teal-700">
   <div class="mx-auto max-w-8xl px-4">
@@ -38,7 +52,7 @@
     </a>
   </li>
   <li class="nav-item opacity-0 translate-y-2 transition-all duration-500 will-change-transform">
-    <a href="plan.html" class="nav-link relative px-2 py-1 text-white font-medium transition-colors duration-300 hover:text-yellow-400
+    <a href="plan.html" class="nav-link relative px-2 py-1 text-yellow-400 font-medium transition-colors duration-300 hover:text-yellow-400
                       after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-full after:bg-yellow-400
                       after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
       <span data-i18n="nav_categories">Travel itinerary</span>
@@ -111,7 +125,7 @@
   <div class="bg-black/90 border-t border-white/10">
     <div class="px-4 py-4 space-y-2">
       <a href="index.html" class="block px-3 py-2 rounded-md text-white/90 hover:bg-white/10" data-i18n="nav_home">Home</a>
-      <a href="plan.html" class="block px-3 py-2 rounded-md text-white/90 hover:bg-white/10" data-i18n="nav_categories">Travel itinerary</a>
+      <a href="plan.html" class="block px-3 py-2 rounded-md text-yellow-400 hover:bg-white/10" data-i18n="nav_categories">Travel itinerary</a>
       <a href="about.html" class="block px-3 py-2 rounded-md text-white/90 hover:bg-white/10" data-i18n="nav_about">About</a>
       <a href="contactus.html" class="block px-3 py-2 rounded-md text-white/90 hover:bg-white/10" data-i18n="nav_deals">Contact us</a>
 
@@ -152,277 +166,132 @@
 
 </nav>
 
-  
- <main class="max-w-6xl mx-auto px-4 lg:px-6 py-8">
-  <!-- Header -->
-  <section
-    class="relative overflow-hidden rounded-2xl border border-teal-200/60 bg-gradient-to-r from-teal-50 via-white to-teal-50 p-6"
-  >
-    <div
-      class="pointer-events-none absolute -top-12 -right-10 h-52 w-52 rounded-full bg-teal-200/40 blur-3xl"
-    ></div>
-    <div
-      class="pointer-events-none absolute -bottom-12 -left-10 h-44 w-44 rounded-full bg-teal-200/30 blur-3xl"
-    ></div>
 
-    <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-      <div>
-        <span
-          class="inline-flex items-center gap-2 rounded-full border border-teal-300/60 bg-white/70 px-3 py-1 text-xs font-semibold text-teal-700 shadow-sm"
-        >
-          ✅ Itinerary Summary
-        </span>
+<!-- ===== Plan Your Trip (Smart vs Manual) ===== -->
+<section class="relative overflow-hidden">
+  <!-- Soft decor ... -->
 
-        <h1 class="mt-3 text-2xl md:text-3xl font-extrabold text-gray-900">
-          Your Trip Plan (Day by Day)
-        </h1>
+  <div class="max-w-6xl mx-auto px-4 lg:px-6 py-16 relative">
+    <!-- Title -->
+    <div class="text-center mb-12 [--stagger:60ms]">
+      <span class="inline-block mb-3 px-3 py-1 text-xs font-semibold rounded-full bg-white/70 border border-emerald-200 text-emerald-700 anim-fadeup"
+            style="--i:0" data-i18n="plan2.badge">
+        Plan Your Journey Effortlessly
+      </span>
 
-        <p class="mt-1 text-gray-600 font-medium">
-          Review all selected activities and details before confirming.
-        </p>
-      </div>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-3 anim-fadeup"
+          style="--i:1" data-i18n="plan2.title">
+        Choose how you’d like to build your itinerary
+      </h2>
 
-      <!-- Actions (UI only) -->
-      <div class="flex flex-wrap gap-2">
-        <button
-          class="rounded-xl px-4 py-2 text-sm font-semibold text-white bg-teal-600 hover:bg-teal-700 shadow-sm transition"
-        >
-          Export PDF
-        </button>
-        <button
-          class="rounded-xl px-4 py-2 text-sm font-semibold text-teal-700 bg-white border border-teal-200 hover:bg-teal-50 shadow-sm transition"
-        >
-          Share Link
-        </button>
-        <button
-          class="rounded-xl px-4 py-2 text-sm font-semibold text-white bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 shadow-sm transition"
-        >
-          Confirm Plan
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Meta Cards -->
-  <section class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-    <div class="rounded-2xl bg-white border border-gray-200 p-4 shadow-sm">
-      <div class="text-xs font-bold text-gray-500">Trip Dates</div>
-      <div class="mt-1 text-gray-900 font-extrabold">05 Jan 2026 → 10 Jan 2026</div>
+      <p class="text-gray-600 max-w-2xl mx-auto anim-fadeup"
+         style="--i:2" data-i18n="plan2.subtitle">
+        Go fully assisted with AI for quick, optimized plans — or craft every detail yourself.
+      </p>
     </div>
 
-    <div class="rounded-2xl bg-white border border-gray-200 p-4 shadow-sm">
-      <div class="text-xs font-bold text-gray-500">Cities</div>
-      <div class="mt-1 text-gray-900 font-extrabold">Riyadh • AlUla</div>
-    </div>
+    <!-- Options -->
+    <div class="grid md:grid-cols-2 gap-6">
+      <!-- Manual -->
+      <a href="manual plan.html"
+   class="group relative block border rounded-2xl p-8 min-h-[24rem] bg-white shadow-md hover:shadow-xl hover:-translate-y-1 transition
+          focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 anim-fadeup"
+   style="--i:3"
+   data-i18n-attr="aria-label:plan2.manual.aria"
+   aria-label="Manual planning" data-plan2="manual">
 
-    <div class="rounded-2xl bg-white border border-gray-200 p-4 shadow-sm">
-      <div class="text-xs font-bold text-gray-500">Activity Level</div>
-      <div class="mt-1 text-gray-900 font-extrabold">Balanced</div>
-    </div>
+        <span class="spotlight pointer-events-none absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition"></span>
 
-    <div class="rounded-2xl bg-white border border-gray-200 p-4 shadow-sm">
-      <div class="text-xs font-bold text-gray-500">Budget</div>
-      <div class="mt-1 text-gray-900 font-extrabold">8,000 SAR</div>
-    </div>
-  </section>
+        <div class="relative z-[1] space-y-5">
+          <!-- icon ... -->
 
-  <!-- Days -->
-  <section class="mt-8">
-    <div class="flex items-center justify-between mb-3">
-      <h2 class="text-xl font-extrabold text-gray-900">Days</h2>
-      <div class="text-sm text-gray-500">2 days</div>
-    </div>
-
-    <div class="space-y-4">
-      <!-- Day Card -->
-      <article
-        class="rounded-2xl border border-teal-100/70 bg-white/90 p-5 md:p-6 shadow-sm hover:shadow-lg transition-all duration-300"
-      >
-        <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-          <div>
-            <h3 class="text-lg md:text-xl font-extrabold text-gray-900 tracking-tight">
-              Day 1 <span class="mx-2 text-gray-300">—</span> Riyadh
-            </h3>
-            <div
-              class="mt-2 inline-flex items-center gap-2 rounded-full bg-teal-50 text-teal-700 border border-teal-200 px-3 py-1 text-xs font-semibold"
-            >
-              05 Jan 2026
-            </div>
+          <div class="text-center space-y-2">
+            <h3 class="text-xl font-semibold text-gray-900" data-i18n="plan2.manual.title">Manual Planning</h3>
+            <p class="text-gray-600" data-i18n="plan2.manual.desc">
+              Build your trip step by step: days, cities, activities, and timings — full control is yours.
+            </p>
           </div>
 
-          <!-- UI buttons فقط -->
-          <div class="flex flex-wrap items-center gap-2">
-            <button
-              class="rounded-xl px-3 py-2 text-xs font-semibold text-teal-700 bg-white border border-teal-200 hover:bg-teal-50 transition"
-            >
-              Edit
-            </button>
-            <button
-              class="rounded-xl px-3 py-2 text-xs font-semibold text-gray-700 bg-white border border-gray-200 hover:bg-gray-50 transition"
-            >
-              Regenerate Day
-            </button>
+          <ul class="text-sm text-gray-700 space-y-2 max-w-sm mx-auto">
+            <li class="flex items-start gap-2">
+              <span class="i-check mt-1" aria-hidden="true"></span>
+              <span data-i18n="plan2.manual.f1">Precise control & fine-tuning</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="i-check mt-1" aria-hidden="true"></span>
+              <span data-i18n="plan2.manual.f2">Works great for fixed bucket lists</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="i-check mt-1" aria-hidden="true"></span>
+              <span data-i18n="plan2.manual.f3">Offline-friendly draft workflow</span>
+            </li>
+          </ul>
+
+          <div class="flex justify-center">
+            <span class="btn-plain" data-i18n="plan2.manual.cta">Start Manual</span>
           </div>
         </div>
+      </a>
 
-        <div class="my-4 h-px bg-gradient-to-r from-transparent via-teal-200 to-transparent"></div>
+      <!-- Smart -->
+     <a href="smart plan.html"
+   class="group relative block border rounded-2xl p-8 min-h-[24rem] bg-white shadow-md hover:shadow-xl hover:-translate-y-1 transition
+          focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 anim-fadeup"
+   style="--i:4"
+   data-i18n-attr="aria-label:plan2.smart.aria"
+   aria-label="Smart planning (AI)" data-plan2="smart">
 
-        <div class="grid md:grid-cols-3 gap-4">
-          <!-- Morning -->
-          <div class="rounded-xl border border-teal-100 bg-teal-50/60 p-4">
-            <div class="text-xs font-extrabold text-teal-800 mb-2">Morning</div>
+        <span class="plan-badge absolute -top-2 left-4 text-[11px] font-semibold px-2 py-0.5 rounded bg-amber-500 text-white shadow-sm z-[1]"
+              data-i18n="plan2.smart.badge">Recommended</span>
 
-            <ul class="text-sm text-gray-800 leading-6 list-disc pl-5">
-              <li>Breakfast spot</li>
-              <li>Museum visit</li>
-            </ul>
+        <span class="spotlight pointer-events-none absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition"></span>
 
-            <button
-              class="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-xl px-3 py-2 text-xs font-semibold text-white bg-teal-600 hover:bg-teal-700 shadow-sm transition"
-            >
-              ➕ Add to Card
-            </button>
+        <div class="relative z-[1] space-y-5">
+          <!-- icon ... -->
+
+          <div class="text-center space-y-2">
+            <h3 class="text-xl font-semibold text-gray-900" data-i18n="plan2.smart.title">Smart Planning (AI)</h3>
+            <p class="text-gray-600" data-i18n="plan2.smart.desc">
+              Get an optimized plan based on your preferences, time, and travel pace — instantly.
+            </p>
           </div>
 
-          <!-- Afternoon -->
-          <div class="rounded-xl border border-teal-100 bg-teal-50/60 p-4">
-            <div class="text-xs font-extrabold text-teal-800 mb-2">Afternoon</div>
+          <ul class="text-sm text-gray-700 space-y-2 max-w-sm mx-auto">
+            <li class="flex items-start gap-2">
+              <span class="i-spark mt-1" aria-hidden="true"></span>
+              <span data-i18n="plan2.smart.f1">Tailored suggestions to your interests</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="i-spark mt-1" aria-hidden="true"></span>
+              <span data-i18n="plan2.smart.f2">Optimized routes & realistic timings</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="i-spark mt-1" aria-hidden="true"></span>
+              <span data-i18n="plan2.smart.f3">One-click edits & quick re-planning</span>
+            </li>
+          </ul>
 
-            <ul class="text-sm text-gray-800 leading-6 list-disc pl-5">
-              <li>City walk</li>
-              <li>Local market</li>
-            </ul>
-
-            <button
-              class="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-xl px-3 py-2 text-xs font-semibold text-white bg-teal-600 hover:bg-teal-700 shadow-sm transition"
-            >
-              ➕ Add to Card
-            </button>
-          </div>
-
-          <!-- Evening -->
-          <div class="rounded-xl border border-teal-100 bg-teal-50/60 p-4">
-            <div class="text-xs font-extrabold text-teal-800 mb-2">Evening</div>
-
-            <ul class="text-sm text-gray-800 leading-6 list-disc pl-5">
-              <li>Dinner reservation</li>
-              <li>Coffee lounge</li>
-            </ul>
-
-            <button
-              class="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-xl px-3 py-2 text-xs font-semibold text-white bg-teal-600 hover:bg-teal-700 shadow-sm transition"
-            >
-              ➕ Add to Card
-            </button>
+          <div class="flex justify-center">
+            <span class="btn-accent" data-i18n="plan2.smart.cta">Start Smart</span>
           </div>
         </div>
-
-        <div class="mt-4 grid sm:grid-cols-2 gap-3">
-          <div class="rounded-xl border border-gray-200 bg-white p-3">
-            <div class="text-xs font-bold text-gray-500">Notes</div>
-            <div class="mt-1 text-sm text-gray-800">Keep it light due to arrival.</div>
-          </div>
-          <div class="rounded-xl border border-gray-200 bg-white p-3">
-            <div class="text-xs font-bold text-gray-500">Estimated Cost</div>
-            <div class="mt-1 text-sm font-extrabold text-gray-900">1,200 SAR</div>
-          </div>
-        </div>
-      </article>
-
-      <!-- Day Card -->
-      <article
-        class="rounded-2xl border border-teal-100/70 bg-white/90 p-5 md:p-6 shadow-sm hover:shadow-lg transition-all duration-300"
-      >
-        <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-          <div>
-            <h3 class="text-lg md:text-xl font-extrabold text-gray-900 tracking-tight">
-              Day 2 <span class="mx-2 text-gray-300">—</span> Riyadh
-            </h3>
-            <div
-              class="mt-2 inline-flex items-center gap-2 rounded-full bg-teal-50 text-teal-700 border border-teal-200 px-3 py-1 text-xs font-semibold"
-            >
-              06 Jan 2026
-            </div>
-          </div>
-
-          <div class="flex flex-wrap items-center gap-2">
-            <button
-              class="rounded-xl px-3 py-2 text-xs font-semibold text-teal-700 bg-white border border-teal-200 hover:bg-teal-50 transition"
-            >
-              Edit
-            </button>
-            <button
-              class="rounded-xl px-3 py-2 text-xs font-semibold text-gray-700 bg-white border border-gray-200 hover:bg-gray-50 transition"
-            >
-              Regenerate Day
-            </button>
-          </div>
-        </div>
-
-        <div class="my-4 h-px bg-gradient-to-r from-transparent via-teal-200 to-transparent"></div>
-
-        <div class="grid md:grid-cols-3 gap-4">
-          <!-- Morning -->
-          <div class="rounded-xl border border-teal-100 bg-teal-50/60 p-4">
-            <div class="text-xs font-extrabold text-teal-800 mb-2">Morning</div>
-
-            <ul class="text-sm text-gray-800 leading-6 list-disc pl-5">
-              <li>Old town tour</li>
-            </ul>
-
-            <button
-              class="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-xl px-3 py-2 text-xs font-semibold text-white bg-teal-600 hover:bg-teal-700 shadow-sm transition"
-            >
-              ➕ Add to Card
-            </button>
-          </div>
-
-          <!-- Afternoon -->
-          <div class="rounded-xl border border-teal-100 bg-teal-50/60 p-4">
-            <div class="text-xs font-extrabold text-teal-800 mb-2">Afternoon</div>
-
-            <ul class="text-sm text-gray-800 leading-6 list-disc pl-5">
-              <li>Mall + shopping</li>
-            </ul>
-
-            <button
-              class="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-xl px-3 py-2 text-xs font-semibold text-white bg-teal-600 hover:bg-teal-700 shadow-sm transition"
-            >
-              ➕ Add to Card
-            </button>
-          </div>
-
-          <!-- Evening -->
-          <div class="rounded-xl border border-teal-100 bg-teal-50/60 p-4">
-            <div class="text-xs font-extrabold text-teal-800 mb-2">Evening</div>
-
-            <ul class="text-sm text-gray-800 leading-6 list-disc pl-5">
-              <li>Skyline view</li>
-            </ul>
-
-            <button
-              class="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-xl px-3 py-2 text-xs font-semibold text-white bg-teal-600 hover:bg-teal-700 shadow-sm transition"
-            >
-              ➕ Add to Card
-            </button>
-          </div>
-        </div>
-
-        <div class="mt-4 grid sm:grid-cols-2 gap-3">
-          <div class="rounded-xl border border-gray-200 bg-white p-3">
-            <div class="text-xs font-bold text-gray-500">Notes</div>
-            <div class="mt-1 text-sm text-gray-800">Book tickets early.</div>
-          </div>
-          <div class="rounded-xl border border-gray-200 bg-white p-3">
-            <div class="text-xs font-bold text-gray-500">Estimated Cost</div>
-            <div class="mt-1 text-sm font-extrabold text-gray-900">900 SAR</div>
-          </div>
-        </div>
-      </article>
+      </a>
     </div>
-  </section>
-</main>
+  </div>
+</section>
 
+
+<a
+  href="https://wa.me/201234567890"
+  class="fixed bottom-5 right-4 w-12 h-12 rounded-full bg-green-500 text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform z-50"
+  target="_blank"
+  aria-label="Chat on WhatsApp"
+>
+  <i class="fab fa-whatsapp text-2xl"></i>
+</a>
+
+
+ 
 <footer class="relative overflow-hidden bg-teal-700 text-white px-6 py-16 min-h-[600px]">
   <div class="pointer-events-none absolute inset-0">
     <div class="absolute -top-28 -left-24 w-[34rem] h-[34rem] rounded-full bg-emerald-100/35 blur-3xl"></div>
@@ -532,7 +401,13 @@
 
   </div>
 </footer>
-<SCript src="translation.js"></SCript>
 
+
+
+<script src="translation.js"></script>
+<script src="planmain.js"></script>
+
+
+    
 </body>
 </html>
